@@ -7,13 +7,15 @@
 //
 
 import XCTest
+
 @testable import T_Shifts
 
 class T_ShiftsTests: XCTestCase {
+    var shiftStorage : ShiftStorage?
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        shiftStorage = ShiftStorage()
     }
     
     override func tearDown() {
@@ -21,9 +23,23 @@ class T_ShiftsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRedundantInsert() {
+        let df = DateFormatter()
+        df.dateFormat = "YYYY-mm-dd"
+        shiftStorage!.add( df.date(from:"2017-01-01")!, value:"T1" )
+        shiftStorage!.add( df.date(from:"2017-01-01")!, value:"T2" )
+        XCTAssertEqual( shiftStorage?.shifts.count, 1 )
+    }
+    
+    func testDeletion() {
+        let df = DateFormatter()
+        df.dateFormat = "YYYY-mm-dd"
+        shiftStorage!.add( df.date(from:"2017-01-01")!, value:"T1" )
+        shiftStorage!.add( df.date(from:"2017-01-02")!, value:"T2" )
+        
+        XCTAssertEqual( shiftStorage?.shifts.count, 2 )
+        shiftStorage!.remove( df.date(from:"2017-01-02")! )
+        XCTAssertEqual( shiftStorage?.shifts.count, 1 )
     }
     
     func testPerformanceExample() {

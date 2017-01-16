@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="T_Shifts" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,74 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-I1-3MQ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="M" id="YQD-Aq-wLH">
+                                        <connections>
+                                            <action selector="addShift:" destination="BYZ-38-t0r" id="XpK-vk-iG3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="7hB-Oj-kgZ"/>
+                                    <barButtonItem title="P" id="dC9-Uf-niM">
+                                        <connections>
+                                            <action selector="addShift:" destination="BYZ-38-t0r" id="5Zz-8M-beW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="FOj-IN-7Xk"/>
+                                    <barButtonItem title="N" id="dx2-VM-BiC">
+                                        <connections>
+                                            <action selector="addShift:" destination="BYZ-38-t0r" id="Nud-j9-AjO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Gha-KA-hDL"/>
+                                    <barButtonItem title="R" id="gVQ-AI-fir">
+                                        <connections>
+                                            <action selector="addShift:" destination="BYZ-38-t0r" id="bkc-7B-Ntv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nEv-aB-y9v"/>
+                                    <barButtonItem title="Confirm" id="xNu-0f-fWs">
+                                        <connections>
+                                            <action selector="updateCalendar:" destination="BYZ-38-t0r" id="OFN-Wf-gqe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mtf-Iq-N0y">
+                                <rect key="frame" x="0.0" y="28" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="506013923.28114003">
+                                    <!--2017-01-13 15:25:23 +0000-->
+                                </date>
+                            </datePicker>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MJq-i2-XR9">
+                                <rect key="frame" x="0.0" y="252" width="375" height="371"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Apj-I1-3MQ" secondAttribute="trailing" id="22K-Eb-HCJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Apj-I1-3MQ" secondAttribute="bottom" id="417-iv-PCJ"/>
+                            <constraint firstAttribute="trailing" secondItem="MJq-i2-XR9" secondAttribute="trailing" id="TcH-Se-69d"/>
+                            <constraint firstItem="MJq-i2-XR9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b0Z-Lq-bgc"/>
+                            <constraint firstItem="Mtf-Iq-N0y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ead-hM-JWW"/>
+                            <constraint firstItem="Mtf-Iq-N0y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="gpa-JH-J8t"/>
+                            <constraint firstAttribute="trailing" secondItem="Mtf-Iq-N0y" secondAttribute="trailing" id="kFH-cf-3fu"/>
+                            <constraint firstItem="Apj-I1-3MQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="l0z-WY-Act"/>
+                            <constraint firstItem="Apj-I1-3MQ" firstAttribute="top" secondItem="MJq-i2-XR9" secondAttribute="bottom" id="t8P-9o-4Is"/>
+                            <constraint firstItem="MJq-i2-XR9" firstAttribute="top" secondItem="Mtf-Iq-N0y" secondAttribute="bottom" constant="8" id="tmW-ly-Rcv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Mtf-Iq-N0y" id="GNR-PX-Ln5"/>
+                        <outlet property="shiftView" destination="MJq-i2-XR9" id="hnf-h9-TfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
     </scenes>
 </document>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */; };
+		F8AACC531E29309400284310 /* TableViewShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC511E29309400284310 /* TableViewShiftCell.swift */; };
+		F8AACC541E29309400284310 /* TableViewShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AACC521E29309400284310 /* TableViewShiftCell.xib */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* ViewController.swift */; };
 		F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B53F1E27C9A600390BD3 /* Main.storyboard */; };
@@ -14,6 +17,7 @@
 		F8E9B5461E27C9A600390BD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */; };
 		F8E9B5511E27C9A600390BD3 /* T_ShiftsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B5501E27C9A600390BD3 /* T_ShiftsTests.swift */; };
 		F8E9B55C1E27C9A600390BD3 /* T_ShiftsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */; };
+		F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDataSource.swift; sourceTree = "<group>"; };
+		F8AACC511E29309400284310 /* TableViewShiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewShiftCell.swift; sourceTree = "<group>"; };
+		F8AACC521E29309400284310 /* TableViewShiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewShiftCell.xib; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E9B53D1E27C9A600390BD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +54,7 @@
 		F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "T-ShiftsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsUITests.swift; sourceTree = "<group>"; };
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShiftsModel.swift; path = ../ShiftsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,12 @@
 		F8E9B53A1E27C9A600390BD3 /* T-Shifts */ = {
 			isa = PBXGroup;
 			children = (
+				F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */,
 				F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */,
 				F8E9B53D1E27C9A600390BD3 /* ViewController.swift */,
+				F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */,
+				F8AACC511E29309400284310 /* TableViewShiftCell.swift */,
+				F8AACC521E29309400284310 /* TableViewShiftCell.xib */,
 				F8E9B53F1E27C9A600390BD3 /* Main.storyboard */,
 				F8E9B5421E27C9A600390BD3 /* Assets.xcassets */,
 				F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */,
@@ -193,15 +205,18 @@
 				TargetAttributes = {
 					F8E9B5371E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					F8E9B54B1E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F8E9B5371E27C9A600390BD3;
 					};
 					F8E9B5561E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F8E9B5371E27C9A600390BD3;
 					};
@@ -233,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E9B5461E27C9A600390BD3 /* LaunchScreen.storyboard in Resources */,
+				F8AACC541E29309400284310 /* TableViewShiftCell.xib in Resources */,
 				F8E9B5431E27C9A600390BD3 /* Assets.xcassets in Resources */,
 				F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */,
 			);
@@ -259,8 +275,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8AACC531E29309400284310 /* TableViewShiftCell.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */,
+				F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */,
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
+				F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +522,7 @@
 				F8E9B5621E27C9A600390BD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8E9B5631E27C9A600390BD3 /* Build configuration list for PBXNativeTarget "T-ShiftsTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +531,7 @@
 				F8E9B5651E27C9A600390BD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8E9B5661E27C9A600390BD3 /* Build configuration list for PBXNativeTarget "T-ShiftsUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +540,7 @@
 				F8E9B5681E27C9A600390BD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
