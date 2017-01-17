@@ -15,7 +15,6 @@ class TableViewShiftCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        NSLog("here")
         // Initialization code
     }
 

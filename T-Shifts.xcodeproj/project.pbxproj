@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81B8ED91E2E63BC00731408 /* ShiftNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81B8ED81E2E63BC00731408 /* ShiftNames.plist */; };
+		F88887E71E2D3093001F4DA6 /* ShiftTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */; };
 		F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */; };
 		F8AACC531E29309400284310 /* TableViewShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC511E29309400284310 /* TableViewShiftCell.swift */; };
 		F8AACC541E29309400284310 /* TableViewShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AACC521E29309400284310 /* TableViewShiftCell.xib */; };
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
+		F81B8ED81E2E63BC00731408 /* ShiftNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShiftNames.plist; sourceTree = "<group>"; };
+		F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewDelegate.swift; sourceTree = "<group>"; };
 		F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDataSource.swift; sourceTree = "<group>"; };
 		F8AACC511E29309400284310 /* TableViewShiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewShiftCell.swift; sourceTree = "<group>"; };
 		F8AACC521E29309400284310 /* TableViewShiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewShiftCell.xib; sourceTree = "<group>"; };
@@ -108,12 +113,15 @@
 				F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */,
 				F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */,
 				F8E9B53D1E27C9A600390BD3 /* ViewController.swift */,
+				F81B8ED81E2E63BC00731408 /* ShiftNames.plist */,
+				F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */,
 				F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */,
 				F8AACC511E29309400284310 /* TableViewShiftCell.swift */,
 				F8AACC521E29309400284310 /* TableViewShiftCell.xib */,
 				F8E9B53F1E27C9A600390BD3 /* Main.storyboard */,
 				F8E9B5421E27C9A600390BD3 /* Assets.xcassets */,
 				F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */,
+				F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */,
 				F8E9B5471E27C9A600390BD3 /* Info.plist */,
 			);
 			path = "T-Shifts";
@@ -205,6 +213,7 @@
 				TargetAttributes = {
 					F8E9B5371E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8Z99BLKDHB;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -250,6 +259,7 @@
 				F8E9B5461E27C9A600390BD3 /* LaunchScreen.storyboard in Resources */,
 				F8AACC541E29309400284310 /* TableViewShiftCell.xib in Resources */,
 				F8E9B5431E27C9A600390BD3 /* Assets.xcassets in Resources */,
+				F81B8ED91E2E63BC00731408 /* ShiftNames.plist in Resources */,
 				F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +288,7 @@
 				F8AACC531E29309400284310 /* TableViewShiftCell.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */,
 				F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */,
+				F88887E71E2D3093001F4DA6 /* ShiftTableViewDelegate.swift in Sources */,
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
 				F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */,
 			);
@@ -429,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8Z99BLKDHB;
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-Shifts";
@@ -441,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8Z99BLKDHB;
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-Shifts";

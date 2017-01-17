@@ -32,7 +32,6 @@ class ShiftDataSource : NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("numberOfRowsInSection: %d", shiftStorage.shifts.count)
         return shiftStorage.shifts.count
     }
 }

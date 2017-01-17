@@ -9,6 +9,7 @@
 import Foundation
 import EventKit
 
+
 struct Shift {
     let date:Date
     let value:String
@@ -55,8 +56,17 @@ class ShiftStorage {
     }
     
     func add(_ date: Date, value:String) {
-        if !shifts.contains { shift in shift.date == date } {
-            shifts.append(Shift(date:date, value:value))
+        let newShift = Shift(date:date, value:value)
+        if let pos = self.indexOfRow(forDate: date) {
+            shifts[pos] = newShift
+            return
+        }
+
+        
+        if let pos = shifts.index(where: { shift in shift.date >= date }) {
+            shifts.insert(newShift, at: pos)
+        } else {
+            shifts.append(newShift)
         }
     }
     
@@ -66,38 +76,64 @@ class ShiftStorage {
         }
     }
     
+    // Sets the callback to be called when the data in the shiftStorage changes
     func notifyChanges(to: @escaping () -> ()) {
         callback = to
     }
+    
+    // Returns the index of the shift with the given date.
+    // This methods returns nil if such shift does not exist
+    func indexOfRow(forDate date:Date) -> Int? {
+        let calendar = Calendar(identifier: .gregorian)
+        return shifts.index(where: { shift in return calendar.isDate(shift.date, inSameDayAs: date) })
+    }
 }
 
+enum CalendarUpdaterError {
+    case accessNotGranted
+    case accessError(String)
+    case updateError(String)
+}
+
+
 class CalendarShiftUpdater {
-    func update(with shiftStorage:ShiftStorage) {
-        let store = EKEventStore()
-        
+    var store = EKEventStore()
+    
+    static func isAccessGranted() -> Bool {
+        return EKEventStore.authorizationStatus(for: .event) == .authorized
+    }
+    
+    func requestAccess() {
         store.requestAccess(to: .event, completion:{ granted, error in
             if !granted || error != nil {
-                NSLog("access not granted or error occurred")
-                return
-            }
-
-            for shift in shiftStorage.shifts {
-                do {
-                    
-                    let event = EKEvent(eventStore: store)
-
-                    event.startDate = shift.date
-                    event.endDate = shift.date
-                    event.isAllDay = true
-                    event.title = shift.value
-                    event.calendar = store.defaultCalendarForNewEvents
-
-                    try store.save(event, span: EKSpan.thisEvent)
-                    NSLog("event saved: " + shift.description)
-                } catch {
-                    NSLog("error occurred: " + shift.description)
+                if !granted {
+                    NSLog("Not granted")
+                } else {
+                    NSLog("Error")
                 }
             }
+            
         })
+    }
+
+
+    func update(with shiftStorage:ShiftStorage) throws {
+        for shift in shiftStorage.shifts {
+            do {
+                
+                let event = EKEvent(eventStore: store)
+                
+                event.startDate = shift.date
+                event.endDate = shift.date
+                event.isAllDay = true
+                event.title = shift.value
+                event.calendar = store.defaultCalendarForNewEvents
+                
+                try store.save(event, span: EKSpan.thisEvent)
+                NSLog("event saved: " + shift.description)
+            } catch {
+                NSLog("error occurred: " + shift.description)
+            }
+        }
     }
 }
