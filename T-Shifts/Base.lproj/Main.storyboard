@@ -59,13 +59,13 @@
                                         </constraints>
                                     </stackView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MNA-2I-fwP">
-                                        <rect key="frame" x="0.0" y="44" width="365" height="292"/>
+                                        <rect key="frame" x="0.0" y="44" width="365" height="192"/>
                                         <date key="date" timeIntervalSinceReferenceDate="506339993.937554">
                                             <!--2017-01-17 09:59:53 +0000-->
                                         </date>
                                     </datePicker>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y2c-Gn-Fdd">
-                                        <rect key="frame" x="0.0" y="336" width="365" height="250"/>
+                                        <rect key="frame" x="0.0" y="236" width="365" height="350"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
                                 </subviews>

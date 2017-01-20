@@ -34,9 +34,10 @@ class ViewController: UIViewController {
     }
     
     func scrollShiftView(toDate date: Date) {
-        let index = shiftStorage!.indexOfRow(forDate:date)!
-        let indexPath = IndexPath( row:index, section:0)
-        shiftView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: true)
+        if let index = shiftStorage!.indexOfRow(forDate:date) {
+            let indexPath = IndexPath( row:index, section:0)
+            shiftView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: true)
+        }
     }
     
     @IBAction func gotoToday(_ sender: UIButton) {
