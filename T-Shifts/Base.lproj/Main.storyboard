@@ -1,15 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZGs-h3-LsW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Preferences-->
+        <scene sceneID="w7N-7D-pTl">
+            <objects>
+                <viewController title="Preferences" id="ZDU-bF-V0D" customClass="PreferenceViewController" customModule="T_Shifts" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Bq-PL-MWd"/>
+                        <viewControllerLayoutGuide type="bottom" id="vHh-kA-Wid"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7YB-Qa-eQH">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCd-EW-fEr">
+                                <rect key="frame" x="152" y="553" width="71" height="30"/>
+                                <state key="normal" title="Add Shifts"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="gqF-Hs-ciW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXC-hy-ejR">
+                                <rect key="frame" x="16" y="20" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNP-Ba-ath">
+                                <rect key="frame" x="100" y="15" width="259" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="sXC-hy-ejR" firstAttribute="leading" secondItem="7YB-Qa-eQH" secondAttribute="leadingMargin" id="1kD-2u-uJ0"/>
+                            <constraint firstItem="sXC-hy-ejR" firstAttribute="top" secondItem="6Bq-PL-MWd" secondAttribute="bottom" constant="20" id="GEI-8X-dbn"/>
+                            <constraint firstItem="GNP-Ba-ath" firstAttribute="leading" secondItem="sXC-hy-ejR" secondAttribute="trailing" constant="10" id="V3P-BF-6Po"/>
+                            <constraint firstItem="GNP-Ba-ath" firstAttribute="baseline" secondItem="sXC-hy-ejR" secondAttribute="baseline" constant="-2" id="XCI-od-x4s"/>
+                            <constraint firstItem="HCd-EW-fEr" firstAttribute="centerX" secondItem="7YB-Qa-eQH" secondAttribute="centerX" id="d6B-H2-aKk"/>
+                            <constraint firstItem="vHh-kA-Wid" firstAttribute="top" secondItem="HCd-EW-fEr" secondAttribute="bottom" constant="20" id="lBw-le-VJH"/>
+                            <constraint firstItem="GNP-Ba-ath" firstAttribute="trailing" secondItem="7YB-Qa-eQH" secondAttribute="trailingMargin" id="xYO-IX-MqY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Preferences" id="jd2-mB-9bn"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="defaultCalendar" destination="GNP-Ba-ath" id="lwO-B0-rZN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2MH-F0-hyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96.799999999999997" y="37.331334332833585"/>
+        </scene>
+        <!--Pick your Shifts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="T_Shifts" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UZ9-ZB-b6K">
-                                <rect key="frame" x="5" y="30" width="365" height="586"/>
+                                <rect key="frame" x="5" y="54" width="365" height="562"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="DvN-fc-mc8">
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="44"/>
@@ -59,16 +114,17 @@
                                         </constraints>
                                     </stackView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MNA-2I-fwP">
-                                        <rect key="frame" x="0.0" y="44" width="365" height="192"/>
+                                        <rect key="frame" x="0.0" y="44" width="365" height="168"/>
                                         <date key="date" timeIntervalSinceReferenceDate="506339993.937554">
                                             <!--2017-01-17 09:59:53 +0000-->
                                         </date>
                                     </datePicker>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y2c-Gn-Fdd">
-                                        <rect key="frame" x="0.0" y="236" width="365" height="350"/>
+                                        <rect key="frame" x="0.0" y="212" width="365" height="350"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
                                 </subviews>
+                                <gestureRecognizers/>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-I1-3MQ">
                                 <rect key="frame" x="0.0" y="623" width="370" height="44"/>
@@ -111,18 +167,23 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Apj-I1-3MQ" secondAttribute="trailing" constant="5" id="22K-Eb-HCJ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Apj-I1-3MQ" secondAttribute="bottom" id="F7q-KQ-vqp"/>
-                            <constraint firstItem="UZ9-ZB-b6K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="Gux-ea-75T"/>
                             <constraint firstItem="Apj-I1-3MQ" firstAttribute="top" secondItem="UZ9-ZB-b6K" secondAttribute="bottom" constant="7" id="JVs-uI-mF3"/>
+                            <constraint firstItem="UZ9-ZB-b6K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="OuI-J7-3su"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Apj-I1-3MQ" secondAttribute="bottom" id="QnQ-ab-ASD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Apj-I1-3MQ" secondAttribute="bottom" id="UKj-Xg-MI3"/>
                             <constraint firstAttribute="trailing" secondItem="UZ9-ZB-b6K" secondAttribute="trailing" constant="5" id="Wz8-xU-159"/>
-                            <constraint firstItem="UZ9-ZB-b6K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="dDD-8Z-QoZ"/>
                             <constraint firstItem="Apj-I1-3MQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="l0z-WY-Act"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Apj-I1-3MQ" secondAttribute="bottom" id="vRJ-XX-Qh9"/>
+                            <constraint firstItem="UZ9-ZB-b6K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="o6f-JJ-ayX"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Pick your Shifts" id="llw-JS-HcF">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="0mg-GR-t79"/>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="MNA-2I-fwP" id="e85-Vn-QSO"/>
                         <outlet property="shiftView" destination="y2c-Gn-Fdd" id="Pqb-hq-JLU"/>
@@ -130,7 +191,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+            <point key="canvasLocation" x="972" y="38.23088455772114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wfz-IS-Rra">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZGs-h3-LsW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RfR-1a-Qsc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZDU-bF-V0D" kind="relationship" relationship="rootViewController" id="O9p-y0-mZO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YGX-hf-7oZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842.39999999999998" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>
