@@ -98,6 +98,14 @@ enum CalendarUpdaterError {
 
 class CalendarShiftUpdater {
     var store = EKEventStore()
+    var targetCalendar: EKCalendar?
+    var calendars: [EKCalendar] {
+        get {
+            // FIXME: This should return a list of calendars filtered
+            //   so to filter out non editable calendars
+            return store.calendars(for: .event)
+        }
+    }
     
     static func isAccessGranted() -> Bool {
         return EKEventStore.authorizationStatus(for: .event) == .authorized
@@ -119,15 +127,18 @@ class CalendarShiftUpdater {
 
     func update(with shiftStorage:ShiftStorage) throws {
         for shift in shiftStorage.shifts {
+            if targetCalendar == nil {
+                targetCalendar = store.defaultCalendarForNewEvents
+            }
+            
             do {
-                
                 let event = EKEvent(eventStore: store)
                 
                 event.startDate = shift.date
                 event.endDate = shift.date
                 event.isAllDay = true
                 event.title = shift.value
-                event.calendar = store.defaultCalendarForNewEvents
+                event.calendar = targetCalendar!
                 
                 try store.save(event, span: EKSpan.thisEvent)
                 NSLog("event saved: " + shift.description)

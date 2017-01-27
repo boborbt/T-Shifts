@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     
     weak var shiftStorage: ShiftStorage?
-    var calendarUpdater: CalendarShiftUpdater = CalendarShiftUpdater()
+    weak var calendarUpdater: CalendarShiftUpdater?
 
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var shiftView: UITableView!
@@ -22,6 +22,39 @@ class ViewController: UIViewController {
     var shiftViewDataSource: ShiftDataSource?
     var shiftViewDelegate: ShiftTableViewDelegate?
     var shiftNames = NSDictionary(contentsOfFile: Bundle.main.path(forResource:"ShiftNames", ofType:"plist")!) as! [String:String]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        calendarUpdater = delegate.calendarUpdater
+        calendarUpdater!.requestAccess()
+        
+        
+        self.shiftViewDelegate = ShiftTableViewDelegate()
+        self.shiftViewDelegate?.selectionCallback = { row in
+            let dateSelected = self.shiftStorage!.shifts[row].date
+            self.datePicker.date = dateSelected
+        }
+        
+        
+        shiftView.delegate = shiftViewDelegate
+        
+        
+        shiftStorage = delegate.shiftStorage
+        shiftViewDataSource = ShiftDataSource(storage: shiftStorage!)
+        shiftView.dataSource = shiftViewDataSource!
+        shiftView.register(UINib(nibName:"TableViewShiftCell", bundle:nil),
+                           forCellReuseIdentifier: ViewController.SHIFT_VIEW_CELL_ID )
+        
+        shiftStorage!.notifyChanges {
+            let sv = self.shiftView!
+            sv.reloadData()
+        }
+        
+    }
+
     
     @IBAction func addShift(_ sender: UIBarButtonItem) {
         let date = datePicker.date
@@ -85,7 +118,7 @@ class ViewController: UIViewController {
         
         let ok = UIAlertAction(title: "Ok", style: .destructive, handler:  { _ in
             do {
-                try self.calendarUpdater.update(with: self.shiftStorage!)
+                try self.calendarUpdater!.update(with: self.shiftStorage!)
                 self.showInfoDialog("Your shifts have been added to the calendar.")
             } catch CalendarUpdaterError.updateError(let reason) {
                 let errorMsg = String.localizedStringWithFormat("An error occurred while adding your shifts to the calendar. Reason: %s", reason)
@@ -113,35 +146,6 @@ class ViewController: UIViewController {
         self.present(alert, animated:true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        calendarUpdater.requestAccess()
-        
-        
-        super.viewDidLoad()
-        
-        self.shiftViewDelegate = ShiftTableViewDelegate()
-        self.shiftViewDelegate?.selectionCallback = { row in
-            let dateSelected = self.shiftStorage!.shifts[row].date
-            self.datePicker.date = dateSelected
-        }
-        
-        
-        shiftView.delegate = shiftViewDelegate
-        
-
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        shiftStorage = delegate.shiftStorage
-        shiftViewDataSource = ShiftDataSource(storage: shiftStorage!)
-        shiftView.dataSource = shiftViewDataSource!
-        shiftView.register(UINib(nibName:"TableViewShiftCell", bundle:nil),
-                           forCellReuseIdentifier: ViewController.SHIFT_VIEW_CELL_ID )
-        
-        shiftStorage!.notifyChanges {
-            let sv = self.shiftView!
-            sv.reloadData()
-        }
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
