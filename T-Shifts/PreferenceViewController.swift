@@ -12,21 +12,34 @@ class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var defaultCalendar: UITextField!
     var calendarPickerView = UIPickerView()
+    var calendarPickerToolbar = UIToolbar()
     
     weak var calendarUpdater: CalendarShiftUpdater?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         calendarUpdater = appDelegate.calendarUpdater
-
-        
         calendarPickerView.dataSource = self
         calendarPickerView.delegate = self
         
+        let doneBtn = UIBarButtonItem(title: "Done",
+                                  style: .plain,
+                                  target: self,
+                                  action: #selector(self.dismissPickerView(_:)) )
+        let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        
+        calendarPickerToolbar.items = [flex, doneBtn]
+        calendarPickerToolbar.barStyle = .default
+        calendarPickerToolbar.isUserInteractionEnabled = true
+        calendarPickerToolbar.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        
         self.defaultCalendar.inputView = calendarPickerView
+        self.defaultCalendar.inputAccessoryView = calendarPickerToolbar
         
         // Do any additional setup after loading the view.
     }
@@ -44,10 +57,18 @@ class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    
+    func pickerViewUpdateCalendar() {
+        let row = calendarPickerView.selectedRow(inComponent: 0)
+        
         let calendar = calendarUpdater!.calendars[row]
-        self.defaultCalendar!.text = calendar.title
         calendarUpdater?.targetCalendar = calendar
+        
+        self.defaultCalendar!.text = calendar.title
+    }
+    
+    func dismissPickerView(_ sender:UIBarButtonItem) {
+        self.pickerViewUpdateCalendar()
         self.defaultCalendar!.endEditing(true)
     }
 
