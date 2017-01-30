@@ -59,8 +59,7 @@ class ViewController: UIViewController {
     @IBAction func addShift(_ sender: UIBarButtonItem) {
         let date = datePicker.date
         
-        shiftStorage!.add( date,
-                           value: shiftNames[sender.title!]!)
+        shiftStorage!.add( date, value: shiftNames[sender.title!]!)
         datePicker.date = datePicker.date + 1 * ViewController.DAY
         
         scrollShiftView(toDate:date)
@@ -108,7 +107,7 @@ class ViewController: UIViewController {
     
     @IBAction func updateCalendar(_ sender: UIButton) {
         if !CalendarShiftUpdater.isAccessGranted() {
-            self.showInfoDialog("Access to the calendar has not been granted. Please allow acces in Settings -> T-Shifts -> Calendar Access")
+            self.showInfoDialog("Access to the calendar has not been granted. Please allow acces in Settings : T-Shifts : Calendar Access")
             return
         }
         
