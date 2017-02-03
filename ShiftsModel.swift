@@ -8,6 +8,7 @@
 
 import Foundation
 import EventKit
+import UIKit
 
 
 struct Shift {
@@ -98,7 +99,13 @@ enum CalendarUpdaterError {
 
 class CalendarShiftUpdater {
     var store = EKEventStore()
-    var targetCalendar: EKCalendar?
+    var targetCalendar: EKCalendar? {
+        didSet {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            delegate.options.calendar = targetCalendar!.title
+        }
+    }
+    
     var calendars: [EKCalendar] {
         get {
             // FIXME: This should return a list of calendars filtered

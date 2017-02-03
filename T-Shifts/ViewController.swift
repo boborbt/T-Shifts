@@ -15,18 +15,20 @@ class ViewController: UIViewController {
     
     weak var shiftStorage: ShiftStorage?
     weak var calendarUpdater: CalendarShiftUpdater?
+    weak var options: Options?
 
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var shiftView: UITableView!
     
     var shiftViewDataSource: ShiftDataSource?
     var shiftViewDelegate: ShiftTableViewDelegate?
-    var shiftNames = NSDictionary(contentsOfFile: Bundle.main.path(forResource:"ShiftNames", ofType:"plist")!) as! [String:String]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        options = delegate.options
         
         calendarUpdater = delegate.calendarUpdater
         calendarUpdater!.requestAccess()
@@ -59,7 +61,7 @@ class ViewController: UIViewController {
     @IBAction func addShift(_ sender: UIBarButtonItem) {
         let date = datePicker.date
         
-        shiftStorage!.add( date, value: shiftNames[sender.title!]!)
+        shiftStorage!.add( date, value: options!.shiftNames()[sender.title!]!)
         datePicker.date = datePicker.date + 1 * ViewController.DAY
         
         scrollShiftView(toDate:date)

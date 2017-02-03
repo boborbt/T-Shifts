@@ -10,23 +10,38 @@ import UIKit
 
 class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var shiftTypesTableView: UITableView!
     @IBOutlet weak var defaultCalendar: UITextField!
+    
     var calendarPickerView = UIPickerView()
     var pickerDismissToolbar = UIToolbar()
+    var shiftTypesDataSource : ShiftTypesDataSource?
     
     weak var calendarUpdater: CalendarShiftUpdater?
+    weak var options: Options?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         calendarUpdater = appDelegate.calendarUpdater
+        options = appDelegate.options
         
         setupPickerDismissToolbar()
         setupDefaultCalendarInputView()
+        setupShiftTypesTableView()
     }
     
+    
+
 // MARK: Views setup
+    
+    func setupShiftTypesTableView() {
+        shiftTypesDataSource = ShiftTypesDataSource(withOptions: options!)
+        shiftTypesTableView.dataSource = shiftTypesDataSource
+//        let cell = UITableViewCell(style: .value1, reuseIdentifier: "ShiftTypeCell")
+//        shiftTypesTableView.register( cell, forCellReuseIdentifier: "ShiftTypeCell")
+    }
     
     func setupPickerDismissToolbar() {
         let doneBtn = UIBarButtonItem(title: "Done",
@@ -46,8 +61,11 @@ class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         calendarPickerView.dataSource = self
         calendarPickerView.delegate = self
         
-        self.defaultCalendar.inputView = calendarPickerView
-        self.defaultCalendar.inputAccessoryView = pickerDismissToolbar
+        defaultCalendar.inputView = calendarPickerView
+        defaultCalendar.inputAccessoryView = pickerDismissToolbar
+        
+        defaultCalendar.text = options!.calendar
+
     }
     
 // MARK: Picker Delegate and Data Source methods

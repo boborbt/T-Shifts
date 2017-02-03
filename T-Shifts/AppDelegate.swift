@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var shiftStorage: ShiftStorage?
     var calendarUpdater: CalendarShiftUpdater = CalendarShiftUpdater()
-
+    var options = Options()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
