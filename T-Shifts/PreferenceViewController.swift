@@ -107,14 +107,18 @@ class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = sender as? UITableViewCell
+        let destination = segue.destination as? EditShiftTypeViewController
+        guard (cell != nil) else { return }
+        guard (destination != nil) else { return }
+        
+        NSLog("\(cell)")
+        destination!.descriptionText = cell?.textLabel!.text
+        destination!.shortcutText = cell?.detailTextLabel!.text
     }
-    */
 
 }

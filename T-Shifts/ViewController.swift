@@ -19,6 +19,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var shiftView: UITableView!
+    @IBOutlet weak var preferenceButton: UIBarButtonItem!
+
     
     var shiftViewDataSource: ShiftDataSource?
     var shiftViewDelegate: ShiftTableViewDelegate?
@@ -55,13 +57,18 @@ class ViewController: UIViewController {
             sv.reloadData()
         }
         
+        if options?.calendar == "None" {
+            UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
+        }
+        
+        
     }
 
     
     @IBAction func addShift(_ sender: UIBarButtonItem) {
         let date = datePicker.date
         
-        shiftStorage!.add( date, value: options!.shiftNames()[sender.title!]!)
+        shiftStorage!.add( date, value: options!.shiftNames[sender.title!]!)
         datePicker.date = datePicker.date + 1 * ViewController.DAY
         
         scrollShiftView(toDate:date)
@@ -153,6 +160,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
 
 }
 
