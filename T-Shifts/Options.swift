@@ -9,31 +9,33 @@
 import Foundation
 
 class Options {
-    var options = OptionsFileManager.shared.read()
+    var options = UserDefaults.standard
+    
+    init() {
+        let defaults = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "Options", ofType: "plist")!)!
+        options.register(defaults: defaults as! [String:Any])
+    }
         
     
     var shiftNames: [String:String] {
         get {
-            return options["ShiftNames"] as! [String:String]
+            return options.dictionary(forKey: "ShiftNames") as! [String:String]
         }
     }
     
     var shiftNamesOrder: [String] {
         get {
-            return options["ShiftNamesOrder"] as! [String]
+            return options.array(forKey: "ShiftNamesOrder") as! [String]
         }
     }
     
     var calendar: String {
         get {
-            return options["Calendar"] as! String
+            return options.string(forKey: "Calendar")!
         }
 
         set(newVal) {
-            guard options["Calendar"] as! String != newVal else { return }
-            
-            options["Calendar"] = newVal
-            OptionsFileManager.shared.write(options:options)
+            options.setValue(newVal, forKey:"Calendar")
         }
     }
         
