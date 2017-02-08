@@ -9,7 +9,8 @@
 import Foundation
 
 class Options {
-    var options = NSDictionary(contentsOfFile: Bundle.main.path(forResource:"Options", ofType:"plist")!) as! [String:Any]
+    var options = OptionsFileManager.shared.read()
+        
     
     var shiftNames: [String:String] {
         get {
@@ -32,13 +33,8 @@ class Options {
             guard options["Calendar"] as! String != newVal else { return }
             
             options["Calendar"] = newVal
-            sync()
+            OptionsFileManager.shared.write(options:options)
         }
     }
-    
         
-    private func sync() {
-        let dict = options as NSDictionary
-        dict.write(toFile: Bundle.main.path(forResource:"Options", ofType:"plist")!, atomically: true)
-    }
 }

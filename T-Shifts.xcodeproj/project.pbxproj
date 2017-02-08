@@ -18,6 +18,7 @@
 		F8AACC531E29309400284310 /* TableViewShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC511E29309400284310 /* TableViewShiftCell.swift */; };
 		F8AACC541E29309400284310 /* TableViewShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AACC521E29309400284310 /* TableViewShiftCell.xib */; };
 		F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */; };
+		F8D95BF41E4B0EE80074A578 /* OptionsFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D95BF31E4B0EE80074A578 /* OptionsFileManager.swift */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* ViewController.swift */; };
 		F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B53F1E27C9A600390BD3 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		F8AACC511E29309400284310 /* TableViewShiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewShiftCell.swift; sourceTree = "<group>"; };
 		F8AACC521E29309400284310 /* TableViewShiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewShiftCell.xib; sourceTree = "<group>"; };
 		F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		F8D95BF31E4B0EE80074A578 /* OptionsFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsFileManager.swift; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E9B53D1E27C9A600390BD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */,
 				F847D6DC1E4487FE007B8847 /* Options.swift */,
+				F8D95BF31E4B0EE80074A578 /* OptionsFileManager.swift */,
 				F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */,
 				F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */,
 				F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */,
@@ -314,6 +317,7 @@
 				F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */,
 				F847D6DB1E44854C007B8847 /* ShiftTypesDataSource.swift in Sources */,
 				F847D6DD1E4487FE007B8847 /* Options.swift in Sources */,
+				F8D95BF41E4B0EE80074A578 /* OptionsFileManager.swift in Sources */,
 				F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

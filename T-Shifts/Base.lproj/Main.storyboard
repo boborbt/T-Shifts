@@ -62,7 +62,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="rFU-Bn-PVB" kind="push" id="xFT-NX-Zf5"/>
+                                            <segue destination="rFU-Bn-PVB" kind="show" id="xFT-NX-Zf5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

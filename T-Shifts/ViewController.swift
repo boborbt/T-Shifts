@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             sv.reloadData()
         }
         
-        if options?.calendar == "None" {
+        if options!.calendar == "None" {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
         }
         
