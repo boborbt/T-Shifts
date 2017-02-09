@@ -32,6 +32,8 @@ class EditShiftTypeViewController: UIViewController {
     @IBAction func dismissViewController(_ sender: Any) {
         let _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    
 
     /*
     // MARK: - Navigation

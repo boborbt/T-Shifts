@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
-		F814F8B41E4CB71700E67057 /* CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* CalendarDelegates.swift */; };
+		F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */; };
 		F81B8ED91E2E63BC00731408 /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81B8ED81E2E63BC00731408 /* Options.plist */; };
 		F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D260B1E36693500B61E66 /* PreferenceViewController.swift */; };
 		F847D6DB1E44854C007B8847 /* ShiftTypesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */; };
@@ -53,7 +53,7 @@
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
-		F814F8B31E4CB71700E67057 /* CalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDelegates.swift; sourceTree = "<group>"; };
+		F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendarDelegates.swift; sourceTree = "<group>"; };
 		F81B8ED81E2E63BC00731408 /* Options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Options.plist; sourceTree = "<group>"; };
 		F81D260B1E36693500B61E66 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTypesDataSource.swift; sourceTree = "<group>"; };
@@ -114,9 +114,6 @@
 				F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */,
 				F847D6DC1E4487FE007B8847 /* Options.swift */,
 				F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */,
-				F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */,
-				F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */,
-				F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -125,9 +122,12 @@
 			isa = PBXGroup;
 			children = (
 				F8E9B53D1E27C9A600390BD3 /* ViewController.swift */,
+				F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */,
 				F81D260B1E36693500B61E66 /* PreferenceViewController.swift */,
-				F814F8B31E4CB71700E67057 /* CalendarDelegates.swift */,
 				F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */,
+				F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */,
+				F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */,
+				F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */,
 				F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */,
 				F88887E71E2D3093001F4DA6 /* ShiftTableViewDelegate.swift in Sources */,
-				F814F8B41E4CB71700E67057 /* CalendarDelegates.swift in Sources */,
+				F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */,
 				F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */,
 				F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */,
 				F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */,

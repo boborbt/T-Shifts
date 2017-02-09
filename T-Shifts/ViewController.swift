@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         calendarView.dataSource = self
         calendarView.delegate = self
         calendarView.registerCellViewXib(file: "DayCellView")
+        calendarView.cellInset = CGPoint(x: 0, y: 0)
         
         shiftStorage = delegate.shiftStorage
         shiftStorage!.notifyChanges {

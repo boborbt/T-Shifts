@@ -15,6 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="113" height="106"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qc7-4I-vl4">
+                    <rect key="frame" x="0.0" y="0.0" width="113" height="106"/>
+                    <color key="backgroundColor" red="1" green="0.92766039598743488" blue="0.0032060943817033838" alpha="0.337890625" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-lH-VRs">
                     <rect key="frame" x="35" y="43" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -25,13 +29,18 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Prc-lH-VRs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Bqh-7g-JRL"/>
+                <constraint firstItem="Qc7-4I-vl4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CZn-H3-Cvs"/>
+                <constraint firstItem="Qc7-4I-vl4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HRM-om-P4q"/>
+                <constraint firstAttribute="trailing" secondItem="Qc7-4I-vl4" secondAttribute="trailing" id="Hba-yH-OM8"/>
+                <constraint firstAttribute="bottom" secondItem="Qc7-4I-vl4" secondAttribute="bottom" id="dOZ-gS-KeO"/>
                 <constraint firstItem="Prc-lH-VRs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ju5-nH-Ger"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="label" destination="Prc-lH-VRs" id="GRn-gS-iNN"/>
+                <outlet property="selectionEmphasis" destination="Qc7-4I-vl4" id="RCP-32-qB1"/>
             </connections>
-            <point key="canvasLocation" x="-97.5" y="-226"/>
+            <point key="canvasLocation" x="-95.5" y="-217"/>
         </view>
     </objects>
 </document>

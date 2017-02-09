@@ -25,7 +25,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         let endDate = Date()                                // You can also use dates created from this function
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
-                                                 numberOfRows: 6, // Only 1, 2, 3, & 6 are allowed
+                                                 numberOfRows: 5, // Only 1, 2, 3, & 6 are allowed
             calendar: Calendar.current,
             generateInDates: .forAllMonths,
             generateOutDates: .tillEndOfGrid,
@@ -45,6 +45,22 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         } else {
             myCustomCell.label.textColor = Colors.gray
         }
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+        let dayCell = cell as! DayCellView
+        
+        // Let's make the view have rounded corners. Set corner radius to 25
+        dayCell.selectionEmphasis.layer.cornerRadius =  5
+        
+        if cellState.isSelected {
+            dayCell.selectionEmphasis.isHidden = false
+        }
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+        let dayCell = cell as! DayCellView
+        dayCell.selectionEmphasis.isHidden = true
     }
 
 }
