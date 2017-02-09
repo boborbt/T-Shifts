@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import JTAppleCalendar
 
 class ViewController: UIViewController {
-    static let SHIFT_VIEW_CELL_ID = "shiftviewcell"
     static let DAY = 60 * 60 * 24.0
     
     
@@ -17,13 +17,9 @@ class ViewController: UIViewController {
     weak var calendarUpdater: CalendarShiftUpdater?
     weak var options: Options?
 
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var shiftView: UITableView!
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
-
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
     
-    var shiftViewDataSource: ShiftDataSource?
-    var shiftViewDelegate: ShiftTableViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,25 +32,13 @@ class ViewController: UIViewController {
         calendarUpdater!.requestAccess()
         
         
-        self.shiftViewDelegate = ShiftTableViewDelegate()
-        self.shiftViewDelegate?.selectionCallback = { row in
-            let dateSelected = self.shiftStorage!.shifts[row].date
-            self.datePicker.date = dateSelected
-        }
-        
-        
-        shiftView.delegate = shiftViewDelegate
-        
+        calendarView.dataSource = self
+        calendarView.delegate = self
+        calendarView.registerCellViewXib(file: "DayCellView")
         
         shiftStorage = delegate.shiftStorage
-        shiftViewDataSource = ShiftDataSource(storage: shiftStorage!)
-        shiftView.dataSource = shiftViewDataSource!
-        shiftView.register(UINib(nibName:"TableViewShiftCell", bundle:nil),
-                           forCellReuseIdentifier: ViewController.SHIFT_VIEW_CELL_ID )
-        
         shiftStorage!.notifyChanges {
-            let sv = self.shiftView!
-            sv.reloadData()
+            // FIXME: reload data
         }
         
         if options!.calendar == "None" {
@@ -66,31 +50,32 @@ class ViewController: UIViewController {
 
     
     @IBAction func addShift(_ sender: UIBarButtonItem) {
-        let date = datePicker.date
+//        let date = datePicker.date
+        let date = Date()
         
         shiftStorage!.add( date, value: options!.shiftNames[sender.title!]!)
-        datePicker.date = datePicker.date + 1 * ViewController.DAY
+//        datePicker.date = datePicker.date + 1 * ViewController.DAY
         
-        scrollShiftView(toDate:date)
+//        scrollShiftView(toDate:date)
     }
     
-    func scrollShiftView(toDate date: Date) {
-        if let index = shiftStorage!.indexOfRow(forDate:date) {
-            let indexPath = IndexPath( row:index, section:0)
-            shiftView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: true)
-        }
-    }
+//    func scrollShiftView(toDate date: Date) {
+//        if let index = shiftStorage!.indexOfRow(forDate:date) {
+//            let indexPath = IndexPath( row:index, section:0)
+//            shiftView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: true)
+//        }
+//    }
     
     @IBAction func gotoToday(_ sender: UIButton) {
-        datePicker.date = Date()
-        scrollShiftView(toDate: datePicker.date)
+//        datePicker.date = Date()
+//        scrollShiftView(toDate: datePicker.date)
     }
     
     @IBAction func removeShift(_ sender: UIButton) {
-        if let indexPath = shiftView.indexPathForSelectedRow {
-            shiftStorage?.remove(shiftStorage!.shifts[indexPath.row].date)
-            shiftView.reloadData()
-        }
+//        if let indexPath = shiftView.indexPathForSelectedRow {
+//            shiftStorage?.remove(shiftStorage!.shifts[indexPath.row].date)
+//            shiftView.reloadData()
+//        }
     }
     
     @IBAction func clearAll(_ sender: UIButton) {
@@ -100,7 +85,7 @@ class ViewController: UIViewController {
         
         let clear = UIAlertAction(title:"Clear all", style: .destructive, handler: {_ in
             self.shiftStorage!.shifts.removeAll()
-            self.shiftView!.reloadData()
+//            self.shiftView!.reloadData()
         })
         
         let cancel = UIAlertAction(title:"Cancel", style: .cancel, handler: {_ in return} )

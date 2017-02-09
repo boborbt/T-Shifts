@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
+		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
+		F814F8B41E4CB71700E67057 /* CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* CalendarDelegates.swift */; };
 		F81B8ED91E2E63BC00731408 /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81B8ED81E2E63BC00731408 /* Options.plist */; };
 		F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D260B1E36693500B61E66 /* PreferenceViewController.swift */; };
 		F847D6DB1E44854C007B8847 /* ShiftTypesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */; };
 		F847D6DD1E4487FE007B8847 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DC1E4487FE007B8847 /* Options.swift */; };
 		F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */; };
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
+		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
 		F88887E71E2D3093001F4DA6 /* ShiftTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */; };
 		F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */; };
 		F8AACC531E29309400284310 /* TableViewShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC511E29309400284310 /* TableViewShiftCell.swift */; };
@@ -47,12 +51,16 @@
 
 /* Begin PBXFileReference section */
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
+		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
+		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
+		F814F8B31E4CB71700E67057 /* CalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDelegates.swift; sourceTree = "<group>"; };
 		F81B8ED81E2E63BC00731408 /* Options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Options.plist; sourceTree = "<group>"; };
 		F81D260B1E36693500B61E66 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTypesDataSource.swift; sourceTree = "<group>"; };
 		F847D6DC1E4487FE007B8847 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditShiftTypeViewController.swift; path = "T-Shifts/EditShiftTypeViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
 		F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewDelegate.swift; sourceTree = "<group>"; };
 		F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDataSource.swift; sourceTree = "<group>"; };
 		F8AACC511E29309400284310 /* TableViewShiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewShiftCell.swift; sourceTree = "<group>"; };
@@ -79,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +126,7 @@
 			children = (
 				F8E9B53D1E27C9A600390BD3 /* ViewController.swift */,
 				F81D260B1E36693500B61E66 /* PreferenceViewController.swift */,
+				F814F8B31E4CB71700E67057 /* CalendarDelegates.swift */,
 				F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */,
 			);
 			name = Controllers;
@@ -125,11 +135,13 @@
 		F814F8AC1E4CAC9F00E67057 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F8AACC511E29309400284310 /* TableViewShiftCell.swift */,
-				F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */,
 				F8E9B53F1E27C9A600390BD3 /* Main.storyboard */,
-				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
 				F8AACC521E29309400284310 /* TableViewShiftCell.xib */,
+				F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */,
+				F8AACC511E29309400284310 /* TableViewShiftCell.swift */,
+				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
+				F814F8AF1E4CB60700E67057 /* DayCellView.xib */,
+				F814F8B11E4CB65800E67057 /* DayCellView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -141,6 +153,7 @@
 				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
 				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
 				F8E9B5391E27C9A600390BD3 /* Products */,
+				F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +210,7 @@
 				F8E9B5341E27C9A600390BD3 /* Sources */,
 				F8E9B5351E27C9A600390BD3 /* Frameworks */,
 				F8E9B5361E27C9A600390BD3 /* Resources */,
+				F814F8B61E4CBB8000E67057 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -303,6 +317,7 @@
 				F8E9B5431E27C9A600390BD3 /* Assets.xcassets in Resources */,
 				F81B8ED91E2E63BC00731408 /* Options.plist in Resources */,
 				F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */,
+				F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +337,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F814F8B61E4CBB8000E67057 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F8E9B5341E27C9A600390BD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -331,10 +363,12 @@
 				F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */,
 				F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */,
 				F88887E71E2D3093001F4DA6 /* ShiftTableViewDelegate.swift in Sources */,
+				F814F8B41E4CB71700E67057 /* CalendarDelegates.swift in Sources */,
 				F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */,
 				F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */,
 				F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */,
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
+				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
 				F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */,
 				F847D6DB1E44854C007B8847 /* ShiftTypesDataSource.swift in Sources */,
 				F847D6DD1E4487FE007B8847 /* Options.swift in Sources */,
@@ -489,8 +523,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8Z99BLKDHB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-Shifts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -502,8 +541,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8Z99BLKDHB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-Shifts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
