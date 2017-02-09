@@ -138,9 +138,9 @@
 				F8E9B53F1E27C9A600390BD3 /* Main.storyboard */,
 				F8AACC521E29309400284310 /* TableViewShiftCell.xib */,
 				F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */,
+				F814F8AF1E4CB60700E67057 /* DayCellView.xib */,
 				F8AACC511E29309400284310 /* TableViewShiftCell.swift */,
 				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
-				F814F8AF1E4CB60700E67057 /* DayCellView.xib */,
 				F814F8B11E4CB65800E67057 /* DayCellView.swift */,
 			);
 			name = Views;

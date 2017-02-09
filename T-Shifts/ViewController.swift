@@ -44,9 +44,7 @@ class ViewController: UIViewController {
         
         if options!.calendar == "None" {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
-        }
-        
-        
+        }        
     }
 
     

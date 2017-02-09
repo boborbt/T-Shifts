@@ -12,6 +12,7 @@ import JTAppleCalendar
 class Colors {
     static let black = UIColor.black
     static let gray = UIColor.gray
+    static let red = UIColor.red
 }
 
 
@@ -21,7 +22,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
         
-        let startDate = formatter.date(from: "2016 02 01")! // You can use date generated from a formatter
+        let startDate = formatter.date(from: "2017 02 01")! // You can use date generated from a formatter
         let endDate = Date()                                // You can also use dates created from this function
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
@@ -34,33 +35,44 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     }
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
-        let myCustomCell = cell as! DayCellView
+        let dayCell = cell as! DayCellView
         
         // Setup Cell text
-        myCustomCell.label.text = cellState.text
+        dayCell.label.text = cellState.text
         
         // Setup text color
         if cellState.dateBelongsTo == .thisMonth {
-            myCustomCell.label.textColor = Colors.black
+            dayCell.label.textColor = Colors.black
         } else {
-            myCustomCell.label.textColor = Colors.gray
+            dayCell.label.textColor = Colors.gray
         }
+        
+        let calendar = Calendar.current
+        
+        
+        dayCell.isToday = calendar.isDateInToday(cellState.date)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         let dayCell = cell as! DayCellView
         
-        // Let's make the view have rounded corners. Set corner radius to 25
         dayCell.selectionEmphasis.layer.cornerRadius =  5
         
+        // Let's make the view have rounded corners. Set corner radius to 25
+        
         if cellState.isSelected {
-            dayCell.selectionEmphasis.isHidden = false
+            UIView.animate(withDuration: 0.5, animations: {
+                dayCell.selectionEmphasis.alpha = 1.0
+            })
         }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         let dayCell = cell as! DayCellView
-        dayCell.selectionEmphasis.isHidden = true
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            dayCell.selectionEmphasis.alpha = 0.0
+        })
     }
 
 }
