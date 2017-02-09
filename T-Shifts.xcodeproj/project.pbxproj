@@ -51,7 +51,7 @@
 		F81D260B1E36693500B61E66 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		F847D6DA1E44854C007B8847 /* ShiftTypesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTypesDataSource.swift; sourceTree = "<group>"; };
 		F847D6DC1E4487FE007B8847 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditShiftTypeViewController.swift; path = ../EditShiftTypeViewController.swift; sourceTree = "<group>"; };
+		F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditShiftTypeViewController.swift; path = "T-Shifts/EditShiftTypeViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewDelegate.swift; sourceTree = "<group>"; };
 		F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDataSource.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "T-ShiftsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsUITests.swift; sourceTree = "<group>"; };
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShiftsModel.swift; path = ../ShiftsModel.swift; sourceTree = "<group>"; };
+		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShiftsModel.swift; path = "T-Shifts/ShiftsModel.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
