@@ -17,6 +17,7 @@
 		F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */; };
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
+		F84A6D121E4DCC9700FA9168 /* ShiftTypeMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84A6D111E4DCC9700FA9168 /* ShiftTypeMarkView.swift */; };
 		F88887E71E2D3093001F4DA6 /* ShiftTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */; };
 		F8AACC501E292CDE00284310 /* ShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */; };
 		F8AACC531E29309400284310 /* TableViewShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AACC511E29309400284310 /* TableViewShiftCell.swift */; };
@@ -61,6 +62,7 @@
 		F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditShiftTypeViewController.swift; path = "T-Shifts/EditShiftTypeViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
+		F84A6D111E4DCC9700FA9168 /* ShiftTypeMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTypeMarkView.swift; sourceTree = "<group>"; };
 		F88887E61E2D3093001F4DA6 /* ShiftTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewDelegate.swift; sourceTree = "<group>"; };
 		F8AACC4F1E292CDE00284310 /* ShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDataSource.swift; sourceTree = "<group>"; };
 		F8AACC511E29309400284310 /* TableViewShiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewShiftCell.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				F8AACC511E29309400284310 /* TableViewShiftCell.swift */,
 				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
 				F814F8B11E4CB65800E67057 /* DayCellView.swift */,
+				F84A6D111E4DCC9700FA9168 /* ShiftTypeMarkView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */,
 				F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */,
 				F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */,
+				F84A6D121E4DCC9700FA9168 /* ShiftTypeMarkView.swift in Sources */,
 				F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */,
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,

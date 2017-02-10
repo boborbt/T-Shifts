@@ -56,6 +56,8 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         let dayCell = cell as! DayCellView
         
+        dayCell.mark1.isHidden = false
+        
         dayCell.selectionEmphasis.layer.cornerRadius =  5
         
         // Let's make the view have rounded corners. Set corner radius to 25

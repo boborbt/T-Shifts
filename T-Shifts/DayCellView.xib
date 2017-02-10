@@ -15,29 +15,70 @@
             <rect key="frame" x="0.0" y="0.0" width="113" height="106"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qc7-4I-vl4">
-                    <rect key="frame" x="0.0" y="0.0" width="113" height="106"/>
+                <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qc7-4I-vl4">
+                    <rect key="frame" x="-131" y="-281" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.92766039598743488" blue="0.0032060943817033838" alpha="0.337890625" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-lH-VRs">
-                    <rect key="frame" x="35" y="43" width="42" height="21"/>
+                    <rect key="frame" x="35" y="42" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xT0-er-F3e" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
+                    <rect key="frame" x="5" y="92" width="8" height="8"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="bdp-Za-b6f"/>
+                        <constraint firstAttribute="width" constant="8" id="kT8-Gm-Xbr"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vue-K0-PEk" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
+                    <rect key="frame" x="13" y="92" width="8" height="8"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="Npu-t4-1dm"/>
+                        <constraint firstAttribute="width" constant="8" id="eEN-fC-Rup"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-cP-Lvj" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
+                    <rect key="frame" x="21" y="92" width="8" height="8"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="N2J-T2-aCs"/>
+                        <constraint firstAttribute="height" constant="8" id="WaW-6m-4g4"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2GQ-ok-gIX" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
+                    <rect key="frame" x="29" y="92" width="8" height="8"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="H9q-vt-lXt"/>
+                        <constraint firstAttribute="height" constant="8" id="TfI-re-avP"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Prc-lH-VRs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Bqh-7g-JRL"/>
-                <constraint firstItem="Qc7-4I-vl4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CZn-H3-Cvs"/>
-                <constraint firstItem="Qc7-4I-vl4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HRM-om-P4q"/>
-                <constraint firstAttribute="trailing" secondItem="Qc7-4I-vl4" secondAttribute="trailing" id="Hba-yH-OM8"/>
-                <constraint firstAttribute="bottom" secondItem="Qc7-4I-vl4" secondAttribute="bottom" id="dOZ-gS-KeO"/>
-                <constraint firstItem="Prc-lH-VRs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ju5-nH-Ger"/>
+                <constraint firstAttribute="bottom" secondItem="2GQ-ok-gIX" secondAttribute="bottom" constant="6" id="Cm8-Md-NVR"/>
+                <constraint firstAttribute="bottom" secondItem="1h3-cP-Lvj" secondAttribute="bottom" constant="6" id="EVP-0L-LgO"/>
+                <constraint firstAttribute="bottom" secondItem="vue-K0-PEk" secondAttribute="bottom" constant="6" id="H60-Hz-tpz"/>
+                <constraint firstItem="Prc-lH-VRs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HIn-YW-spN"/>
+                <constraint firstItem="2GQ-ok-gIX" firstAttribute="leading" secondItem="1h3-cP-Lvj" secondAttribute="trailing" id="PZv-GK-nVV"/>
+                <constraint firstAttribute="bottom" secondItem="xT0-er-F3e" secondAttribute="bottom" constant="6" id="ZaP-Ut-aGJ"/>
+                <constraint firstItem="xT0-er-F3e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="bU9-iR-w8w"/>
+                <constraint firstItem="1h3-cP-Lvj" firstAttribute="leading" secondItem="vue-K0-PEk" secondAttribute="trailing" id="dKk-Ww-wRg"/>
+                <constraint firstItem="Prc-lH-VRs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fsx-uf-0Ox"/>
+                <constraint firstItem="vue-K0-PEk" firstAttribute="leading" secondItem="xT0-er-F3e" secondAttribute="trailing" id="v4L-D8-T5v"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="label" destination="Prc-lH-VRs" id="GRn-gS-iNN"/>
+                <outlet property="mark1" destination="xT0-er-F3e" id="TMK-3U-Qzb"/>
+                <outlet property="mark2" destination="vue-K0-PEk" id="HeO-Df-k3b"/>
+                <outlet property="mark3" destination="1h3-cP-Lvj" id="QkC-HQ-Loc"/>
+                <outlet property="mark4" destination="2GQ-ok-gIX" id="OfQ-2s-J8D"/>
                 <outlet property="selectionEmphasis" destination="Qc7-4I-vl4" id="RCP-32-qB1"/>
             </connections>
             <point key="canvasLocation" x="-95.5" y="-217"/>
