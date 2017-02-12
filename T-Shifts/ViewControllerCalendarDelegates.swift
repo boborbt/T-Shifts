@@ -39,42 +39,32 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         
         // Setup Cell text
         dayCell.label.text = cellState.text
-        
-        // Setup text color
-        if cellState.dateBelongsTo == .thisMonth {
-            dayCell.label.textColor = Colors.black
-        } else {
-            dayCell.label.textColor = Colors.gray
-        }
+        dayCell.isEmphasized = cellState.isSelected
+        dayCell.isInCurrentMonth = cellState.dateBelongsTo == .thisMonth
+
         
         let calendar = Calendar.current
         
-        
         dayCell.isToday = calendar.isDateInToday(cellState.date)
+        let shift = shiftStorage!.shift(forDate: cellState.date)
+        
+        if shift != nil {
+            dayCell.mark1.isHidden = false
+        } else {
+            dayCell.mark1.isHidden = true
+        }
+        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        let dayCell = cell as! DayCellView
-        
-        dayCell.mark1.isHidden = false
-        
-        dayCell.selectionEmphasis.layer.cornerRadius =  5
-        
-        // Let's make the view have rounded corners. Set corner radius to 25
-        
-        if cellState.isSelected {
-            UIView.animate(withDuration: 0.5, animations: {
-                dayCell.selectionEmphasis.alpha = 1.0
-            })
-        }
+        guard let dayCell = cell as? DayCellView else { return }
+        dayCell.isEmphasized = cellState.isSelected
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        let dayCell = cell as! DayCellView
+        guard let dayCell = cell as? DayCellView else { return }
         
-        UIView.animate(withDuration: 0.5, animations: {
-            dayCell.selectionEmphasis.alpha = 0.0
-        })
+        dayCell.isEmphasized = cellState.isSelected
     }
 
 }

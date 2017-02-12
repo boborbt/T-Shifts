@@ -88,6 +88,14 @@ class ShiftStorage {
         let calendar = Calendar(identifier: .gregorian)
         return shifts.index(where: { shift in return calendar.isDate(shift.date, inSameDayAs: date) })
     }
+    
+    func shift(forDate date:Date) -> Shift? {
+        if let shiftIndex = indexOfRow(forDate:date) {
+            return shifts[shiftIndex]
+        } else {
+            return nil
+        }
+    }
 }
 
 enum CalendarUpdaterError {

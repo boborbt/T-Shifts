@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         shiftStorage = delegate.shiftStorage
         shiftStorage!.notifyChanges {
-            // FIXME: reload data
+            self.calendarView.reloadData()
         }
         
         if options!.calendar == "None" {
@@ -49,13 +49,15 @@ class ViewController: UIViewController {
 
     
     @IBAction func addShift(_ sender: UIBarButtonItem) {
-//        let date = datePicker.date
-        let date = Date()
+        let dates = calendarView.selectedDates
+        if dates.count == 0 {
+            return
+        }
+        
+        let date = dates[0]
         
         shiftStorage!.add( date, value: options!.shiftNames[sender.title!]!)
-//        datePicker.date = datePicker.date + 1 * ViewController.DAY
-        
-//        scrollShiftView(toDate:date)
+        calendarView.selectDates( [date + 1 * ViewController.DAY] )
     }
     
 //    func scrollShiftView(toDate date: Date) {
@@ -71,10 +73,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removeShift(_ sender: UIButton) {
-//        if let indexPath = shiftView.indexPathForSelectedRow {
-//            shiftStorage?.remove(shiftStorage!.shifts[indexPath.row].date)
-//            shiftView.reloadData()
-//        }
+        if calendarView.selectedDates.count == 0 { return }
+        let date = calendarView.selectedDates.first!
+        if shiftStorage?.shift(forDate: date) == nil { return }
+        
+        shiftStorage!.remove(date)
     }
     
     @IBAction func clearAll(_ sender: UIButton) {

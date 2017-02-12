@@ -13,7 +13,49 @@ class DayCellView: JTAppleDayCellView {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var selectionEmphasis: UIView!
     
-    var isToday: Bool = false
+    var showEmphasis: Bool = false
+    var showTodayMark: Bool = false
+    
+    var isToday: Bool {
+        set(newVal) {
+            showTodayMark = newVal
+            setNeedsDisplay()
+        }
+        
+        get {
+            return showTodayMark
+        }
+    }
+    
+    var isEmphasized: Bool {
+        get {
+            return showEmphasis
+        }
+        
+        set(newVal) {
+            showEmphasis = newVal
+            
+            selectionEmphasis.layer.cornerRadius = 5
+            selectionEmphasis.alpha = newVal ? 1.0 : 0.0
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.selectionEmphasis.alpha = newVal ? 1.0 : 0.0
+//            })
+        }
+    }
+    
+    var isInCurrentMonth: Bool {
+        get {
+            return label.textColor.isEqual(Colors.black)
+        }
+        
+        set(newVal) {
+            if newVal {
+                label.textColor = Colors.black
+            } else {
+                label.textColor = Colors.gray
+            }
+        }
+    }
     
     @IBOutlet weak var mark1: ShiftTypeMarkView!
     @IBOutlet weak var mark2: ShiftTypeMarkView!
@@ -23,7 +65,7 @@ class DayCellView: JTAppleDayCellView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        if isToday {
+        if showTodayMark {
             drawTodayMark(rect)
         }
     }

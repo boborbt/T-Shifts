@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,9 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="113" height="106"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qc7-4I-vl4">
-                    <rect key="frame" x="-131" y="-281" width="375" height="667"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qc7-4I-vl4">
+                    <rect key="frame" x="0.0" y="0.0" width="113" height="106"/>
                     <color key="backgroundColor" red="1" green="0.92766039598743488" blue="0.0032060943817033838" alpha="0.337890625" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-lH-VRs">
@@ -61,15 +60,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Qc7-4I-vl4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9lt-vh-WUB"/>
                 <constraint firstAttribute="bottom" secondItem="2GQ-ok-gIX" secondAttribute="bottom" constant="6" id="Cm8-Md-NVR"/>
                 <constraint firstAttribute="bottom" secondItem="1h3-cP-Lvj" secondAttribute="bottom" constant="6" id="EVP-0L-LgO"/>
                 <constraint firstAttribute="bottom" secondItem="vue-K0-PEk" secondAttribute="bottom" constant="6" id="H60-Hz-tpz"/>
                 <constraint firstItem="Prc-lH-VRs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HIn-YW-spN"/>
+                <constraint firstAttribute="trailing" secondItem="Qc7-4I-vl4" secondAttribute="trailing" id="MXs-y3-O3N"/>
                 <constraint firstItem="2GQ-ok-gIX" firstAttribute="leading" secondItem="1h3-cP-Lvj" secondAttribute="trailing" id="PZv-GK-nVV"/>
+                <constraint firstItem="Qc7-4I-vl4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="V3c-su-Zqz"/>
                 <constraint firstAttribute="bottom" secondItem="xT0-er-F3e" secondAttribute="bottom" constant="6" id="ZaP-Ut-aGJ"/>
                 <constraint firstItem="xT0-er-F3e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="bU9-iR-w8w"/>
                 <constraint firstItem="1h3-cP-Lvj" firstAttribute="leading" secondItem="vue-K0-PEk" secondAttribute="trailing" id="dKk-Ww-wRg"/>
                 <constraint firstItem="Prc-lH-VRs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fsx-uf-0Ox"/>
+                <constraint firstAttribute="bottom" secondItem="Qc7-4I-vl4" secondAttribute="bottom" id="h2p-Qh-sVd"/>
                 <constraint firstItem="vue-K0-PEk" firstAttribute="leading" secondItem="xT0-er-F3e" secondAttribute="trailing" id="v4L-D8-T5v"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
