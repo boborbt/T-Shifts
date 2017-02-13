@@ -60,16 +60,8 @@ class ViewController: UIViewController {
         calendarView.selectDates( [date + 1 * ViewController.DAY] )
     }
     
-//    func scrollShiftView(toDate date: Date) {
-//        if let index = shiftStorage!.indexOfRow(forDate:date) {
-//            let indexPath = IndexPath( row:index, section:0)
-//            shiftView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: true)
-//        }
-//    }
-    
     @IBAction func gotoToday(_ sender: UIButton) {
-//        datePicker.date = Date()
-//        scrollShiftView(toDate: datePicker.date)
+        calendarView.selectDates([Date()])
     }
     
     @IBAction func removeShift(_ sender: UIButton) {
@@ -87,7 +79,6 @@ class ViewController: UIViewController {
         
         let clear = UIAlertAction(title:"Clear all", style: .destructive, handler: {_ in
             self.shiftStorage!.shifts.removeAll()
-//            self.shiftView!.reloadData()
         })
         
         let cancel = UIAlertAction(title:"Cancel", style: .cancel, handler: {_ in return} )

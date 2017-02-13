@@ -36,23 +36,21 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
         let dayCell = cell as! DayCellView
+        let calendar = Calendar.current
         
         // Setup Cell text
         dayCell.label.text = cellState.text
         dayCell.isEmphasized = cellState.isSelected
         dayCell.isInCurrentMonth = cellState.dateBelongsTo == .thisMonth
-
-        
-        let calendar = Calendar.current
-        
         dayCell.isToday = calendar.isDateInToday(cellState.date)
-        let shift = shiftStorage!.shift(forDate: cellState.date)
         
-        if shift != nil {
-            dayCell.mark1.isHidden = false
+        if let shift = shiftStorage!.shift(forDate: cellState.date) {
+            dayCell.marks = [shift.abbreviation]
         } else {
-            dayCell.mark1.isHidden = true
+            dayCell.marks = []
         }
+        
+        dayCell.updateAspect()
         
     }
     

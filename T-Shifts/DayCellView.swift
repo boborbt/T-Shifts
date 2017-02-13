@@ -13,19 +13,38 @@ class DayCellView: JTAppleDayCellView {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var selectionEmphasis: UIView!
     
+    @IBOutlet weak var mark1: ShiftTypeMarkView!
+    @IBOutlet weak var mark2: ShiftTypeMarkView!
+    @IBOutlet weak var mark3: ShiftTypeMarkView!
+    @IBOutlet weak var mark4: ShiftTypeMarkView!
+
+    
+    var isToday: Bool = false
+    var isInCurrentMonth: Bool = false
+    
     var showEmphasis: Bool = false
     var showTodayMark: Bool = false
+    var markNames: [ShiftTypeMarkView:String]!
     
-    var isToday: Bool {
-        set(newVal) {
-            showTodayMark = newVal
-            setNeedsDisplay()
+    var marks: [String] {
+        get {
+            var result: [String] = []
+            for (mark,shortcut) in markNames {
+                if mark.alpha > 0.0 {
+                    result.append(shortcut)
+                }
+            }
+            return result
         }
         
-        get {
-            return showTodayMark
+        set(newMarks) {
+            for (mark, shortcut) in markNames {
+                let display = newMarks.index(where: { str in return shortcut == str }) != nil
+                mark.alpha = display ? 1.0 : 0.0
+            }
         }
     }
+    
     
     var isEmphasized: Bool {
         get {
@@ -37,44 +56,28 @@ class DayCellView: JTAppleDayCellView {
             
             selectionEmphasis.layer.cornerRadius = 5
             selectionEmphasis.alpha = newVal ? 1.0 : 0.0
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.selectionEmphasis.alpha = newVal ? 1.0 : 0.0
-//            })
         }
     }
     
-    var isInCurrentMonth: Bool {
-        get {
-            return label.textColor.isEqual(Colors.black)
+    func updateAspect() {
+        if !isInCurrentMonth {
+            label.textColor = UIColor.gray
+            return
         }
         
-        set(newVal) {
-            if newVal {
-                label.textColor = Colors.black
-            } else {
-                label.textColor = Colors.gray
-            }
+        if isToday {
+            label.textColor = UIColor.red
+            return
         }
+        
+        label.textColor = UIColor.black
     }
     
-    @IBOutlet weak var mark1: ShiftTypeMarkView!
-    @IBOutlet weak var mark2: ShiftTypeMarkView!
-    @IBOutlet weak var mark3: ShiftTypeMarkView!
-    @IBOutlet weak var mark4: ShiftTypeMarkView!
+    override func awakeFromNib() {
+        markNames = [mark1:"M", mark2:"P", mark3:"N", mark4:"R"]
 
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        if showTodayMark {
-            drawTodayMark(rect)
+        for (mark,_) in markNames {
+            mark.layer.cornerRadius = 5
         }
-    }
-    
-    func drawTodayMark(_ rect: CGRect) {
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.midX,y: rect.midY), radius: rect.width / 2.5, startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
-        
-        
-        UIColor.red.setStroke()
-        circlePath.stroke()
     }
 }
