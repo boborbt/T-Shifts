@@ -59,15 +59,15 @@ class ViewController: UIViewController {
     
     func setupConstraints() {
         detailsDayCellView.translatesAutoresizingMaskIntoConstraints = false
-        detailsDayCellView.topAnchor.constraint(equalTo: dayDetailsView.topAnchor).isActive = true
-        detailsDayCellView.bottomAnchor.constraint(equalTo: dayDetailsView.bottomAnchor).isActive = true
-        detailsDayCellView.leadingAnchor.constraint(equalTo: dayDetailsView.leadingAnchor).isActive = true
-        detailsDayCellView.widthAnchor.constraint(equalTo: dayDetailsView.heightAnchor).isActive = true
+        detailsDayCellView.topAnchor.constraint(equalTo: dayDetailsView.topAnchor, constant: +5).isActive = true
+        detailsDayCellView.bottomAnchor.constraint(equalTo: dayDetailsView.bottomAnchor, constant: -5).isActive = true
+        detailsDayCellView.leadingAnchor.constraint(equalTo: dayDetailsView.leadingAnchor, constant: +5).isActive = true
+        detailsDayCellView.widthAnchor.constraint(equalTo: dayDetailsView.heightAnchor, constant: -10).isActive = true
         
         
         detailsLabel.translatesAutoresizingMaskIntoConstraints = false
+        detailsLabel.centerYAnchor.constraint(equalTo: dayDetailsView.centerYAnchor).isActive = true
         detailsLabel.leadingAnchor.constraint(equalTo: detailsDayCellView.trailingAnchor, constant: +5).isActive = true
-        detailsLabel.topAnchor.constraint(equalTo: dayDetailsView.topAnchor, constant: +5).isActive = true
 
     }
     
@@ -81,7 +81,9 @@ class ViewController: UIViewController {
     func setupDetailsDayCellView() {
         detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
         detailsDayCellView.label.font = UIFont.systemFont(ofSize: 14)
+        detailsDayCellView.layer.cornerRadius = 10
 
+        calendarView.selectDates([Date()])
     }
 
     
@@ -94,7 +96,7 @@ class ViewController: UIViewController {
         let date = dates[0]
         
         shiftStorage!.add( date, value: options!.shiftNames[sender.title!]!)
-        calendarView.selectDates( [date + 1 * ViewController.DAY] )
+        calendarView.selectDates([date + 1 * ViewController.DAY], triggerSelectionDelegate: true)
     }
     
     @IBAction func gotoToday(_ sender: UIButton) {

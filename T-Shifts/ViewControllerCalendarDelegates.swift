@@ -52,6 +52,9 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         
         dayCell.updateAspect()
         
+        if cellState.isSelected {
+         detailsDayCellView.copyAttributes(from: dayCell)
+        }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
@@ -65,8 +68,6 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         guard let dayCell = cell as? DayCellView else { return }
         
         dayCell.isEmphasized = cellState.isSelected
-        
-        detailsDayCellView.clearAttributes()
     }
 
 }
