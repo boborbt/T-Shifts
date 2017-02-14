@@ -80,4 +80,20 @@ class DayCellView: JTAppleDayCellView {
             mark.layer.cornerRadius = 5
         }
     }
+    
+    func copyAttributes(from dayCell:DayCellView) {
+        label.text = dayCell.label.text
+        isToday = dayCell.isToday
+        isInCurrentMonth = dayCell.isInCurrentMonth
+        marks = dayCell.marks
+        
+        updateAspect()
+    }
+    
+    func clearAttributes() {
+        isToday = false
+        label.text = ""
+        marks = []
+        updateAspect()
+    }
 }

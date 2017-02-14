@@ -57,12 +57,16 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         guard let dayCell = cell as? DayCellView else { return }
         dayCell.isEmphasized = cellState.isSelected
+        
+        detailsDayCellView.copyAttributes(from: dayCell)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         guard let dayCell = cell as? DayCellView else { return }
         
         dayCell.isEmphasized = cellState.isSelected
+        
+        detailsDayCellView.clearAttributes()
     }
 
 }

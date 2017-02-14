@@ -19,23 +19,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var dayDetailsView: UIView!
+    
+    var detailsDayCellView: DayCellView!
+    var detailsLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        
         options = delegate.options
         
         calendarUpdater = delegate.calendarUpdater
         calendarUpdater!.requestAccess()
         
         
-        calendarView.dataSource = self
-        calendarView.delegate = self
-        calendarView.registerCellViewXib(file: "DayCellView")
-        calendarView.cellInset = CGPoint(x: 0, y: 0)
+        setupCalendarView()
         
         shiftStorage = delegate.shiftStorage
         shiftStorage!.notifyChanges {
@@ -44,7 +44,44 @@ class ViewController: UIViewController {
         
         if options!.calendar == "None" {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
-        }        
+        }
+        
+        setupDetailsDayCellView()
+
+        detailsLabel = UILabel()
+        detailsLabel.text = "Test"
+
+        dayDetailsView.addSubview(detailsDayCellView)
+        dayDetailsView.addSubview(detailsLabel)
+        setupConstraints()
+    }
+    
+    
+    func setupConstraints() {
+        detailsDayCellView.translatesAutoresizingMaskIntoConstraints = false
+        detailsDayCellView.topAnchor.constraint(equalTo: dayDetailsView.topAnchor).isActive = true
+        detailsDayCellView.bottomAnchor.constraint(equalTo: dayDetailsView.bottomAnchor).isActive = true
+        detailsDayCellView.leadingAnchor.constraint(equalTo: dayDetailsView.leadingAnchor).isActive = true
+        detailsDayCellView.widthAnchor.constraint(equalTo: dayDetailsView.heightAnchor).isActive = true
+        
+        
+        detailsLabel.translatesAutoresizingMaskIntoConstraints = false
+        detailsLabel.leadingAnchor.constraint(equalTo: detailsDayCellView.trailingAnchor, constant: +5).isActive = true
+        detailsLabel.topAnchor.constraint(equalTo: dayDetailsView.topAnchor, constant: +5).isActive = true
+
+    }
+    
+    func setupCalendarView() {
+        calendarView.dataSource = self
+        calendarView.delegate = self
+        calendarView.registerCellViewXib(file: "DayCellView")
+        calendarView.cellInset = CGPoint(x: 0, y: 0)
+    }
+    
+    func setupDetailsDayCellView() {
+        detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
+        detailsDayCellView.label.font = UIFont.systemFont(ofSize: 14)
+
     }
 
     
