@@ -10,9 +10,6 @@ import UIKit
 import JTAppleCalendar
 
 class ViewController: UIViewController {
-    static let DAY = 60 * 60 * 24.0
-    
-    
     weak var shiftStorage: ShiftStorage?
     weak var calendarUpdater: CalendarShiftUpdater?
     weak var options: Options?
@@ -101,7 +98,7 @@ class ViewController: UIViewController {
         let date = dates[0]
         
         shiftStorage!.add( date, value: options!.shiftNames[sender.title!]!)
-        calendarView.selectDates([date + 1 * ViewController.DAY], triggerSelectionDelegate: true)
+        calendarView.selectDates([date + 1.days()], triggerSelectionDelegate: true)
     }
     
     @IBAction func gotoToday(_ sender: UIButton) {

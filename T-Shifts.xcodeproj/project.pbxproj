@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F80933071E55FAC000AF56FF /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80933061E55FAC000AF56FF /* IntExtension.swift */; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F80933061E55FAC000AF56FF /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */,
 				F847D6DC1E4487FE007B8847 /* Options.swift */,
 				F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */,
+				F80933061E55FAC000AF56FF /* IntExtension.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */,
 				F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */,
 				F84A6D121E4DCC9700FA9168 /* ShiftTypeMarkView.swift in Sources */,
+				F80933071E55FAC000AF56FF /* IntExtension.swift in Sources */,
 				F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */,
 				F8972CB31E5229B2008323FB /* TableViewShiftCell.swift in Sources */,
 				F8972CB21E5229B2008323FB /* ShiftTableViewDelegate.swift in Sources */,
