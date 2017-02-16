@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dayDetailsView: UIView!
     
+    @IBOutlet weak var MonthLabel: UILabel!
     var detailsDayCellView: DayCellView!
     var detailsLabel: UILabel!
     
@@ -76,6 +77,10 @@ class ViewController: UIViewController {
         calendarView.delegate = self
         calendarView.registerCellViewXib(file: "DayCellView")
         calendarView.cellInset = CGPoint(x: 0, y: 0)
+        calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
+        calendarView.scrollEnabled = true
+        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
+        calendarView.selectDates([Date()])
     }
     
     func setupDetailsDayCellView() {

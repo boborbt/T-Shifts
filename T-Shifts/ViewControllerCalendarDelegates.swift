@@ -22,8 +22,8 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
         
-        let startDate = formatter.date(from: "2017 02 01")! // You can use date generated from a formatter
-        let endDate = Date()                                // You can also use dates created from this function
+        let startDate = formatter.date(from: "2000 01 01")! // You can use date generated from a formatter
+        let endDate = formatter.date(from:"2100 01 01")!                                // You can also use dates created from this function
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
                                                  numberOfRows: 5, // Only 1, 2, 3, & 6 are allowed
@@ -68,6 +68,12 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         guard let dayCell = cell as? DayCellView else { return }
         
         dayCell.isEmphasized = cellState.isSelected
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM yyyy"
+        MonthLabel.text = dateFormatter.string(from: visibleDates.monthDates.first!)
     }
 
 }

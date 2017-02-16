@@ -6,26 +6,6 @@
 //  Copyright © 2017 Roberto Esposito. All rights reserved.
 //
 
-
-
-// # TODO
-// 
-// ## More event types
-// The interface should allow to add as much event types as necessary.
-// Ideally the most common ones should be fast to add to the shifts
-//
-// ## Events editing
-// The app should be able to read from the given calendar the events that the
-// itself added. It should also be able to edit and update them.
-//
-// ## Better events visualization
-// The main event display should be a calendar view
-//
-// ## Automatic alarms
-// The app should allow to set a clock alarm for each event type. For instance
-// one should be able to specify that an alarm have to fire at 6 a.m. every day
-// where a morning shift has been set.
-
 import UIKit
 
 @UIApplicationMain
