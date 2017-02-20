@@ -44,15 +44,12 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         dayCell.isInCurrentMonth = cellState.dateBelongsTo == .thisMonth
         dayCell.isToday = calendar.isDateInToday(cellState.date)
         
-        if let shifts = shiftStorage.shifts(at: cellState.date) {
-            let marks: [Int] = shifts.map { (shift) -> Int in
-                return shiftTemplates.tag(for: shift)!
-            }
-            dayCell.marks = marks
-        } else {
-            dayCell.marks = []
+        let shifts = shiftStorage.shifts(at: cellState.date)
+        let marks: [Int] = shifts.map { (shift) -> Int in
+            return shiftTemplates.tag(for: shift)!
         }
-        
+        dayCell.marks = marks
+
         dayCell.updateAspect()
         
         if cellState.isSelected {

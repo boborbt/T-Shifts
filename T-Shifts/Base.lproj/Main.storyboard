@@ -244,11 +244,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9Kw-Xt-2q6"/>
-                                    <barButtonItem systemItem="trash" id="Hdk-cU-4Yf">
-                                        <connections>
-                                            <action selector="removeShift:" destination="BYZ-38-t0r" id="4cw-tM-7kl"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

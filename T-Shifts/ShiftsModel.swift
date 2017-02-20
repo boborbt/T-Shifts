@@ -13,7 +13,9 @@ import UIKit
 protocol ShiftStorage: Sequence {
     func add(shift: Shift, toDate: Date) throws
     func remove(shift:Shift, fromDate: Date) throws
-    func shifts(at date: Date) -> [Shift]?
+    func isPresent(shift: Shift, at date: Date) -> Bool
+    
+    func shifts(at date: Date) -> [Shift]
     
     func notifyChanges(to function:@escaping (Date)->() )
 }
@@ -81,11 +83,17 @@ class CalendarShiftStorage : ShiftStorage {
         callback(date)
     }
     
-    func remove(shift:Shift, fromDate date: Date) {
-
+    func remove(shift:Shift, fromDate date: Date) throws {
+        try calendarUpdater.remove(shift: shift, at: date)
+        callback(date)
     }
     
-    func shifts(at date: Date) -> [Shift]? {
+    func isPresent(shift: Shift, at date: Date) -> Bool  {
+        let shifts = self.shifts(at: date)
+        return shifts.index(where: { s in shift == s }) != nil
+    }
+    
+    func shifts(at date: Date) -> [Shift] {
         let store = calendarUpdater.store
         let predicate = store.predicateForEvents(withStart: date, end: date + 1.days(), calendars: [calendarUpdater.targetCalendar!])
         let events = calendarUpdater.store.events(matching: predicate)
@@ -107,9 +115,14 @@ class CalendarShiftStorage : ShiftStorage {
 }
 
 class LocalShiftStorage: ShiftStorage {
-
     var storage: [Date:[Shift]] = [:]
     var callback: ((Date) -> ())!
+    
+    func isPresent(shift: Shift, at date: Date) -> Bool {
+        let shifts = self.shifts(at: date)
+        return shifts.index(where: { s in shift == s }) != nil
+    }
+
     
     func add(shift: Shift, toDate date: Date) throws {
         if storage[date] == nil {
@@ -134,9 +147,10 @@ class LocalShiftStorage: ShiftStorage {
         
         callback(date)
     }
-    
-    func shifts(at date: Date) -> [Shift]? {
-        return storage[date]
+        
+    func shifts(at date: Date) -> [Shift] {
+        guard let result = storage[date] else { return [] }
+        return result
     }
     
     func makeIterator() -> DictionaryIterator<Date,[Shift]> {
@@ -209,6 +223,18 @@ class CalendarShiftUpdater {
             NSLog("error occurred: " + shift.description)
         }
         
+    }
+    
+    func remove(shift: Shift, at date: Date) throws {
+        let predicate = store.predicateForEvents(withStart: date, end: date + 1.days(), calendars: [targetCalendar!])
+        
+        let events = store.events(matching: predicate)
+        
+        for event in events {
+            if event.title == shift.description {
+                try store.remove(event, span: .thisEvent)
+            }
+        }
     }
     
 

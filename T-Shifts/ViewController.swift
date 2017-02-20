@@ -94,27 +94,32 @@ class ViewController: UIViewController {
     
     @IBAction func addShift(_ sender: UIBarButtonItem) {
         let dates = calendarView.selectedDates
-        if dates.count == 0 {
-            return
-        }
-        
+        guard dates.count > 0 else { return }
         let date = dates[0]
         let shift = shiftTemplates.shift(for: sender.tag)!
         
         do {
-            try shiftStorage.add( shift: shift, toDate: date )
+            if shiftStorage.isPresent(shift: shift, at: date) {
+                try shiftStorage.remove(shift: shift, fromDate: date)
+            } else {
+                try shiftStorage.add( shift: shift, toDate: date )
+            }
         } catch {
-            NSLog("Cannot add shift -- error caught")
+            NSLog("Cannot add/remove shift -- error caught")
         }
         calendarView.selectDates([date + 1.days()])
     }
     
     @IBAction func removeShift(_ sender: UIButton) {
-        if calendarView.selectedDates.count == 0 { return }
-        let date = calendarView.selectedDates.first!
-        let targetShift = shiftTemplates.shift(for: sender.tag)!
-        
-        shiftStorage.remove(shift: targetShift, fromDate: date)
+//        if calendarView.selectedDates.count == 0 { return }
+//        let date = calendarView.selectedDates.first!
+//        let targetShift = shiftTemplates.shift(for: sender.tag)!
+//        
+//        do {
+//            try shiftStorage.remove(shift: targetShift, fromDate: date)
+//        } catch {
+//            NSlog(F)
+//        }
     }
     
 //    @IBAction func clearAll(_ sender: UIButton) {
