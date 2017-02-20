@@ -42,18 +42,18 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hgX-Wy-JCY" id="5ps-F0-Wmv">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wkO-JD-pfb">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fPA-Q6-28D">
-                                                    <rect key="frame" x="264" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="264" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -226,19 +226,19 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="7hB-Oj-kgZ"/>
-                                    <barButtonItem title="P" id="dC9-Uf-niM">
+                                    <barButtonItem tag="1" title="P" id="dC9-Uf-niM">
                                         <connections>
                                             <action selector="addShift:" destination="BYZ-38-t0r" id="5Zz-8M-beW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="FOj-IN-7Xk"/>
-                                    <barButtonItem title="N" id="dx2-VM-BiC">
+                                    <barButtonItem tag="2" title="N" id="dx2-VM-BiC">
                                         <connections>
                                             <action selector="addShift:" destination="BYZ-38-t0r" id="Nud-j9-AjO"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Gha-KA-hDL"/>
-                                    <barButtonItem title="R" style="plain" id="gVQ-AI-fir">
+                                    <barButtonItem tag="3" title="R" style="plain" id="gVQ-AI-fir">
                                         <connections>
                                             <action selector="addShift:" destination="BYZ-38-t0r" id="bkc-7B-Ntv"/>
                                         </connections>

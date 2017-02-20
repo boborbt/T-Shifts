@@ -24,23 +24,26 @@ class DayCellView: JTAppleDayCellView {
     
     var showEmphasis: Bool = false
     var showTodayMark: Bool = false
-    var markNames: [ShiftTypeMarkView:String]!
+    var markViews: [ShiftTypeMarkView]!
     
-    var marks: [String] {
+    var marks: [Int] {
         get {
-            var result: [String] = []
-            for (mark,shortcut) in markNames {
+            var result: [Int] = []
+            for mark in markViews {
                 if mark.alpha > 0.0 {
-                    result.append(shortcut)
+                    result.append(mark.tag)
                 }
             }
             return result
         }
         
-        set(newMarks) {
-            for (mark, shortcut) in markNames {
-                let display = newMarks.index(where: { str in return shortcut == str }) != nil
-                mark.alpha = display ? 1.0 : 0.0
+        set(markTags) {
+            for mark in markViews {
+                if markTags.index(of: mark.tag) != nil {
+                    mark.alpha = 1.0
+                } else {
+                    mark.alpha = 0.0
+                }
             }
         }
     }
@@ -74,9 +77,9 @@ class DayCellView: JTAppleDayCellView {
     }
     
     override func awakeFromNib() {
-        markNames = [mark1:"M", mark2:"P", mark3:"N", mark4:"R"]
+        markViews = [mark1, mark2, mark3, mark4]
 
-        for (mark,_) in markNames {
+        for mark in markViews {
             mark.layer.cornerRadius = 5
         }
     }

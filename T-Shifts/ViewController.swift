@@ -10,15 +10,17 @@ import UIKit
 import JTAppleCalendar
 
 class ViewController: UIViewController {
-    weak var shiftStorage: ShiftStorage?
-    weak var calendarUpdater: CalendarShiftUpdater?
-    weak var options: Options?
+    weak var shiftStorage: CalendarShiftStorage!
+    weak var calendarUpdater: CalendarShiftUpdater!
+    weak var options: Options!
+    weak var shiftTemplates: ShiftTemplates!
 
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dayDetailsView: UIView!
     
     @IBOutlet weak var MonthLabel: UILabel!
+    
     var detailsDayCellView: DayCellView!
     var detailsLabel: UILabel!
     
@@ -29,18 +31,19 @@ class ViewController: UIViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         options = delegate.options
         
+        shiftTemplates = delegate.shiftTemplates
         calendarUpdater = delegate.calendarUpdater
-        calendarUpdater!.requestAccess()
+        calendarUpdater.requestAccess()
         
         
         setupCalendarView()
         
         shiftStorage = delegate.shiftStorage
-        shiftStorage!.notifyChanges {
+        shiftStorage.notifyChanges { _ in
             self.calendarView.reloadData()
         }
         
-        if options!.calendar == "None" {
+        if options.calendar == "None" {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
         }
         
@@ -53,7 +56,7 @@ class ViewController: UIViewController {
         dayDetailsView.addSubview(detailsLabel)
         setupConstraints()
     }
-    
+        
     
     func setupConstraints() {
         detailsDayCellView.translatesAutoresizingMaskIntoConstraints = false
@@ -96,40 +99,41 @@ class ViewController: UIViewController {
         }
         
         let date = dates[0]
+        let shift = shiftTemplates.shift(for: sender.tag)!
         
-        shiftStorage!.add( date, value: options!.shiftNames[sender.title!]!)
-        calendarView.selectDates([date + 1.days()], triggerSelectionDelegate: true)
-    }
-    
-    @IBAction func gotoToday(_ sender: UIButton) {
-        calendarView.selectDates([Date()])
+        do {
+            try shiftStorage.add( shift: shift, toDate: date )
+        } catch {
+            NSLog("Cannot add shift -- error caught")
+        }
+        calendarView.selectDates([date + 1.days()])
     }
     
     @IBAction func removeShift(_ sender: UIButton) {
         if calendarView.selectedDates.count == 0 { return }
         let date = calendarView.selectedDates.first!
-        if shiftStorage?.shift(forDate: date) == nil { return }
+        let targetShift = shiftTemplates.shift(for: sender.tag)!
         
-        shiftStorage!.remove(date)
+        shiftStorage.remove(shift: targetShift, fromDate: date)
     }
     
-    @IBAction func clearAll(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Clearing shifts",
-                                      message: "Do you really want to clear all inserted shifts? This action cannot be undone",
-                                      preferredStyle: .alert)
-        
-        let clear = UIAlertAction(title:"Clear all", style: .destructive, handler: {_ in
-            self.shiftStorage!.shifts.removeAll()
-        })
-        
-        let cancel = UIAlertAction(title:"Cancel", style: .cancel, handler: {_ in return} )
-        alert.addAction(clear)
-        alert.addAction(cancel)
-        alert.preferredAction = cancel
-        
-        self.present(alert, animated:true, completion: nil)
-        
-    }
+//    @IBAction func clearAll(_ sender: UIButton) {
+//        let alert = UIAlertController(title: "Clearing shifts",
+//                                      message: "Do you really want to clear all inserted shifts? This action cannot be undone",
+//                                      preferredStyle: .alert)
+//        
+//        let clear = UIAlertAction(title:"Clear all", style: .destructive, handler: {_ in
+//            self.shiftStorage.shifts.removeAll()
+//        })
+//        
+//        let cancel = UIAlertAction(title:"Cancel", style: .cancel, handler: {_ in return} )
+//        alert.addAction(clear)
+//        alert.addAction(cancel)
+//        alert.preferredAction = cancel
+//        
+//        self.present(alert, animated:true, completion: nil)
+//        
+//    }
     
     
     
@@ -145,7 +149,7 @@ class ViewController: UIViewController {
         
         let ok = UIAlertAction(title: "Ok", style: .destructive, handler:  { _ in
             do {
-                try self.calendarUpdater!.update(with: self.shiftStorage!)
+                try self.calendarUpdater.update(with: self.shiftStorage)
                 self.showInfoDialog("Your shifts have been added to the calendar.")
             } catch CalendarUpdaterError.updateError(let reason) {
                 let errorMsg = String.localizedStringWithFormat("An error occurred while adding your shifts to the calendar. Reason: %s", reason)

@@ -32,15 +32,15 @@
                             <rect key="frame" x="0.0" y="0.0" width="91" height="28"/>
                             <color key="backgroundColor" red="1" green="0.88923918058966156" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vue-K0-PEk" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
+                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vue-K0-PEk" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="28" width="91" height="28"/>
                             <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-cP-Lvj" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
+                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-cP-Lvj" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="56" width="91" height="28"/>
                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2GQ-ok-gIX" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
+                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2GQ-ok-gIX" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="84" width="91" height="28"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F80933071E55FAC000AF56FF /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80933061E55FAC000AF56FF /* IntExtension.swift */; };
+		F80933091E5602BD00AF56FF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80933081E5602BD00AF56FF /* Errors.swift */; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		F80933061E55FAC000AF56FF /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		F80933081E5602BD00AF56FF /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = ../Errors.swift; sourceTree = "<group>"; };
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
@@ -115,10 +117,11 @@
 		F814F8AA1E4CAC5F00E67057 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */,
-				F847D6DC1E4487FE007B8847 /* Options.swift */,
 				F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */,
+				F847D6DC1E4487FE007B8847 /* Options.swift */,
+				F80933081E5602BD00AF56FF /* Errors.swift */,
 				F80933061E55FAC000AF56FF /* IntExtension.swift */,
+				F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				F8972CAE1E522945008323FB /* ShiftTypesDataSource.swift in Sources */,
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
 				F8972CB61E5229DF008323FB /* ShiftDataSource.swift in Sources */,
+				F80933091E5602BD00AF56FF /* Errors.swift in Sources */,
 				F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */,
 				F847D6DD1E4487FE007B8847 /* Options.swift in Sources */,
 				F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */,

@@ -10,98 +10,142 @@ import Foundation
 import EventKit
 import UIKit
 
+protocol ShiftStorage: Sequence {
+    func add(shift: Shift, toDate: Date) throws
+    func remove(shift:Shift, fromDate: Date) throws
+    func shifts(at date: Date) -> [Shift]?
+    
+    func notifyChanges(to function:@escaping (Date)->() )
+}
 
-struct Shift {
-    let date:Date
-    let value:String
-    
-    var description: String {
+
+struct Shift: Equatable, Hashable {
+    public var hashValue: Int {
         get {
-            let df = DateFormatter()
-            df.dateFormat = "YYYY-mm-dd"
-            return df.string(from: date) + ":" + value
+            return shortcut.hashValue
         }
     }
+
+    var description: String
+    var shortcut: String
     
-    var abbreviation: String {
-        get {
-            return value.substring(to: value.index(value.startIndex, offsetBy: 1))
-        }
-    }
-    
-    init(date:Date, value:String) {
-        self.date = date
-        self.value = value
+    static func == (lhs: Shift, rhs: Shift) -> Bool {
+        return lhs.shortcut == rhs.shortcut
     }
 }
 
-class ShiftStorage {
-    var shifts:[Shift] = [] {
-        didSet {
-            callback?()
-        }
-    }
-    var callback: (() -> ())?
+class ShiftTemplates {
+    var templates: [Shift:Int] = [:]
     
-    var description: String {
-        get {
-            return "[" + shifts.map { shift in return shift.description }.joined(separator:",") + "]"
+    func add(shift: Shift, withTag tag: Int) {
+        templates[shift] = tag
+    }
+    
+    func tag(for shift: Shift) -> Int? {
+        return templates[shift]
+    }
+    
+    func shift(for searchedTag: Int) -> Shift? {
+        for (shift,tag) in templates {
+            if tag == searchedTag {
+                return shift
+            }
         }
         
+        return nil
     }
     
-    var summary: String {
-        get {
-            return shifts.map { shift in return shift.abbreviation }.joined(separator: " ")
+    func shift(havingDescription description:String) -> Shift? {
+        for (shift, _) in templates {
+            if shift.description == description {
+                return shift
+            }
         }
+        
+        return nil
+    }
+}
+
+class CalendarShiftStorage : ShiftStorage {
+    var callback: ((Date) -> ())!
+    weak var shiftTemplates: ShiftTemplates!
+    weak var calendarUpdater: CalendarShiftUpdater!
+    
+    init(updater: CalendarShiftUpdater, templates: ShiftTemplates) {
+        calendarUpdater = updater
+        shiftTemplates = templates
     }
     
-    func add(_ date: Date, value:String) {
-        let newShift = Shift(date:date, value:value)
-        if let pos = self.indexOfRow(forDate: date) {
-            shifts[pos] = newShift
+    func add(shift: Shift, toDate date: Date) throws {
+        try calendarUpdater.add(shift: shift, at: date)
+        callback(date)
+    }
+    
+    func remove(shift:Shift, fromDate date: Date) {
+
+    }
+    
+    func shifts(at date: Date) -> [Shift]? {
+        let store = calendarUpdater.store
+        let predicate = store.predicateForEvents(withStart: date, end: date + 1.days(), calendars: [calendarUpdater.targetCalendar!])
+        let events = calendarUpdater.store.events(matching: predicate)
+        
+        return events.flatMap({ (event) in
+            let description = event.title
+            return self.shiftTemplates.shift(havingDescription: description)
+        })
+    }
+    
+    func makeIterator() -> DictionaryIterator<Date,[Shift]> {
+        return [:].makeIterator()
+    }
+    
+    func notifyChanges(to function: @escaping (Date) -> ()) {
+        callback = function
+    }
+
+}
+
+class LocalShiftStorage: ShiftStorage {
+
+    var storage: [Date:[Shift]] = [:]
+    var callback: ((Date) -> ())!
+    
+    func add(shift: Shift, toDate date: Date) throws {
+        if storage[date] == nil {
+            storage[date] = []
+        }
+        
+        if let _ = storage[date]!.index(of:shift) {
             return
         }
-
         
-        if let pos = shifts.index(where: { shift in shift.date >= date }) {
-            shifts.insert(newShift, at: pos)
-        } else {
-            shifts.append(newShift)
+        storage[date]!.append(shift)
+        
+        callback!(date)
+    }
+    
+    func remove(shift:Shift, fromDate date: Date) {
+        var dateInfo = storage[date]
+        
+        if let index = dateInfo?.index(of: shift) {
+            dateInfo?.remove(at: index)
         }
+        
+        callback(date)
     }
     
-    func remove(_ date:Date) {
-        if let index = shifts.index(where:{ shift in shift.date == date }) {
-            shifts.remove(at: index)
-        }
+    func shifts(at date: Date) -> [Shift]? {
+        return storage[date]
     }
     
-    // Sets the callback to be called when the data in the shiftStorage changes
-    func notifyChanges(to: @escaping () -> ()) {
-        callback = to
+    func makeIterator() -> DictionaryIterator<Date,[Shift]> {
+        return storage.makeIterator()
     }
     
-    // Returns the index of the shift with the given date.
-    // This methods returns nil if such shift does not exist
-    func indexOfRow(forDate date:Date) -> Int? {
-        let calendar = Calendar(identifier: .gregorian)
-        return shifts.index(where: { shift in return calendar.isDate(shift.date, inSameDayAs: date) })
+    func notifyChanges(to function: @escaping (Date) -> ()) {
+        callback = function
     }
-    
-    func shift(forDate date:Date) -> Shift? {
-        if let shiftIndex = indexOfRow(forDate:date) {
-            return shifts[shiftIndex]
-        } else {
-            return nil
-        }
-    }
-}
-
-enum CalendarUpdaterError {
-    case accessNotGranted
-    case accessError(String)
-    case updateError(String)
 }
 
 
@@ -111,6 +155,16 @@ class CalendarShiftUpdater {
         didSet {
             let delegate = UIApplication.shared.delegate as! AppDelegate
             delegate.options.calendar = targetCalendar!.title
+        }
+    }
+    
+    init(calendarName:String) {
+        let calendar = store.calendars(for: .event).first(where: { calendar in calendar.title == calendarName})
+        
+        if calendar != nil {
+            targetCalendar = calendar
+        } else {
+            targetCalendar = store.defaultCalendarForNewEvents
         }
     }
     
@@ -138,27 +192,32 @@ class CalendarShiftUpdater {
             
         })
     }
-
-
-    func update(with shiftStorage:ShiftStorage) throws {
-        for shift in shiftStorage.shifts {
-            if targetCalendar == nil {
-                targetCalendar = store.defaultCalendarForNewEvents
-            }
+    
+    func add(shift: Shift, at date: Date) throws {
+        do {
+            let event = EKEvent(eventStore: store)
             
-            do {
-                let event = EKEvent(eventStore: store)
-                
-                event.startDate = shift.date
-                event.endDate = shift.date
-                event.isAllDay = true
-                event.title = shift.value
-                event.calendar = targetCalendar!
-                
-                try store.save(event, span: EKSpan.thisEvent)
-                NSLog("event saved: " + shift.description)
-            } catch {
-                NSLog("error occurred: " + shift.description)
+            event.startDate = date
+            event.endDate = date
+            event.isAllDay = true
+            event.title = shift.description
+            event.calendar = targetCalendar!
+            
+            try store.save(event, span: EKSpan.thisEvent)
+            NSLog("event saved: " + shift.description)
+        } catch {
+            NSLog("error occurred: " + shift.description)
+        }
+        
+    }
+    
+
+
+
+    func update(with shiftStorage:CalendarShiftStorage) throws {
+        for (date,shifts) in shiftStorage {
+            for shift in shifts {
+                try add(shift: shift, at: date)
             }
         }
     }
