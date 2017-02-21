@@ -54,7 +54,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         dayCell.updateAspect()
         
         if cellState.isSelected {
-         detailsDayCellView.copyAttributes(from: dayCell)
+            detailsDayCellView.copyAttributes(from: dayCell)
         }
     }
     

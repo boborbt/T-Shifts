@@ -75,6 +75,11 @@ struct ShiftTemplate {
 // easy access to common functions.
 class ShiftTemplates {
     var templates: [ShiftTemplate] = []
+    var count: Int {
+        get {
+            return templates.count
+        }
+    }
     
     func add(shift: Shift, position: Int, color: UIColor) {
         templates.append( ShiftTemplate(shift: shift, position: position, color: color))

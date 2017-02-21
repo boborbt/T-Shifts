@@ -24,6 +24,7 @@
 		F8972CB31E5229B2008323FB /* TableViewShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8972CB01E5229B2008323FB /* TableViewShiftCell.swift */; };
 		F8972CB41E5229B2008323FB /* TableViewShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */; };
 		F8972CB61E5229DF008323FB /* ShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8972CB51E5229DF008323FB /* ShiftDataSource.swift */; };
+		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
 		F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* ViewController.swift */; };
@@ -71,6 +72,7 @@
 		F8972CB01E5229B2008323FB /* TableViewShiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewShiftCell.swift; sourceTree = "<group>"; };
 		F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewShiftCell.xib; sourceTree = "<group>"; };
 		F8972CB51E5229DF008323FB /* ShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDataSource.swift; sourceTree = "<group>"; };
+		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
 		F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				F814F8AF1E4CB60700E67057 /* DayCellView.xib */,
 				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
 				F814F8B11E4CB65800E67057 /* DayCellView.swift */,
+				F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */,
 				F84A6D111E4DCC9700FA9168 /* ShiftTypeMarkView.swift */,
 				F8972CB01E5229B2008323FB /* TableViewShiftCell.swift */,
 			);
@@ -384,6 +387,7 @@
 				F80933091E5602BD00AF56FF /* Errors.swift in Sources */,
 				F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */,
 				F847D6DD1E4487FE007B8847 /* Options.swift in Sources */,
+				F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */,
 				F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

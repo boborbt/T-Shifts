@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,63 +21,34 @@
                     <color key="backgroundColor" red="1" green="0.92766039598743488" blue="0.0032060943817033838" alpha="0.337890625" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-lH-VRs">
-                    <rect key="frame" x="5" y="5" width="22" height="13"/>
+                    <rect key="frame" x="5" y="5" width="27" height="13"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bJZ-2m-ZvE">
-                    <rect key="frame" x="32" y="5" width="91" height="112"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xT0-er-F3e" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="91" height="28"/>
-                            <color key="backgroundColor" red="1" green="0.88923918058966156" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
-                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vue-K0-PEk" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="28" width="91" height="28"/>
-                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-cP-Lvj" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="56" width="91" height="28"/>
-                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2GQ-ok-gIX" customClass="ShiftTypeMarkView" customModule="T_Shifts" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="84" width="91" height="28"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="vue-K0-PEk" firstAttribute="leading" secondItem="bJZ-2m-ZvE" secondAttribute="leading" id="0xS-Cy-FlX"/>
-                        <constraint firstAttribute="trailing" secondItem="2GQ-ok-gIX" secondAttribute="trailing" id="1HS-tI-ant"/>
-                        <constraint firstAttribute="trailing" secondItem="vue-K0-PEk" secondAttribute="trailing" id="8LH-4H-rzB"/>
-                        <constraint firstAttribute="trailing" secondItem="xT0-er-F3e" secondAttribute="trailing" id="99E-2G-ltC"/>
-                        <constraint firstAttribute="trailing" secondItem="1h3-cP-Lvj" secondAttribute="trailing" id="BHC-pu-syh"/>
-                        <constraint firstItem="1h3-cP-Lvj" firstAttribute="leading" secondItem="bJZ-2m-ZvE" secondAttribute="leading" id="Ehd-5D-ZSU"/>
-                        <constraint firstItem="xT0-er-F3e" firstAttribute="leading" secondItem="bJZ-2m-ZvE" secondAttribute="leading" id="Fcj-9U-lCz"/>
-                        <constraint firstItem="2GQ-ok-gIX" firstAttribute="leading" secondItem="bJZ-2m-ZvE" secondAttribute="leading" id="Vlc-zk-HVv"/>
-                    </constraints>
-                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZO-23-fxD" customClass="MarksDisplayView" customModule="T_Shifts" customModuleProvider="target">
+                    <rect key="frame" x="34" y="5" width="89" height="112"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="bJZ-2m-ZvE" secondAttribute="trailing" constant="5" id="2uZ-GL-COO"/>
                 <constraint firstItem="Prc-lH-VRs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="6xC-MQ-AV6"/>
                 <constraint firstAttribute="bottom" secondItem="Qc7-4I-vl4" secondAttribute="bottom" id="7J8-85-NhU"/>
+                <constraint firstAttribute="trailing" secondItem="Prc-lH-VRs" secondAttribute="trailing" multiplier="4" id="9Mn-MT-XhE"/>
                 <constraint firstAttribute="trailing" secondItem="Qc7-4I-vl4" secondAttribute="trailing" id="Gfm-ia-p6v"/>
-                <constraint firstItem="bJZ-2m-ZvE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="MxA-k5-TkD"/>
-                <constraint firstItem="bJZ-2m-ZvE" firstAttribute="leading" secondItem="Prc-lH-VRs" secondAttribute="trailing" constant="5" id="SSv-F6-V6w"/>
+                <constraint firstAttribute="bottom" secondItem="wZO-23-fxD" secondAttribute="bottom" constant="5" id="Jab-WS-VkL"/>
+                <constraint firstItem="wZO-23-fxD" firstAttribute="leading" secondItem="Prc-lH-VRs" secondAttribute="trailing" constant="2" id="S1t-HM-uQh"/>
+                <constraint firstAttribute="trailing" secondItem="wZO-23-fxD" secondAttribute="trailing" constant="5" id="Yic-do-Eb7"/>
                 <constraint firstItem="Qc7-4I-vl4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZHK-ky-gsW"/>
+                <constraint firstItem="wZO-23-fxD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="daF-i8-AWp"/>
                 <constraint firstItem="Qc7-4I-vl4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="je6-UR-3NI"/>
-                <constraint firstAttribute="bottom" secondItem="bJZ-2m-ZvE" secondAttribute="bottom" constant="5" id="lcw-TF-uvT"/>
                 <constraint firstItem="Prc-lH-VRs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="sZH-eb-U39"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="label" destination="Prc-lH-VRs" id="GRn-gS-iNN"/>
-                <outlet property="mark1" destination="xT0-er-F3e" id="TMK-3U-Qzb"/>
-                <outlet property="mark2" destination="vue-K0-PEk" id="HeO-Df-k3b"/>
-                <outlet property="mark3" destination="1h3-cP-Lvj" id="QkC-HQ-Loc"/>
-                <outlet property="mark4" destination="2GQ-ok-gIX" id="OfQ-2s-J8D"/>
+                <outlet property="marksDisplayView" destination="wZO-23-fxD" id="NIV-nA-olV"/>
                 <outlet property="selectionEmphasis" destination="Qc7-4I-vl4" id="RCP-32-qB1"/>
             </connections>
             <point key="canvasLocation" x="-194" y="-188"/>

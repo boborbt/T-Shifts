@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupShiftTemplates()
         calendarUpdater = CalendarShiftUpdater(calendarName:options.calendar)
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: shiftTemplates)
+        
+        MarksDisplayView.templates = shiftTemplates
         return true
     }
     

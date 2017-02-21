@@ -12,30 +12,18 @@ import JTAppleCalendar
 class DayCellView: JTAppleDayCellView {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var selectionEmphasis: UIView!
+    @IBOutlet weak var marksDisplayView: MarksDisplayView!
     
-    @IBOutlet weak var mark1: ShiftTypeMarkView!
-    @IBOutlet weak var mark2: ShiftTypeMarkView!
-    @IBOutlet weak var mark3: ShiftTypeMarkView!
-    @IBOutlet weak var mark4: ShiftTypeMarkView!
-
     
     var isToday: Bool = false
     var isInCurrentMonth: Bool = false
     
     var showEmphasis: Bool = false
     var showTodayMark: Bool = false
-    var markViews: [ShiftTypeMarkView]!
+
     var marks: [ShiftTemplate] = [] {
         didSet {
-            for mark in markViews {
-                mark.alpha = 0.0
-            }
-            
-            for template in marks {
-                let markView = markViews[template.position]
-                markView.alpha = 1.0
-                markView.color = template.color
-            }
+            marksDisplayView.marks = marks
         }
     }
     
@@ -67,12 +55,6 @@ class DayCellView: JTAppleDayCellView {
     }
     
     override func awakeFromNib() {
-        markViews = [mark1, mark2, mark3, mark4]
-
-        for mark in markViews {
-            mark.layer.cornerRadius = 5
-            mark.alpha = 0.0
-        }
     }
     
     func copyAttributes(from dayCell:DayCellView) {
