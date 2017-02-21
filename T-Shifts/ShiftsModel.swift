@@ -10,17 +10,11 @@ import Foundation
 import EventKit
 import UIKit
 
-protocol ShiftStorage: Sequence {
-    func add(shift: Shift, toDate: Date) throws
-    func remove(shift:Shift, fromDate: Date) throws
-    func isPresent(shift: Shift, at date: Date) -> Bool
-    
-    func shifts(at date: Date) -> [Shift]
-    
-    func notifyChanges(to function:@escaping (Date)->() )
-}
-
-
+// A Shift contains the informations needed to describe a shift
+// - a description and a shortcut
+//
+// Shift needs to be hashable and equatable by the shortcut only
+// i.e. the shortcut need to be a unique identifier for a shift "value"
 struct Shift: Equatable, Hashable {
     public var hashValue: Int {
         get {
@@ -28,20 +22,57 @@ struct Shift: Equatable, Hashable {
         }
     }
 
-    var description: String
-    var shortcut: String
-    
     static func == (lhs: Shift, rhs: Shift) -> Bool {
         return lhs.shortcut == rhs.shortcut
     }
+    
+    var description: String
+    var shortcut: String
+    
 }
 
+// A shift storage provides a mean to store shifts. The main
+// implementation will be based on the system calendar, but
+// other storage are conceivable.
+//
+// In the storage shifts are associated with dates. Each date
+// can contain zero or more shifts (with no limits imposed by
+// the storate -- they may be imposed by the UI though).
+protocol ShiftStorage: Sequence {
+    // Adds the given shift at the given date. It does not check
+    // if the shift is already present at the given date (the user
+    // can check it using the isPresent method).
+    func add(shift: Shift, toDate: Date) throws
+    
+    // Removes the shift from the given date. The shift must be present
+    // at the given date.
+    func remove(shift:Shift, fromDate: Date) throws
+    
+    // Returns true if the given shift is already present at the given date
+    func isPresent(shift: Shift, at date: Date) -> Bool
+    
+    // Returns the set of shifts at the given date
+    func shifts(at date: Date) -> [Shift]
+    
+    // tells the storage to notify any add/remove operation to the caller
+    // using the provided function.
+    func notifyChanges(to function:@escaping (Date)->() )
+}
+
+
+// A shift template associate a shift with additional properties
+// that are important to the UI such as the color for displaying it
+// and its position in the visualization grid.
 struct ShiftTemplate {
     var shift: Shift
     var position: Int
     var color: UIColor
 }
 
+
+// ShiftTemplates is presently nothing more than a wrapper around
+// a collection of shift templates. Its main purpose is to provide
+// easy access to common functions.
 class ShiftTemplates {
     var templates: [ShiftTemplate] = []
     
@@ -60,8 +91,13 @@ class ShiftTemplates {
     func template(havingDescription description:String) -> ShiftTemplate? {
         return templates.first(where: { template in template.shift.description == description} )
     }
+    
+    func add(_ newTemplates:[ShiftTemplate]) {
+        templates = newTemplates
+    }
 }
 
+// A shift storage based on the system calendar.
 class CalendarShiftStorage : ShiftStorage {
     var callback: ((Date) -> ())!
     weak var shiftTemplates: ShiftTemplates!
@@ -94,7 +130,7 @@ class CalendarShiftStorage : ShiftStorage {
         
         return events.flatMap({ (event) in
             let description = event.title
-            return self.shiftTemplates.shift(havingDescription: description)
+            return self.shiftTemplates.template(havingDescription: description)?.shift
         })
     }
     
@@ -107,6 +143,9 @@ class CalendarShiftStorage : ShiftStorage {
     }
 
 }
+
+// A shift storage that stores the shifts only in memory. Useful for debugging 
+// purposes (it was also the base of the old implementation)
 
 class LocalShiftStorage: ShiftStorage {
     var storage: [Date:[Shift]] = [:]
@@ -156,6 +195,10 @@ class LocalShiftStorage: ShiftStorage {
     }
 }
 
+
+// This class incapsulate the interaction with the system calendar
+// library. It simplifies the code by providing an easier interface
+// to the most used calendar functionalities.
 
 class CalendarShiftUpdater {
     var store = EKEventStore()

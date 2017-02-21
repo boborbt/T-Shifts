@@ -2,25 +2,50 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ShiftNamesOrder</key>
+	<key>ShiftTemplates</key>
 	<array>
-		<string>M</string>
-		<string>P</string>
-		<string>N</string>
-		<string>R</string>
+		<dict>
+			<key>shortcut</key>
+			<string>M</string>
+			<key>description</key>
+			<string>Mattino</string>
+			<key>position</key>
+			<integer>0</integer>
+			<key>color</key>
+			<integer>16711680</integer>
+		</dict>
+		<dict>
+			<key>shortcut</key>
+			<string>P</string>
+			<key>description</key>
+			<string>Pomeriggio</string>
+			<key>position</key>
+			<integer>1</integer>
+			<key>color</key>
+			<integer>65280</integer>
+		</dict>
+		<dict>
+			<key>shortcut</key>
+			<string>N</string>
+			<key>description</key>
+			<string>Notte</string>
+			<key>position</key>
+			<integer>2</integer>
+			<key>color</key>
+			<integer>255</integer>
+		</dict>
+		<dict>
+			<key>shortcut</key>
+			<string>R</string>
+			<key>description</key>
+			<string>Riposo</string>
+			<key>position</key>
+			<integer>3</integer>
+			<key>color</key>
+			<integer>10066329</integer>
+		</dict>
 	</array>
 	<key>Calendar</key>
 	<string>None</string>
-	<key>ShiftNames</key>
-	<dict>
-		<key>M</key>
-		<string>Mattino</string>
-		<key>P</key>
-		<string>Pomeriggio</string>
-		<key>N</key>
-		<string>Notte</string>
-		<key>R</key>
-		<string>Riposo</string>
-	</dict>
 </dict>
 </plist>

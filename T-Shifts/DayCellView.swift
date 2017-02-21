@@ -25,29 +25,19 @@ class DayCellView: JTAppleDayCellView {
     var showEmphasis: Bool = false
     var showTodayMark: Bool = false
     var markViews: [ShiftTypeMarkView]!
-    
-    var marks: [Int] {
-        get {
-            var result: [Int] = []
+    var marks: [ShiftTemplate] = [] {
+        didSet {
             for mark in markViews {
-                if mark.alpha > 0.0 {
-                    result.append(mark.tag)
-                }
+                mark.alpha = 0.0
             }
-            return result
-        }
-        
-        set(markTags) {
-            for mark in markViews {
-                if markTags.index(of: mark.tag) != nil {
-                    mark.alpha = 1.0
-                } else {
-                    mark.alpha = 0.0
-                }
+            
+            for template in marks {
+                let markView = markViews[template.position]
+                markView.alpha = 1.0
+                markView.color = template.color
             }
         }
     }
-    
     
     var isEmphasized: Bool {
         get {
@@ -81,6 +71,7 @@ class DayCellView: JTAppleDayCellView {
 
         for mark in markViews {
             mark.layer.cornerRadius = 5
+            mark.alpha = 0.0
         }
     }
     

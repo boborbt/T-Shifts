@@ -26,17 +26,21 @@ class ShiftTypesDataSource : NSObject, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard section ==  0  else { return 0 }
 
-        return options!.shiftNames.count
+        return options!.shiftTemplates.count
     }
 
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShiftTypeCell")!
-        let shiftKey = options!.shiftNamesOrder[indexPath.row]
-        let shiftName = options!.shiftNames[shiftKey]
+        let pos = indexPath.row
+        let delegate = UIApplication.shared.delegate as! AppDelegate
         
-        cell.textLabel?.text = shiftName
-        cell.detailTextLabel?.text = shiftKey
+        
+        let shiftTemplates = delegate.shiftTemplates!
+        let shift = shiftTemplates.template(at: pos)!.shift
+        
+        cell.textLabel?.text = shift.description
+        cell.detailTextLabel?.text = shift.shortcut
         
         return cell
     }

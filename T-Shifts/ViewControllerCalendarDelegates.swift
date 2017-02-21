@@ -45,10 +45,11 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         dayCell.isToday = calendar.isDateInToday(cellState.date)
         
         let shifts = shiftStorage.shifts(at: cellState.date)
-        let marks: [Int] = shifts.map { (shift) -> Int in
-            return shiftTemplates.template(for: shift)!.position
+        
+        let templates: [ShiftTemplate] = shifts.map { (shift) -> ShiftTemplate in
+            return shiftTemplates.template(for: shift)!
         }
-        dayCell.marks = marks
+        dayCell.marks = templates
 
         dayCell.updateAspect()
         

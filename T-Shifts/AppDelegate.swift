@@ -28,11 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupShiftTemplates() {
         shiftTemplates = ShiftTemplates()
-        let shiftNames = options.shiftNames
-        for (index, name) in options.shiftNamesOrder.enumerated() {
-            let description = shiftNames[name]!
-            shiftTemplates.add(shift: Shift(description: description, shortcut: name), position: index, color: UIColor.yellow)
-        }
+        shiftTemplates.add(options.shiftTemplates)
     }
 
 
