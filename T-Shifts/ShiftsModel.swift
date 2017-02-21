@@ -36,21 +36,27 @@ struct Shift: Equatable, Hashable {
     }
 }
 
+struct ShiftTemplate {
+    var shift: Shift
+    var position: Int
+    var color: UIColor
+}
+
 class ShiftTemplates {
-    var templates: [Shift:Int] = [:]
+    var templates: [ShiftTemplate] = []
     
     func add(shift: Shift, withTag tag: Int) {
-        templates[shift] = tag
+        templates.append( ShiftTemplate(shift: shift, position: tag, color: UIColor.yellow))
     }
     
     func tag(for shift: Shift) -> Int? {
-        return templates[shift]
+        return templates.first(where: { template in template.shift.shortcut == shift.shortcut })?.position
     }
     
     func shift(for searchedTag: Int) -> Shift? {
-        for (shift,tag) in templates {
-            if tag == searchedTag {
-                return shift
+        for template in templates {
+            if template.position == searchedTag {
+                return template.shift
             }
         }
         
@@ -58,9 +64,9 @@ class ShiftTemplates {
     }
     
     func shift(havingDescription description:String) -> Shift? {
-        for (shift, _) in templates {
-            if shift.description == description {
-                return shift
+        for template in templates {
+            if template.shift.description == description {
+                return template.shift
             }
         }
         
