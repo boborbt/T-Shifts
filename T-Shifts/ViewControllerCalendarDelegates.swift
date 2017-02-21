@@ -46,7 +46,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         
         let shifts = shiftStorage.shifts(at: cellState.date)
         let marks: [Int] = shifts.map { (shift) -> Int in
-            return shiftTemplates.tag(for: shift)!
+            return shiftTemplates.template(for: shift)!.position
         }
         dayCell.marks = marks
 

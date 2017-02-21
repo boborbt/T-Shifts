@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         let dates = calendarView.selectedDates
         guard dates.count > 0 else { return }
         let date = dates[0]
-        let shift = shiftTemplates.shift(for: sender.tag)!
+        let shift = shiftTemplates.template(at: sender.tag)!.shift
         
         do {
             if shiftStorage.isPresent(shift: shift, at: date) {

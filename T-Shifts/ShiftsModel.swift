@@ -45,32 +45,20 @@ struct ShiftTemplate {
 class ShiftTemplates {
     var templates: [ShiftTemplate] = []
     
-    func add(shift: Shift, withTag tag: Int) {
-        templates.append( ShiftTemplate(shift: shift, position: tag, color: UIColor.yellow))
+    func add(shift: Shift, position: Int, color: UIColor) {
+        templates.append( ShiftTemplate(shift: shift, position: position, color: color))
     }
     
-    func tag(for shift: Shift) -> Int? {
-        return templates.first(where: { template in template.shift.shortcut == shift.shortcut })?.position
+    func template(for shift: Shift) -> ShiftTemplate? {
+        return templates.first(where: { template in template.shift.shortcut == shift.shortcut })
     }
     
-    func shift(for searchedTag: Int) -> Shift? {
-        for template in templates {
-            if template.position == searchedTag {
-                return template.shift
-            }
-        }
-        
-        return nil
+    func template(at position: Int) -> ShiftTemplate? {
+        return templates.first(where: { template in template.position == position })
     }
     
-    func shift(havingDescription description:String) -> Shift? {
-        for template in templates {
-            if template.shift.description == description {
-                return template.shift
-            }
-        }
-        
-        return nil
+    func template(havingDescription description:String) -> ShiftTemplate? {
+        return templates.first(where: { template in template.shift.description == description} )
     }
 }
 
