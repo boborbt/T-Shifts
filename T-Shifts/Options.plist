@@ -12,7 +12,7 @@
 			<key>position</key>
 			<integer>0</integer>
 			<key>color</key>
-			<integer>16711680</integer>
+			<integer>16736768</integer>
 		</dict>
 		<dict>
 			<key>shortcut</key>
@@ -22,7 +22,7 @@
 			<key>position</key>
 			<integer>1</integer>
 			<key>color</key>
-			<integer>65280</integer>
+			<integer>16752384</integer>
 		</dict>
 		<dict>
 			<key>shortcut</key>
@@ -32,7 +32,7 @@
 			<key>position</key>
 			<integer>2</integer>
 			<key>color</key>
-			<integer>255</integer>
+			<integer>16765058</integer>
 		</dict>
 		<dict>
 			<key>shortcut</key>
@@ -42,7 +42,7 @@
 			<key>position</key>
 			<integer>3</integer>
 			<key>color</key>
-			<integer>10066329</integer>
+			<integer>11776947</integer>
 		</dict>
 	</array>
 	<key>Calendar</key>
