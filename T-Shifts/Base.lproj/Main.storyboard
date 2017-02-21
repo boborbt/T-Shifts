@@ -42,18 +42,18 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hgX-Wy-JCY" id="5ps-F0-Wmv">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wkO-JD-pfb">
-                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fPA-Q6-28D">
-                                                    <rect key="frame" x="264" y="12" width="44" height="20.5"/>
+                                                    <rect key="frame" x="264" y="11" width="44" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UZ9-ZB-b6K">
-                                <rect key="frame" x="0.0" y="54" width="375" height="569"/>
+                                <rect key="frame" x="0.0" y="54" width="375" height="613"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aj8-Oy-tIo" userLabel="Header">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -201,12 +201,12 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piA-ge-rc2" userLabel="Calendar" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="377"/>
+                                        <rect key="frame" x="0.0" y="88" width="375" height="421"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMC-lv-mub" userLabel="Details">
-                                        <rect key="frame" x="0.0" y="465" width="375" height="104"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMC-lv-mub" userLabel="Details" customClass="DayInfoView" customModule="T_Shifts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="509" width="375" height="104"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="104" id="Z9l-DM-fRa"/>
                                         </constraints>
@@ -214,48 +214,13 @@
                                 </subviews>
                                 <gestureRecognizers/>
                             </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-I1-3MQ">
-                                <rect key="frame" x="0.0" y="623" width="370" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="cLM-eK-icE"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="M" id="YQD-Aq-wLH">
-                                        <connections>
-                                            <action selector="addShift:" destination="BYZ-38-t0r" id="XpK-vk-iG3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zcd-Vq-hzm"/>
-                                    <barButtonItem tag="1" title="P" id="dC9-Uf-niM">
-                                        <connections>
-                                            <action selector="addShift:" destination="BYZ-38-t0r" id="5Zz-8M-beW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gDc-Li-Ub2"/>
-                                    <barButtonItem tag="2" title="N" id="dx2-VM-BiC">
-                                        <connections>
-                                            <action selector="addShift:" destination="BYZ-38-t0r" id="Nud-j9-AjO"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rOl-Fa-Twx"/>
-                                    <barButtonItem tag="3" title="R" style="plain" id="gVQ-AI-fir">
-                                        <connections>
-                                            <action selector="addShift:" destination="BYZ-38-t0r" id="bkc-7B-Ntv"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Apj-I1-3MQ" secondAttribute="trailing" constant="5" id="22K-Eb-HCJ"/>
-                            <constraint firstItem="Apj-I1-3MQ" firstAttribute="top" secondItem="UZ9-ZB-b6K" secondAttribute="bottom" id="JVs-uI-mF3"/>
                             <constraint firstItem="UZ9-ZB-b6K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="OuI-J7-3su"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Apj-I1-3MQ" secondAttribute="bottom" id="QnQ-ab-ASD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Apj-I1-3MQ" secondAttribute="bottom" id="UKj-Xg-MI3"/>
                             <constraint firstAttribute="trailing" secondItem="UZ9-ZB-b6K" secondAttribute="trailing" id="Wz8-xU-159"/>
-                            <constraint firstItem="Apj-I1-3MQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="l0z-WY-Act"/>
                             <constraint firstItem="UZ9-ZB-b6K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o6f-JJ-ayX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UZ9-ZB-b6K" secondAttribute="bottom" id="qss-xP-IFF"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -274,7 +239,7 @@
                     <connections>
                         <outlet property="MonthLabel" destination="slw-B3-fuN" id="8b3-3A-NMY"/>
                         <outlet property="calendarView" destination="piA-ge-rc2" id="dzs-OI-ge9"/>
-                        <outlet property="dayDetailsView" destination="pMC-lv-mub" id="HWI-QY-3n1"/>
+                        <outlet property="dayInfoView" destination="pMC-lv-mub" id="wZS-KM-EVF"/>
                         <outlet property="preferenceButton" destination="odh-UF-tob" id="k4c-uQ-y6M"/>
                     </connections>
                 </viewController>

@@ -15,14 +15,13 @@ class ViewController: UIViewController {
     weak var options: Options!
     weak var shiftTemplates: ShiftTemplates!
 
+    @IBOutlet weak var MonthLabel: UILabel!
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
-    @IBOutlet weak var dayDetailsView: UIView!
-    
-    @IBOutlet weak var MonthLabel: UILabel!
+    @IBOutlet weak var dayInfoView: DayInfoView!
     
     var detailsDayCellView: DayCellView!
-    var detailsLabel: UILabel!
+    var markButtonsView: UIView!
     
     
 // MARK: setup
@@ -49,27 +48,29 @@ class ViewController: UIViewController {
         }
         
         setupDetailsDayCellView()
-
-        detailsLabel = UILabel()
-        detailsLabel.text = "Test"
-
-        dayDetailsView.addSubview(detailsDayCellView)
-        dayDetailsView.addSubview(detailsLabel)
+        markButtonsView = Bundle.main.loadNibNamed("MarkButtonsView", owner: self, options: nil)!.first as! UIView
+        
+        dayInfoView.addSubview(detailsDayCellView)
+        dayInfoView.addSubview(markButtonsView)
+        dayInfoView.setupButtonTaps(controller: self)
+        
         setupConstraints()
     }
         
     
     func setupConstraints() {
         detailsDayCellView.translatesAutoresizingMaskIntoConstraints = false
-        detailsDayCellView.topAnchor.constraint(equalTo: dayDetailsView.topAnchor, constant: +5).isActive = true
-        detailsDayCellView.bottomAnchor.constraint(equalTo: dayDetailsView.bottomAnchor, constant: -5).isActive = true
-        detailsDayCellView.leadingAnchor.constraint(equalTo: dayDetailsView.leadingAnchor, constant: +5).isActive = true
-        detailsDayCellView.widthAnchor.constraint(equalTo: dayDetailsView.heightAnchor, constant: -10).isActive = true
+        detailsDayCellView.topAnchor.constraint(equalTo: dayInfoView.topAnchor, constant: +5).isActive = true
+        detailsDayCellView.bottomAnchor.constraint(equalTo: dayInfoView.bottomAnchor, constant: -5).isActive = true
+        detailsDayCellView.leadingAnchor.constraint(equalTo: dayInfoView.leadingAnchor, constant: +5).isActive = true
+        detailsDayCellView.widthAnchor.constraint(equalTo: dayInfoView.heightAnchor, constant: -10).isActive = true
         
         
-        detailsLabel.translatesAutoresizingMaskIntoConstraints = false
-        detailsLabel.centerYAnchor.constraint(equalTo: dayDetailsView.centerYAnchor).isActive = true
-        detailsLabel.leadingAnchor.constraint(equalTo: detailsDayCellView.trailingAnchor, constant: +5).isActive = true
+        markButtonsView.translatesAutoresizingMaskIntoConstraints = false
+        markButtonsView.leadingAnchor.constraint(equalTo: detailsDayCellView.trailingAnchor, constant: +5).isActive = true
+        markButtonsView.topAnchor.constraint(equalTo: dayInfoView.topAnchor).isActive = true
+        markButtonsView.bottomAnchor.constraint(equalTo: dayInfoView.bottomAnchor).isActive = true
+        markButtonsView.trailingAnchor.constraint(equalTo: dayInfoView.trailingAnchor).isActive = true
 
     }
     
@@ -88,13 +89,15 @@ class ViewController: UIViewController {
         detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
         detailsDayCellView.label.font = UIFont.systemFont(ofSize: 14)
         detailsDayCellView.layer.cornerRadius = 10
+        detailsDayCellView.layer.borderColor = UIColor.gray.cgColor
+        detailsDayCellView.layer.borderWidth = 1
 
         calendarView.selectDates([Date()])
     }
 
     
 // MARK: Add/remove shifts
-    @IBAction func addShift(_ sender: UIBarButtonItem) {
+    @IBAction func addShift(_ sender: UIButton) {
         let dates = calendarView.selectedDates
         guard dates.count > 0 else { return }
         let date = dates[0]
