@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     var detailsLabel: UILabel!
     
     
+// MARK: setup
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,8 +40,8 @@ class ViewController: UIViewController {
         setupCalendarView()
         
         shiftStorage = delegate.shiftStorage
-        shiftStorage.notifyChanges { _ in
-            self.calendarView.reloadData()
+        shiftStorage.notifyChanges { date in
+            self.calendarView.reloadDates([date])
         }
         
         if options.calendar == "None" {
@@ -92,6 +93,7 @@ class ViewController: UIViewController {
     }
 
     
+// MARK: Add/remove shifts
     @IBAction func addShift(_ sender: UIBarButtonItem) {
         let dates = calendarView.selectedDates
         guard dates.count > 0 else { return }
@@ -109,85 +111,6 @@ class ViewController: UIViewController {
         }
         calendarView.selectDates([date + 1.days()])
     }
-    
-    @IBAction func removeShift(_ sender: UIButton) {
-//        if calendarView.selectedDates.count == 0 { return }
-//        let date = calendarView.selectedDates.first!
-//        let targetShift = shiftTemplates.shift(for: sender.tag)!
-//        
-//        do {
-//            try shiftStorage.remove(shift: targetShift, fromDate: date)
-//        } catch {
-//            NSlog(F)
-//        }
-    }
-    
-//    @IBAction func clearAll(_ sender: UIButton) {
-//        let alert = UIAlertController(title: "Clearing shifts",
-//                                      message: "Do you really want to clear all inserted shifts? This action cannot be undone",
-//                                      preferredStyle: .alert)
-//        
-//        let clear = UIAlertAction(title:"Clear all", style: .destructive, handler: {_ in
-//            self.shiftStorage.shifts.removeAll()
-//        })
-//        
-//        let cancel = UIAlertAction(title:"Cancel", style: .cancel, handler: {_ in return} )
-//        alert.addAction(clear)
-//        alert.addAction(cancel)
-//        alert.preferredAction = cancel
-//        
-//        self.present(alert, animated:true, completion: nil)
-//        
-//    }
-    
-    
-    
-    @IBAction func updateCalendar(_ sender: UIButton) {
-        if !CalendarShiftUpdater.isAccessGranted() {
-            self.showInfoDialog("Access to the calendar has not been granted. Please allow acces in Settings : T-Shifts : Calendar Access")
-            return
-        }
-        
-        let alert = UIAlertController(title: "Updating calendar",
-                                      message: "Do you really want to update your calendar with the shifts you entered?",
-                                      preferredStyle: .alert)
-        
-        let ok = UIAlertAction(title: "Ok", style: .destructive, handler:  { _ in
-            do {
-                try self.calendarUpdater.update(with: self.shiftStorage)
-                self.showInfoDialog("Your shifts have been added to the calendar.")
-            } catch CalendarUpdaterError.updateError(let reason) {
-                let errorMsg = String.localizedStringWithFormat("An error occurred while adding your shifts to the calendar. Reason: %s", reason)
-                self.showInfoDialog(errorMsg)
-            } catch {
-                self.showInfoDialog("An unexpected error occurred")
-            }
-        })
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in return })
-
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        alert.preferredAction = cancel
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func showInfoDialog(_ message:String) {
-        let alert = UIAlertController(title: "Task completed",
-                                      message: message,
-                                      preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(ok)
-        self.present(alert, animated:true, completion: nil)
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
     
 
