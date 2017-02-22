@@ -1,1 +1,2 @@
 github "patchthecode/JTAppleCalendar" ~> 6.0
+github "teodorpatras/EasyTipView"

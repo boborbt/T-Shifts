@@ -9,12 +9,6 @@
 import Foundation
 import JTAppleCalendar
 
-class Colors {
-    static let black = UIColor.black
-    static let gray = UIColor.gray
-    static let red = UIColor.red
-}
-
 
 extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
     

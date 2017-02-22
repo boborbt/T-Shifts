@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EasyTipView
 
 class MarkButton: UIButton {
     var color: CGColor! {
@@ -42,6 +43,8 @@ class MarkButton: UIButton {
         }
     }
     
+    var tipView: EasyTipView!
+    
     override func awakeFromNib() {
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 5
@@ -50,9 +53,35 @@ class MarkButton: UIButton {
     func setupForTemplate(template:ShiftTemplate) {
         self.color = template.color.cgColor
         self.setTitle(template.shift.shortcut, for: .normal)
+        
+        var tipViewPrefs = EasyTipView.Preferences()
+        tipViewPrefs.drawing.backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+        tipViewPrefs.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
+        
+        self.tipView = EasyTipView(text:template.shift.description, preferences: tipViewPrefs)
     }
     
     func setupTaps(controller:ViewController) {
         self.addTarget(controller, action: #selector(controller.addShift(_:)), for: .touchUpInside)
+        
+        let longTapRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.showTip(_:)))
+        
+        longTapRecognizer.numberOfTapsRequired = 0
+        longTapRecognizer.minimumPressDuration = 0.5
+        
+        self.addGestureRecognizer(longTapRecognizer)
     }
+    
+    func showTip(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            tipView.show(forView: sender.view!)
+            return
+        }
+            
+        if sender.state == .ended {
+            tipView.dismiss()
+        }
+    }
+
+
 }

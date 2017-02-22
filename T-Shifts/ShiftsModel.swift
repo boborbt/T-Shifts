@@ -9,6 +9,7 @@
 import Foundation
 import EventKit
 import UIKit
+import os.log
 
 // A Shift contains the informations needed to describe a shift
 // - a description and a shortcut
@@ -240,9 +241,9 @@ class CalendarShiftUpdater {
         store.requestAccess(to: .event, completion:{ granted, error in
             if !granted || error != nil {
                 if !granted {
-                    NSLog("Not granted")
+                    os_log("Not granted")
                 } else {
-                    NSLog("Error")
+                    os_log("Error")
                 }
             }
             
@@ -260,9 +261,9 @@ class CalendarShiftUpdater {
             event.calendar = targetCalendar!
             
             try store.save(event, span: EKSpan.thisEvent)
-            NSLog("event saved: " + shift.description)
+            os_log("event saved: ", shift.description)
         } catch {
-            NSLog("error occurred: " + shift.description)
+            os_log("error occurred: ",  shift.description)
         }
         
     }

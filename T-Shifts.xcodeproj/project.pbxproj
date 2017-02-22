@@ -28,6 +28,7 @@
 		F89D613F1E5C81840060911E /* MarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613E1E5C81840060911E /* MarkButton.swift */; };
 		F89D61431E5C941D0060911E /* DayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61421E5C941D0060911E /* DayInfoView.swift */; };
 		F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */; };
+		F89D61471E5DB81F0060911E /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89D61461E5DB81F0060911E /* EasyTipView.framework */; };
 		F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* ViewController.swift */; };
@@ -64,7 +65,7 @@
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
 		F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendarDelegates.swift; sourceTree = "<group>"; };
 		F81B8ED81E2E63BC00731408 /* Options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Options.plist; sourceTree = "<group>"; };
-		F81D260B1E36693500B61E66 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		F81D260B1E36693500B61E66 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PreferenceViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F847D6DC1E4487FE007B8847 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditShiftTypeViewController.swift; path = "T-Shifts/EditShiftTypeViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
@@ -79,10 +80,11 @@
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
 		F89D61421E5C941D0060911E /* DayInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInfoView.swift; sourceTree = "<group>"; };
 		F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButtonsArrayView.swift; sourceTree = "<group>"; };
+		F89D61461E5DB81F0060911E /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
 		F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8E9B53D1E27C9A600390BD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8E9B53D1E27C9A600390BD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F8E9B5401E27C9A600390BD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8E9B5421E27C9A600390BD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8E9B5451E27C9A600390BD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "T-ShiftsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsUITests.swift; sourceTree = "<group>"; };
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShiftsModel.swift; path = "T-Shifts/ShiftsModel.swift"; sourceTree = SOURCE_ROOT; };
+		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ShiftsModel.swift; path = "T-Shifts/ShiftsModel.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
+				F89D61471E5DB81F0060911E /* EasyTipView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +177,7 @@
 				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
 				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
 				F8E9B5391E27C9A600390BD3 /* Products */,
+				F89D61461E5DB81F0060911E /* EasyTipView.framework */,
 				F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */,
 			);
 			sourceTree = "<group>";
@@ -367,6 +371,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/EasyTipView.framework",
 			);
 			outputPaths = (
 			);

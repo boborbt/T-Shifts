@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -116,7 +117,6 @@ class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPicker
         guard (cell != nil) else { return }
         guard (destination != nil) else { return }
         
-        NSLog("\(cell)")
         destination!.descriptionText = cell?.textLabel!.text
         destination!.shortcutText = cell?.detailTextLabel!.text
     }

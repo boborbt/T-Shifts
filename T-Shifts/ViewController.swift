@@ -8,6 +8,8 @@
 
 import UIKit
 import JTAppleCalendar
+import EasyTipView
+import os.log
 
 class ViewController: UIViewController {
     weak var shiftStorage: CalendarShiftStorage!
@@ -19,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dayInfoView: DayInfoView!
-    
+        
     
 // MARK: setup
     override func viewDidLoad() {
@@ -31,7 +33,6 @@ class ViewController: UIViewController {
         shiftTemplates = delegate.shiftTemplates
         calendarUpdater = delegate.calendarUpdater
         calendarUpdater.requestAccess()
-        
         
         setupCalendarView()
         
@@ -87,7 +88,7 @@ class ViewController: UIViewController {
         let detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
         detailsDayCellView.label.font = UIFont.systemFont(ofSize: 14)
         detailsDayCellView.layer.cornerRadius = 10
-        detailsDayCellView.layer.borderColor = UIColor.gray.cgColor
+        detailsDayCellView.layer.borderColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1).cgColor
         detailsDayCellView.layer.borderWidth = 1
         
         return detailsDayCellView
@@ -105,7 +106,7 @@ class ViewController: UIViewController {
     }
 
     
-// MARK: Add/remove shifts
+// MARK: Events
     @IBAction func addShift(_ sender: UIButton) {
         let dates = calendarView.selectedDates
         guard dates.count > 0 else { return }
@@ -119,12 +120,9 @@ class ViewController: UIViewController {
                 try shiftStorage.add( shift: shift, toDate: date )
             }
         } catch {
-            NSLog("Cannot add/remove shift -- error caught")
+            os_log("Cannot add/remove shift -- error caught")
         }
         calendarView.selectDates([date + 1.days()])
     }
-    
-    
-
 }
 
