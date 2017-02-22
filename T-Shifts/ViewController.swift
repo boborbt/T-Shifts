@@ -20,9 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dayInfoView: DayInfoView!
     
-    var detailsDayCellView: DayCellView!
-    var markButtonsView: UIView!
-    
     
 // MARK: setup
     override func viewDidLoad() {
@@ -47,18 +44,19 @@ class ViewController: UIViewController {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
         }
         
-        setupDetailsDayCellView()
-        markButtonsView = Bundle.main.loadNibNamed("MarkButtonsView", owner: self, options: nil)!.first as! UIView
-        
-        dayInfoView.addSubview(detailsDayCellView)
-        dayInfoView.addSubview(markButtonsView)
-        dayInfoView.setupButtonTaps(controller: self)
+        let dayCellView = setupDetailsDayCellView()
+        setupDayInfoView(dayCellView)
         
         setupConstraints()
+        
+        calendarView.selectDates([Date()])
     }
         
     
     func setupConstraints() {
+        let detailsDayCellView = dayInfoView.dayCell!
+        let markButtonsView = dayInfoView.markButtonsArray!
+        
         detailsDayCellView.translatesAutoresizingMaskIntoConstraints = false
         detailsDayCellView.topAnchor.constraint(equalTo: dayInfoView.topAnchor, constant: +5).isActive = true
         detailsDayCellView.bottomAnchor.constraint(equalTo: dayInfoView.bottomAnchor, constant: -5).isActive = true
@@ -85,14 +83,25 @@ class ViewController: UIViewController {
         calendarView.selectDates([Date()])
     }
     
-    func setupDetailsDayCellView() {
-        detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
+    func setupDetailsDayCellView() -> DayCellView {
+        let detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
         detailsDayCellView.label.font = UIFont.systemFont(ofSize: 14)
         detailsDayCellView.layer.cornerRadius = 10
         detailsDayCellView.layer.borderColor = UIColor.gray.cgColor
         detailsDayCellView.layer.borderWidth = 1
-
-        calendarView.selectDates([Date()])
+        
+        return detailsDayCellView
+    }
+    
+    func setupDayInfoView(_ dayCellView: DayCellView) {
+        let markButtonsArrayView = Bundle.main.loadNibNamed("MarkButtonsArrayView", owner: self, options: nil)!.first as! MarkButtonsArrayView
+        dayInfoView.addSubview(dayCellView)
+        dayInfoView.addSubview(markButtonsArrayView)
+        
+        dayInfoView.dayCell = dayCellView
+        dayInfoView.markButtonsArray = markButtonsArrayView
+        
+        dayInfoView.setupButtons(controller: self, templates: shiftTemplates)
     }
 
     

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="T_Shifts" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="Marks Array" customClass="MarkButtonsArrayView" customModule="T_Shifts" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="158"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qcr-tO-xTe">
+                    <rect key="frame" x="5" y="5" width="377" height="148"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="STP-kd-c5S">
+                            <rect key="frame" x="0.0" y="0.0" width="377" height="68.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZE-nx-nuf" userLabel="mark1" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="68.5"/>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7p3-JX-Aj3" userLabel="mark2" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="76.5" y="0.0" width="71.5" height="68.5"/>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYU-UV-0hV" userLabel="mark3" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="153" y="0.0" width="71" height="68.5"/>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBK-FU-hAl" userLabel="mark4" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="229" y="0.0" width="71.5" height="68.5"/>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkj-pT-S2e" userLabel="mark5" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="305.5" y="0.0" width="71.5" height="68.5"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-ac-R1Z">
+                            <rect key="frame" x="0.0" y="73.5" width="377" height="74.5"/>
+                            <subviews>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srd-eR-As5" userLabel="mark6" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="74.5"/>
+                                </button>
+                                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAv-8U-Q4h" userLabel="mark7" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="76.5" y="0.0" width="71.5" height="74.5"/>
+                                </button>
+                                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkk-kQ-286" userLabel="mark8" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="153" y="0.0" width="71" height="74.5"/>
+                                </button>
+                                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL6-hp-hvr" userLabel="mark9" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="229" y="0.0" width="71.5" height="74.5"/>
+                                </button>
+                                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-UE-Lmh" userLabel="mark10" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                    <rect key="frame" x="305.5" y="0.0" width="71.5" height="74.5"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="1Sh-ac-R1Z" secondAttribute="trailing" id="OIU-fA-w9x"/>
+                        <constraint firstAttribute="trailing" secondItem="STP-kd-c5S" secondAttribute="trailing" id="toV-3Q-k6i"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qcr-tO-xTe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="HFe-qp-HIu"/>
+                <constraint firstAttribute="bottom" secondItem="qcr-tO-xTe" secondAttribute="bottom" constant="5" id="b2p-1L-Zqa"/>
+                <constraint firstItem="qcr-tO-xTe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="j0D-zU-Rum"/>
+                <constraint firstAttribute="trailing" secondItem="qcr-tO-xTe" secondAttribute="trailing" constant="5" id="pPl-FG-q9E"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="markButtonsArray" destination="IZE-nx-nuf" collectionClass="NSMutableArray" id="cTW-n0-Mje"/>
+                <outletCollection property="markButtonsArray" destination="7p3-JX-Aj3" collectionClass="NSMutableArray" id="36z-yv-yQ9"/>
+                <outletCollection property="markButtonsArray" destination="tYU-UV-0hV" collectionClass="NSMutableArray" id="JcR-LM-Jfn"/>
+                <outletCollection property="markButtonsArray" destination="GBK-FU-hAl" collectionClass="NSMutableArray" id="wlz-xO-hZO"/>
+                <outletCollection property="markButtonsArray" destination="mkj-pT-S2e" collectionClass="NSMutableArray" id="Rk1-Pe-XMD"/>
+                <outletCollection property="markButtonsArray" destination="srd-eR-As5" collectionClass="NSMutableArray" id="Q5T-E8-ExE"/>
+                <outletCollection property="markButtonsArray" destination="AAv-8U-Q4h" collectionClass="NSMutableArray" id="M0I-un-BaN"/>
+                <outletCollection property="markButtonsArray" destination="gkk-kQ-286" collectionClass="NSMutableArray" id="Fwr-eY-keC"/>
+                <outletCollection property="markButtonsArray" destination="lL6-hp-hvr" collectionClass="NSMutableArray" id="Y1o-ex-7IX"/>
+                <outletCollection property="markButtonsArray" destination="M3g-UE-Lmh" collectionClass="NSMutableArray" id="igb-5p-3lK"/>
+            </connections>
+            <point key="canvasLocation" x="54.5" y="-203"/>
+        </view>
+    </objects>
+</document>
