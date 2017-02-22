@@ -45,6 +45,17 @@
 			<integer>11776947</integer>
 		</dict>
 		<dict>
+			<key>New item</key>
+			<dict>
+				<key>shortcut</key>
+				<string>r</string>
+				<key>description</key>
+				<string>Reperibilità</string>
+				<key>position</key>
+				<integer>4</integer>
+				<key>color</key>
+				<integer>0</integer>
+			</dict>
 			<key>shortcut</key>
 			<string>r</string>
 			<key>description</key>

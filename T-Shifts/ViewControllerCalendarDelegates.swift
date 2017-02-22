@@ -55,6 +55,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         
         if cellState.isSelected {
             dayInfoView.dayCell.copyAttributes(from: dayCell)
+            dayInfoView.activateMarkButtons(templates: dayCell.marks)
         }
     }
     
