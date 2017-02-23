@@ -108,6 +108,15 @@ class PreferenceViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
 
+    @IBAction func editShiftTemplates(_ sender: UIButton) {
+        if !shiftTypesTableView.isEditing {
+            shiftTypesTableView.isEditing = true
+            sender.setTitle("Done", for: .normal)
+        } else {
+            shiftTypesTableView.isEditing = false
+            sender.setTitle("Edit", for: .normal)
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -88,8 +88,8 @@ class ViewController: UIViewController {
         let detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
         detailsDayCellView.label.font = UIFont.systemFont(ofSize: 14)
         detailsDayCellView.layer.cornerRadius = 10
-        detailsDayCellView.layer.borderColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1).cgColor
-        detailsDayCellView.layer.borderWidth = 1
+        detailsDayCellView.layer.borderColor = UIColor.gray.cgColor
+        detailsDayCellView.layer.borderWidth = 0.5
         
         return detailsDayCellView
     }

@@ -53,7 +53,7 @@
                                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL6-hp-hvr" userLabel="mark9" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
                                     <rect key="frame" x="229" y="0.0" width="71.5" height="74.5"/>
                                 </button>
-                                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-UE-Lmh" userLabel="mark10" customClass="MarkButton" customModule="T_Shifts" customModuleProvider="target">
+                                <button opaque="NO" tag="9" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-UE-Lmh" userLabel="not-used">
                                     <rect key="frame" x="305.5" y="0.0" width="71.5" height="74.5"/>
                                 </button>
                             </subviews>
@@ -83,7 +83,6 @@
                 <outletCollection property="markButtonsArray" destination="AAv-8U-Q4h" collectionClass="NSMutableArray" id="M0I-un-BaN"/>
                 <outletCollection property="markButtonsArray" destination="gkk-kQ-286" collectionClass="NSMutableArray" id="Fwr-eY-keC"/>
                 <outletCollection property="markButtonsArray" destination="lL6-hp-hvr" collectionClass="NSMutableArray" id="Y1o-ex-7IX"/>
-                <outletCollection property="markButtonsArray" destination="M3g-UE-Lmh" collectionClass="NSMutableArray" id="igb-5p-3lK"/>
             </connections>
             <point key="canvasLocation" x="54.5" y="-203"/>
         </view>

@@ -74,6 +74,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdO-sN-eAt">
+                                <rect key="frame" x="329" y="62" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editShiftTemplates:" destination="ZDU-bF-V0D" eventType="touchUpInside" id="DRO-Y1-jxC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -89,6 +96,8 @@
                             <constraint firstItem="e2t-T2-5DY" firstAttribute="trailing" secondItem="7YB-Qa-eQH" secondAttribute="trailingMargin" id="vny-pt-Z5y"/>
                             <constraint firstItem="e2t-T2-5DY" firstAttribute="top" secondItem="NfY-Y7-d8P" secondAttribute="bottom" constant="8" id="woX-ik-ePV"/>
                             <constraint firstItem="GNP-Ba-ath" firstAttribute="trailing" secondItem="7YB-Qa-eQH" secondAttribute="trailingMargin" id="xYO-IX-MqY"/>
+                            <constraint firstItem="TdO-sN-eAt" firstAttribute="baseline" secondItem="NfY-Y7-d8P" secondAttribute="baseline" id="zUB-Vp-oaJ"/>
+                            <constraint firstItem="TdO-sN-eAt" firstAttribute="trailing" secondItem="7YB-Qa-eQH" secondAttribute="trailingMargin" id="zzF-c1-nvo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Preferences" id="jd2-mB-9bn"/>
@@ -292,6 +301,13 @@
                                     <action selector="dismissViewController:" destination="rFU-Bn-PVB" eventType="touchUpInside" id="FMX-Bv-Ven"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4x-UT-XjM">
+                                <rect key="frame" x="20" y="123" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
