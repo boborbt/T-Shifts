@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import os.log
 
 class Options {
     var options = UserDefaults.standard
@@ -26,7 +27,7 @@ class Options {
                 let position = template["position"] as! Int
                 let description = template["description"] as! String
                 let shortcut = template["shortcut"] as! String
-                let color = template["color"] as! Int
+                let color = template["color"] as! [String:Float]
                 
                 let shift = Shift(description: description, shortcut: shortcut)
                 let shiftTemplate = ShiftTemplate(shift: shift, position: position, color: parse(color:color))
@@ -37,16 +38,6 @@ class Options {
         }
     }
     
-    func parse(color:Int) -> UIColor {
-        let red = CGFloat((color & 0xFF0000) >> 16) / 255.0
-        let green = CGFloat((color & 0x00FF00) >> 8) / 255.0
-        let blue = CGFloat((color & 0x0000FF)) / 255.0
-        
-        return UIColor(red: red , green: green, blue: blue, alpha: 1.0)
-        
-    }
-        
-        
     var calendar: String {
         get {
             return options.string(forKey: "Calendar")!
@@ -56,5 +47,15 @@ class Options {
             options.setValue(newVal, forKey:"Calendar")
         }
     }
+    
+    func parse(color:[String:Float]) -> UIColor {
+        let red = CGFloat(color["red"]!) / 255.0
+        let green = CGFloat(color["green"]!) / 255.0
+        let blue = CGFloat(color["blue"]!) / 255.0
+        let alpha = CGFloat(1.0)
         
+        os_log("color: %d red: %3.0f green: %3..0f blue: %3.0f alpha: %3.0f", color, red * 255.0, green * 255.0, blue * 255.0, alpha * 255.0)
+        
+        return UIColor(red: red , green: green, blue: blue, alpha: alpha)
+    }
 }
