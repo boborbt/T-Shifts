@@ -10,12 +10,24 @@ import UIKit
 import EasyTipView
 
 class MarkButton: UIButton {
+    enum StateAlphaValues: CGFloat {
+        case active = 1.0
+        case inactive = 0.1
+    }
+    
     var color: CGColor! {
         didSet {
+            let components = color.components!
+            self.inactiveStateColor = UIColor(red: components[0], green: components[1], blue: components[2], alpha: StateAlphaValues.inactive.rawValue).cgColor
+            
             self.layer.borderColor = color
+            self.layer.backgroundColor = color
+            
             self.setNeedsDisplay()
         }
     }
+    
+    var inactiveStateColor: CGColor!
     
     var isVisible: Bool {
         get {
@@ -32,14 +44,14 @@ class MarkButton: UIButton {
             if newVal {
                 self.layer.backgroundColor = color
             } else {
-                self.layer.backgroundColor = UIColor.white.cgColor
+                self.layer.backgroundColor = inactiveStateColor
             }
             
             self.setNeedsDisplay()
         }
         
         get {
-            return self.layer.backgroundColor == UIColor.white.cgColor
+            return self.layer.backgroundColor == color
         }
     }
     
