@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import Eureka
-
+import os.log
 
 class OptionsViewController : FormViewController {
     weak var options: Options!
@@ -25,14 +25,17 @@ class OptionsViewController : FormViewController {
         
         form +++ calendarSection()
         form +++ shiftSection()
+        
+        
     }
     
     func calendarSection() -> SelectableSection<ListCheckRow<String>> {
         let result = SelectableSection<ListCheckRow<String>>("Shifts Calendar", selectionType: .singleSelection(enableDeselection: false))
+        result.tag = "Calendars"
         
         let calendars = calendarUpdater.calendars
         for calendar in calendars {
-            result <<< ListCheckRow<String> { row in
+            result <<< ListCheckRow<String>("Calendar_" + calendar.title) { row in
                 row.title = calendar.title
                 row.selectableValue = calendar.title
                 if calendar.title == options.calendar {
@@ -47,60 +50,47 @@ class OptionsViewController : FormViewController {
     func shiftSection() -> Section {
         
         let section = Section("Shifts")
+        section.tag = "Shifts"
         
-        for template in options.shiftTemplates {
-            let shiftButton = ButtonRow(template.shift.description) { row in
-                row.title = template.shift.description
-                row.cell.accessoryType = .detailDisclosureButton
-                }.onCellSelection( { cell,row in
-                    let shiftOptionController = ShiftOptionViewController()
-                    shiftOptionController.template = template
-                    self.navigationController?.show(shiftOptionController, sender: self)
-                })
+        let templates = options.shiftTemplates.templates
+        
+        for template in templates {
+            let textRow = TextRow("Shift_\(template.position)" ) { row in
+                    row.value = template.shift.description
+                    row.placeholder = "Shift description"
+                }.cellSetup { cell, row in
+                    cell.backgroundColor = template.color
+                }
             
-            section <<< shiftButton
+            
+            section <<< textRow
         }
         
         
         return section
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let calendarSection = form.sectionBy(tag: "Calendars")!
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        for row in calendarSection {
+            if row.baseValue != nil {
+                options.calendar = row.baseValue as! String
+            }
+        }
+        
+        let shiftsSection = form.sectionBy(tag: "Shifts")!
+            
+        for (index,row) in shiftsSection.enumerated() {
+            if let rowValue = row.baseValue as? String {
+                options.shiftTemplates.templates[index].shift.description = rowValue
+            } else {
+                options.shiftTemplates.templates[index].shift.description = ""
+            }
+        }
+        
+        appDelegate.reloadOptions()
+    }
 }
 
-
-class ShiftOptionViewController : FormViewController {
-    var template: ShiftTemplate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let description = TextRow("Description") { row in
-            row.placeholder = "Description"
-            row.value = template?.shift.description
-        }
-        
-        let shortcut = TextRow("Shortcut") { row in
-            row.placeholder = "1 character shortcut"
-            row.value = template?.shift.shortcut
-        }
-        
-        let color = IntRow { row in
-            row.placeholder = "0"
-            row.value = 0
-        }
-        
-        form +++ Section("Shift")
-            <<< description
-            <<< shortcut
-            <<< color
-    }
-    
-    
-    override func viewWillDisappear(_ animated : Bool) {
-        super.viewWillDisappear(animated)
-        
-        if (self.isMovingFromParentViewController){
-            NSLog("here")
-        }
-    }
-    
-    
-}

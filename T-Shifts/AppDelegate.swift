@@ -13,26 +13,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var shiftStorage: CalendarShiftStorage?
-    var shiftTemplates: ShiftTemplates!
     var calendarUpdater: CalendarShiftUpdater!
     var options = Options()
+    
+    var mainController: ViewController!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        setupShiftTemplates()
         calendarUpdater = CalendarShiftUpdater(calendarName:options.calendar)
-        shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: shiftTemplates)
+        shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
         
-        MarksDisplayView.templates = shiftTemplates
+        MarksDisplayView.templates = options.shiftTemplates
         return true
     }
     
-    func setupShiftTemplates() {
-        shiftTemplates = ShiftTemplates()
-        shiftTemplates.add(options.shiftTemplates)
+    func reloadOptions() {
+        options.shiftTemplates.recomputeShortcuts()
+        mainController.calendarView.reloadData()
+        mainController.dayInfoView.refreshButtons(controller: mainController, templates: options.shiftTemplates)
     }
-
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

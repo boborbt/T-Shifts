@@ -18,7 +18,9 @@ class DayInfoView: UIView {
     func setupButtons(controller:ViewController, templates: ShiftTemplates) {
         for markButton in markButtonsArray.markButtonsArray {
             markButton.isVisible = false
-            if let template = templates.template(at: markButton.tag) {
+            let template = templates.template(at: markButton.tag)!
+            
+            if template.shift.description != "" {
                 markButton.isVisible = true
                 markButton.setupTaps(controller: controller)
                 markButton.setupForTemplate(template: template)
@@ -34,6 +36,10 @@ class DayInfoView: UIView {
         for template in templates {
             markButtonsArray.markButtonsArray[template.position].isActive = true
         }
+    }
+    
+    func refreshButtons(controller: ViewController, templates:ShiftTemplates) {
+        setupButtons(controller: controller, templates: templates)
     }
     
 

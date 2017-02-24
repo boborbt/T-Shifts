@@ -60,16 +60,17 @@ class MarkButton: UIButton {
     override func awakeFromNib() {
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 5
+        
     }
     
     func setupForTemplate(template:ShiftTemplate) {
         self.color = template.color.cgColor
         self.setTitle(template.shift.shortcut, for: .normal)
         
+        
         var tipViewPrefs = EasyTipView.Preferences()
         tipViewPrefs.drawing.backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
         tipViewPrefs.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
-        
         self.tipView = EasyTipView(text:template.shift.description, preferences: tipViewPrefs)
     }
     

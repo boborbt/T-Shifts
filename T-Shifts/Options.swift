@@ -18,10 +18,9 @@ class Options {
         options.register(defaults: defaults as! [String:Any])
     }
     
-    var shiftTemplates: [ShiftTemplate] {
-        get {
-            var result: [ShiftTemplate] = []
-            let templates =  options.array(forKey:"ShiftTemplates") as! [[String:Any]]
+    lazy var shiftTemplates: ShiftTemplates = { () -> ShiftTemplates in
+            var resultArray: [ShiftTemplate] = []
+            let templates =  self.options.array(forKey:"ShiftTemplates") as! [[String:Any]]
             
             for template in templates {
                 let position = template["position"] as! Int
@@ -30,13 +29,15 @@ class Options {
                 let color = template["color"] as! [String:Float]
                 
                 let shift = Shift(description: description, shortcut: shortcut)
-                let shiftTemplate = ShiftTemplate(shift: shift, position: position, color: parse(color:color))
-                result.append(shiftTemplate)
+                let shiftTemplate = ShiftTemplate(shift: shift, position: position, color: self.parse(color:color))
+                resultArray.append(shiftTemplate)
             }
             
+            var result = ShiftTemplates()
+            result.templates = resultArray
+        
             return result
-        }
-    }
+    }()
     
     var calendar: String {
         get {

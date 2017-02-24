@@ -29,8 +29,8 @@ class MarksDisplayView: UIView {
         let markWidth = rect.width
         let markX = CGFloat(0.0)
         
-        for mark in marks {
-            let markY = CGFloat(mark.position) * (markHeight + Metrics.inset)
+        for (index, mark) in marks.enumerated() {
+            let markY = CGFloat(index) * (markHeight + Metrics.inset)
             let rect = CGRect(x: markX, y: markY, width: markWidth, height: markHeight)
             let roundedRect = UIBezierPath(roundedRect: rect, cornerRadius: markHeight / Metrics.radiusRatio)
             
@@ -45,8 +45,8 @@ class MarksDisplayView: UIView {
         let markHeight = rect.height / CGFloat(numRows) - Metrics.inset
         let markWidth = rect.width / CGFloat(numCols) - Metrics.inset
         
-        for mark in marks {
-            let pos = mark.position
+        for (index,mark) in marks.enumerated() {
+            let pos = index
             let markX = CGFloat(pos % numCols) * (markWidth + Metrics.inset)
             let markY = CGFloat(pos / numCols) * (markHeight + Metrics.inset)
             let rect = CGRect(x: markX, y:markY, width: markWidth, height: markHeight)
@@ -61,7 +61,7 @@ class MarksDisplayView: UIView {
     override func draw(_ rect: CGRect) {
         guard marks.count > 0 else { return }
         
-        if MarksDisplayView.templates.count <= 5 {
+        if MarksDisplayView.templates.activesCount <= 5 {
             drawLargeMarks(rect)
         } else {
             drawSmallMarks(rect)

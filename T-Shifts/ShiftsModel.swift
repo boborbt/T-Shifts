@@ -30,6 +30,11 @@ struct Shift: Equatable, Hashable {
     var description: String
     var shortcut: String
     
+    var isActive: Bool {
+        get {
+            return description != ""
+        }
+    }
 }
 
 // A shift storage provides a mean to store shifts. The main
@@ -76,14 +81,21 @@ struct ShiftTemplate {
 // easy access to common functions.
 class ShiftTemplates {
     var templates: [ShiftTemplate] = []
+    
     var count: Int {
         get {
             return templates.count
         }
     }
     
-    func add(shift: Shift, position: Int, color: UIColor) {
-        templates.append( ShiftTemplate(shift: shift, position: position, color: color))
+    var activesCount: Int {
+        get {
+            return templates.map { template in
+                    template.shift.isActive ? 1 : 0
+                }.reduce(0, { sum,val in
+                    return sum + val
+                })
+        }
     }
     
     func template(for shift: Shift) -> ShiftTemplate? {
@@ -98,8 +110,41 @@ class ShiftTemplates {
         return templates.first(where: { template in template.shift.description == description} )
     }
     
-    func add(_ newTemplates:[ShiftTemplate]) {
-        templates = newTemplates
+    func updateTemplate(at position: Int, newTemplate: ShiftTemplate) {
+        let index = templates.index( where: { t in return t.position ==  position })!
+        templates[index] = newTemplate
+        
+        recomputeShortcuts()
+    }
+    
+    func computeShortcut(at pos: Int) -> String? {
+        guard templates[pos].shift.description != "" else { return "" }
+        let des = templates[pos].shift.description
+        var offset = 0
+        var result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
+        
+        while offset < des.characters.count {
+            let found = templates.index( where: { t in t.shift.shortcut == result }) != nil
+            if !found {
+                return result
+            }
+            offset += 1
+            result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
+        }
+        
+        
+        return nil
+        
+    }
+    
+    func recomputeShortcuts() {
+        for i in 0 ..< templates.count {
+            templates[i].shift.shortcut = ""
+        }
+        
+        for i in 0 ..< templates.count {
+            templates[i].shift.shortcut = computeShortcut(at:i)!
+        }
     }
 }
 

@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     weak var shiftStorage: CalendarShiftStorage!
     weak var calendarUpdater: CalendarShiftUpdater!
     weak var options: Options!
-    weak var shiftTemplates: ShiftTemplates!
 
     @IBOutlet weak var MonthLabel: UILabel!
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
@@ -29,8 +28,8 @@ class ViewController: UIViewController {
 
         let delegate = UIApplication.shared.delegate as! AppDelegate
         options = delegate.options
+        delegate.mainController = self
         
-        shiftTemplates = delegate.shiftTemplates
         calendarUpdater = delegate.calendarUpdater
         calendarUpdater.requestAccess()
         
@@ -102,16 +101,16 @@ class ViewController: UIViewController {
         dayInfoView.dayCell = dayCellView
         dayInfoView.markButtonsArray = markButtonsArrayView
         
-        dayInfoView.setupButtons(controller: self, templates: shiftTemplates)
+        dayInfoView.setupButtons(controller: self, templates: options.shiftTemplates)
     }
-
+    
     
 // MARK: Events
     @IBAction func addShift(_ sender: UIButton) {
         let dates = calendarView.selectedDates
         guard dates.count > 0 else { return }
         let date = dates[0]
-        let shift = shiftTemplates.template(at: sender.tag)!.shift
+        let shift = options.shiftTemplates.template(at: sender.tag)!.shift
         
         do {
             if shiftStorage.isPresent(shift: shift, at: date) {
