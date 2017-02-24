@@ -13,16 +13,12 @@
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */; };
 		F81B8ED91E2E63BC00731408 /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81B8ED81E2E63BC00731408 /* Options.plist */; };
-		F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D260B1E36693500B61E66 /* PreferenceViewController.swift */; };
+		F824FC191E5EED1E00954A58 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F824FC181E5EED1E00954A58 /* Eureka.framework */; };
+		F824FC1B1E5EEE0E00954A58 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */; };
 		F847D6DD1E4487FE007B8847 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DC1E4487FE007B8847 /* Options.swift */; };
-		F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */; };
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
-		F8972CAE1E522945008323FB /* ShiftTypesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8972CAD1E522945008323FB /* ShiftTypesDataSource.swift */; };
-		F8972CB21E5229B2008323FB /* ShiftTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8972CAF1E5229B2008323FB /* ShiftTableViewDelegate.swift */; };
-		F8972CB31E5229B2008323FB /* TableViewShiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8972CB01E5229B2008323FB /* TableViewShiftCell.swift */; };
 		F8972CB41E5229B2008323FB /* TableViewShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */; };
-		F8972CB61E5229DF008323FB /* ShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8972CB51E5229DF008323FB /* ShiftDataSource.swift */; };
 		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
 		F89D613D1E5C80990060911E /* MarkButtonsArrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */; };
 		F89D613F1E5C81840060911E /* MarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613E1E5C81840060911E /* MarkButton.swift */; };
@@ -65,16 +61,12 @@
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
 		F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendarDelegates.swift; sourceTree = "<group>"; };
 		F81B8ED81E2E63BC00731408 /* Options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Options.plist; sourceTree = "<group>"; };
-		F81D260B1E36693500B61E66 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PreferenceViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F824FC181E5EED1E00954A58 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		F847D6DC1E4487FE007B8847 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditShiftTypeViewController.swift; path = "T-Shifts/EditShiftTypeViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
-		F8972CAD1E522945008323FB /* ShiftTypesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTypesDataSource.swift; sourceTree = "<group>"; };
-		F8972CAF1E5229B2008323FB /* ShiftTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewDelegate.swift; sourceTree = "<group>"; };
-		F8972CB01E5229B2008323FB /* TableViewShiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewShiftCell.swift; sourceTree = "<group>"; };
 		F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewShiftCell.xib; sourceTree = "<group>"; };
-		F8972CB51E5229DF008323FB /* ShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDataSource.swift; sourceTree = "<group>"; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
 		F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkButtonsArrayView.xib; sourceTree = "<group>"; };
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
@@ -103,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F824FC191E5EED1E00954A58 /* Eureka.framework in Frameworks */,
 				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
 				F89D61471E5DB81F0060911E /* EasyTipView.framework in Frameworks */,
 			);
@@ -142,11 +135,7 @@
 			children = (
 				F8E9B53D1E27C9A600390BD3 /* ViewController.swift */,
 				F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */,
-				F81D260B1E36693500B61E66 /* PreferenceViewController.swift */,
-				F847D6DE1E44C06B007B8847 /* EditShiftTypeViewController.swift */,
-				F8972CAF1E5229B2008323FB /* ShiftTableViewDelegate.swift */,
-				F8972CAD1E522945008323FB /* ShiftTypesDataSource.swift */,
-				F8972CB51E5229DF008323FB /* ShiftDataSource.swift */,
+				F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -164,7 +153,6 @@
 				F89D613E1E5C81840060911E /* MarkButton.swift */,
 				F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */,
 				F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */,
-				F8972CB01E5229B2008323FB /* TableViewShiftCell.swift */,
 				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
 			);
 			name = Views;
@@ -177,6 +165,7 @@
 				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
 				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
 				F8E9B5391E27C9A600390BD3 /* Products */,
+				F824FC181E5EED1E00954A58 /* Eureka.framework */,
 				F89D61461E5DB81F0060911E /* EasyTipView.framework */,
 				F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */,
 			);
@@ -372,6 +361,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/EasyTipView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 			);
 			outputPaths = (
 			);
@@ -386,22 +376,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F824FC1B1E5EEE0E00954A58 /* OptionsViewController.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */,
 				F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */,
 				F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */,
 				F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */,
-				F847D6DF1E44C06B007B8847 /* EditShiftTypeViewController.swift in Sources */,
 				F89D61431E5C941D0060911E /* DayInfoView.swift in Sources */,
 				F80933071E55FAC000AF56FF /* IntExtension.swift in Sources */,
 				F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */,
-				F8972CB31E5229B2008323FB /* TableViewShiftCell.swift in Sources */,
-				F8972CB21E5229B2008323FB /* ShiftTableViewDelegate.swift in Sources */,
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
-				F8972CAE1E522945008323FB /* ShiftTypesDataSource.swift in Sources */,
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
-				F8972CB61E5229DF008323FB /* ShiftDataSource.swift in Sources */,
 				F80933091E5602BD00AF56FF /* Errors.swift in Sources */,
-				F81D260C1E36693500B61E66 /* PreferenceViewController.swift in Sources */,
 				F89D613F1E5C81840060911E /* MarkButton.swift in Sources */,
 				F847D6DD1E4487FE007B8847 /* Options.swift in Sources */,
 				F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */,
