@@ -110,42 +110,94 @@ class ShiftTemplates {
         return templates.first(where: { template in template.shift.description == description} )
     }
     
-    func updateTemplate(at position: Int, newTemplate: ShiftTemplate) {
-        let index = templates.index( where: { t in return t.position ==  position })!
-        templates[index] = newTemplate
-        
-        recomputeShortcuts()
-    }
+//    func updateTemplate(at position: Int, newTemplate: ShiftTemplate) {
+//        let index = templates.index( where: { t in return t.position ==  position })!
+//        templates[index] = newTemplate
+//        
+//        recomputeShortcuts()
+//    }
     
-    func computeShortcut(at pos: Int) -> String? {
-        guard templates[pos].shift.description != "" else { return "" }
-        let des = templates[pos].shift.description
-        var offset = 0
-        var result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
-        
-        while offset < des.characters.count {
-            let found = templates.index( where: { t in t.shift.shortcut == result }) != nil
-            if !found {
-                return result
-            }
-            offset += 1
-            result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
+//    func computeShortcut(at pos: Int) -> String? {
+//        guard templates[pos].shift.description != "" else { return "" }
+//        let des = templates[pos].shift.description
+//        var offset = 0
+//        var result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
+//        
+//        while offset < des.characters.count {
+//            let found = templates.index( where: { t in t.shift.shortcut == result }) != nil
+//            if !found {
+//                return result
+//            }
+//            offset += 1
+//            result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
+//        }
+//        
+//        
+//        return nil
+//        
+//    }
+//    
+//    func recomputeShortcuts() {
+//        for i in 0 ..< templates.count {
+//            templates[i].shift.shortcut = ""
+//        }
+//        
+//        for i in 0 ..< templates.count {
+//            templates[i].shift.shortcut = computeShortcut(at:i)!
+//        }
+//    }
+    
+    // Assume that currentSet contains all distinct sc candidates and that
+    // currentSet[i] is the candidate for descriptions[i]
+    func computeShortcuts(descriptions: [String], currentSet: [String]) -> [String]? {
+        if currentSet.count == descriptions.count {
+            return currentSet
         }
         
+        let currentPos = currentSet.count
+        let currentDes = descriptions[currentPos]
+        let size = currentDes.characters.count
+        let desStart = currentDes.startIndex
+        
+        for i in 0..<size {
+            let candidate = String(currentDes.characters[currentDes.index(desStart, offsetBy:i)])
+            if currentSet.index(of: candidate) != nil {
+                continue
+            }
+            
+            if let solution = computeShortcuts(descriptions: descriptions, currentSet: currentSet + [candidate]) {
+                return solution
+            }
+        }
         
         return nil
-        
     }
     
     func recomputeShortcuts() {
-        for i in 0 ..< templates.count {
-            templates[i].shift.shortcut = ""
+        let data = templates.enumerated().flatMap( { (index,template) -> (Int, String)? in
+            let des = template.shift.description
+            return des == "" ? nil : (index, template.shift.description)
+        })
+        
+        let indexes = data.map { (index, description) in  return index }
+        let descriptions = data.map { (index, description) in  return description }
+        
+        var shortcuts: [String]!
+        
+        if let candidates  = computeShortcuts(descriptions: descriptions, currentSet:[]) {
+            shortcuts = candidates
+        } else {
+            shortcuts = indexes.map { index in return "\(index)" }
         }
         
-        for i in 0 ..< templates.count {
-            templates[i].shift.shortcut = computeShortcut(at:i)!
+        
+        for (index, sc) in shortcuts.enumerated() {
+            let templateIndex = indexes[index]
+            templates[templateIndex].shift.shortcut = sc
         }
     }
+    
+    
 }
 
 // A shift storage based on the system calendar.
@@ -259,8 +311,25 @@ class CalendarShiftUpdater {
             delegate.options.calendar = targetCalendar!.title
         }
     }
-    
+
+    var calendars: [EKCalendar] {
+        get {
+            // FIXME: This should return a list of calendars filtered
+            //   so to filter out non editable calendars
+            return store.calendars(for: .event)
+        }
+    }
+
     init(calendarName:String) {
+        switchToCalendar(named: calendarName)
+    }
+    
+    
+    static func isAccessGranted() -> Bool {
+        return EKEventStore.authorizationStatus(for: .event) == .authorized
+    }
+
+    func switchToCalendar(named calendarName: String) {
         let calendar = store.calendars(for: .event).first(where: { calendar in calendar.title == calendarName})
         
         if calendar != nil {
@@ -270,17 +339,6 @@ class CalendarShiftUpdater {
         }
     }
     
-    var calendars: [EKCalendar] {
-        get {
-            // FIXME: This should return a list of calendars filtered
-            //   so to filter out non editable calendars
-            return store.calendars(for: .event)
-        }
-    }
-    
-    static func isAccessGranted() -> Bool {
-        return EKEventStore.authorizationStatus(for: .event) == .authorized
-    }
     
     func requestAccess() {
         store.requestAccess(to: .event, completion:{ granted, error in

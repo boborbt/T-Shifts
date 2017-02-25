@@ -71,6 +71,8 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
         MonthLabel.text = dateFormatter.string(from: visibleDates.monthDates.first!)
+        
+        calendar.selectDates([visibleDates.monthDates.first!])
     }
 
 }
