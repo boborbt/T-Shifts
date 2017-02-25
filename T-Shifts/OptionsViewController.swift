@@ -59,7 +59,10 @@ class OptionsViewController : FormViewController {
                     row.value = template.shift.description
                     row.placeholder = "Shift description"
                 }.cellSetup { cell, row in
-                    cell.backgroundColor = template.color
+                    cell.layer.borderColor = template.color.cgColor
+                    cell.layer.borderWidth = 2
+                    cell.layer.cornerRadius = 5
+                    cell.backgroundColor = template.color.withAlphaComponent(0.1)
                 }
             
             
