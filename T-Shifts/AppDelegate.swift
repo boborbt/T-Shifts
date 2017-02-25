@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func reloadOptions() {
         options.shiftTemplates.recomputeShortcuts()
+        options.sync()
+        
         calendarUpdater.switchToCalendar(named: options.calendar)
         mainController.calendarView.reloadData()
         mainController.dayInfoView.refreshButtons(controller: mainController, templates: options.shiftTemplates)
