@@ -330,6 +330,11 @@ class CalendarShiftUpdater {
     }
 
     func switchToCalendar(named calendarName: String) {
+        if !CalendarShiftUpdater.isAccessGranted() {
+            self.requestAccess()
+        }
+        
+        
         let calendar = store.calendars(for: .event).first(where: { calendar in calendar.title == calendarName})
         
         if calendar != nil {
