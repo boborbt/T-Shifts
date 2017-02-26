@@ -18,6 +18,9 @@ class MarksDisplayView: UIView {
     
     var marks:[ShiftTemplate] = [] {
         didSet {
+            marks.sort( by:{ t1,t2 in
+                return t1.position < t2.position
+            })
             setNeedsDisplay()
         }
     }
