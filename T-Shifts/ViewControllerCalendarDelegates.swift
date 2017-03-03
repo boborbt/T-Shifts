@@ -23,12 +23,14 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
                                                  numberOfRows: 5, // Only 1, 2, 3, & 6 are allowed
             calendar: Calendar.current,
             generateInDates: .forAllMonths,
-            generateOutDates: .tillEndOfGrid,
+            generateOutDates: .off,
             firstDayOfWeek: .monday)
         return parameters
     }
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
+        
+        
         let dayCell = cell as! DayCellView
         let calendar = Calendar.current
         
@@ -47,24 +49,26 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
 
         dayCell.updateAspect()
         
-        if cellState.isSelected {
-            dayInfoView.dayCell.copyAttributes(from: dayCell)
-            dayInfoView.activateMarkButtons(templates: dayCell.marks)
-        }
+//        if cellState.isSelected {
+//            dayInfoView.showDetails(from: dayCell, animated: true)
+//            dayInfoView.activateMarkButtons(templates: dayCell.marks)
+//        }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         guard let dayCell = cell as? DayCellView else { return }
-        dayCell.isEmphasized = cellState.isSelected
+        dayCell.isEmphasized = true
         
-        dayInfoView.dayCell.copyAttributes(from: dayCell)
+        NSLog("here")
+        
+        dayInfoView.showDetails(from: dayCell, animated: true)
         dayInfoView.activateMarkButtons(templates: dayCell.marks)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         guard let dayCell = cell as? DayCellView else { return }
         
-        dayCell.isEmphasized = cellState.isSelected
+        dayCell.isEmphasized = false
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {

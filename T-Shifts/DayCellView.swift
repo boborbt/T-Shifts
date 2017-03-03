@@ -55,8 +55,9 @@ class DayCellView: JTAppleDayCellView {
     }
     
     override func awakeFromNib() {
+        
     }
-    
+        
     func copyAttributes(from dayCell:DayCellView) {
         label.text = dayCell.label.text
         isToday = dayCell.isToday
