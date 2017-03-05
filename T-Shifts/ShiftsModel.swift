@@ -80,17 +80,17 @@ struct ShiftTemplate {
 // a collection of shift templates. Its main purpose is to provide
 // easy access to common functions.
 class ShiftTemplates {
-    var templates: [ShiftTemplate] = []
+    var storage: [ShiftTemplate] = []
     
     var count: Int {
         get {
-            return templates.count
+            return storage.count
         }
     }
     
     var activesCount: Int {
         get {
-            return templates.map { template in
+            return storage.map { template in
                     template.shift.isActive ? 1 : 0
                 }.reduce(0, { sum,val in
                     return sum + val
@@ -99,53 +99,26 @@ class ShiftTemplates {
     }
     
     func template(for shift: Shift) -> ShiftTemplate? {
-        return templates.first(where: { template in template.shift.shortcut == shift.shortcut })
+        return storage.first(where: { template in template.shift.shortcut == shift.shortcut })
+    }
+    
+    func templates() -> [ShiftTemplate] {
+        return storage
+    }
+    
+    func templates(for shifts: [Shift]) -> [ShiftTemplate?] {
+        return shifts.map { (shift) -> ShiftTemplate? in
+            return template(for: shift)
+        }
     }
     
     func template(at position: Int) -> ShiftTemplate? {
-        return templates.first(where: { template in template.position == position })
+        return storage.first(where: { template in template.position == position })
     }
     
     func template(havingDescription description:String) -> ShiftTemplate? {
-        return templates.first(where: { template in template.shift.description == description} )
+        return storage.first(where: { template in template.shift.description == description} )
     }
-    
-//    func updateTemplate(at position: Int, newTemplate: ShiftTemplate) {
-//        let index = templates.index( where: { t in return t.position ==  position })!
-//        templates[index] = newTemplate
-//        
-//        recomputeShortcuts()
-//    }
-    
-//    func computeShortcut(at pos: Int) -> String? {
-//        guard templates[pos].shift.description != "" else { return "" }
-//        let des = templates[pos].shift.description
-//        var offset = 0
-//        var result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
-//        
-//        while offset < des.characters.count {
-//            let found = templates.index( where: { t in t.shift.shortcut == result }) != nil
-//            if !found {
-//                return result
-//            }
-//            offset += 1
-//            result = String(des.characters[des.index(des.startIndex, offsetBy: offset)])
-//        }
-//        
-//        
-//        return nil
-//        
-//    }
-//    
-//    func recomputeShortcuts() {
-//        for i in 0 ..< templates.count {
-//            templates[i].shift.shortcut = ""
-//        }
-//        
-//        for i in 0 ..< templates.count {
-//            templates[i].shift.shortcut = computeShortcut(at:i)!
-//        }
-//    }
     
     // Assume that currentSet contains all distinct sc candidates and that
     // currentSet[i] is the candidate for descriptions[i]
@@ -174,7 +147,7 @@ class ShiftTemplates {
     }
     
     func recomputeShortcuts() {
-        let data = templates.enumerated().flatMap( { (index,template) -> (Int, String)? in
+        let data = storage.enumerated().flatMap( { (index,template) -> (Int, String)? in
             let des = template.shift.description
             return des == "" ? nil : (index, template.shift.description)
         })
@@ -193,7 +166,7 @@ class ShiftTemplates {
         
         for (index, sc) in shortcuts.enumerated() {
             let templateIndex = indexes[index]
-            templates[templateIndex].shift.shortcut = sc
+            storage[templateIndex].shift.shortcut = sc
         }
     }
     

@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
         calendarView.selectDates([Date()])
     }
+    
         
     
 // MARK: Events
@@ -80,6 +81,6 @@ class ViewController: UIViewController {
         }
         
         calendarView.selectDates([date + 1.days()])
-    }
+    }    
 }
 

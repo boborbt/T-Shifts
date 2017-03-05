@@ -52,7 +52,7 @@ class OptionsViewController : FormViewController {
         let section = Section("Shifts")
         section.tag = "Shifts"
         
-        let templates = options.shiftTemplates.templates
+        let templates = options.shiftTemplates.templates()
         
         for template in templates {
             let textRow = TextRow("Shift_\(template.position)" ) { row in
@@ -87,9 +87,9 @@ class OptionsViewController : FormViewController {
             
         for (index,row) in shiftsSection.enumerated() {
             if let rowValue = row.baseValue as? String {
-                options.shiftTemplates.templates[index].shift.description = rowValue
+                options.shiftTemplates.storage[index].shift.description = rowValue
             } else {
-                options.shiftTemplates.templates[index].shift.description = ""
+                options.shiftTemplates.storage[index].shift.description = ""
             }
         }
         

@@ -8,6 +8,7 @@
 
 import Foundation
 import JTAppleCalendar
+import os.log
 
 
 extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
@@ -16,8 +17,8 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
         
-        let startDate = formatter.date(from: "2000 01 01")! // You can use date generated from a formatter
-        let endDate = formatter.date(from:"2100 01 01")!                                // You can also use dates created from this function
+        let startDate = formatter.date(from: "2000 01 01")!
+        let endDate = formatter.date(from:"2100 01 01")!
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
                                                  numberOfRows: 5, // Only 1, 2, 3, & 6 are allowed
@@ -29,40 +30,26 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     }
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
-        
-        
         let dayCell = cell as! DayCellView
         let calendar = Calendar.current
         
-        // Setup Cell text
-        dayCell.label.text = cellState.text
         dayCell.isEmphasized = cellState.isSelected
         dayCell.isInCurrentMonth = cellState.dateBelongsTo == .thisMonth
         dayCell.isToday = calendar.isDateInToday(cellState.date)
         
+        dayCell.label.text = cellState.text
         let shifts = shiftStorage.shifts(at: cellState.date)
-        
-        let templates: [ShiftTemplate] = shifts.map { (shift) -> ShiftTemplate in
-            return options.shiftTemplates.template(for: shift)!
-        }
-        dayCell.marks = templates
-
-        dayCell.updateAspect()
-        
-//        if cellState.isSelected {
-//            dayInfoView.showDetails(from: dayCell, animated: true)
-//            dayInfoView.activateMarkButtons(templates: dayCell.marks)
-//        }
+        dayCell.marks = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+        let shifts = shiftStorage.shifts(at: cellState.date)
+        let templates = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
+
+        dayInfoView.show(date: date, templates: templates )
+        
         guard let dayCell = cell as? DayCellView else { return }
         dayCell.isEmphasized = true
-        
-        NSLog("here")
-        
-        dayInfoView.showDetails(from: dayCell, animated: true)
-        dayInfoView.activateMarkButtons(templates: dayCell.marks)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {

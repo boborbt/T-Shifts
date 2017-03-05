@@ -64,7 +64,7 @@ class MarksDisplayView: UIView {
     override func draw(_ rect: CGRect) {
         guard marks.count > 0 else { return }
         
-        if MarksDisplayView.templates.activesCount <= 5 {
+        if marks.count <= 5 {
             drawLargeMarks(rect)
         } else {
             drawSmallMarks(rect)
