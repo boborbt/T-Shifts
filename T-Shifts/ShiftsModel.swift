@@ -200,8 +200,9 @@ class CalendarShiftStorage : ShiftStorage {
     }
     
     func shifts(at date: Date) -> [Shift] {
+        guard let targetCalendar = calendarUpdater.targetCalendar else { return [] }
         let store = calendarUpdater.store
-        let predicate = store.predicateForEvents(withStart: date, end: date + 1.days(), calendars: [calendarUpdater.targetCalendar!])
+        let predicate = store.predicateForEvents(withStart: date, end: date + 1.days(), calendars: [targetCalendar])
         let events = calendarUpdater.store.events(matching: predicate)
         
         return events.flatMap({ (event) in
@@ -280,6 +281,7 @@ class CalendarShiftUpdater {
     var store = EKEventStore()
     var targetCalendar: EKCalendar? {
         didSet {
+            guard targetCalendar != nil else { return }
             let delegate = UIApplication.shared.delegate as! AppDelegate
             delegate.options.calendar = targetCalendar!.title
         }
@@ -303,6 +305,10 @@ class CalendarShiftUpdater {
     }
 
     func switchToCalendar(named calendarName: String) {
+        if !CalendarShiftUpdater.isAccessGranted() {
+            requestAccess()
+        }
+        
         let calendar = store.calendars(for: .event).first(where: { calendar in calendar.title == calendarName})
         
         if calendar != nil {
@@ -321,7 +327,10 @@ class CalendarShiftUpdater {
                 } else {
                     os_log("Error")
                 }
+                return
             }
+            
+            // FIXME: here we should reload the application
             
         })
     }

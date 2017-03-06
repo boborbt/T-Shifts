@@ -40,7 +40,7 @@ class ViewController: UIViewController {
             self.calendarView.reloadDates([date])
         }
         
-        if options.calendar == "None" {
+        if delegate.needsConfiguration {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
         }
         
@@ -80,6 +80,7 @@ class ViewController: UIViewController {
             os_log("Cannot add/remove shift -- error caught")
         }
         
+        dayInfoView.animateNextTransition = true
         calendarView.selectDates([date + 1.days()])
     }    
 }

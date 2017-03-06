@@ -23,15 +23,25 @@ class OptionsViewController : FormViewController {
         options = appDelegate.options
         calendarUpdater = appDelegate.calendarUpdater
         
+        self.tableView?.backgroundColor = UIColor.white
+        
         form +++ calendarSection()
         form +++ shiftSection()
-        
-        
     }
     
     func calendarSection() -> SelectableSection<ListCheckRow<String>> {
         let result = SelectableSection<ListCheckRow<String>>("Shifts Calendar", selectionType: .singleSelection(enableDeselection: false))
         result.tag = "Calendars"
+        
+        if !CalendarShiftUpdater.isAccessGranted() {
+            result <<< LabelRow { row in
+                row.title = "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars."
+                row.cell.textLabel?.numberOfLines = 0
+                row.cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+                }.cellUpdate { cell, row in
+                row.cell.textLabel?.textColor = UIColor.red
+            }
+        }
         
         let calendars = calendarUpdater.calendars
         for calendar in calendars {

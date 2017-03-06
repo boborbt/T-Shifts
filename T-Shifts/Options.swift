@@ -30,6 +30,7 @@ class Options {
         }
     }
     
+    
     func parse(color:[String:Float]) -> UIColor {
         let red = CGFloat(color["red"]!) / 255.0
         let green = CGFloat(color["green"]!) / 255.0

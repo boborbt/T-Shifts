@@ -150,9 +150,9 @@
 				F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */,
 				F89D61421E5C941D0060911E /* DayInfoView.swift */,
 				F814F8B11E4CB65800E67057 /* DayCellView.swift */,
+				F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */,
 				F89D613E1E5C81840060911E /* MarkButton.swift */,
 				F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */,
-				F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */,
 				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
 			);
 			name = Views;

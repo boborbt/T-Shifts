@@ -19,6 +19,8 @@ class DayInfoView: UIView {
     var dayCellViewLeadingConstraint: NSLayoutConstraint!
     var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
     
+    var animateNextTransition: Bool = false
+    
     override func awakeFromNib() {
         addSubviews()
         addAutoLayoutConstraints()
@@ -44,68 +46,15 @@ class DayInfoView: UIView {
             return
         }
     
-        animate(to: newDate, templates: templates, completion: {
+        dateTransition(to: newDate, templates: templates, animate: animateNextTransition, completion: {
             self.activateMarkButtons(templates: templates)
             self.date = newDate
         })
+        
+        animateNextTransition = false
     }
 
     
-
-    func animate(to newDate: Date, templates: [ShiftTemplate],  completion callback: @escaping () -> ()) {
-        display(cell: offscreenCellView, forDate: newDate, templates: templates)
-
-        
-        self.dayCellViewLeadingConstraint.constant = -self.frame.size.height + 5
-        UIView.animate(withDuration: 0.2,
-                       animations: { self.layoutIfNeeded() },
-                       completion: { _ in
-                            self.display(cell: self.dayCellView, forDate: newDate, templates: templates)
-                            swap(&self.dayCellView, &self.offscreenCellView)
-                            swap(&self.dayCellViewLeadingConstraint, &self.offscreenDayCellViewLeadingConstraint)
-                            
-                            self.resetDayCellViewsConstraints()
-                            
-                            callback()
-        })
-    }
-    
-    func display(cell: DayCellView, forDate newDate: Date, templates: [ShiftTemplate]) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd";
-        
-        cell.label.text = formatter.string(from: newDate)
-        cell.marks = templates
-    }
-    
-    
-    // This dayCellView factory is correctly situated in the DayInfoView class
-    // in fact, it is not building generic DayCellViews, but specifically ones
-    // that are customized for the DayInfoView dayViews.
-    static func makeDayCellView() -> DayCellView {
-        let cellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
-        
-        cellView.label.font = UIFont.systemFont(ofSize: 14)
-        cellView.layer.cornerRadius = 10
-        cellView.layer.borderColor = UIColor.gray.cgColor
-        cellView.layer.borderWidth = 0.5
-        
-        return cellView
-    }
-    
-    func addSubviews() {
-        dayCellView = DayInfoView.makeDayCellView()
-        offscreenCellView = DayInfoView.makeDayCellView()
-
-        markButtonsArrayView = Bundle.main.loadNibNamed("MarkButtonsArrayView", owner: self, options: nil)!.first as! MarkButtonsArrayView
-        
-        self.addSubview(dayCellView)
-        self.addSubview(offscreenCellView)
-        self.addSubview(markButtonsArrayView)
-    }
-
-
-
     func setupButtons(controller:ViewController, templates: ShiftTemplates) {
         for markButton in markButtonsArrayView.markButtonsArray {
             markButton.isVisible = false
@@ -117,6 +66,68 @@ class DayInfoView: UIView {
                 markButton.setupForTemplate(template: template)
             }
         }
+    }
+    
+    private func dateTransition(to newDate: Date,
+                                templates: [ShiftTemplate],
+                                animate:Bool,
+                                completion callback: @escaping () -> ()) {
+        let atEndBlock: (Bool) -> () = { _ in
+            self.display(cell: self.dayCellView, forDate: newDate, templates: templates)
+            swap(&self.dayCellView, &self.offscreenCellView)
+            swap(&self.dayCellViewLeadingConstraint, &self.offscreenDayCellViewLeadingConstraint)
+            
+            self.resetDayCellViewsConstraints()
+            
+            callback()
+        }
+        
+        display(cell: offscreenCellView, forDate: newDate, templates: templates)
+        
+        
+        self.dayCellViewLeadingConstraint.constant = -self.frame.size.height + 5
+        if animate {
+            UIView.animate(withDuration: 0.2,
+                           animations: { self.layoutIfNeeded() },
+                           completion:  atEndBlock)
+        } else {
+            atEndBlock(true)
+        }
+    }
+    
+    private func display(cell: DayCellView, forDate newDate: Date, templates: [ShiftTemplate]) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd";
+        
+        cell.label.text = formatter.string(from: newDate)
+        cell.marks = templates
+    }
+    
+    
+    private func addSubviews() {
+        dayCellView = DayInfoView.makeDayCellView()
+        offscreenCellView = DayInfoView.makeDayCellView()
+        
+        markButtonsArrayView = Bundle.main.loadNibNamed("MarkButtonsArrayView", owner: self, options: nil)!.first as! MarkButtonsArrayView
+        
+        self.addSubview(dayCellView)
+        self.addSubview(offscreenCellView)
+        self.addSubview(markButtonsArrayView)
+    }
+    
+    
+    // This dayCellView factory is correctly situated in the DayInfoView class
+    // in fact, it is not building generic DayCellViews, but specifically ones
+    // that are customized for the DayInfoView dayViews.
+    static private func makeDayCellView() -> DayCellView {
+        let cellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
+        
+        cellView.label.font = UIFont.systemFont(ofSize: 14)
+        cellView.layer.cornerRadius = 10
+        cellView.layer.borderColor = UIColor.gray.cgColor
+        cellView.layer.borderWidth = 0.5
+        
+        return cellView
     }
     
     private func resetDayCellViewsConstraints() {
