@@ -15,8 +15,17 @@ class DayCellView: JTAppleDayCellView {
     @IBOutlet weak var marksDisplayView: MarksDisplayView!
     
     
-    var isToday: Bool = false
-    var isInCurrentMonth: Bool = false
+    var isToday: Bool = false {
+        didSet {
+            updateLabelColor()
+        }
+    }
+    
+    var isInCurrentMonth: Bool = false {
+        didSet {
+            updateLabelColor()
+        }
+    }
     
     var showEmphasis: Bool = false
     var showTodayMark: Bool = false
@@ -40,7 +49,10 @@ class DayCellView: JTAppleDayCellView {
         }
     }
     
-    func updateAspect() {
+    
+
+    
+    private func updateLabelColor() {
         if !isInCurrentMonth {
             label.textColor = UIColor.gray
             return
@@ -55,21 +67,6 @@ class DayCellView: JTAppleDayCellView {
     }
     
     override func awakeFromNib() {
-    }
-    
-    func copyAttributes(from dayCell:DayCellView) {
-        label.text = dayCell.label.text
-        isToday = dayCell.isToday
-        isInCurrentMonth = dayCell.isInCurrentMonth
-        marks = dayCell.marks
-        
-        updateAspect()
-    }
-    
-    func clearAttributes() {
-        isToday = false
-        label.text = ""
-        marks = []
-        updateAspect()
+
     }
 }

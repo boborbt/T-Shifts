@@ -23,15 +23,25 @@ class OptionsViewController : FormViewController {
         options = appDelegate.options
         calendarUpdater = appDelegate.calendarUpdater
         
+        self.tableView?.backgroundColor = UIColor.white
+        
         form +++ calendarSection()
         form +++ shiftSection()
-        
-        
     }
     
     func calendarSection() -> SelectableSection<ListCheckRow<String>> {
         let result = SelectableSection<ListCheckRow<String>>("Shifts Calendar", selectionType: .singleSelection(enableDeselection: false))
         result.tag = "Calendars"
+        
+        if !CalendarShiftUpdater.isAccessGranted() {
+            result <<< LabelRow { row in
+                row.title = "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars."
+                row.cell.textLabel?.numberOfLines = 0
+                row.cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+                }.cellUpdate { cell, row in
+                row.cell.textLabel?.textColor = UIColor.red
+            }
+        }
         
         let calendars = calendarUpdater.calendars
         for calendar in calendars {
@@ -52,7 +62,7 @@ class OptionsViewController : FormViewController {
         let section = Section("Shifts")
         section.tag = "Shifts"
         
-        let templates = options.shiftTemplates.templates
+        let templates = options.shiftTemplates.templates()
         
         for template in templates {
             let textRow = TextRow("Shift_\(template.position)" ) { row in
@@ -87,9 +97,9 @@ class OptionsViewController : FormViewController {
             
         for (index,row) in shiftsSection.enumerated() {
             if let rowValue = row.baseValue as? String {
-                options.shiftTemplates.templates[index].shift.description = rowValue
+                options.shiftTemplates.storage[index].shift.description = rowValue
             } else {
-                options.shiftTemplates.templates[index].shift.description = ""
+                options.shiftTemplates.storage[index].shift.description = ""
             }
         }
         

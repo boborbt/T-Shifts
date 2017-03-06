@@ -40,38 +40,16 @@ class ViewController: UIViewController {
             self.calendarView.reloadDates([date])
         }
         
-        if options.calendar == "None" {
+        if delegate.needsConfiguration {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
         }
         
-        let dayCellView = setupDetailsDayCellView()
-        setupDayInfoView(dayCellView)
-        
-        setupConstraints()
-        
+        dayInfoView.setupButtons(controller: self, templates: options.shiftTemplates)
         calendarView.selectDates([Date()])
     }
         
     
-    func setupConstraints() {
-        let detailsDayCellView = dayInfoView.dayCell!
-        let markButtonsView = dayInfoView.markButtonsArray!
-        
-        detailsDayCellView.translatesAutoresizingMaskIntoConstraints = false
-        detailsDayCellView.topAnchor.constraint(equalTo: dayInfoView.topAnchor, constant: +5).isActive = true
-        detailsDayCellView.bottomAnchor.constraint(equalTo: dayInfoView.bottomAnchor, constant: -5).isActive = true
-        detailsDayCellView.leadingAnchor.constraint(equalTo: dayInfoView.leadingAnchor, constant: +5).isActive = true
-        detailsDayCellView.widthAnchor.constraint(equalTo: dayInfoView.heightAnchor, constant: -10).isActive = true
-        
-        
-        markButtonsView.translatesAutoresizingMaskIntoConstraints = false
-        markButtonsView.leadingAnchor.constraint(equalTo: detailsDayCellView.trailingAnchor, constant: +5).isActive = true
-        markButtonsView.topAnchor.constraint(equalTo: dayInfoView.topAnchor).isActive = true
-        markButtonsView.bottomAnchor.constraint(equalTo: dayInfoView.bottomAnchor).isActive = true
-        markButtonsView.trailingAnchor.constraint(equalTo: dayInfoView.trailingAnchor).isActive = true
 
-    }
-    
     func setupCalendarView() {
         calendarView.dataSource = self
         calendarView.delegate = self
@@ -83,27 +61,7 @@ class ViewController: UIViewController {
         calendarView.selectDates([Date()])
     }
     
-    func setupDetailsDayCellView() -> DayCellView {
-        let detailsDayCellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
-        detailsDayCellView.label.font = UIFont.systemFont(ofSize: 14)
-        detailsDayCellView.layer.cornerRadius = 10
-        detailsDayCellView.layer.borderColor = UIColor.gray.cgColor
-        detailsDayCellView.layer.borderWidth = 0.5
         
-        return detailsDayCellView
-    }
-    
-    func setupDayInfoView(_ dayCellView: DayCellView) {
-        let markButtonsArrayView = Bundle.main.loadNibNamed("MarkButtonsArrayView", owner: self, options: nil)!.first as! MarkButtonsArrayView
-        dayInfoView.addSubview(dayCellView)
-        dayInfoView.addSubview(markButtonsArrayView)
-        
-        dayInfoView.dayCell = dayCellView
-        dayInfoView.markButtonsArray = markButtonsArrayView
-        
-        dayInfoView.setupButtons(controller: self, templates: options.shiftTemplates)
-    }
-    
     
 // MARK: Events
     @IBAction func addShift(_ sender: UIButton) {
@@ -121,7 +79,9 @@ class ViewController: UIViewController {
         } catch {
             os_log("Cannot add/remove shift -- error caught")
         }
+        
+        dayInfoView.animateNextTransition = true
         calendarView.selectDates([date + 1.days()])
-    }
+    }    
 }
 

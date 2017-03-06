@@ -30,6 +30,7 @@ class Options {
         }
     }
     
+    
     func parse(color:[String:Float]) -> UIColor {
         let red = CGFloat(color["red"]!) / 255.0
         let green = CGFloat(color["green"]!) / 255.0
@@ -46,7 +47,7 @@ class Options {
         
         var templates: [[String:Any]] = []
         
-        for template in shiftTemplates.templates {
+        for template in shiftTemplates.templates() {
             var dict: [String:Any] = [:]
             dict["description"] = template.shift.description
             dict["shortcut"] = template.shift.shortcut
@@ -82,7 +83,7 @@ class Options {
         }
         
         let result = ShiftTemplates()
-        result.templates = resultArray
+        result.storage = resultArray
         
         return result
     }

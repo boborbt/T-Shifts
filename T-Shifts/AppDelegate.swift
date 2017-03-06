@@ -28,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    var needsConfiguration: Bool {
+        get {
+            return options.calendar == "None" || calendarUpdater.targetCalendar == nil
+        }
+    }
+    
     func reloadOptions() {
         options.shiftTemplates.recomputeShortcuts()
         options.sync()
