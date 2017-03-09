@@ -8,10 +8,16 @@
 
 import UIKit
 
+
 class DayInfoView: UIView {
+    
+    struct Aspect {
+        static let inset = CGFloat(5.0)
+        static let cornerRadius = CGFloat(10.0)
+    }
+    
     // MARK: properties
     
-    weak var controller:ViewController!
     var date: Date!
     
     var dayCellView: DayCellView!
@@ -19,10 +25,15 @@ class DayInfoView: UIView {
     var markButtonsArrayView: MarkButtonsArrayView!
     var securePanelView: UIControl!
     
+    // constraints references needed to implement the
+    // animations
     var dayCellViewLeadingConstraint: NSLayoutConstraint!
     var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
     var securePanelViewLeadingConstraint: NSLayoutConstraint!
     
+    
+    // if set to true next show(date:templates:) will animate
+    // the transition
     var animateNextTransition: Bool = false
     
     
@@ -39,8 +50,8 @@ class DayInfoView: UIView {
     func panelPan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: securePanelView)
 
-        let left_bound = CGFloat(-5)
-        let right_bound = markButtonsArrayView.frame.width - 5
+        let left_bound = -Aspect.inset
+        let right_bound = markButtonsArrayView.frame.width - Aspect.inset
         
         securePanelViewLeadingConstraint.constant += translation.x
         if securePanelViewLeadingConstraint.constant < left_bound {
@@ -53,6 +64,8 @@ class DayInfoView: UIView {
 
         
         if recognizer.state == .ended {
+            // we add velocity.x to the current position to simulate
+            // a bit of inertia
             let x = CGFloat(securePanelViewLeadingConstraint.constant) + recognizer.velocity(in: securePanelView).x / 10
             
             if abs(x - left_bound) < abs(x - right_bound) {
@@ -133,7 +146,7 @@ class DayInfoView: UIView {
         display(cell: offscreenCellView, forDate: newDate, templates: templates)
         
         
-        self.dayCellViewLeadingConstraint.constant = -self.frame.size.height + 5
+        self.dayCellViewLeadingConstraint.constant = -self.frame.size.height + Aspect.inset
         if animate {
             UIView.animate(withDuration: 0.2,
                            animations: { self.layoutIfNeeded() },
@@ -178,7 +191,7 @@ class DayInfoView: UIView {
         let cellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
         
         cellView.label.font = UIFont.systemFont(ofSize: 14)
-        cellView.layer.cornerRadius = 10
+        cellView.layer.cornerRadius = Aspect.cornerRadius
         cellView.layer.borderColor = UIColor.gray.cgColor
         cellView.layer.borderWidth = 0.5
         
@@ -192,8 +205,8 @@ class DayInfoView: UIView {
         dayCellView.removeConstraint(dayCellViewLeadingConstraint)
         offscreenCellView.removeConstraint(offscreenDayCellViewLeadingConstraint)
         
-        dayCellViewLeadingConstraint = dayCellView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: +5)
-        offscreenDayCellViewLeadingConstraint = offscreenCellView.leadingAnchor.constraint(equalTo: dayCellView.trailingAnchor, constant: +10)
+        dayCellViewLeadingConstraint = dayCellView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Aspect.inset)
+        offscreenDayCellViewLeadingConstraint = offscreenCellView.leadingAnchor.constraint(equalTo: dayCellView.trailingAnchor, constant: 2.0 * Aspect.inset)
         
         dayCellViewLeadingConstraint.isActive = true
         offscreenDayCellViewLeadingConstraint.isActive = true
@@ -201,38 +214,38 @@ class DayInfoView: UIView {
     }
     
     private func addAutoLayoutConstraints() {
-        dayCellViewLeadingConstraint = dayCellView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: +5)
-        offscreenDayCellViewLeadingConstraint = offscreenCellView.leadingAnchor.constraint(equalTo: dayCellView.trailingAnchor, constant: +10)
+        dayCellViewLeadingConstraint = dayCellView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Aspect.inset)
+        offscreenDayCellViewLeadingConstraint = offscreenCellView.leadingAnchor.constraint(equalTo: dayCellView.trailingAnchor, constant: 2 * Aspect.inset)
         
         dayCellView.translatesAutoresizingMaskIntoConstraints = false
-        dayCellView.topAnchor.constraint(equalTo: self.topAnchor, constant: +5).isActive = true
-        dayCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
+        dayCellView.topAnchor.constraint(equalTo: self.topAnchor, constant: Aspect.inset).isActive = true
+        dayCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Aspect.inset).isActive = true
         dayCellViewLeadingConstraint.isActive = true
-        dayCellView.widthAnchor.constraint(equalTo: self.heightAnchor, constant: -10).isActive = true
+        dayCellView.widthAnchor.constraint(equalTo: self.heightAnchor, constant: -2*Aspect.inset).isActive = true
         
         
         offscreenCellView.translatesAutoresizingMaskIntoConstraints = false
-        offscreenCellView.topAnchor.constraint(equalTo: self.topAnchor, constant: +5).isActive = true
-        offscreenCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
+        offscreenCellView.topAnchor.constraint(equalTo: self.topAnchor, constant: +Aspect.inset).isActive = true
+        offscreenCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Aspect.inset).isActive = true
         
         offscreenDayCellViewLeadingConstraint.isActive = true
-        offscreenCellView.widthAnchor.constraint(equalTo: self.heightAnchor, constant: -10).isActive = true
+        offscreenCellView.widthAnchor.constraint(equalTo: self.heightAnchor, constant: -2*Aspect.inset).isActive = true
         
         
         markButtonsArrayView.translatesAutoresizingMaskIntoConstraints = false
-        markButtonsArrayView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.size.height + 5).isActive = true
-        markButtonsArrayView.topAnchor.constraint(equalTo: self.topAnchor, constant: +5).isActive = true
-        markButtonsArrayView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
-        markButtonsArrayView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5).isActive = true
+        markButtonsArrayView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.size.height + Aspect.inset).isActive = true
+        markButtonsArrayView.topAnchor.constraint(equalTo: self.topAnchor, constant: Aspect.inset).isActive = true
+        markButtonsArrayView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Aspect.inset).isActive = true
+        markButtonsArrayView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Aspect.inset).isActive = true
         
         
-        securePanelViewLeadingConstraint = securePanelView.leadingAnchor.constraint(equalTo: markButtonsArrayView.leadingAnchor, constant: -5)
+        securePanelViewLeadingConstraint = securePanelView.leadingAnchor.constraint(equalTo: markButtonsArrayView.leadingAnchor, constant: -Aspect.inset)
         
         securePanelView.translatesAutoresizingMaskIntoConstraints = false
         securePanelView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         securePanelViewLeadingConstraint.isActive = true
         
-        securePanelView.widthAnchor.constraint(equalTo: markButtonsArrayView.widthAnchor, constant: +10).isActive = true
+        securePanelView.widthAnchor.constraint(equalTo: markButtonsArrayView.widthAnchor, constant: 2*Aspect.inset).isActive = true
 
         securePanelView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
