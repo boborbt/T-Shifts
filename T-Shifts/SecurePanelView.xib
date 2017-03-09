@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="134"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="panel" translatesAutoresizingMaskIntoConstraints="NO" id="YHU-XN-HZs">
+                    <rect key="frame" x="0.0" y="0.0" width="373" height="134"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="YHU-XN-HZs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="l8c-gI-0JU"/>
+                <constraint firstAttribute="bottom" secondItem="YHU-XN-HZs" secondAttribute="bottom" id="msg-XC-nEf"/>
+                <constraint firstItem="YHU-XN-HZs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rEn-zJ-Ui3"/>
+                <constraint firstAttribute="trailing" secondItem="YHU-XN-HZs" secondAttribute="trailing" id="xs8-Ba-JpD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="27.5" y="-209"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="panel" width="740" height="290"/>
+    </resources>
+</document>

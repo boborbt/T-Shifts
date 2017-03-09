@@ -18,13 +18,13 @@
 		F847D6DD1E4487FE007B8847 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DC1E4487FE007B8847 /* Options.swift */; };
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
-		F8972CB41E5229B2008323FB /* TableViewShiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */; };
 		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
 		F89D613D1E5C80990060911E /* MarkButtonsArrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */; };
 		F89D613F1E5C81840060911E /* MarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613E1E5C81840060911E /* MarkButton.swift */; };
 		F89D61431E5C941D0060911E /* DayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61421E5C941D0060911E /* DayInfoView.swift */; };
 		F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */; };
 		F89D61471E5DB81F0060911E /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89D61461E5DB81F0060911E /* EasyTipView.framework */; };
+		F8AD5F3E1E706CD500C88FD2 /* SecurePanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */; };
 		F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* ViewController.swift */; };
@@ -66,13 +66,13 @@
 		F847D6DC1E4487FE007B8847 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
-		F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewShiftCell.xib; sourceTree = "<group>"; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
 		F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkButtonsArrayView.xib; sourceTree = "<group>"; };
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
 		F89D61421E5C941D0060911E /* DayInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInfoView.swift; sourceTree = "<group>"; };
 		F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButtonsArrayView.swift; sourceTree = "<group>"; };
 		F89D61461E5DB81F0060911E /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
+		F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurePanelView.xib; sourceTree = "<group>"; };
 		F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,16 +146,24 @@
 				F8E9B53F1E27C9A600390BD3 /* Main.storyboard */,
 				F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */,
 				F814F8AF1E4CB60700E67057 /* DayCellView.xib */,
-				F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */,
-				F8972CB11E5229B2008323FB /* TableViewShiftCell.xib */,
-				F89D61421E5C941D0060911E /* DayInfoView.swift */,
+				F8AD5F3F1E715E2200C88FD2 /* DayInfo */,
 				F814F8B11E4CB65800E67057 /* DayCellView.swift */,
 				F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */,
-				F89D613E1E5C81840060911E /* MarkButton.swift */,
-				F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */,
 				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		F8AD5F3F1E715E2200C88FD2 /* DayInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */,
+				F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */,
+				F89D61421E5C941D0060911E /* DayInfoView.swift */,
+				F89D613E1E5C81840060911E /* MarkButton.swift */,
+				F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */,
+			);
+			name = DayInfo;
 			sourceTree = "<group>";
 		};
 		F8E9B52F1E27C9A500390BD3 = {
@@ -331,7 +339,7 @@
 				F81B8ED91E2E63BC00731408 /* Options.plist in Resources */,
 				F89D613D1E5C80990060911E /* MarkButtonsArrayView.xib in Resources */,
 				F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */,
-				F8972CB41E5229B2008323FB /* TableViewShiftCell.xib in Resources */,
+				F8AD5F3E1E706CD500C88FD2 /* SecurePanelView.xib in Resources */,
 				F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
