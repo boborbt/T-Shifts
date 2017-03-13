@@ -27,6 +27,8 @@ class MarkButton: UIButton {
         }
     }
     
+    weak var dayInfoDelegate: DayInfoViewDelegate!
+    
     var inactiveStateColor: CGColor!
     
     var isVisible: Bool {
@@ -69,13 +71,14 @@ class MarkButton: UIButton {
         
         
         var tipViewPrefs = EasyTipView.Preferences()
-        tipViewPrefs.drawing.backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+        tipViewPrefs.drawing.backgroundColor = UIColor.blue
         tipViewPrefs.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
         self.tipView = EasyTipView(text:template.shift.description, preferences: tipViewPrefs)
     }
     
-    func setupTaps(controller:ViewController) {
-        self.addTarget(controller, action: #selector(controller.addShift(_:)), for: .touchUpInside)
+    func setupTaps(dayInfoDelegate:DayInfoViewDelegate) {
+        self.dayInfoDelegate = dayInfoDelegate
+        self.addTarget(self, action: #selector(self.tapEvent), for: .touchUpInside)
         
         let longTapRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.showTip(_:)))
         
@@ -83,6 +86,10 @@ class MarkButton: UIButton {
         longTapRecognizer.minimumPressDuration = 0.5
         
         self.addGestureRecognizer(longTapRecognizer)
+    }
+    
+    func tapEvent() {
+        dayInfoDelegate.dayInfoTapOn(shiftButton: self)
     }
     
     func showTip(_ sender: UILongPressGestureRecognizer) {

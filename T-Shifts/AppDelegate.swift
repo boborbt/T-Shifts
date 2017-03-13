@@ -25,9 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         calendarUpdater = CalendarShiftUpdater(calendarName:options.calendar)
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
-        
-        MarksDisplayView.templates = options.shiftTemplates
-        
+                
         if !CalendarShiftUpdater.isAccessGranted() {
         calendarUpdater.requestAccess( completion: { granted, error in
                 if !granted || error != nil {
@@ -59,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         calendarUpdater.switchToCalendar(named: options.calendar)
         mainController.calendarView.reloadData()
-        mainController.dayInfoView.refreshButtons(controller: mainController, templates: options.shiftTemplates)
+        mainController.dayInfoView.refresh()
     }
     
 

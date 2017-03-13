@@ -11,12 +11,12 @@ import JTAppleCalendar
 import EasyTipView
 import os.log
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DayInfoViewDelegate {
     weak var shiftStorage: CalendarShiftStorage!
     weak var calendarUpdater: CalendarShiftUpdater!
     weak var options: Options!
 
-    @IBOutlet weak var MonthLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dayInfoView: DayInfoView!
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         options = delegate.options
         delegate.mainController = self
+        dayInfoView.delegate = self
         
         calendarUpdater = delegate.calendarUpdater
         setupCalendarView()
@@ -41,7 +42,6 @@ class ViewController: UIViewController {
             UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
         }
         
-        dayInfoView.setupButtons(controller: self, templates: options.shiftTemplates)
         calendarView.selectDates([Date()])
     }
         
@@ -58,7 +58,20 @@ class ViewController: UIViewController {
         calendarView.selectDates([Date()])
     }
     
-        
+// MARK: DayInfoViewDelegate methods
+    func dayInfoTapOn(shiftButton: MarkButton) {
+        addShift(shiftButton)
+    }
+    
+    func templates() -> ShiftTemplates {
+        return options.shiftTemplates
+    }
+    
+    func templatesForDate(date: Date) -> [ShiftTemplate] {
+        let shifts = shiftStorage.shifts(at: date)
+        let templates = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
+        return templates
+    }
     
 // MARK: Events
     @IBAction func addShift(_ sender: UIButton) {

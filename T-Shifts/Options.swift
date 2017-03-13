@@ -36,9 +36,7 @@ class Options {
         let green = CGFloat(color["green"]!) / 255.0
         let blue = CGFloat(color["blue"]!) / 255.0
         let alpha = CGFloat(1.0)
-        
-        os_log("color: %d red: %3.0f green: %3..0f blue: %3.0f alpha: %3.0f", color, red * 255.0, green * 255.0, blue * 255.0, alpha * 255.0)
-        
+                
         return UIColor(red: red , green: green, blue: blue, alpha: alpha)
     }
     

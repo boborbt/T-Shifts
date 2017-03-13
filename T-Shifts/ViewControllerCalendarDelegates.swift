@@ -43,10 +43,8 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        let shifts = shiftStorage.shifts(at: cellState.date)
-        let templates = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
 
-        dayInfoView.show(date: date, templates: templates )
+        dayInfoView.show(date: date)
         
         guard let dayCell = cell as? DayCellView else { return }
         dayCell.isEmphasized = true
@@ -61,9 +59,19 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
-        MonthLabel.text = dateFormatter.string(from: visibleDates.monthDates.first!)
+        monthLabel.text = dateFormatter.string(from: visibleDates.monthDates.first!)
+//        let cal = Calendar.current
+//        let isCurrentMonth = visibleDates.monthDates.index( where: { day in
+//            return cal.isDateInToday(day)
+//        })
         
-        calendar.selectDates([visibleDates.monthDates.first!])
+//        if isCurrentMonth != nil {
+//            calendar.selectDates([Date()])
+//        } else {
+//            calendar.selectDates([visibleDates.monthDates.first!])
+//        }
+        
+//
     }
 
 }

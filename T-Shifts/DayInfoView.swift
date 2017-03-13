@@ -9,6 +9,12 @@
 import UIKit
 
 
+protocol DayInfoViewDelegate: class {
+    func dayInfoTapOn(shiftButton: MarkButton)
+    func templatesForDate(date:Date) -> [ShiftTemplate]
+    func templates() -> ShiftTemplates
+}
+
 class DayInfoView: UIView {
     
     struct Aspect {
@@ -18,24 +24,29 @@ class DayInfoView: UIView {
     
     // MARK: properties
     
-    var date: Date!
+    private var date: Date!
+    weak var delegate: DayInfoViewDelegate! {
+        didSet {
+            setup()
+        }
+    }
     
-    var dayCellView: DayCellView!
-    var offscreenCellView: DayCellView!
-    var markButtonsArrayView: MarkButtonsArrayView!
-    var securePanelView: UIControl!
+    
+    private var dayCellView: DayCellView!
+    private var offscreenCellView: DayCellView!
+    private var markButtonsArrayView: MarkButtonsArrayView!
+    private var securePanelView: UIControl!
     
     // constraints references needed to implement the
     // animations
-    var dayCellViewLeadingConstraint: NSLayoutConstraint!
-    var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
-    var securePanelViewLeadingConstraint: NSLayoutConstraint!
+    private var dayCellViewLeadingConstraint: NSLayoutConstraint!
+    private var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
+    private var securePanelViewLeadingConstraint: NSLayoutConstraint!
     
     
     // if set to true next show(date:templates:) will animate
     // the transition
     var animateNextTransition: Bool = false
-    
     
     // MARK: setup
     override func awakeFromNib() {
@@ -47,9 +58,52 @@ class DayInfoView: UIView {
         securePanelView.addGestureRecognizer(gestureRecognizer)
     }
     
+    
+    func refresh() {
+        setup()
+        show(date: date)
+    }
+    
+    
+    // MARK: show date
+    
+    func show(date newDate: Date) {
+        guard self.date != nil else {
+            date = newDate
+            return
+        }
+
+        let templates = delegate.templatesForDate(date: newDate)
+
+        dateTransition(to: newDate, templates: templates, animate: animateNextTransition, completion: {
+            self.activateMarkButtons(templates: templates)
+            self.date = newDate
+        })
+        
+        animateNextTransition = false
+    }
+    
+    // MARK: private members
+    
+    
+    private func setup() {
+        for markButton in markButtonsArrayView.markButtonsArray {
+            markButton.isVisible = false
+            let template = delegate.templates().template(at: markButton.tag)!
+            
+            if template.shift.description != "" {
+                markButton.isVisible = true
+                markButton.setupTaps(dayInfoDelegate: delegate)
+                markButton.setupForTemplate(template: template)
+            }
+            
+        }
+    }
+
+    
     func panelPan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: securePanelView)
-
+        
         let left_bound = -Aspect.inset
         let right_bound = markButtonsArrayView.frame.width - Aspect.inset
         
@@ -61,7 +115,7 @@ class DayInfoView: UIView {
         if securePanelViewLeadingConstraint.constant > right_bound {
             securePanelViewLeadingConstraint.constant = right_bound
         }
-
+        
         
         if recognizer.state == .ended {
             // we add velocity.x to the current position to simulate
@@ -83,7 +137,7 @@ class DayInfoView: UIView {
     
     // MARK: buttons
     
-    func activateMarkButtons(templates:[ShiftTemplate]) {
+    private func activateMarkButtons(templates:[ShiftTemplate]) {
         for markButton in markButtonsArrayView.markButtonsArray {
             markButton.isActive = false
         }
@@ -93,41 +147,7 @@ class DayInfoView: UIView {
         }
     }
     
-    func refreshButtons(controller: ViewController, templates:ShiftTemplates) {
-        setupButtons(controller: controller, templates: templates)
-    }
     
-    
-    func setupButtons(controller:ViewController, templates: ShiftTemplates) {
-        for markButton in markButtonsArrayView.markButtonsArray {
-            markButton.isVisible = false
-            let template = templates.template(at: markButton.tag)!
-            
-            if template.shift.description != "" {
-                markButton.isVisible = true
-                markButton.setupTaps(controller: controller)
-                markButton.setupForTemplate(template: template)
-            }
-        }
-    }
-    
-    // MARK: show date
-    
-    func show(date newDate: Date, templates: [ShiftTemplate]) {
-        guard self.date != nil else {
-            date = newDate
-            return
-        }
-        
-        dateTransition(to: newDate, templates: templates, animate: animateNextTransition, completion: {
-            self.activateMarkButtons(templates: templates)
-            self.date = newDate
-        })
-        
-        animateNextTransition = false
-    }
-
-    // MARK: private members
     
     private func dateTransition(to newDate: Date,
                                 templates: [ShiftTemplate],
@@ -164,7 +184,7 @@ class DayInfoView: UIView {
         cell.marks = templates
     }
     
-
+    
     
     
     
@@ -175,7 +195,7 @@ class DayInfoView: UIView {
         markButtonsArrayView = Bundle.main.loadNibNamed("MarkButtonsArrayView", owner: self, options: nil)!.first as! MarkButtonsArrayView
         
         securePanelView = Bundle.main.loadNibNamed("SecurePanelView", owner: self, options: nil)!.first as! UIControl
-    
+        
         
         self.addSubview(dayCellView)
         self.addSubview(offscreenCellView)
@@ -246,12 +266,12 @@ class DayInfoView: UIView {
         securePanelViewLeadingConstraint.isActive = true
         
         securePanelView.widthAnchor.constraint(equalTo: markButtonsArrayView.widthAnchor, constant: 2*Aspect.inset).isActive = true
-
+        
         securePanelView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
     }
     
     
     
-
+    
 }

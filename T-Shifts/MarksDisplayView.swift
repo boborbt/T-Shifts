@@ -9,7 +9,6 @@
 import UIKit
 
 class MarksDisplayView: UIView {
-    static var templates: ShiftTemplates!
     struct Metrics {
         static let inset = CGFloat(3)
         static let radiusRatio = CGFloat(8)
