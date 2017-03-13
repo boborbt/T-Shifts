@@ -59,19 +59,21 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
-        monthLabel.text = dateFormatter.string(from: visibleDates.monthDates.first!)
-//        let cal = Calendar.current
-//        let isCurrentMonth = visibleDates.monthDates.index( where: { day in
-//            return cal.isDateInToday(day)
-//        })
+        let monthYearText = dateFormatter.string(from: visibleDates.monthDates.first!)
+        monthLabel.text = monthYearText
         
-//        if isCurrentMonth != nil {
-//            calendar.selectDates([Date()])
-//        } else {
-//            calendar.selectDates([visibleDates.monthDates.first!])
-//        }
-        
-//
+        if let selecteDate = calendar.selectedDates.first {
+            let dayFormatter = DateFormatter()
+            dayFormatter.dateFormat = "dd"
+            let dayToSelectString = dayFormatter.string(from: selecteDate) + " " + monthYearText
+            dayFormatter.dateFormat = "dd MMMM yyyy"
+            
+            if let dayToSelect = dayFormatter.date(from: dayToSelectString) {
+                calendar.selectDates([dayToSelect])
+            } else {
+                calendar.selectDates([Date().firstDayOfMonth()])
+            }
+        }
     }
 
 }

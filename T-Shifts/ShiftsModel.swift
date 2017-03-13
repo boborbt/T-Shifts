@@ -330,9 +330,9 @@ class CalendarShiftUpdater {
             event.calendar = targetCalendar!
             
             try store.save(event, span: EKSpan.thisEvent)
-            os_log("event saved: ", shift.description)
+            os_log("Shift saved to Calendar store: %@", shift.description)
         } catch {
-            os_log("error occurred: ",  shift.description)
+            os_log("Error occurred for shift: %@", shift.description)
         }
         
     }
