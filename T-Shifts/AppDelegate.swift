@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var calendarUpdater: CalendarShiftUpdater!
     var options = Options()
     
-    var mainController: ViewController!
+    weak var mainController: ViewController!
+    weak var optionsController: OptionsViewController!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -25,6 +27,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
         
         MarksDisplayView.templates = options.shiftTemplates
+        
+        if !CalendarShiftUpdater.isAccessGranted() {
+        calendarUpdater.requestAccess( completion: { granted, error in
+                if !granted || error != nil {
+                    if !granted {
+                        os_log("Not granted")
+                    } else {
+                        os_log("Error")
+                    }
+                    return
+                }
+                
+                self.optionsController.reloadCalendarSection()
+            })
+        }
+        
+        
         return true
     }
     

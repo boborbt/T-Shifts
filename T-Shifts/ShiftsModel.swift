@@ -305,10 +305,6 @@ class CalendarShiftUpdater {
     }
 
     func switchToCalendar(named calendarName: String) {
-        if !CalendarShiftUpdater.isAccessGranted() {
-            requestAccess()
-        }
-        
         let calendar = store.calendars(for: .event).first(where: { calendar in calendar.title == calendarName})
         
         if calendar != nil {
@@ -319,20 +315,8 @@ class CalendarShiftUpdater {
     }
     
     
-    func requestAccess() {
-        store.requestAccess(to: .event, completion:{ granted, error in
-            if !granted || error != nil {
-                if !granted {
-                    os_log("Not granted")
-                } else {
-                    os_log("Error")
-                }
-                return
-            }
-            
-            // FIXME: here we should reload the application
-            
-        })
+    func requestAccess(completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
+        store.requestAccess(to: .event, completion: completion)
     }
     
     func add(shift: Shift, at date: Date) throws {

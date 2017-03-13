@@ -16,6 +16,12 @@ class OptionsViewController : FormViewController {
     weak var calendarUpdater: CalendarShiftUpdater!
     
     
+    override func awakeFromNib() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.optionsController = self
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +33,14 @@ class OptionsViewController : FormViewController {
         
         form +++ calendarSection()
         form +++ shiftSection()
+    }
+    
+    
+    func reloadCalendarSection() {
+        form.removeAll()
+        form +++ calendarSection()
+        form +++ shiftSection()
+        tableView?.reloadData()
     }
     
     func calendarSection() -> SelectableSection<ListCheckRow<String>> {

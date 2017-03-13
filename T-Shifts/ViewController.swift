@@ -20,8 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dayInfoView: DayInfoView!
-        
-    
+       
 // MARK: setup
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +30,6 @@ class ViewController: UIViewController {
         delegate.mainController = self
         
         calendarUpdater = delegate.calendarUpdater
-        calendarUpdater.requestAccess()
-        
         setupCalendarView()
         
         shiftStorage = delegate.shiftStorage
