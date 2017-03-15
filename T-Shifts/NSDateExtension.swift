@@ -10,12 +10,21 @@ import Foundation
 
 extension Date {
     func firstDayOfMonth() -> Date {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+        var comp = components()
+        comp.day = 1
+        return calendar.date(from: comp)!
+    }
+    
+
+    func components() -> DateComponents {
         let date = self as Date
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
-        var comp = calendar.components([.year, .month, .day], from: date)
-        
-        comp.day = 1
-        
+        return calendar.components([.year, .month, .day], from: date)
+    }
+    
+    static func date(from comp: DateComponents) -> Date {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         return calendar.date(from: comp)!
     }
 }

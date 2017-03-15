@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
                 
         if !CalendarShiftUpdater.isAccessGranted() {
-        calendarUpdater.requestAccess( completion: { granted, error in
+            calendarUpdater.requestAccess( completion: { granted, error in
                 if !granted || error != nil {
                     if !granted {
                         os_log("Not granted")
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     return
                 }
-                
+                    
                 self.optionsController.reloadCalendarSection()
             })
         }

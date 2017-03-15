@@ -54,8 +54,8 @@ class ViewController: UIViewController, DayInfoViewDelegate {
         calendarView.cellInset = CGPoint(x: 0, y: 0)
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
         calendarView.scrollEnabled = true
-        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
         calendarView.selectDates([Date()])
+        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
     }
     
 // MARK: DayInfoViewDelegate methods

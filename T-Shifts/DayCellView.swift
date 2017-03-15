@@ -65,8 +65,5 @@ class DayCellView: JTAppleDayCellView {
         
         label.textColor = UIColor.black
     }
-    
-    override func awakeFromNib() {
 
-    }
 }
