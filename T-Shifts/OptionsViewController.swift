@@ -12,6 +12,15 @@ import Eureka
 import os.log
 
 class OptionsViewController : FormViewController {
+    
+    struct LocalizedStrings {
+        static let shiftCalendarSectionTitle = NSLocalizedString("Shifts Calendar", comment: "Title of section regarding the calendar to be used for storing the shifts")
+        static let accessNotGranted = NSLocalizedString("Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars.", comment: "Error message to be displayed when user did not give access to the calendar")
+        static let shiftsSectionTitle = NSLocalizedString("Shifts", comment: "Title of section regarding the names of shifts to be used by the application")
+        static let shiftNamePlaceholder = NSLocalizedString("Shift name", comment: "Text displayed on empty text boxes requiring the user to enter the shift name")
+        
+    }
+    
     weak var options: Options!
     weak var calendarUpdater: CalendarShiftUpdater!
     
@@ -44,12 +53,12 @@ class OptionsViewController : FormViewController {
     }
     
     func calendarSection() -> SelectableSection<ListCheckRow<String>> {
-        let result = SelectableSection<ListCheckRow<String>>("Shifts Calendar", selectionType: .singleSelection(enableDeselection: false))
+        let result = SelectableSection<ListCheckRow<String>>(LocalizedStrings.shiftCalendarSectionTitle, selectionType: .singleSelection(enableDeselection: false))
         result.tag = "Calendars"
         
         if !CalendarShiftUpdater.isAccessGranted() {
             result <<< LabelRow { row in
-                row.title = "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars."
+                row.title = LocalizedStrings.accessNotGranted
                 row.cell.textLabel?.numberOfLines = 0
                 row.cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
                 }.cellUpdate { cell, row in
@@ -73,7 +82,7 @@ class OptionsViewController : FormViewController {
     
     func shiftSection() -> Section {
         
-        let section = Section("Shifts")
+        let section = Section(LocalizedStrings.shiftsSectionTitle)
         section.tag = "Shifts"
         
         let templates = options.shiftTemplates.templates()
@@ -81,7 +90,7 @@ class OptionsViewController : FormViewController {
         for template in templates {
             let textRow = TextRow("Shift_\(template.position)" ) { row in
                     row.value = template.shift.description
-                    row.placeholder = "Shift description"
+                    row.placeholder = LocalizedStrings.shiftNamePlaceholder
                 }.cellSetup { cell, row in
                     cell.layer.borderColor = template.color.cgColor
                     cell.layer.borderWidth = 2

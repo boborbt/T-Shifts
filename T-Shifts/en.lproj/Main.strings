@@ -1,0 +1,33 @@
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "0mg-GR-t79"; */
+"0mg-GR-t79.title" = "Back";
+
+/* Class = "UILabel"; text = "Mon"; ObjectID = "M6D-mk-EDk"; */
+"M6D-mk-EDk.text" = "Mon";
+
+/* Class = "UILabel"; text = "Wed"; ObjectID = "YEV-XA-tAB"; */
+"YEV-XA-tAB.text" = "Wed";
+
+/* Class = "UILabel"; text = "Thu"; ObjectID = "iRR-Vg-GcZ"; */
+"iRR-Vg-GcZ.text" = "Thu";
+
+/* Class = "UILabel"; text = "Sat"; ObjectID = "kap-1e-VXW"; */
+"kap-1e-VXW.text" = "Sat";
+
+/* Class = "UINavigationItem"; title = "Pick your Shifts"; ObjectID = "llw-JS-HcF"; */
+"llw-JS-HcF.title" = "Pick your Shifts";
+
+/* Class = "UIBarButtonItem"; title = "⚙"; ObjectID = "odh-UF-tob"; */
+"odh-UF-tob.title" = "⚙";
+
+/* Class = "UILabel"; text = "Fri"; ObjectID = "s2x-bi-qWE"; */
+"s2x-bi-qWE.text" = "Fri";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "slw-B3-fuN"; */
+"slw-B3-fuN.text" = "Label";
+
+/* Class = "UILabel"; text = "Sun"; ObjectID = "tHL-0g-VbA"; */
+"tHL-0g-VbA.text" = "Sun";
+
+/* Class = "UILabel"; text = "Tue"; ObjectID = "xqz-rf-aW1"; */
+"xqz-rf-aW1.text" = "Tue";
