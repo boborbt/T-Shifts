@@ -8,7 +8,7 @@
 			<key>shortcut</key>
 			<string>M</string>
 			<key>description</key>
-			<string>Morning</string>
+			<string>Mattino</string>
 			<key>position</key>
 			<integer>0</integer>
 			<key>color</key>
@@ -23,9 +23,9 @@
 		</dict>
 		<dict>
 			<key>shortcut</key>
-			<string>A</string>
+			<string>P</string>
 			<key>description</key>
-			<string>Afternoon</string>
+			<string>Pomeriggio</string>
 			<key>position</key>
 			<integer>1</integer>
 			<key>color</key>
@@ -42,7 +42,7 @@
 			<key>shortcut</key>
 			<string>N</string>
 			<key>description</key>
-			<string>Night</string>
+			<string>Notte</string>
 			<key>position</key>
 			<integer>2</integer>
 			<key>oldColor</key>
@@ -72,7 +72,7 @@
 			<key>shortcut</key>
 			<string>R</string>
 			<key>description</key>
-			<string>Rest day</string>
+			<string>Riposo</string>
 			<key>position</key>
 			<integer>3</integer>
 			<key>color</key>
@@ -87,9 +87,9 @@
 		</dict>
 		<dict>
 			<key>shortcut</key>
-			<string>v</string>
+			<string>r</string>
 			<key>description</key>
-			<string>Availability</string>
+			<string>Reperibilità</string>
 			<key>position</key>
 			<integer>4</integer>
 			<key>color</key>

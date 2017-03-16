@@ -1,5 +1,5 @@
 /* Error message to be displayed when user did not give access to the calendar */
-"Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." = "L'accesso al calendario di sistema non è stato concesso. Puoi abilitarlo dalle preferenze di sistema e selezionando l'applicazione T-Shifts";
+"Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." = "L'accesso al calendario di sistema non è stato concesso. Puoi abilitarlo dalle preferenze di sistema selezionando l'applicazione T-Shifts.";
 
 /* Text displayed on empty text boxes requiring the user to enter the shift name */
 "Shift name" = "Nome del turno";

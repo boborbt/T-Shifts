@@ -104,6 +104,7 @@
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ShiftsModel.swift; path = "T-Shifts/ShiftsModel.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F8FBD3D11E7B41B30072A307 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Options.plist; sourceTree = "<group>"; };
+		F8FBD3D31E7B4D810072A307 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/Options.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +348,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = F8E9B52F1E27C9A500390BD3;
 			productRefGroup = F8E9B5391E27C9A600390BD3 /* Products */;
@@ -526,6 +528,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F8FBD3D11E7B41B30072A307 /* en */,
+				F8FBD3D31E7B4D810072A307 /* it */,
 			);
 			name = Options.plist;
 			sourceTree = "<group>";
