@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 checkState()
             case (.ready, .ready):
                 os_log("App ready")
+            case (.needsCalendarAccess, .needsCalendarAccess):
+                self.showCalendarAccessNotGrantedErrorView()
             case let matchedState where matchedState.0 == matchedState.1:
                 break
             case (_, .needsConfiguration):

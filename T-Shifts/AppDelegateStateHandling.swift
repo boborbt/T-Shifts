@@ -18,11 +18,14 @@ extension AppDelegate {
     func appChangedStateToNeedsCalendarAccess() {        
         calendarUpdater.requestAccess( completion: { granted, _ in
             if !granted {
-                self.showCalendarAccessNotGrantedErrorView()
-                self.state = .needsCalendarAccess
+                DispatchQueue.main.async {
+                    self.state = .needsCalendarAccess
+                }
             } else {
-                self.reloadOptions()
-                self.state = .ready
+                DispatchQueue.main.async {
+                    self.reloadOptions()
+                    self.state = .needsConfiguration
+                }
             }
         })
 
@@ -39,7 +42,6 @@ extension AppDelegate {
             return
         }
         
-        // FIXME: handle .starting 
         
         state = .ready
     }
@@ -49,9 +51,8 @@ extension AppDelegate {
         guard let navigationController = self.window?.rootViewController as? UINavigationController else { return }
         guard let storyboard = navigationController.storyboard else { return }
         
-        let optionsViewController = storyboard.instantiateViewController(withIdentifier: "optionsViewController")
+        let optionsViewController = storyboard.instantiateViewController(withIdentifier: "optionsViewController") as! OptionsViewController
         
-
         navigationController.pushViewController(optionsViewController, animated: true)
     }
     
@@ -61,7 +62,8 @@ extension AppDelegate {
         
         let calendarAccessNotGrantedController = storyboard.instantiateViewController(withIdentifier: "calendarAccessNotGranted")
         
-        
-        navigationController.pushViewController(calendarAccessNotGrantedController, animated: true)
+        navigationController.present(calendarAccessNotGrantedController, animated: true, completion: {
+            self.checkState()
+        })
     }
 }

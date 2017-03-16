@@ -316,7 +316,11 @@ class CalendarShiftUpdater {
     
     
     func requestAccess(completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
-        store.requestAccess(to: .event, completion: completion)
+        store.requestAccess(to: .event, completion: { granted, error in
+            // refreshing the store
+            self.store = EKEventStore()
+            completion(granted, error)
+        })
     }
     
     func add(shift: Shift, at date: Date) throws {

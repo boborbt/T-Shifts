@@ -12,7 +12,6 @@
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */; };
-		F81B8ED91E2E63BC00731408 /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81B8ED81E2E63BC00731408 /* Options.plist */; };
 		F824FC191E5EED1E00954A58 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F824FC181E5EED1E00954A58 /* Eureka.framework */; };
 		F824FC1B1E5EEE0E00954A58 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */; };
 		F833BB291E79801A00EA3BB2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB2B1E79801A00EA3BB2 /* Localizable.strings */; };
@@ -40,6 +39,7 @@
 		F8E9B5511E27C9A600390BD3 /* T_ShiftsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B5501E27C9A600390BD3 /* T_ShiftsTests.swift */; };
 		F8E9B55C1E27C9A600390BD3 /* T_ShiftsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */; };
 		F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */; };
+		F8FBD3D01E7B41B30072A307 /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8FBD3D21E7B41B30072A307 /* Options.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,6 @@
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
 		F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendarDelegates.swift; sourceTree = "<group>"; };
-		F81B8ED81E2E63BC00731408 /* Options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Options.plist; sourceTree = "<group>"; };
 		F824FC181E5EED1E00954A58 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		F833BB1F1E794CF000EA3BB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsUITests.swift; sourceTree = "<group>"; };
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ShiftsModel.swift; path = "T-Shifts/ShiftsModel.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F8FBD3D11E7B41B30072A307 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Options.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +177,7 @@
 				F833BB351E79801B00EA3BB2 /* InfoPlist.strings */,
 				F833BB2B1E79801A00EA3BB2 /* Localizable.strings */,
 				F8E9B5471E27C9A600390BD3 /* Info.plist */,
-				F81B8ED81E2E63BC00731408 /* Options.plist */,
+				F8FBD3D21E7B41B30072A307 /* Options.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 			files = (
 				F8E9B5461E27C9A600390BD3 /* LaunchScreen.storyboard in Resources */,
 				F8E9B5431E27C9A600390BD3 /* Assets.xcassets in Resources */,
-				F81B8ED91E2E63BC00731408 /* Options.plist in Resources */,
+				F8FBD3D01E7B41B30072A307 /* Options.plist in Resources */,
 				F89D613D1E5C80990060911E /* MarkButtonsArrayView.xib in Resources */,
 				F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */,
 				F833BB291E79801A00EA3BB2 /* Localizable.strings in Resources */,
@@ -520,6 +520,14 @@
 				F833BB261E797F4F00EA3BB2 /* it */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F8FBD3D21E7B41B30072A307 /* Options.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8FBD3D11E7B41B30072A307 /* en */,
+			);
+			name = Options.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
