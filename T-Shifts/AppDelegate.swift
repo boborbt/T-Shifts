@@ -21,13 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var state: State = .starting {
         didSet {
             switch (oldValue,state) {
+            case (.starting, .starting):
+                checkState()
+            case (.ready, .ready):
+                os_log("App ready")
+            case let matchedState where matchedState.0 == matchedState.1:
+                break
             case (_, .needsConfiguration):
                 appChangedStateToNeedsConfiguration()
             case (_,.needsCalendarAccess):
                 appChangedStateToNeedsCalendarAccess()
-            case (_,.ready):
-                appChangedStateToReady()
-            case (_,.starting):
+            default:
                 checkState()
             }
             
@@ -47,17 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     weak var optionsController: OptionsViewController!
     
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        calendarUpdater = CalendarShiftUpdater(calendarName:options.calendar)
-        shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
-        
-        return true
-    }
-    
-    
     func reloadOptions() {
         options.shiftTemplates.recomputeShortcuts()
         options.sync()
@@ -67,6 +60,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainController.dayInfoView.refresh()
     }
     
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        calendarUpdater = CalendarShiftUpdater(calendarName:options.calendar)
+        shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
+        
+        return true
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

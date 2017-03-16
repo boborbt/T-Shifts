@@ -56,6 +56,15 @@ class ViewController: UIViewController, DayInfoViewDelegate {
     
     
 // MARK: Events
+    
+    
+    @IBAction func showOptions(_ sender: UIBarButtonItem) {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.showOptions()
+    }
+    
+    
+    
     @IBAction func addShift(_ sender: UIButton) {
         let dates = calendarView.selectedDates
         guard dates.count > 0 else { return }

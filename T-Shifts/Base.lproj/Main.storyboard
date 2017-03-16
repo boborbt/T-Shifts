@@ -135,7 +135,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="0mg-GR-t79"/>
                         <barButtonItem key="rightBarButtonItem" title="⚙" style="done" id="odh-UF-tob">
                             <connections>
-                                <segue destination="UqK-VB-2y7" kind="show" id="YQw-YQ-mK0"/>
+                                <action selector="showOptions:" destination="BYZ-38-t0r" id="TiK-vg-j0h"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -156,7 +156,7 @@
         <!--Options View Controller-->
         <scene sceneID="mXE-Hy-qkP">
             <objects>
-                <viewController id="UqK-VB-2y7" customClass="OptionsViewController" customModule="T_Shifts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="optionsViewController" id="UqK-VB-2y7" customClass="OptionsViewController" customModule="T_Shifts" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="laL-zj-713"/>
                         <viewControllerLayoutGuide type="bottom" id="wqy-8i-tWS"/>
@@ -170,6 +170,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xer-Wz-TP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="804" y="36"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="khK-BI-PDe">
+            <objects>
+                <viewController storyboardIdentifier="calendarAccessNotGranted" id="ici-R3-RO3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GJ8-7f-tAp"/>
+                        <viewControllerLayoutGuide type="bottom" id="EWX-5z-eOG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pn6-bW-8qH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-Ls-jkA">
+                                <rect key="frame" x="47" y="204" width="280" height="259"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YiT-mZ-SWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="760.56971514242889"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wfz-IS-Rra">

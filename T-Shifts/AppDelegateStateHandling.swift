@@ -12,30 +12,20 @@ import os.log
 
 extension AppDelegate {
     func appChangedStateToNeedsConfiguration() {
-        let preferenceButton = mainController.preferenceButton!
-        UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
-        // the option controller should call checkState once the user dismiss it
+        showOptions()
     }
     
-    func appChangedStateToNeedsCalendarAccess() {
-        calendarUpdater.requestAccess( completion: { granted, error in
-            if !granted || error != nil {
-                if !granted {
-                    os_log("Not granted")
-                    self.state = .needsConfiguration
-                } else {
-                    os_log("Error")
-                }
-                return
+    func appChangedStateToNeedsCalendarAccess() {        
+        calendarUpdater.requestAccess( completion: { granted, _ in
+            if !granted {
+                self.showCalendarAccessNotGrantedErrorView()
+                self.state = .needsCalendarAccess
+            } else {
+                self.reloadOptions()
+                self.state = .ready
             }
-            
-            self.checkState()
         })
 
-    }
-    
-    func appChangedStateToReady() {
-        // FIXME: show main windows
     }
     
     func checkState() {
@@ -52,5 +42,26 @@ extension AppDelegate {
         // FIXME: handle .starting 
         
         state = .ready
+    }
+    
+    func showOptions() {
+        os_log("showOptions")
+        guard let navigationController = self.window?.rootViewController as? UINavigationController else { return }
+        guard let storyboard = navigationController.storyboard else { return }
+        
+        let optionsViewController = storyboard.instantiateViewController(withIdentifier: "optionsViewController")
+        
+
+        navigationController.pushViewController(optionsViewController, animated: true)
+    }
+    
+    func showCalendarAccessNotGrantedErrorView() {
+        guard let navigationController = self.window?.rootViewController as? UINavigationController else { return }
+        guard let storyboard = navigationController.storyboard else { return }
+        
+        let calendarAccessNotGrantedController = storyboard.instantiateViewController(withIdentifier: "calendarAccessNotGranted")
+        
+        
+        navigationController.pushViewController(calendarAccessNotGrantedController, animated: true)
     }
 }
