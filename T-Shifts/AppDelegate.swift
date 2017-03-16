@@ -11,45 +11,52 @@ import os.log
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    enum State {
+        case starting
+        case needsConfiguration
+        case needsCalendarAccess
+        case ready
+    }
+    
+    var state: State = .starting {
+        didSet {
+            switch (oldValue,state) {
+            case (_, .needsConfiguration):
+                appChangedStateToNeedsConfiguration()
+            case (_,.needsCalendarAccess):
+                appChangedStateToNeedsCalendarAccess()
+            case (_,.ready):
+                appChangedStateToReady()
+            case (_,.starting):
+                checkState()
+            }
+            
+        }
+    }
 
     var window: UIWindow?
     var shiftStorage: CalendarShiftStorage?
     var calendarUpdater: CalendarShiftUpdater!
     var options = Options()
     
-    weak var mainController: ViewController!
+    weak var mainController: ViewController! {
+        didSet {
+            state = .starting
+        }
+    }
+    
     weak var optionsController: OptionsViewController!
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         calendarUpdater = CalendarShiftUpdater(calendarName:options.calendar)
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
-                
-        if !CalendarShiftUpdater.isAccessGranted() {
-            calendarUpdater.requestAccess( completion: { granted, error in
-                if !granted || error != nil {
-                    if !granted {
-                        os_log("Not granted")
-                    } else {
-                        os_log("Error")
-                    }
-                    return
-                }
-                    
-                self.optionsController.reloadCalendarSection()
-            })
-        }
-        
         
         return true
     }
     
-    var needsConfiguration: Bool {
-        get {
-            return options.calendar == "None" || calendarUpdater.targetCalendar == nil
-        }
-    }
     
     func reloadOptions() {
         options.shiftTemplates.recomputeShortcuts()

@@ -22,6 +22,8 @@
 		F847D6DD1E4487FE007B8847 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DC1E4487FE007B8847 /* Options.swift */; };
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
+		F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */; };
+		F86B38941E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */; };
 		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
 		F89D613D1E5C80990060911E /* MarkButtonsArrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */; };
 		F89D613F1E5C81840060911E /* MarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613E1E5C81840060911E /* MarkButton.swift */; };
@@ -78,6 +80,8 @@
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
 		F86853C71E71B6A800A157DA /* panel-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "panel-source.graffle"; sourceTree = "<group>"; };
+		F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateStateHandling.swift; sourceTree = "<group>"; };
+		F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDayInfoViewDelegates.swift; sourceTree = "<group>"; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
 		F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkButtonsArrayView.xib; sourceTree = "<group>"; };
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F8E9B53D1E27C9A600390BD3 /* ViewController.swift */,
+				F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */,
 				F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */,
 				F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */,
 			);
@@ -164,6 +169,17 @@
 				F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		F86B38901E7A89F10009B9D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F833BB351E79801B00EA3BB2 /* InfoPlist.strings */,
+				F833BB2B1E79801A00EA3BB2 /* Localizable.strings */,
+				F8E9B5471E27C9A600390BD3 /* Info.plist */,
+				F81B8ED81E2E63BC00731408 /* Options.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		F8AD5F3F1E715E2200C88FD2 /* DayInfo */ = {
@@ -204,14 +220,12 @@
 		F8E9B53A1E27C9A600390BD3 /* T-Shifts */ = {
 			isa = PBXGroup;
 			children = (
-				F833BB351E79801B00EA3BB2 /* InfoPlist.strings */,
-				F833BB2B1E79801A00EA3BB2 /* Localizable.strings */,
 				F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */,
+				F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */,
 				F814F8AA1E4CAC5F00E67057 /* Models */,
 				F814F8AC1E4CAC9F00E67057 /* Views */,
 				F814F8AB1E4CAC7900E67057 /* Controllers */,
-				F8E9B5471E27C9A600390BD3 /* Info.plist */,
-				F81B8ED81E2E63BC00731408 /* Options.plist */,
+				F86B38901E7A89F10009B9D0 /* Resources */,
 				F8E9B5421E27C9A600390BD3 /* Assets.xcassets */,
 				F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */,
 				F86853C71E71B6A800A157DA /* panel-source.graffle */,
@@ -413,9 +427,11 @@
 				F89D61431E5C941D0060911E /* DayInfoView.swift in Sources */,
 				F80933071E55FAC000AF56FF /* IntExtension.swift in Sources */,
 				F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */,
+				F86B38941E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift in Sources */,
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
 				F80933091E5602BD00AF56FF /* Errors.swift in Sources */,
+				F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */,
 				F89D613F1E5C81840060911E /* MarkButton.swift in Sources */,
 				F847D6DD1E4487FE007B8847 /* Options.swift in Sources */,
 				F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */,

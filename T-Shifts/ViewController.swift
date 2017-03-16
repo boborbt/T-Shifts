@@ -37,11 +37,7 @@ class ViewController: UIViewController, DayInfoViewDelegate {
         shiftStorage.notifyChanges { date in
             self.calendarView.reloadDates([date])
         }
-        
-        if delegate.needsConfiguration {
-            UIApplication.shared.sendAction(preferenceButton.action!, to: preferenceButton.target, from: nil, for: nil)
-        }
-        
+                
         calendarView.selectDates([Date()])
     }
         
@@ -58,20 +54,6 @@ class ViewController: UIViewController, DayInfoViewDelegate {
         calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
     }
     
-// MARK: DayInfoViewDelegate methods
-    func dayInfoTapOn(shiftButton: MarkButton) {
-        addShift(shiftButton)
-    }
-    
-    func templates() -> ShiftTemplates {
-        return options.shiftTemplates
-    }
-    
-    func templatesForDate(date: Date) -> [ShiftTemplate] {
-        let shifts = shiftStorage.shifts(at: date)
-        let templates = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
-        return templates
-    }
     
 // MARK: Events
     @IBAction func addShift(_ sender: UIButton) {

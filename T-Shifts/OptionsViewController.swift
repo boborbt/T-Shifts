@@ -32,6 +32,7 @@ class OptionsViewController : FormViewController {
     
     
     override func viewDidLoad() {
+        os_log("Options view did load")
         super.viewDidLoad()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -127,6 +128,7 @@ class OptionsViewController : FormViewController {
         }
         
         appDelegate.reloadOptions()
+        appDelegate.checkState()
     }
 }
 
