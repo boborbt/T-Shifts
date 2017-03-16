@@ -72,7 +72,7 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       showNonLocalizedStrings = "YES"
-      language = "it"
+      language = "IDELaunchSchemeLanguageRightToLeftLayoutDirection"
       region = "IT">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">

@@ -103,11 +103,12 @@ class DayInfoView: UIView {
     
     func panelPan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: securePanelView)
+        let direction:CGFloat = self.effectiveUserInterfaceLayoutDirection == .rightToLeft ? -1.0 : 1.0
         
         let left_bound = -Aspect.inset
         let right_bound = markButtonsArrayView.frame.width - Aspect.inset
         
-        securePanelViewLeadingConstraint.constant += translation.x
+        securePanelViewLeadingConstraint.constant += translation.x * direction
         if securePanelViewLeadingConstraint.constant < left_bound {
             securePanelViewLeadingConstraint.constant = left_bound
         }
@@ -120,7 +121,7 @@ class DayInfoView: UIView {
         if recognizer.state == .ended {
             // we add velocity.x to the current position to simulate
             // a bit of inertia
-            let x = CGFloat(securePanelViewLeadingConstraint.constant) + recognizer.velocity(in: securePanelView).x / 10
+            let x = CGFloat(securePanelViewLeadingConstraint.constant) + direction * recognizer.velocity(in: securePanelView).x / 10
             
             if abs(x - left_bound) < abs(x - right_bound) {
                 securePanelViewLeadingConstraint.constant = left_bound
