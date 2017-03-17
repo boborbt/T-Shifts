@@ -1,1 +1,9 @@
-/* No Localized Strings */
+/* (No Commment) */
+"CFBundleDisplayName" = "T-Shifts";
+
+/* (No Commment) */
+"CFBundleName" = "$(PRODUCT_NAME)";
+
+/* (No Commment) */
+"CFBundleShortVersionString" = "1.0";
+

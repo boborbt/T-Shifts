@@ -4,8 +4,8 @@
 /* Class = "UILabel"; text = "Mon"; ObjectID = "M6D-mk-EDk"; */
 "M6D-mk-EDk.text" = "Lun";
 
-/* Class = "UILabel"; text = "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars."; ObjectID = "SyF-Ls-jkA"; */
-"SyF-Ls-jkA.text" = "L'accesso al calendario di sistema non è stato concesso. Puoi abilitarlo dalle preferenze di sistema selezionando l'applicazione T-Shifts.";
+/* Class = "UILabel"; text = "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars."; ObjectID = "XM9-rR-aha"; */
+"XM9-rR-aha.text" = "L'accesso al calendario di sistema è stato negato. Puoi abilitarlo dalle preferenze di sistema selzionando l'applicazione T-Shifts.";
 
 /* Class = "UILabel"; text = "Wed"; ObjectID = "YEV-XA-tAB"; */
 "YEV-XA-tAB.text" = "Mer";

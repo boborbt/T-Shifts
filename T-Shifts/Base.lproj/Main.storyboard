@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -174,29 +175,36 @@
         <!--View Controller-->
         <scene sceneID="khK-BI-PDe">
             <objects>
-                <viewController storyboardIdentifier="calendarAccessNotGranted" id="ici-R3-RO3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GJ8-7f-tAp"/>
-                        <viewControllerLayoutGuide type="bottom" id="EWX-5z-eOG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Pn6-bW-8qH">
+                <viewController storyboardIdentifier="calendarAccessNotGranted" modalPresentationStyle="overCurrentContext" id="ici-R3-RO3" sceneMemberID="viewController">
+                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="wP8-Rk-x5J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-Ls-jkA">
-                                <rect key="frame" x="47" y="204" width="280" height="259"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MIj-76-hlp">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XM9-rR-aha">
+                                    <rect key="frame" x="8" y="8" width="359" height="151"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="151" id="vXg-UU-wyr"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="XM9-rR-aha" firstAttribute="trailing" secondItem="MIj-76-hlp" secondAttribute="trailingMargin" id="5hS-ZO-Oqq"/>
+                                <constraint firstItem="XM9-rR-aha" firstAttribute="top" secondItem="MIj-76-hlp" secondAttribute="topMargin" id="Vme-X9-mdV"/>
+                                <constraint firstItem="XM9-rR-aha" firstAttribute="leading" secondItem="MIj-76-hlp" secondAttribute="leadingMargin" id="wLk-YZ-iic"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="regular"/>
+                    </visualEffectView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiT-mZ-SWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="760.56971514242889"/>
+            <point key="canvasLocation" x="784.79999999999995" y="746.17691154422789"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wfz-IS-Rra">
