@@ -323,7 +323,7 @@
 				TargetAttributes = {
 					F8E9B5371E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8Z99BLKDHB;
+						DevelopmentTeam = P7PY7CP3A9;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -638,7 +638,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				DEVELOPMENT_TEAM = 8Z99BLKDHB;
+				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -646,9 +646,10 @@
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-Shifts";
+				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -659,7 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				DEVELOPMENT_TEAM = 8Z99BLKDHB;
+				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -667,9 +668,10 @@
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-Shifts";
+				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

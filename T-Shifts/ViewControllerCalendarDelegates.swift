@@ -34,26 +34,25 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
                                 numberOfRows: 5,
                                 calendar: Calendar.current,
                                 generateInDates: .forAllMonths,
-                                generateOutDates: .off,
+                                generateOutDates: .tillEndOfRow,
                                 firstDayOfWeek: .monday)
         return parameters
     }
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
         let dayCell = cell as! DayCellView
-        let calendar = Calendar.current
-        
         dayCell.isEmphasized = cellState.isSelected
         dayCell.isInCurrentMonth = cellState.dateBelongsTo == .thisMonth
+        dayCell.label.text = cellState.text
+        
+        let calendar = Calendar.current        
         dayCell.isToday = calendar.isDateInToday(cellState.date)
         
-        dayCell.label.text = cellState.text
         let shifts = shiftStorage.shifts(at: cellState.date)
         dayCell.marks = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {        
         dayInfoView.show(date: date)
         
         guard let dayCell = cell as? DayCellView else { return }
@@ -85,6 +84,10 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
                 calendar.selectDates([Date().firstDayOfMonth()])
             }
         }
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleDayCellView, cellState: CellState) -> Bool {
+        return cellState.dateBelongsTo == .thisMonth
     }
 
 }

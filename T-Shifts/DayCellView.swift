@@ -24,6 +24,7 @@ class DayCellView: JTAppleDayCellView {
     var isInCurrentMonth: Bool = false {
         didSet {
             updateLabelColor()
+            updateMarksColor()
         }
     }
     
@@ -50,6 +51,9 @@ class DayCellView: JTAppleDayCellView {
     }
     
     
+    private func updateMarksColor() {
+        marksDisplayView.alpha = isInCurrentMonth ? 1.0 : 0.3
+    }
 
     
     private func updateLabelColor() {
