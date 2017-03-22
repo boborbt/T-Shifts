@@ -81,8 +81,16 @@ class ViewController: UIViewController, DayInfoViewDelegate {
             os_log("Cannot add/remove shift -- error caught")
         }
         
-        dayInfoView.animateNextTransition = true
-        calendarView.selectDates([date + 1.days()])
-    }    
+        
+        let nextDate = date + 1.days()
+        let visibleDates = calendarView.visibleDates()
+        
+        if visibleDates.outdates.index(where: { date in nextDate.sameDay(as: date) }) == nil {
+            dayInfoView.animateNextTransition = true
+            calendarView.selectDates([nextDate])
+        } else {
+            dayInfoView.show(date: date)
+        }
+    }
 }
 

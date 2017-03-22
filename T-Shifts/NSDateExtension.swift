@@ -16,6 +16,14 @@ extension Date {
         return calendar.date(from: comp)!
     }
     
+    func sameMonth(as date: Date) -> Bool {
+        return self.components().month == date.components().month
+    }
+    
+    func sameDay(as date: Date) -> Bool {
+        return self.components() == date.components()
+    }
+    
 
     func components() -> DateComponents {
         let date = self as Date

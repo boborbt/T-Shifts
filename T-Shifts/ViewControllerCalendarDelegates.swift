@@ -52,7 +52,14 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         dayCell.marks = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {        
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+        guard cellState.dateBelongsTo == .thisMonth else {
+            // The only way the user can select a day past this month if it added a 
+            // shift to the last day on the month, which triggers a day selection of date + 1.days()
+            // In that case we roll back the date selection by selecting the previous day
+            calendar.selectDates([date - 1.days()])
+            return
+        }
         dayInfoView.show(date: date)
         
         guard let dayCell = cell as? DayCellView else { return }
