@@ -140,10 +140,14 @@ class OptionsViewController : FormViewController {
         let shiftsSection = form.sectionBy(tag: "Shifts")!
             
         for (index,row) in shiftsSection.enumerated() {
+            if index == 0 {
+                continue
+            }
+            
             if let rowValue = row.baseValue as? String {
-                options.shiftTemplates.storage[index].shift.description = rowValue
+                options.shiftTemplates.storage[index-1].shift.description = rowValue
             } else {
-                options.shiftTemplates.storage[index].shift.description = ""
+                options.shiftTemplates.storage[index-1].shift.description = ""
             }
         }
         
