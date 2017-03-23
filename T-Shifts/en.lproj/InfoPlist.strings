@@ -7,6 +7,6 @@
 /* (No Commment) */
 "CFBundleShortVersionString" = "1.0";
 
-/* (No Commment) */
-"NSCalendarsUsageDescription" = "L'applicazione memorizza i turni sul tuo calendario ed per questo ha bisogno di essere autorizzata ad accedervi.";
+"NSCalendarsUsageDescription" = "The application stores shifts events on your calendar and consequently needs permissions to access it.";
+
 

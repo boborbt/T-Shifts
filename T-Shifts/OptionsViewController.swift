@@ -18,6 +18,10 @@ class OptionsViewController : FormViewController {
         static let accessNotGranted = NSLocalizedString("Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars.", comment: "Error message to be displayed when user did not give access to the calendar")
         static let shiftsSectionTitle = NSLocalizedString("Shifts", comment: "Title of section regarding the names of shifts to be used by the application")
         static let shiftNamePlaceholder = NSLocalizedString("Shift name", comment: "Text displayed on empty text boxes requiring the user to enter the shift name")
+        static let calendarSectionInfo = NSLocalizedString("The options below allow you to select one among all the calendars that are available on your phone. Please select the calendar you want to use to store your shifts data. While some user may want to keep all its data into a single calendar, I believe that it makes sense to keep a separate calendar for your shifts. This will make it possible to easily print your shifts using the Calendar Mac Os app excluding all other non-shifts events, or to completely clean up the shift calendar by deleting it without affecting other events. If you do want to use a separate calendar for your shifts and you do not have one yet, you can create one using the standard Calendar app on your device.", comment: "Explanation about why there is the option to select a calendar"
+        )
+        static let shiftsSectionInfo = NSLocalizedString( "The fields below allow you to customize the names of the events that will appear in your calendar. The app will store events in your calendar using the labels you give using these fields. Importantly, the app will recognize events in your calendar based on those names. For instance, if you manually add one event in your calendar using one of these values as title, the app will show you that event as if your added it in the app itself. Viceversa, if you change one of the labels without updating the titles of events in your calendar, then the will no longer recognize those events.", comment: "Explanation about how to setup shift label names"
+        )
         
     }
     
@@ -65,6 +69,13 @@ class OptionsViewController : FormViewController {
                 }.cellUpdate { cell, row in
                 row.cell.textLabel?.textColor = UIColor.red
             }
+        } else {
+            result <<< LabelRow { row in
+                row.title = LocalizedStrings.calendarSectionInfo
+                row.cell.textLabel?.numberOfLines = 0
+                row.cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+                row.cell.textLabel?.textColor = UIColor.gray
+            }
         }
         
         let calendars = calendarUpdater.calendars
@@ -85,6 +96,15 @@ class OptionsViewController : FormViewController {
         
         let section = Section(LocalizedStrings.shiftsSectionTitle)
         section.tag = "Shifts"
+        
+        
+        section <<< LabelRow { row in
+            row.title = LocalizedStrings.shiftsSectionInfo
+            row.cell.textLabel?.numberOfLines = 0
+            row.cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+            row.cell.textLabel?.textColor = UIColor.gray
+        }
+        
         
         let templates = options.shiftTemplates.templates()
         
@@ -120,10 +140,14 @@ class OptionsViewController : FormViewController {
         let shiftsSection = form.sectionBy(tag: "Shifts")!
             
         for (index,row) in shiftsSection.enumerated() {
+            if index == 0 {
+                continue
+            }
+            
             if let rowValue = row.baseValue as? String {
-                options.shiftTemplates.storage[index].shift.description = rowValue
+                options.shiftTemplates.storage[index-1].shift.description = rowValue
             } else {
-                options.shiftTemplates.storage[index].shift.description = ""
+                options.shiftTemplates.storage[index-1].shift.description = ""
             }
         }
         

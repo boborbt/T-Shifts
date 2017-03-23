@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -81,6 +81,7 @@
 		F86853C71E71B6A800A157DA /* panel-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "panel-source.graffle"; sourceTree = "<group>"; };
 		F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateStateHandling.swift; sourceTree = "<group>"; };
 		F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDayInfoViewDelegates.swift; sourceTree = "<group>"; };
+		F87E5D511E83C89300946699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
 		F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkButtonsArrayView.xib; sourceTree = "<group>"; };
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
@@ -342,7 +343,7 @@
 				};
 			};
 			buildConfigurationList = F8E9B5331E27C9A500390BD3 /* Build configuration list for PBXProject "T-Shifts" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -493,6 +494,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F833BB341E79801B00EA3BB2 /* it */,
+				F87E5D511E83C89300946699 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
