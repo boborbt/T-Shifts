@@ -21,16 +21,30 @@ class NewOptionsViewController: UIViewController {
     }
     
     struct Insets {
-        static let titleTop:CGFloat = 10
+        static let titleTop:CGFloat = 20
         static let titleLeft:CGFloat = 10
+
+        static let infoTop: CGFloat = 5
+        static let infoRight:CGFloat = 10
+        static let infoLeft:CGFloat = 10
+        
+        static let fieldLeft: CGFloat = 20
+        static let fieldTop: CGFloat = 10
     }
     
     weak var scrollView: UIScrollView!
+    weak var options: Options!
+    weak var calendarUpdater: CalendarShiftUpdater!
+    
+    typealias LabelCustomizationBlock = ((UILabel) -> ())
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        options = appDelegate.options
+        calendarUpdater = appDelegate.calendarUpdater
 
         setupScrollView()
         setupCalendarSection()
@@ -48,7 +62,7 @@ class NewOptionsViewController: UIViewController {
         scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2000)
+        scrollView.contentSize.height = 2000
     }
     
     
@@ -64,12 +78,72 @@ class NewOptionsViewController: UIViewController {
         
     }
     
+    func addDescriptionLabel(_ text: String, after anchor: NSLayoutYAxisAnchor, _ customize: LabelCustomizationBlock? = nil ) {
+        let label = UILabel()
+        label.text = text
+        
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        scrollView.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.infoLeft ).isActive = true
+        label.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.infoRight).isActive = true
+        label.topAnchor.constraint( equalTo: anchor, constant: Insets.infoTop ).isActive = true
+        label.numberOfLines = 2
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.expandLabel(sender:)))
+        tapRecognizer.numberOfTapsRequired = 1
+        label.addGestureRecognizer(tapRecognizer)
+        label.isUserInteractionEnabled = true
+        label.textColor = UIColor.gray
+        
+        customize?(label)
+    }
+    
+
+    func expandLabel(sender: UIGestureRecognizer) {
+        let label = sender.view as! UILabel
+        label.numberOfLines = label.numberOfLines == 0 ? 2 : 0
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.scrollView.layoutIfNeeded()
+        })
+    }
+    
+    func addCalendarChoiceLine(_ text:String, after anchor: NSLayoutYAxisAnchor) {
+        let label = UILabel()
+        label.text = text
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        scrollView.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.fieldLeft ).isActive = true
+        label.topAnchor.constraint( equalTo: anchor, constant: Insets.fieldTop ).isActive = true
+        
+    }
+
+    
     func setupCalendarSection() {
         addSectionTitle(LocalizedStrings.shiftCalendarSectionTitle, after: scrollView.topAnchor)
+        
+        if !CalendarShiftUpdater.isAccessGranted() {
+            addDescriptionLabel(LocalizedStrings.accessNotGranted, after: scrollView.subviews.last!.bottomAnchor) { label in
+                label.textColor = UIColor.red
+            }
+        } else {
+            addDescriptionLabel(LocalizedStrings.calendarSectionInfo, after: scrollView.subviews.last!.bottomAnchor)
+        }
+        
+        let calendars = calendarUpdater.calendars
+        
+        for calendar in calendars {
+            addCalendarChoiceLine(calendar.title, after: scrollView.subviews.last!.bottomAnchor)
+        }
     }
     
     func setupShiftsSection() {
         addSectionTitle(LocalizedStrings.shiftsSectionTitle, after:scrollView.subviews.last!.bottomAnchor)
+        addDescriptionLabel(LocalizedStrings.shiftsSectionInfo, after: scrollView.subviews.last!.bottomAnchor)
     }
 
     override func didReceiveMemoryWarning() {
