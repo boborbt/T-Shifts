@@ -202,7 +202,7 @@ class CalendarShiftStorage : ShiftStorage {
     func shifts(at date: Date) -> [Shift] {
         guard let targetCalendar = calendarUpdater.targetCalendar else { return [] }
         let store = calendarUpdater.store
-        let predicate = store.predicateForEvents(withStart: date, end: date + 1.days(), calendars: [targetCalendar])
+        let predicate = store.predicateForEvents(withStart: date, end: date + 1, calendars: [targetCalendar])
         let events = calendarUpdater.store.events(matching: predicate)
         
         return events.flatMap({ (event) in
