@@ -156,24 +156,6 @@
             </objects>
             <point key="canvasLocation" x="-70" y="37"/>
         </scene>
-        <!--Options View Controller-->
-        <scene sceneID="mXE-Hy-qkP">
-            <objects>
-                <viewController storyboardIdentifier="optionsViewController" id="UqK-VB-2y7" customClass="OptionsViewController" customModule="T_Shifts" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="laL-zj-713"/>
-                        <viewControllerLayoutGuide type="bottom" id="wqy-8i-tWS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fHS-ou-2Ok">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xer-Wz-TP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="804" y="36"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="khK-BI-PDe">
             <objects>
@@ -206,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiT-mZ-SWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784.79999999999995" y="746.17691154422789"/>
+            <point key="canvasLocation" x="-71" y="748"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wfz-IS-Rra">

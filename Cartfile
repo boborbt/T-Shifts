@@ -1,3 +1,2 @@
 github "patchthecode/JTAppleCalendar" "master"
 github "teodorpatras/EasyTipView"
-github "xmartlabs/Eureka" ~> 2.0

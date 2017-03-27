@@ -13,7 +13,6 @@
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */; };
 		F824FC191E5EED1E00954A58 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F824FC181E5EED1E00954A58 /* Eureka.framework */; };
-		F824FC1B1E5EEE0E00954A58 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */; };
 		F833BB291E79801A00EA3BB2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB2B1E79801A00EA3BB2 /* Localizable.strings */; };
 		F833BB2E1E79801A00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB301E79801A00EA3BB2 /* InfoPlist.strings */; };
 		F833BB331E79801B00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB351E79801B00EA3BB2 /* InfoPlist.strings */; };
@@ -23,7 +22,7 @@
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
 		F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */; };
 		F86B38941E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */; };
-		F87E5D531E84064700946699 /* NewOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E5D521E84064700946699 /* NewOptionsViewController.swift */; };
+		F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E5D521E84064700946699 /* OptionsViewController.swift */; };
 		F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC121E8918F00054F2BF /* SSRadioButton.swift */; };
 		F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */; };
 		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
@@ -70,7 +69,6 @@
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
 		F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendarDelegates.swift; sourceTree = "<group>"; };
 		F824FC181E5EED1E00954A58 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
-		F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		F833BB1F1E794CF000EA3BB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F833BB251E797F4F00EA3BB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		F833BB261E797F4F00EA3BB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -85,7 +83,7 @@
 		F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateStateHandling.swift; sourceTree = "<group>"; };
 		F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDayInfoViewDelegates.swift; sourceTree = "<group>"; };
 		F87E5D511E83C89300946699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F87E5D521E84064700946699 /* NewOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOptionsViewController.swift; sourceTree = "<group>"; };
+		F87E5D521E84064700946699 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		F896DC121E8918F00054F2BF /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButton.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButton.swift; sourceTree = SOURCE_ROOT; };
 		F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButtonsController.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButtonsController.swift; sourceTree = SOURCE_ROOT; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
@@ -160,8 +158,7 @@
 				F8E9B53D1E27C9A600390BD3 /* ViewController.swift */,
 				F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */,
 				F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */,
-				F824FC1A1E5EEE0E00954A58 /* OptionsViewController.swift */,
-				F87E5D521E84064700946699 /* NewOptionsViewController.swift */,
+				F87E5D521E84064700946699 /* OptionsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -439,10 +436,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F824FC1B1E5EEE0E00954A58 /* OptionsViewController.swift in Sources */,
 				F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */,
-				F87E5D531E84064700946699 /* NewOptionsViewController.swift in Sources */,
+				F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */,
 				F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */,
 				F814F8B41E4CB71700E67057 /* ViewControllerCalendarDelegates.swift in Sources */,
 				F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */,
