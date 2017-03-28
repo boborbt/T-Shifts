@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class OptionsViewController: UIViewController {
+class OptionsViewController: UIViewController, UITextFieldDelegate {
     struct LocalizedStrings {
         static let shiftCalendarSectionTitle = NSLocalizedString("Shifts Calendar", comment: "Title of section regarding the calendar to be used for storing the shifts")
         static let accessNotGranted = NSLocalizedString("Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars.", comment: "Error message to be displayed when user did not give access to the calendar")
@@ -61,6 +61,42 @@ class OptionsViewController: UIViewController {
         setupScrollView()
         setupCalendarSection()
         setupShiftsSection()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func keyboardWillShow(_ notification: NSNotification) {
+        if let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+            var contentInsets = scrollView.contentInset
+            contentInsets.bottom = keyboardSize.height
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    func keyboardWillHide(_ notification: NSNotification) {
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let viewCenter = self.scrollView.frame.height / 2
+        let fieldOffset = textField.center.y - viewCenter
+        
+        scrollView.setContentOffset(CGPoint(x:0,y:fieldOffset), animated: true)
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func setupScrollView() {
@@ -92,23 +128,23 @@ class OptionsViewController: UIViewController {
     func addDescriptionLabel(_ text: String, after anchor: NSLayoutYAxisAnchor, _ customize: LabelCustomizationBlock? = nil ) {
         let label = UILabel()
         label.text = text
-        
+    
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        label.numberOfLines = 2
+        label.isUserInteractionEnabled = true
+        label.textColor = UIColor.gray
+        customize?(label)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.expandLabel(sender:)))
+        tapRecognizer.numberOfTapsRequired = 1
+        label.addGestureRecognizer(tapRecognizer)
+        
         scrollView.addSubview(label)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.infoLeft ).isActive = true
         label.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.infoRight).isActive = true
         label.topAnchor.constraint( equalTo: anchor, constant: Insets.infoTop ).isActive = true
-        label.numberOfLines = 2
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.expandLabel(sender:)))
-        tapRecognizer.numberOfTapsRequired = 1
-        label.addGestureRecognizer(tapRecognizer)
-        label.isUserInteractionEnabled = true
-        label.textColor = UIColor.gray
-        
-        customize?(label)
     }
     
 
@@ -174,6 +210,7 @@ class OptionsViewController: UIViewController {
         field.layer.cornerRadius = 5
         field.borderStyle = .roundedRect
         field.clearButtonMode = .whileEditing
+        field.delegate = self
 
         scrollView.addSubview(field)
         
@@ -195,6 +232,8 @@ class OptionsViewController: UIViewController {
             addShiftTemplateLine(title: template.shift.description, color: template.color, after: scrollView.subviews.last!.bottomAnchor )
         }
     }
+    
+    
 
     
     override func viewWillDisappear(_ animated: Bool) {        
