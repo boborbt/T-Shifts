@@ -46,15 +46,6 @@ extension OptionsViewController {
     }
     
     
-    func expandLabel(sender: UIGestureRecognizer) {
-        let label = sender.view as! UILabel
-        label.numberOfLines = label.numberOfLines == 0 ? 2 : 0
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.scrollView.layoutIfNeeded()
-        })
-    }
-    
     func addCalendarChoiceLine(_ text:String, after anchor: NSLayoutYAxisAnchor) {
         let button = SSRadioButton()
         button.setTitle(text, for: .normal)

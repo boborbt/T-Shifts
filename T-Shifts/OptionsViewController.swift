@@ -157,7 +157,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = self.view.tintColor
         button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(self.updateApplicationOptions(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.updateApplicationOptionsAndReturn(_:)), for: .touchUpInside)
         
         let lastSubviewBottomAnchor = scrollView.subviews.last!.bottomAnchor
         
@@ -182,8 +182,11 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillHide(_ notification: NSNotification) {
-        scrollView.contentInset = UIEdgeInsets.zero
-        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        var inset = scrollView.contentInset
+        inset.bottom = 0
+        
+        scrollView.contentInset = inset
+        scrollView.scrollIndicatorInsets = inset
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -200,8 +203,17 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func updateApplicationOptions(_ sender: UIEvent) {
-        self.navigationController?.popViewController(animated: true)
+    func expandLabel(sender: UIGestureRecognizer) {
+        let label = sender.view as! UILabel
+        label.numberOfLines = label.numberOfLines == 0 ? 2 : 0
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.scrollView.layoutIfNeeded()
+        })
+    }
+    
+    func updateApplicationOptionsAndReturn(_ sender: UIEvent) {
+        let _ = self.navigationController?.popViewController(animated: true)
         
         if let calendar = calendarOptionsGroup.selectedButton()?.titleLabel?.text {
             options.calendar = calendar
