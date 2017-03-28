@@ -24,7 +24,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         static let credits = NSLocalizedString("Credits", comment: "Credits title label")
         
-        static let creditsMessage = NSLocalizedString("T-Shifts includes the following open source components:\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito", comment: "Text displayed in the credits section")
+        static let creditsMessage = NSLocalizedString("T-Shifts includes the following open source components:\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito", comment: "Text displayed in the credits section")
     }
     
     struct Insets {
@@ -34,6 +34,10 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         static let infoTop: CGFloat = 5
         static let infoRight: CGFloat = 10
         static let infoLeft: CGFloat = 10
+        
+        static let choiceLeft: CGFloat = 20
+        static let choiceRight: CGFloat = 20
+        static let choiceTop: CGFloat = 5
         
         static let fieldLeft: CGFloat = 20
         static let fieldRight: CGFloat = 20

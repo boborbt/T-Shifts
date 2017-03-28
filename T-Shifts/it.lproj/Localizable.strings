@@ -1,6 +1,12 @@
 /* Error message to be displayed when user did not give access to the calendar */
 "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." = "L'accesso al calendario di sistema non è stato concesso. Puoi abilitarlo dalle preferenze di sistema selezionando l'applicazione T-Shifts.";
 
+/* Credits title label */
+"Credits" = "Credits";
+
+/* Done button text */
+"Done" = "Conferma";
+
 /* Text displayed on empty text boxes requiring the user to enter the shift name */
 "Shift name" = "Nome del turno";
 
@@ -9,6 +15,21 @@
 
 /* Title of section regarding the calendar to be used for storing the shifts */
 "Shifts Calendar" = "Calendario da usare per i turni";
+
+/* Text displayed in the credits section */
+"T-Shifts includes the following open source components:
+
+	JTAppleCalendar
+	EasyTipView
+	SSRadioButton
+
+© 2017 Roberto Esposito" = "T-Shifts include le seguenti componenti open-source:
+
+	JTAppleCalendar
+	EasyTipView
+	SSRadioButton
+
+© 2017 Roberto Esposito";
 
 /* Explanation about how to setup shift label names */
 "The fields below allow you to customize the names of the events that will appear in your calendar. The app will store events in your calendar using the labels you give using these fields. Importantly, the app will recognize events in your calendar based on those names. For instance, if you manually add one event in your calendar using one of these values as title, the app will show you that event as if your added it in the app itself. Viceversa, if you change one of the labels without updating the titles of events in your calendar, then the will no longer recognize those events." = "I campi sottostanti ti permettono di personalizzare le etichette usate per indicare i turni che appaiono nel calendario. L'applicazione memorizzerà gli eventi usando le etichette che specificherai. Questo particolare è importante perché l'applicazione userà tali etichette anche per riconoscere gli eventi presenti nel calendario. Ad esempio se aggiungi manualmente un evento al tuo calendario usando una qualsiasi altra applicazione e una delle etichette qui sotto come titolo, T-Shifts riconoscerà quell'evento come un turno da visualizzare. Viceversa, se cambi una delle etichette senza aggiornare i titoli dei turni nel tuo calendario, T-Shifts non riconoscerà più i vecchi eventi come turni da visualizzare. ";

@@ -2,19 +2,19 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "panel.png",
+      "filename" : "panel-source.png",
       "language-direction" : "left-to-right",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "panel-2x.png",
+      "filename" : "panel-source@2x.png",
       "language-direction" : "left-to-right",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "panel-3x.png",
+      "filename" : "panel-source@3x.png",
       "language-direction" : "left-to-right",
       "scale" : "3x"
     }

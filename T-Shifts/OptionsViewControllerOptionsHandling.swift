@@ -26,6 +26,7 @@ extension OptionsViewController {
     func addDescriptionLabel(_ text: String, after anchor: NSLayoutYAxisAnchor, _ customize: LabelCustomizationBlock? = nil ) {
         let label = UILabel()
         label.text = text
+        label.textColor = UIColor.gray
         
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         label.numberOfLines = 2
@@ -62,9 +63,9 @@ extension OptionsViewController {
         scrollView.addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.fieldLeft ).isActive = true
-        button.topAnchor.constraint( equalTo: anchor, constant: Insets.fieldTop ).isActive = true
-        button.trailingAnchor.constraint( equalTo: self.view.trailingAnchor, constant: -Insets.fieldRight).isActive = true
+        button.topAnchor.constraint( equalTo: anchor, constant: Insets.choiceTop ).isActive = true
+        button.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.choiceLeft ).isActive = true
+        button.trailingAnchor.constraint( equalTo: self.view.trailingAnchor, constant: -Insets.creditsRight).isActive = true
         
         if text == options.calendar {
             button.isSelected = true
