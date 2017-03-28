@@ -113,71 +113,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func addSectionTitle(_ title:String, after anchor: NSLayoutYAxisAnchor) {
-        let label = UILabel()
-        label.text = title
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
-        scrollView.addSubview(label)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.titleLeft ).isActive = true
-        label.topAnchor.constraint( equalTo: anchor, constant: Insets.titleTop ).isActive = true
-        
-    }
-    
-    func addDescriptionLabel(_ text: String, after anchor: NSLayoutYAxisAnchor, _ customize: LabelCustomizationBlock? = nil ) {
-        let label = UILabel()
-        label.text = text
-    
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.numberOfLines = 2
-        label.isUserInteractionEnabled = true
-        label.textColor = UIColor.gray
-        customize?(label)
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.expandLabel(sender:)))
-        tapRecognizer.numberOfTapsRequired = 1
-        label.addGestureRecognizer(tapRecognizer)
-        
-        scrollView.addSubview(label)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.infoLeft ).isActive = true
-        label.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.infoRight).isActive = true
-        label.topAnchor.constraint( equalTo: anchor, constant: Insets.infoTop ).isActive = true
-    }
-    
-
-    func expandLabel(sender: UIGestureRecognizer) {
-        let label = sender.view as! UILabel
-        label.numberOfLines = label.numberOfLines == 0 ? 2 : 0
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.scrollView.layoutIfNeeded()
-        })
-    }
-    
-    func addCalendarChoiceLine(_ text:String, after anchor: NSLayoutYAxisAnchor) {
-        let button = SSRadioButton()
-        button.setTitle(text, for: .normal)
-        button.contentHorizontalAlignment = .left
-        button.setTitleColor(UIColor.black, for: .normal)
-        scrollView.addSubview(button)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.fieldLeft ).isActive = true
-        button.topAnchor.constraint( equalTo: anchor, constant: Insets.fieldTop ).isActive = true
-        button.trailingAnchor.constraint( equalTo: self.view.trailingAnchor, constant: -Insets.fieldRight).isActive = true
-        
-        if text == options.calendar {
-            button.isSelected = true
-        }
-        
-        calendarOptionsGroup.addButton(button)
-        
-    }
-
-    
     func setupCalendarSection() {
         addSectionTitle(LocalizedStrings.shiftCalendarSectionTitle, after: scrollView.topAnchor)
         
@@ -190,7 +125,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         }
         
         calendarOptionsGroup = SSRadioButtonsController()
-
+        
         
         let calendars = calendarUpdater.calendars
         
@@ -200,27 +135,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func addShiftTemplateLine( title: String, color: UIColor, after anchor: NSLayoutYAxisAnchor) {
-        let field = UITextField()
-        field.placeholder = LocalizedStrings.shiftNamePlaceholder
-        field.text = title
-        field.backgroundColor = color.withAlphaComponent(0.1)
-        field.layer.borderColor = color.cgColor
-        field.layer.borderWidth = 1
-        field.layer.cornerRadius = 5
-        field.borderStyle = .roundedRect
-        field.clearButtonMode = .whileEditing
-        field.delegate = self
-
-        scrollView.addSubview(field)
-        
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.topAnchor.constraint(equalTo: anchor, constant: Insets.fieldTop).isActive = true
-        field.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: Insets.fieldLeft).isActive = true
-        field.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.fieldRight).isActive = true
-        
-        shiftsFieldsGroup.append(field)
-    }
     
     func setupShiftsSection() {
         addSectionTitle(LocalizedStrings.shiftsSectionTitle, after:scrollView.subviews.last!.bottomAnchor)
@@ -233,8 +147,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-
     
     override func viewWillDisappear(_ animated: Bool) {        
         if let calendar = calendarOptionsGroup.selectedButton()?.titleLabel?.text {
@@ -254,15 +166,4 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         appDelegate.reloadOptions()
         appDelegate.checkState()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

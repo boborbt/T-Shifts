@@ -33,6 +33,7 @@
 		F89D61471E5DB81F0060911E /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89D61461E5DB81F0060911E /* EasyTipView.framework */; };
 		F8AD5F3E1E706CD500C88FD2 /* SecurePanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */; };
 		F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */; };
+		F8DBA7831E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DBA7821E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* ViewController.swift */; };
 		F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B53F1E27C9A600390BD3 /* Main.storyboard */; };
@@ -94,6 +95,7 @@
 		F89D61461E5DB81F0060911E /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
 		F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurePanelView.xib; sourceTree = "<group>"; };
 		F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		F8DBA7821E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewControllerOptionsHandling.swift; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E9B53D1E27C9A600390BD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -159,6 +161,7 @@
 				F86B38931E7AE8900009B9D0 /* ViewControllerDayInfoViewDelegates.swift */,
 				F814F8B31E4CB71700E67057 /* ViewControllerCalendarDelegates.swift */,
 				F87E5D521E84064700946699 /* OptionsViewController.swift */,
+				F8DBA7821E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */,
+				F8DBA7831E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* ViewController.swift in Sources */,
 				F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */,
 				F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */,
