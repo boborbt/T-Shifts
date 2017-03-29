@@ -1,11 +1,11 @@
 /* Error message to be displayed when user did not give access to the calendar */
 "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." = "L'accesso al calendario di sistema non è stato concesso. Puoi abilitarlo dalle preferenze di sistema selezionando l'applicazione T-Shifts.";
 
-/* Credits title label */
-"Credits" = "Credits";
-
 /* Done button text */
 "Done" = "Conferma";
+
+/* Text for the link in the options view asking the user to review the app. */
+"Please rate and/or review T-Shift" = "Lascia una review";
 
 /* Text displayed on empty text boxes requiring the user to enter the shift name */
 "Shift name" = "Nome del turno";
@@ -31,9 +31,15 @@
 
 © 2017 Roberto Esposito";
 
+/* Text in the options view explaing the rating policy of th eapp */
+"The app itself will never interrupt you asking for ratings." = "L'applicazione non ti interromperà mai per chiedere di inserire una review.";
+
 /* Explanation about how to setup shift label names */
 "The fields below allow you to customize the names of the events that will appear in your calendar. The app will store events in your calendar using the labels you give using these fields. Importantly, the app will recognize events in your calendar based on those names. For instance, if you manually add one event in your calendar using one of these values as title, the app will show you that event as if your added it in the app itself. Viceversa, if you change one of the labels without updating the titles of events in your calendar, then the will no longer recognize those events." = "I campi sottostanti ti permettono di personalizzare le etichette usate per indicare i turni che appaiono nel calendario. L'applicazione memorizzerà gli eventi usando le etichette che specificherai. Questo particolare è importante perché l'applicazione userà tali etichette anche per riconoscere gli eventi presenti nel calendario. Ad esempio se aggiungi manualmente un evento al tuo calendario usando una qualsiasi altra applicazione e una delle etichette qui sotto come titolo, T-Shifts riconoscerà quell'evento come un turno da visualizzare. Viceversa, se cambi una delle etichette senza aggiornare i titoli dei turni nel tuo calendario, T-Shifts non riconoscerà più i vecchi eventi come turni da visualizzare. ";
 
 /* Explanation about why there is the option to select a calendar */
 "The options below allow you to select one among all the calendars that are available on your phone. Please select the calendar you want to use to store your shifts data. While some user may want to keep all its data into a single calendar, I believe that it makes sense to keep a separate calendar for your shifts. This will make it possible to easily print your shifts using the Calendar Mac Os app excluding all other non-shifts events, or to completely clean up the shift calendar by deleting it without affecting other events. If you do want to use a separate calendar for your shifts and you do not have one yet, you can create one using the standard Calendar app on your device." = "Le opzioni sottostanti ti permettono di scegliere uno tra i calendari a disposizione sul tuo dispositivo. Scegli il calendario che ti interessa usare per memorizzare i tuoi turni. Sebbene sia del tutto ragionevole memorizzare tutti gli eventi in un calendario singolo, credo sia molto utile mantenere gli eventi relativi ai turni su un calendario separato. Ad esempio questa divisione permette di stampare i turni (e solo i turni) molto semplicemente usando il Calendario di Mac Os, oppure è più semplice cancellare tutti i turni memorizzati fino a un certo punto semplicemente cancellando il calendario che li contiene. Se credi ti sia utile utilizzare un calendario separato, ma non lo hai ancora creato, lo puoi fare utilizzando l'applicazione calendario di sistema.";
+
+/* Message to the user */
+"This app is a work of love toward my wife Tiziana who needed an easier way to insert shifts in her calendar. I have no plan to make it paid. I hope you will enjoy it as much as I enjoyed making it." = "Questa applicazione è un gesto d'amore verso mia moglie Tiziana che aveva bisogno di un modo per inserire i suoi turni di lavoro più rapidamente nel suo calendario. Questa applicazione è gratuita e resterà tale.";
 

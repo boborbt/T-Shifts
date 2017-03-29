@@ -22,9 +22,15 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         static let done = NSLocalizedString("Done", comment: "Done button text")
         
-        static let credits = NSLocalizedString("Credits", comment: "Credits title label")
+        static let credits = NSLocalizedString("About", comment: "Credits title label")
+        
+        static let freeAppStatement = NSLocalizedString("This app is a work of love toward my wife Tiziana who needed an easier way to insert shifts in her calendar. I have no plan to make it paid. I hope you will enjoy it as much as I enjoyed making it.", comment: "Message to the user")
         
         static let creditsMessage = NSLocalizedString("T-Shifts includes the following open source components:\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito", comment: "Text displayed in the credits section")
+        
+        static let askReview = NSLocalizedString("Please rate and/or review T-Shift", comment:"Text for the link in the options view asking the user to review the app.")
+        
+        static let reviewPolicy = NSLocalizedString("The app itself will never interrupt you asking for ratings.", comment: "Text in the options view explaing the rating policy of th eapp")
     }
     
     struct Insets {
@@ -77,6 +83,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         setupScrollView()
         setupCalendarSection()
         setupShiftsSection()
+        setupReviewSection()
         setupCreditsSection()
         setupDoneButton()
         
@@ -142,6 +149,8 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     
     func setupCreditsSection() {
         addSectionTitle(LocalizedStrings.credits, after: scrollView.subviews.last!.bottomAnchor)
+        addAttributedTextView(NSAttributedString(string: LocalizedStrings.freeAppStatement), after: scrollView.subviews.last!.bottomAnchor)
+        
         let attributedString = NSMutableAttributedString(string: LocalizedStrings.creditsMessage)
         
         attributedString.setAsLink(textToFind: "JTAppleCalendar", linkURL: "https://patchthecode.github.io")
@@ -168,6 +177,18 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.doneButtonRight).isActive = true
         button.topAnchor.constraint(equalTo: lastSubviewBottomAnchor, constant: Insets.doneButtonTop).isActive = true
         
+    }
+    
+    func setupReviewSection() {
+        let urlString = "https://itunes.apple.com/app/id1217017578?ls=1&mt=8&action=write-review"
+        addSectionTitle("Feedback", after: scrollView.subviews.last!.bottomAnchor)
+        
+
+        let message = LocalizedStrings.askReview + ". " + LocalizedStrings.reviewPolicy
+        let attributedMessage = NSMutableAttributedString(string: message)
+        
+        attributedMessage.setAsLink(textToFind: LocalizedStrings.askReview, linkURL: urlString)
+        addAttributedTextView(attributedMessage, after: scrollView.subviews.last!.bottomAnchor)
     }
     
     // MARK: Events
