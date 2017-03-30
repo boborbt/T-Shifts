@@ -3,7 +3,7 @@ layout: default
 title: test
 ---
 <p align="center">
-<img src="{{ page.url }}/images/T-Shifts-en.png" alt="T-Shifts main window">
+<img src="{{ site.url }}/T-Shifts/images/T-Shifts-en.png" alt="T-Shifts main window">
 </p>
 
 ## Contacts
