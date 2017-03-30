@@ -1,1 +1,4 @@
 theme: jekyll-theme-cayman
+title: T-Shifts
+description: An iOS app optimized for fast insertion of work shifts into the system calendars
+show_downloads: false
