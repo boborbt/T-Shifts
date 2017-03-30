@@ -3,4 +3,4 @@ layout: default
 title: test
 ---
 
-Test
+![T-Shifts main window]){{ site.url }}/images/T-Shifts-en.png)
