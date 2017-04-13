@@ -42,8 +42,15 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
         let dayCell = cell as! DayCellView
         dayCell.isEmphasized = cellState.isSelected
-        dayCell.isInCurrentMonth = cellState.dateBelongsTo == .thisMonth
         dayCell.label.text = cellState.text
+        
+        if cellState.dateBelongsTo != .thisMonth {
+            dayCell.colorEmphasis = .hidden
+        } else if date.before(day:Date()) {
+            dayCell.colorEmphasis = .dim
+        } else {
+            dayCell.colorEmphasis = .normal
+        }
         
         let calendar = Calendar.current        
         dayCell.isToday = calendar.isDateInToday(cellState.date)

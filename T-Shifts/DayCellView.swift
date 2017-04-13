@@ -14,14 +14,21 @@ class DayCellView: JTAppleDayCellView {
     @IBOutlet weak var selectionEmphasis: UIView!
     @IBOutlet weak var marksDisplayView: MarksDisplayView!
     
+    enum ColorEmphasis {
+        case normal
+        case dim
+        case hidden
+    }
+    
     
     var isToday: Bool = false {
         didSet {
+            updateMarksColor()
             updateLabelColor()
         }
     }
     
-    var isInCurrentMonth: Bool = false {
+    var colorEmphasis: ColorEmphasis = .normal {
         didSet {
             updateLabelColor()
             updateMarksColor()
@@ -52,16 +59,18 @@ class DayCellView: JTAppleDayCellView {
     
     
     private func updateMarksColor() {
-        marksDisplayView.alpha = isInCurrentMonth ? 1.0 : 0.3
+        switch colorEmphasis {
+        case .normal:
+            self.alpha = 1.0
+        case .dim:
+            self.alpha = 0.3
+        case .hidden:
+            self.alpha = 0.1
+        }
     }
 
     
-    private func updateLabelColor() {
-        if !isInCurrentMonth {
-            label.textColor = UIColor.gray
-            return
-        }
-        
+    private func updateLabelColor() {        
         if isToday {
             label.textColor = UIColor.red
             return

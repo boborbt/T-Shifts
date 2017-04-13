@@ -24,6 +24,15 @@ extension Date {
         return self.components() == date.components()
     }
     
+    func before(day: Date) -> Bool {
+        let myComps = self.components()
+        let dayComps = day.components()
+        
+        return myComps.year! < dayComps.year! ||
+               myComps.year! == dayComps.year! && myComps.month! < dayComps.month! ||
+               myComps.year! == dayComps.year! && myComps.month! == dayComps.month! && myComps.day! < dayComps.day!
+    }
+    
 
     func components() -> DateComponents {
         let date = self as Date

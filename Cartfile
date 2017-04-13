@@ -1,2 +1,2 @@
-github "patchthecode/JTAppleCalendar" "master"
+github "patchthecode/JTAppleCalendar" ~> 6.1
 github "teodorpatras/EasyTipView"
