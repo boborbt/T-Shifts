@@ -65,7 +65,7 @@ class DayCellView: JTAppleDayCellView {
         case .dim:
             self.alpha = 0.3
         case .hidden:
-            self.alpha = 0.1
+            self.alpha = 0.0
         }
     }
 

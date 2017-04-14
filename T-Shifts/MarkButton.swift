@@ -45,8 +45,10 @@ class MarkButton: UIButton {
         set(newVal) {
             if newVal {
                 self.layer.backgroundColor = color
+                self.setTitleColor(UIColor.white, for: .normal)
             } else {
                 self.layer.backgroundColor = inactiveStateColor
+                self.setTitleColor(UIColor.black, for: .normal)
             }
             
             self.setNeedsDisplay()
@@ -62,13 +64,11 @@ class MarkButton: UIButton {
     override func awakeFromNib() {
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 5
-        
     }
     
     func setupForTemplate(template:ShiftTemplate) {
         self.color = template.color.cgColor
         self.setTitle(template.shift.shortcut, for: .normal)
-        
         
         var tipViewPrefs = EasyTipView.Preferences()
         tipViewPrefs.drawing.backgroundColor = UIColor.blue
