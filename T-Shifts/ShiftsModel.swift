@@ -44,7 +44,7 @@ struct Shift: Equatable, Hashable {
 // In the storage shifts are associated with dates. Each date
 // can contain zero or more shifts (with no limits imposed by
 // the storate -- they may be imposed by the UI though).
-protocol ShiftStorage: Sequence {
+protocol ShiftStorage {
     // Adds the given shift at the given date. It does not check
     // if the shift is already present at the given date (the user
     // can check it using the isPresent method).
@@ -147,13 +147,13 @@ class ShiftTemplates {
     }
     
     func recomputeShortcuts() {
-        let data = storage.enumerated().flatMap( { (index,template) -> (Int, String)? in
+        let data = storage.enumerated().flatMap( { (__val:(Int, ShiftTemplate)) -> (Int, String)? in let (index,template) = __val; 
             let des = template.shift.description
             return des == "" ? nil : (index, template.shift.description)
         })
         
-        let indexes = data.map { (index, description) in  return index }
-        let descriptions = data.map { (index, description) in  return description }
+        let indexes = data.map { elem -> Int in  let (index, _ ) = elem;  return index }
+        let descriptions = data.map { elem -> String in   let (_, description) = elem;  return description }
         
         var shortcuts: [String]!
         
@@ -174,7 +174,7 @@ class ShiftTemplates {
 }
 
 // A shift storage based on the system calendar.
-class CalendarShiftStorage : ShiftStorage {
+class CalendarShiftStorage : ShiftStorage, Sequence {
     var callback: ((Date) -> ())!
     weak var shiftTemplates: ShiftTemplates!
     weak var calendarUpdater: CalendarShiftUpdater!
@@ -207,7 +207,7 @@ class CalendarShiftStorage : ShiftStorage {
         
         return events.flatMap({ (event) in
             let description = event.title
-            return self.shiftTemplates.template(havingDescription: description)?.shift
+            return self.shiftTemplates.template(havingDescription: description!)?.shift
         })
     }
     
@@ -224,7 +224,7 @@ class CalendarShiftStorage : ShiftStorage {
 // A shift storage that stores the shifts only in memory. Useful for debugging 
 // purposes (it was also the base of the old implementation)
 
-class LocalShiftStorage: ShiftStorage {
+class LocalShiftStorage: ShiftStorage, Sequence {
     var storage: [Date:[Shift]] = [:]
     var callback: ((Date) -> ())!
     
@@ -355,12 +355,12 @@ class CalendarShiftUpdater {
     
 
 
-
-    func update(with shiftStorage:CalendarShiftStorage) throws {
-        for (date,shifts) in shiftStorage {
-            for shift in shifts {
-                try add(shift: shift, at: date)
-            }
-        }
-    }
+//
+//    func update(with shiftStorage:CalendarShiftStorage) throws {
+//        for (date,shifts) in shiftStorage {
+//            for shift in shifts {
+//                try add(shift: shift, at: date)
+//            }
+//        }
+//    }
 }

@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     var window: UIWindow?
-    var shiftStorage: CalendarShiftStorage?
+    var shiftStorage: ShiftStorage?
     var calendarUpdater: CalendarShiftUpdater!
     var options = Options()
     

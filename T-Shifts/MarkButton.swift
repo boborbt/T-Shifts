@@ -88,11 +88,11 @@ class MarkButton: UIButton {
         self.addGestureRecognizer(longTapRecognizer)
     }
     
-    func tapEvent() {
+    @objc func tapEvent() {
         dayInfoDelegate.dayInfoTapOn(shiftButton: self)
     }
     
-    func showTip(_ sender: UILongPressGestureRecognizer) {
+    @objc func showTip(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             tipView.show(forView: sender.view!)
             return

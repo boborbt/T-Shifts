@@ -12,7 +12,7 @@ import EasyTipView
 import os.log
 
 class ViewController: UIViewController, DayInfoViewDelegate {
-    weak var shiftStorage: CalendarShiftStorage!
+    var shiftStorage: ShiftStorage!
     weak var calendarUpdater: CalendarShiftUpdater!
     weak var options: Options!
 

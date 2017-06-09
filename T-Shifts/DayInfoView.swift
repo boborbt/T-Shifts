@@ -101,7 +101,7 @@ class DayInfoView: UIView {
     }
 
     
-    func panelPan(recognizer: UIPanGestureRecognizer) {
+    @objc func panelPan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: securePanelView)
         let direction:CGFloat = self.effectiveUserInterfaceLayoutDirection == .rightToLeft ? -1.0 : 1.0
         

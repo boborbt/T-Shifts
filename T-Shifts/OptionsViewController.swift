@@ -193,7 +193,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Events
     
-    func keyboardWillShow(_ notification: NSNotification) {
+    @objc func keyboardWillShow(_ notification: NSNotification) {
         if let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
             var contentInsets = scrollView.contentInset
             contentInsets.bottom = keyboardSize.height
@@ -202,7 +202,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func keyboardWillHide(_ notification: NSNotification) {
+    @objc func keyboardWillHide(_ notification: NSNotification) {
         var inset = scrollView.contentInset
         inset.bottom = 0
         
@@ -224,7 +224,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func expandLabel(sender: UIGestureRecognizer) {
+    @objc func expandLabel(sender: UIGestureRecognizer) {
         let label = sender.view as! UILabel
         label.numberOfLines = label.numberOfLines == 0 ? 2 : 0
         
@@ -233,7 +233,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    func updateApplicationOptionsAndReturn(_ sender: UIEvent) {
+    @objc func updateApplicationOptionsAndReturn(_ sender: UIEvent) {
         let _ = self.navigationController?.popViewController(animated: true)
         
         if let calendar = calendarOptionsGroup.selectedButton()?.titleLabel?.text {
