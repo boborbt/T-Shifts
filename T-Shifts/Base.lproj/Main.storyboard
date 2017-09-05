@@ -134,11 +134,10 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pick your Shifts" id="llw-JS-HcF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="0mg-GR-t79"/>
-                        <barButtonItem key="rightBarButtonItem" title="Options" style="done" id="odh-UF-tob">
-                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                        <barButtonItem key="rightBarButtonItem" title="•••" id="xY3-Qa-dT7">
                             <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="showOptions:" destination="BYZ-38-t0r" id="TiK-vg-j0h"/>
+                                <action selector="showOptions:" destination="BYZ-38-t0r" id="LvM-ME-HgZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -149,7 +148,6 @@
                         <outlet property="MonthLabel" destination="slw-B3-fuN" id="8b3-3A-NMY"/>
                         <outlet property="calendarView" destination="piA-ge-rc2" id="dzs-OI-ge9"/>
                         <outlet property="dayInfoView" destination="pMC-lv-mub" id="wZS-KM-EVF"/>
-                        <outlet property="preferenceButton" destination="odh-UF-tob" id="k4c-uQ-y6M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
