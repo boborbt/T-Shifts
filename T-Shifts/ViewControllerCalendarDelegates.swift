@@ -11,7 +11,9 @@ import JTAppleCalendar
 import os.log
 
 
-extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
+extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+    
+
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         let formatter = DateFormatter()
@@ -39,7 +41,8 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         return parameters
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
+    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "DayCellView", for: indexPath)
         let dayCell = cell as! DayCellView
         dayCell.isEmphasized = cellState.isSelected
         dayCell.label.text = cellState.text
@@ -52,14 +55,19 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
             dayCell.colorEmphasis = .normal
         }
         
-        let calendar = Calendar.current        
+        let calendar = Calendar.current
         dayCell.isToday = calendar.isDateInToday(cellState.date)
         
         let shifts = shiftStorage.shifts(at: cellState.date)
         dayCell.marks = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
+        return dayCell
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+//    func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleCell, date: Date, cellState: CellState) {
+//
+//    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         guard cellState.dateBelongsTo == .thisMonth else {
             // The only way the user can select a day past this month if it added a 
             // shift to the last day on the month, which triggers a day selection of date + 1.days()
@@ -73,7 +81,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         dayCell.isEmphasized = true
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         guard let dayCell = cell as? DayCellView else { return }
         
         dayCell.isEmphasized = false
@@ -82,7 +90,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
-        let monthYearText = dateFormatter.string(from: visibleDates.monthDates.first!)
+        let monthYearText = dateFormatter.string(from: visibleDates.monthDates.first!.date)
         monthLabel.text = monthYearText
         
         
@@ -100,7 +108,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         }
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleDayCellView, cellState: CellState) -> Bool {
+    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell, cellState: CellState) -> Bool {
         return cellState.dateBelongsTo == .thisMonth
     }
 

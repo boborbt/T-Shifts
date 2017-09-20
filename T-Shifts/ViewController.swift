@@ -12,6 +12,7 @@ import EasyTipView
 import os.log
 
 class ViewController: UIViewController, DayInfoViewDelegate {
+    
     var shiftStorage: ShiftStorage!
     weak var calendarUpdater: CalendarShiftUpdater!
     weak var options: Options!
@@ -40,19 +41,23 @@ class ViewController: UIViewController, DayInfoViewDelegate {
                 
         calendarView.selectDates([Date()])
     }
-        
     
-
+    
     func setupCalendarView() {
-        calendarView.dataSource = self
-        calendarView.delegate = self
-        calendarView.registerCellViewXib(file: "DayCellView")
-        calendarView.cellInset = CGPoint(x: 0, y: 0)
+//        calendarView.dataSource = self
+//        calendarView.delegate = self
+//        calendarView.registerCellViewXib(file: "DayCellView")
+//        calendarView.cellInset = CGPoint(x: 0, y: 0)
+        calendarView.calendarDelegate = self
+        calendarView.calendarDataSource = self
+//        calendarView.register(nib:UINib(nibName:"DayCellView", bundle:nil), forCellWithReuseIdentifier: "DayCellView")
+        calendarView.register(UINib(nibName:"DayCellView", bundle:nil), forCellWithReuseIdentifier: "DayCellView")
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
-        calendarView.scrollEnabled = true
+        calendarView.isScrollEnabled = true
         calendarView.selectDates([Date()])
         calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
     }
+
     
     
 // MARK: Events
@@ -85,7 +90,7 @@ class ViewController: UIViewController, DayInfoViewDelegate {
         let nextDate = date + 1.days()
         let visibleDates = calendarView.visibleDates()
         
-        if visibleDates.outdates.index(where: { date in nextDate.sameDay(as: date) }) == nil {
+        if visibleDates.outdates.index(where: { date in nextDate.sameDay(as: date.date) }) == nil {
             dayInfoView.animateNextTransition = true
             calendarView.selectDates([nextDate])
         } else {

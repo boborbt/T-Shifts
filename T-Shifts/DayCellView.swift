@@ -9,7 +9,7 @@
 import Foundation
 import JTAppleCalendar
 
-class DayCellView: JTAppleDayCellView {
+class DayCellView: JTAppleCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var selectionEmphasis: UIView!
     @IBOutlet weak var marksDisplayView: MarksDisplayView!
