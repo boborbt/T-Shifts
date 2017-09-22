@@ -11,7 +11,7 @@ import JTAppleCalendar
 import EasyTipView
 import os.log
 
-class ViewController: UIViewController, DayInfoViewDelegate {
+class ViewController: UIViewController {
     
     var shiftStorage: ShiftStorage!
     weak var calendarUpdater: CalendarShiftUpdater!
@@ -19,10 +19,10 @@ class ViewController: UIViewController, DayInfoViewDelegate {
 
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
-    @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dayInfoView: DayInfoView!
-       
-// MARK: setup
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
+    
+    // MARK: setup
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,13 +44,8 @@ class ViewController: UIViewController, DayInfoViewDelegate {
     
     
     func setupCalendarView() {
-//        calendarView.dataSource = self
-//        calendarView.delegate = self
-//        calendarView.registerCellViewXib(file: "DayCellView")
-//        calendarView.cellInset = CGPoint(x: 0, y: 0)
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
-//        calendarView.register(nib:UINib(nibName:"DayCellView", bundle:nil), forCellWithReuseIdentifier: "DayCellView")
         calendarView.register(UINib(nibName:"DayCellView", bundle:nil), forCellWithReuseIdentifier: "DayCellView")
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
         calendarView.isScrollEnabled = true
@@ -59,7 +54,6 @@ class ViewController: UIViewController, DayInfoViewDelegate {
     }
 
     
-    
 // MARK: Events
     
     
@@ -67,8 +61,6 @@ class ViewController: UIViewController, DayInfoViewDelegate {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.showOptions()
     }
-    
-    
     
     @IBAction func addShift(_ sender: UIButton) {
         let dates = calendarView.selectedDates

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ViewController {
+extension ViewController:  DayInfoViewDelegate {
     func dayInfoTapOn(shiftButton: MarkButton) {
         addShift(shiftButton)
     }
