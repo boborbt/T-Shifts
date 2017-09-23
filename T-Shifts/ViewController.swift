@@ -47,7 +47,6 @@ class ViewController: UIViewController {
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         calendarView.register(UINib(nibName:"DayCellView", bundle:nil), forCellWithReuseIdentifier: "DayCellView")
-        calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
         calendarView.isScrollEnabled = true
         calendarView.selectDates([Date()])
         calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)

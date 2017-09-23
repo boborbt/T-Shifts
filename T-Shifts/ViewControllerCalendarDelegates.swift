@@ -12,6 +12,7 @@ import os.log
 
 
 extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+    
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
@@ -38,12 +39,11 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         return parameters
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "DayCellView", for: indexPath)
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         let dayCell = cell as! DayCellView
         dayCell.isEmphasized = cellState.isSelected
         dayCell.label.text = cellState.text
-
+        
         if cellState.dateBelongsTo != .thisMonth {
             dayCell.colorEmphasis = .hidden
         } else if date.before(day:Date()) {
@@ -51,13 +51,20 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         } else {
             dayCell.colorEmphasis = .normal
         }
-
+        
         let calendar = Calendar.current
         dayCell.isToday = calendar.isDateInToday(cellState.date)
-
+        
         let shifts = shiftStorage.shifts(at: cellState.date)
         dayCell.marks = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
-        return dayCell
+    }
+
+    
+    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "DayCellView", for: indexPath)
+        
+        self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
+        return cell
     }
 
     
