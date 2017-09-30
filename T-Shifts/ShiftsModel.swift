@@ -163,6 +163,9 @@ class ShiftTemplates {
             shortcuts = indexes.map { index in return "\(index)" }
         }
         
+        for index in 0 ..< storage.count {
+            storage[index].shift.shortcut = ""
+        }
         
         for (index, sc) in shortcuts.enumerated() {
             let templateIndex = indexes[index]
@@ -335,8 +338,8 @@ class CalendarShiftUpdater {
             
             try store.save(event, span: EKSpan.thisEvent)
             os_log("Shift saved to Calendar store: %@", shift.description)
-        } catch {
-            os_log("Error occurred for shift: %@", shift.description)
+        } catch let error {
+            os_log("Error (%@) occurred for shift: %@", [error, shift.description])
         }
         
     }
