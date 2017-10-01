@@ -294,7 +294,7 @@ class CalendarShiftUpdater {
         get {
             // FIXME: This should return a list of calendars filtered
             //   so to filter out non editable calendars
-            return store.calendars(for: .event)
+            return store.calendars(for: .event).filter { calendar in !calendar.isImmutable }
         }
     }
 
