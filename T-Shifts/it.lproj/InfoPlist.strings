@@ -1,12 +1,12 @@
-/* (No Commment) */
+/* (No Comment) */
 "CFBundleDisplayName" = "T-Shifts";
 
-/* (No Commment) */
+/* (No Comment) */
 "CFBundleName" = "$(PRODUCT_NAME)";
 
-/* (No Commment) */
+/* (No Comment) */
 "CFBundleShortVersionString" = "1.0";
 
-/* (No Commment) */
+/* (No Comment) */
 "NSCalendarsUsageDescription" = "L'applicazione memorizza i turni sul tuo calendario ed per questo ha bisogno di essere autorizzata ad accedervi.";
 

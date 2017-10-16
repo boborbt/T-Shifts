@@ -149,7 +149,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pick your Shifts" id="llw-JS-HcF">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="0mg-GR-t79"/>
+                        <barButtonItem key="backBarButtonItem" systemItem="cancel" id="0mg-GR-t79"/>
                         <barButtonItem key="rightBarButtonItem" title="•••" id="xY3-Qa-dT7">
                             <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

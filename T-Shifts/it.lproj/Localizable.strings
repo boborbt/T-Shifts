@@ -1,3 +1,6 @@
+/* Credits title label */
+"About" = "Crediti";
+
 /* Error message to be displayed when user did not give access to the calendar */
 "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars." = "L'accesso al calendario di sistema non è stato concesso. Puoi abilitarlo dalle preferenze di sistema selezionando l'applicazione T-Shifts.";
 
@@ -17,19 +20,7 @@
 "Shifts Calendar" = "Calendario da usare per i turni";
 
 /* Text displayed in the credits section */
-"T-Shifts includes the following open source components:
-
-	JTAppleCalendar
-	EasyTipView
-	SSRadioButton
-
-© 2017 Roberto Esposito" = "T-Shifts include le seguenti componenti open-source:
-
-	JTAppleCalendar
-	EasyTipView
-	SSRadioButton
-
-© 2017 Roberto Esposito";
+"T-Shifts includes the following open source components:\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito" = "T-Shifts include le seguenti componenti open-source:\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito";
 
 /* Text in the options view explaing the rating policy of th eapp */
 "The app itself will never interrupt you asking for ratings." = "L'applicazione non ti interromperà mai per chiedere di inserire una review.";
