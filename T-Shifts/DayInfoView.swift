@@ -43,7 +43,7 @@ class DayInfoView: UIView {
     private var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
     private var securePanelViewLeadingConstraint: NSLayoutConstraint!
     
-    private let feedbackGenerator = UIImpactFeedbackGenerator(style:.medium)
+    private let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
 
     
     
