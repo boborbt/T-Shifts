@@ -43,6 +43,9 @@ class DayInfoView: UIView {
     private var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
     private var securePanelViewLeadingConstraint: NSLayoutConstraint!
     
+    private let feedbackGenerator = UIImpactFeedbackGenerator(style:.medium)
+
+    
     
     // if set to true next show(date:templates:) will animate
     // the transition
@@ -119,6 +122,8 @@ class DayInfoView: UIView {
         
         
         if recognizer.state == .ended {
+            feedbackGenerator.prepare()
+            
             // we add velocity.x to the current position to simulate
             // a bit of inertia
             let x = CGFloat(securePanelViewLeadingConstraint.constant) + direction * recognizer.velocity(in: securePanelView).x / 10
@@ -129,7 +134,10 @@ class DayInfoView: UIView {
                 securePanelViewLeadingConstraint.constant = right_bound
             }
             
-            UIView.animate(withDuration: 0.2, animations: { self.layoutIfNeeded() } )
+            UIView.animate(withDuration: 0.2, animations: { self.layoutIfNeeded() }, completion: {
+                _ in    self.feedbackGenerator.impactOccurred()
+            })
+            
         } else {
             recognizer.setTranslation(CGPoint.zero, in: securePanelView)
             self.layoutIfNeeded()

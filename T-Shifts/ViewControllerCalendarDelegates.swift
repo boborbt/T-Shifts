@@ -56,7 +56,7 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         dayCell.isToday = calendar.isDateInToday(cellState.date)
         
         let shifts = shiftStorage.shifts(at: cellState.date)
-        dayCell.marks = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
+        dayCell.marks = options.shiftTemplates.templates(for: shifts).compactMap({ $0 })
     }
 
     
@@ -110,7 +110,7 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         }
     }
 
-    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell, cellState: CellState) -> Bool {
+    func calendar(shouldSelectDate date: Date, cell: JTAppleCell, cellState: CellState) -> Bool {
         return cellState.dateBelongsTo == .thisMonth
     }
 

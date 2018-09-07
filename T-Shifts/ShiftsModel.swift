@@ -129,11 +129,11 @@ class ShiftTemplates {
         
         let currentPos = currentSet.count
         let currentDes = descriptions[currentPos]
-        let size = currentDes.characters.count
+        let size = currentDes.count
         let desStart = currentDes.startIndex
         
         for i in 0..<size {
-            let candidate = String(currentDes.characters[currentDes.index(desStart, offsetBy:i)])
+            let candidate = String(currentDes[currentDes.index(desStart, offsetBy:i)])
             if currentSet.index(of: candidate) != nil {
                 continue
             }
@@ -147,7 +147,7 @@ class ShiftTemplates {
     }
     
     func recomputeShortcuts() {
-        let data = storage.enumerated().flatMap( { (__val:(Int, ShiftTemplate)) -> (Int, String)? in let (index,template) = __val; 
+        let data = storage.enumerated().compactMap( { (__val:(Int, ShiftTemplate)) -> (Int, String)? in let (index,template) = __val;
             let des = template.shift.description
             return des == "" ? nil : (index, template.shift.description)
         })
@@ -208,7 +208,7 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
         let predicate = store.predicateForEvents(withStart: date, end: date + 1, calendars: [targetCalendar])
         let events = calendarUpdater.store.events(matching: predicate)
         
-        return events.flatMap({ (event) in
+        return events.compactMap({ (event) in
             let description = event.title
             return self.shiftTemplates.template(havingDescription: description!)?.shift
         })

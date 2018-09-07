@@ -19,7 +19,7 @@ extension ViewController:  DayInfoViewDelegate {
     
     func templatesForDate(date: Date) -> [ShiftTemplate] {
         let shifts = shiftStorage.shifts(at: date)
-        let templates = options.shiftTemplates.templates(for: shifts).flatMap({ $0 })
+        let templates = options.shiftTemplates.templates(for: shifts).compactMap({ $0 })
         return templates
     }
     
