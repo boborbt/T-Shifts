@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var dayInfoView: DayInfoView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
+    let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    
     // MARK: setup
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,7 @@ class ViewController: UIViewController {
         }
                 
         calendarView.selectDates([Date()])
+        feedbackGenerator.prepare()
     }
     
     
@@ -87,6 +90,9 @@ class ViewController: UIViewController {
         } else {
             dayInfoView.show(date: date)
         }
+        
+        feedbackGenerator.impactOccurred()
+        feedbackGenerator.prepare()
     }
 }
 

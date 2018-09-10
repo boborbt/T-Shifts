@@ -201,9 +201,9 @@ class DayInfoView: UIView {
         dayCellView = DayInfoView.makeDayCellView()
         offscreenCellView = DayInfoView.makeDayCellView()
         
-        markButtonsArrayView = Bundle.main.loadNibNamed("MarkButtonsArrayView", owner: self, options: nil)!.first as! MarkButtonsArrayView
+        markButtonsArrayView = (Bundle.main.loadNibNamed("MarkButtonsArrayView", owner: self, options: nil)!.first as! MarkButtonsArrayView)
         
-        securePanelView = Bundle.main.loadNibNamed("SecurePanelView", owner: self, options: nil)!.first as! UIControl
+        securePanelView = (Bundle.main.loadNibNamed("SecurePanelView", owner: self, options: nil)!.first as! UIControl)
         
         
         self.addSubview(dayCellView)
