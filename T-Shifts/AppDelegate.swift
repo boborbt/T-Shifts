@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var calendarUpdater: CalendarShiftUpdater!
     var options = Options()
     
-    weak var mainController: ViewController! {
+    weak var mainController: MainViewController! {
         didSet {
             state = .starting
         }

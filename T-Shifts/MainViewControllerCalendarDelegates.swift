@@ -11,7 +11,7 @@ import JTAppleCalendar
 import os.log
 
 
-extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+extension MainViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         let formatter = DateFormatter()

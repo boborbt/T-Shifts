@@ -11,7 +11,7 @@ import JTAppleCalendar
 import EasyTipView
 import os.log
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     var shiftStorage: ShiftStorage!
     weak var calendarUpdater: CalendarShiftUpdater!
