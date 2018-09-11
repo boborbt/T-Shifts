@@ -32,18 +32,19 @@ class DayInfoView: UIView {
     }
     
     
-    private var dayCellView: DayCellView!
-    private var offscreenCellView: DayCellView!
-    private var markButtonsArrayView: MarkButtonsArrayView!
-    private var securePanelView: UIControl!
+    var dayCellView: DayCellView!
+    var offscreenCellView: DayCellView!
+    var markButtonsArrayView: MarkButtonsArrayView!
     
     // constraints references needed to implement the
     // animations
-    private var dayCellViewLeadingConstraint: NSLayoutConstraint!
-    private var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
-    private var securePanelViewLeadingConstraint: NSLayoutConstraint!
-    
-    private let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    var dayCellViewLeadingConstraint: NSLayoutConstraint!
+    var offscreenDayCellViewLeadingConstraint: NSLayoutConstraint!
+
+    // Secure Panel
+    var securePanelView: UIControl!
+    let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    var securePanelViewLeadingConstraint: NSLayoutConstraint!
 
     
     
@@ -55,10 +56,7 @@ class DayInfoView: UIView {
     override func awakeFromNib() {
         addSubviews()
         addAutoLayoutConstraints()
-        
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panelPan(recognizer:)))
-        
-        securePanelView.addGestureRecognizer(gestureRecognizer)
+        setupSecurePanel()
     }
     
     
@@ -104,45 +102,7 @@ class DayInfoView: UIView {
     }
 
     
-    @objc func panelPan(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: securePanelView)
-        let direction:CGFloat = self.effectiveUserInterfaceLayoutDirection == .rightToLeft ? -1.0 : 1.0
-        
-        let left_bound = -Aspect.inset
-        let right_bound = markButtonsArrayView.frame.width - Aspect.inset
-        
-        securePanelViewLeadingConstraint.constant += translation.x * direction
-        if securePanelViewLeadingConstraint.constant < left_bound {
-            securePanelViewLeadingConstraint.constant = left_bound
-        }
-        
-        if securePanelViewLeadingConstraint.constant > right_bound {
-            securePanelViewLeadingConstraint.constant = right_bound
-        }
-        
-        
-        if recognizer.state == .ended {
-            feedbackGenerator.prepare()
-            
-            // we add velocity.x to the current position to simulate
-            // a bit of inertia
-            let x = CGFloat(securePanelViewLeadingConstraint.constant) + direction * recognizer.velocity(in: securePanelView).x / 10
-            
-            if abs(x - left_bound) < abs(x - right_bound) {
-                securePanelViewLeadingConstraint.constant = left_bound
-            } else {
-                securePanelViewLeadingConstraint.constant = right_bound
-            }
-            
-            UIView.animate(withDuration: 0.2, animations: { self.layoutIfNeeded() }, completion: {
-                _ in    self.feedbackGenerator.impactOccurred()
-            })
-            
-        } else {
-            recognizer.setTranslation(CGPoint.zero, in: securePanelView)
-            self.layoutIfNeeded()
-        }
-    }
+
     
     // MARK: buttons
     
