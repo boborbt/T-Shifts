@@ -66,16 +66,31 @@ extension DayInfoView {
     @objc func panelTap(recognizer: UITapGestureRecognizer) {
         let left_bound = -Aspect.inset
         feedbackGenerator.prepare()
-
         
-        if(securePanelViewLeadingConstraint.constant == left_bound) {
-            securePanelViewLeadingConstraint.constant = left_bound + TAP_OPEN_OFFSET;
+        let smallBounce = {
+            self.feedbackGenerator.prepare()
+            self.securePanelViewLeadingConstraint.constant = left_bound + self.TAP_OPEN_OFFSET/3
+            UIView.animate(withDuration: 0.05, animations: { self.layoutIfNeeded() } , completion: { _ in
+                self.securePanelViewLeadingConstraint.constant = left_bound
+                UIView.animate(withDuration: 0.05, animations: { self.layoutIfNeeded() }, completion: { _ in
+                    self.feedbackGenerator.impactOccurred()
+                })
+            })
+        }
+        
+        let doubleBounce = {
+            self.securePanelViewLeadingConstraint.constant = left_bound + self.TAP_OPEN_OFFSET
             UIView.animate(withDuration:0.1, animations: { self.layoutIfNeeded() }, completion: { _ in
                 self.securePanelViewLeadingConstraint.constant = left_bound;
                 UIView.animate(withDuration:0.1, animations: { self.layoutIfNeeded()}, completion: { _ in
                     self.feedbackGenerator.impactOccurred()
-                } )
+                    smallBounce()
+                })
             })
+        }
+        
+        if(securePanelViewLeadingConstraint.constant == left_bound) {
+            doubleBounce()
         }
     }
     
