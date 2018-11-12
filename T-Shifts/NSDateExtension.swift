@@ -44,4 +44,20 @@ extension Date {
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         return calendar.date(from: comp)!
     }
+    
+    static func today() -> Date {
+        return Date()
+    }
+    
+    static func yesterday() -> Date {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)
+        let tomorrow = calendar?.date(byAdding: .day , value: -1, to: Date())
+        return tomorrow!
+    }
+    
+    static func tomorrow() -> Date {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)
+        let tomorrow = calendar?.date(byAdding: .day , value: 1, to: Date())
+        return tomorrow!
+    }
 }

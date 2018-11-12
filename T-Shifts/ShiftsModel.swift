@@ -63,6 +63,8 @@ protocol ShiftStorage {
     // tells the storage to notify any add/remove operation to the caller
     // using the provided function.
     func notifyChanges(to function:@escaping (Date)->() )
+    
+    func shiftsDescription(at date: Date) -> String?
 }
 
 
@@ -221,6 +223,18 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
     func notifyChanges(to function: @escaping (Date) -> ()) {
         callback = function
     }
+    
+    func shiftsDescription(at date: Date) -> String? {
+        let shifts = self.shifts(at: date)
+        
+        if shifts.isEmpty {
+            return nil
+        }
+        
+        let descriptions: [String] = shifts.map() { s in s.description }
+        return descriptions.joined(separator:" ")
+    }
+
 
 }
 
@@ -272,6 +286,17 @@ class LocalShiftStorage: ShiftStorage, Sequence {
     
     func notifyChanges(to function: @escaping (Date) -> ()) {
         callback = function
+    }
+    
+    func shiftsDescription(at date: Date) -> String? {
+        let shifts = self.shifts(at: date)
+        
+        if shifts.isEmpty {
+            return nil
+        }
+        
+        let shortcuts: [String] = shifts.map() { s in s.description }
+        return shortcuts.joined(separator:" ")
     }
 }
 

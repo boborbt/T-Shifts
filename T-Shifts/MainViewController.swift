@@ -43,6 +43,8 @@ class MainViewController: UIViewController {
                 
         calendarView.selectDates([Date()])
         feedbackGenerator.prepare()
+        
+        setupUserActivity()
     }
     
     
@@ -53,6 +55,34 @@ class MainViewController: UIViewController {
         calendarView.isScrollEnabled = true
         calendarView.selectDates([Date()])
         calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
+    }
+    
+    func setupUserActivity() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM"        
+        var description: [String] = []
+        
+        for date in [Date.today(), Date.tomorrow()] {
+            if let shift = self.shiftStorage.shiftsDescription(at: date) {
+                description.append("\(formatter.string(from: date)): \(shift)")
+            }
+        }
+        
+        if description.isEmpty {
+            return
+        }
+        
+
+        let userActivity = NSUserActivity(activityType: "org.boborbt.tshift.readshiftactivity")
+        userActivity.expirationDate = Date.tomorrow()
+        userActivity.isEligibleForPrediction = true
+        userActivity.isEligibleForHandoff = true
+        userActivity.title = description.joined(separator:"\n")
+        userActivity.persistentIdentifier = "org.boborbt.tshift.readshiftactivity.unique"
+        userActivity.keywords = ["shifts"]
+        self.userActivity = userActivity
+        
+        self.userActivity!.becomeCurrent()
     }
 
     
@@ -90,6 +120,8 @@ class MainViewController: UIViewController {
         } else {
             dayInfoView.show(date: date)
         }
+        
+        self.setupUserActivity()
         
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()

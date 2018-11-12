@@ -713,6 +713,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
@@ -737,6 +738,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;

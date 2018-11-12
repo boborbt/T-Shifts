@@ -5,7 +5,7 @@
 "CFBundleName" = "$(PRODUCT_NAME)";
 
 /* (No Commment) */
-"CFBundleShortVersionString" = "1.1";
+"CFBundleShortVersionString" = "1.4.2";
 
 "NSCalendarsUsageDescription" = "The application stores shifts events on your calendar and consequently needs permissions to access it.";
 
