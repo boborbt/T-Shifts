@@ -64,7 +64,11 @@ protocol ShiftStorage {
     // using the provided function.
     func notifyChanges(to function:@escaping (Date)->() )
     
+    // Returns a human readable description of the shifts at the given date
     func shiftsDescription(at date: Date) -> String?
+    
+    // Returns a unique identifier for the shifts data at the given date
+    func uniqueIdentifier(for date: Date) -> String
 }
 
 
@@ -234,6 +238,12 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
         let descriptions: [String] = shifts.map() { s in s.description }
         return descriptions.joined(separator:" ")
     }
+    
+    func uniqueIdentifier(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYYmmdd"
+        return "Shifts:\(formatter.string(from: date))"
+    }
 
 
 }
@@ -297,6 +307,12 @@ class LocalShiftStorage: ShiftStorage, Sequence {
         
         let shortcuts: [String] = shifts.map() { s in s.description }
         return shortcuts.joined(separator:" ")
+    }
+    
+    func uniqueIdentifier(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYYmmdd"
+        return "Shifts:\(formatter.string(from: date))"
     }
 }
 

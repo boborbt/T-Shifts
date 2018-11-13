@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreSpotlight
 import JTAppleCalendar
 import EasyTipView
 import os.log
@@ -43,8 +44,7 @@ class MainViewController: UIViewController {
                 
         calendarView.selectDates([Date()])
         feedbackGenerator.prepare()
-        
-        setupUserActivity()
+        addItemsToSpotlightIndex()
     }
     
     
@@ -57,32 +57,48 @@ class MainViewController: UIViewController {
         calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
     }
     
-    func setupUserActivity() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM"        
-        var description: [String] = []
+    func addItemsToSpotlightIndex() {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         
-        for date in [Date.today(), Date.tomorrow()] {
-            if let shift = self.shiftStorage.shiftsDescription(at: date) {
-                description.append("\(formatter.string(from: date)): \(shift)")
+        let startDay = calendar.date(byAdding: .day, value: -15, to: Date())!
+        var items:[CSSearchableItem] = []
+        
+        for numDays in 0...30 {
+            let date = calendar.date(byAdding: .day, value: numDays, to: startDay )!
+            if self.shiftStorage.shifts(at: date).isEmpty {
+                continue
+            }
+            
+            let monthFormatter = DateFormatter()
+            let dayFormatter = DateFormatter()
+            monthFormatter.dateFormat = "LLLL"
+            dayFormatter.dateFormat = "d"
+            
+            
+            let attributeSet = CSSearchableItemAttributeSet()
+            attributeSet.contentType = "public.calendar-event"
+            attributeSet.startDate = date
+            attributeSet.endDate = date
+            attributeSet.allDay = true
+            attributeSet.title = self.shiftStorage.shiftsDescription(at: date)!
+            attributeSet.contentDescription = "Shifts for day: \(self.shiftStorage.shiftsDescription(at: date)!)"
+            attributeSet.keywords = [monthFormatter.string(from: date), dayFormatter.string(from:date)] + shiftStorage.shifts(at: date).map { shift in return shift.description }
+
+            
+            let item = CSSearchableItem(uniqueIdentifier: shiftStorage.uniqueIdentifier(for: date), domainIdentifier: "shifts", attributeSet: attributeSet)
+            
+            items.append(item)
+        }
+        
+        let index = CSSearchableIndex.default()
+        index.indexSearchableItems(items) { (error) in
+            if error != nil {
+                os_log(.debug, "Cannot index shifts %s", error.debugDescription)
+            } else {
+                os_log(.debug, "Indexing shifts completed")
             }
         }
-        
-        if description.isEmpty {
-            return
-        }
-        
-
-        let userActivity = NSUserActivity(activityType: "org.boborbt.tshift.readshiftactivity")
-        userActivity.expirationDate = Date.tomorrow()
-        userActivity.isEligibleForPrediction = true
-        userActivity.isEligibleForHandoff = true
-        userActivity.title = description.joined(separator:"\n")
-        userActivity.persistentIdentifier = "org.boborbt.tshift.readshiftactivity.unique"
-        userActivity.keywords = ["shifts"]
-        self.userActivity = userActivity
-        
-        self.userActivity!.becomeCurrent()
+    
     }
 
     
@@ -120,9 +136,7 @@ class MainViewController: UIViewController {
         } else {
             dayInfoView.show(date: date)
         }
-        
-        self.setupUserActivity()
-        
+                
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()
     }
