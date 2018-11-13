@@ -45,19 +45,20 @@ extension Date {
         return calendar.date(from: comp)!
     }
     
+    static func dateFromToday(byAdding numDays:Int) -> Date {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)
+        return calendar!.date(byAdding: .day , value: numDays, to: Date())!
+    }
+    
     static func today() -> Date {
         return Date()
     }
     
     static func yesterday() -> Date {
-        let calendar = NSCalendar(calendarIdentifier: .gregorian)
-        let tomorrow = calendar?.date(byAdding: .day , value: -1, to: Date())
-        return tomorrow!
+        return dateFromToday(byAdding: -1)
     }
     
     static func tomorrow() -> Date {
-        let calendar = NSCalendar(calendarIdentifier: .gregorian)
-        let tomorrow = calendar?.date(byAdding: .day , value: 1, to: Date())
-        return tomorrow!
+        return dateFromToday(byAdding: 1)
     }
 }

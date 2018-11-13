@@ -34,6 +34,12 @@
 		F8AAFF401E8AA2B600CD79C6 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AAFF3F1E8AA2B600CD79C6 /* NSAttributedStringExtension.swift */; };
 		F8AD5F3E1E706CD500C88FD2 /* SecurePanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */; };
 		F8B7BB3C1E3BAFB500E2304B /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */; };
+		F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */; };
+		F8C7F25C219AF9FC00E0FDA2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */; };
+		F8C7F25F219AF9FC00E0FDA2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C7F25E219AF9FC00E0FDA2 /* TodayViewController.swift */; };
+		F8C7F262219AF9FC00E0FDA2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */; };
+		F8C7F266219AF9FC00E0FDA2 /* TShifts Today Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F8C7F26D219B0C7100E0FDA2 /* WidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */; };
 		F8DBA7831E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DBA7821E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* MainViewController.swift */; };
@@ -48,6 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F8C7F264219AF9FC00E0FDA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8C7F259219AF9FC00E0FDA2;
+			remoteInfo = "TShifts Today Widget";
+		};
 		F8E9B54D1E27C9A600390BD3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
@@ -74,6 +87,17 @@
 				F85D0A851F7170720070CEDD /* EasyTipView.framework.dSYM in CopyFiles */,
 				F85D0A861F7170720070CEDD /* JTAppleCalendar.framework.dSYM in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C7F26A219AF9FC00E0FDA2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F8C7F266219AF9FC00E0FDA2 /* TShifts Today Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -112,6 +136,15 @@
 		F8AAFF3F1E8AA2B600CD79C6 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurePanelView.xib; sourceTree = "<group>"; };
 		F8B7BB3B1E3BAFB500E2304B /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TShifts Today Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F8C7F25E219AF9FC00E0FDA2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F8C7F261219AF9FC00E0FDA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F8C7F263219AF9FC00E0FDA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTableViewCell.swift; sourceTree = "<group>"; };
+		F8C7F26E219B1A2800E0FDA2 /* T-Shifts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "T-Shifts.entitlements"; sourceTree = "<group>"; };
+		F8C7F26F219B1A9A00E0FDA2 /* TShifts Today Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TShifts Today Widget.entitlements"; sourceTree = "<group>"; };
 		F8DBA7821E8A6601003D0E87 /* OptionsViewControllerOptionsHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewControllerOptionsHandling.swift; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,10 +166,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F8C7F257219AF9FC00E0FDA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C7F25C219AF9FC00E0FDA2 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8E9B5351E27C9A600390BD3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */,
 				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +242,8 @@
 		F85D0A871F7171430070CEDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */,
+				F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,6 +284,18 @@
 			name = DayInfo;
 			sourceTree = "<group>";
 		};
+		F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */ = {
+			isa = PBXGroup;
+			children = (
+				F8C7F26F219B1A9A00E0FDA2 /* TShifts Today Widget.entitlements */,
+				F8C7F25E219AF9FC00E0FDA2 /* TodayViewController.swift */,
+				F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */,
+				F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */,
+				F8C7F263219AF9FC00E0FDA2 /* Info.plist */,
+			);
+			path = "TShifts Today Widget";
+			sourceTree = "<group>";
+		};
 		F8E9B52F1E27C9A500390BD3 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +304,7 @@
 				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
 				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
 				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
+				F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */,
 				F8E9B5391E27C9A600390BD3 /* Products */,
 				F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */,
 				F85D0A871F7171430070CEDD /* Frameworks */,
@@ -260,6 +317,7 @@
 				F8E9B5381E27C9A600390BD3 /* T-Shifts.app */,
 				F8E9B54C1E27C9A600390BD3 /* T-ShiftsTests.xctest */,
 				F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */,
+				F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,6 +325,7 @@
 		F8E9B53A1E27C9A600390BD3 /* T-Shifts */ = {
 			isa = PBXGroup;
 			children = (
+				F8C7F26E219B1A2800E0FDA2 /* T-Shifts.entitlements */,
 				F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */,
 				F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */,
 				F814F8AA1E4CAC5F00E67057 /* Models */,
@@ -301,6 +360,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F8C7F259219AF9FC00E0FDA2 /* TShifts Today Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8C7F267219AF9FC00E0FDA2 /* Build configuration list for PBXNativeTarget "TShifts Today Widget" */;
+			buildPhases = (
+				F8C7F256219AF9FC00E0FDA2 /* Sources */,
+				F8C7F257219AF9FC00E0FDA2 /* Frameworks */,
+				F8C7F258219AF9FC00E0FDA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TShifts Today Widget";
+			productName = "TShifts Today Widget";
+			productReference = F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F8E9B5371E27C9A600390BD3 /* T-Shifts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8E9B5601E27C9A600390BD3 /* Build configuration list for PBXNativeTarget "T-Shifts" */;
@@ -310,10 +386,12 @@
 				F8E9B5361E27C9A600390BD3 /* Resources */,
 				F814F8B61E4CBB8000E67057 /* ShellScript */,
 				F881E67C1F716F44005CEB24 /* CopyFiles */,
+				F8C7F26A219AF9FC00E0FDA2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F8C7F265219AF9FC00E0FDA2 /* PBXTargetDependency */,
 			);
 			name = "T-Shifts";
 			productName = "T-Shifts";
@@ -362,15 +440,29 @@
 		F8E9B5301E27C9A500390BD3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Roberto Esposito";
 				TargetAttributes = {
+					F8C7F259219AF9FC00E0FDA2 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					F8E9B5371E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = P7PY7CP3A9;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F8E9B54B1E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -403,11 +495,20 @@
 				F8E9B5371E27C9A600390BD3 /* T-Shifts */,
 				F8E9B54B1E27C9A600390BD3 /* T-ShiftsTests */,
 				F8E9B5561E27C9A600390BD3 /* T-ShiftsUITests */,
+				F8C7F259219AF9FC00E0FDA2 /* TShifts Today Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F8C7F258219AF9FC00E0FDA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C7F262219AF9FC00E0FDA2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8E9B5361E27C9A600390BD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +562,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F8C7F256219AF9FC00E0FDA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C7F25F219AF9FC00E0FDA2 /* TodayViewController.swift in Sources */,
+				F8C7F26D219B0C7100E0FDA2 /* WidgetTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8E9B5341E27C9A600390BD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -509,6 +619,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F8C7F265219AF9FC00E0FDA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8C7F259219AF9FC00E0FDA2 /* TShifts Today Widget */;
+			targetProxy = F8C7F264219AF9FC00E0FDA2 /* PBXContainerItemProxy */;
+		};
 		F8E9B54E1E27C9A600390BD3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8E9B5371E27C9A600390BD3 /* T-Shifts */;
@@ -555,6 +670,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8C7F261219AF9FC00E0FDA2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		F8E9B53F1E27C9A600390BD3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -586,6 +709,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F8C7F268219AF9FC00E0FDA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "TShifts Today Widget/TShifts Today Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P7PY7CP3A9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "TShifts Today Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.boborbt.tshift.TShifts-Today-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8C7F269219AF9FC00E0FDA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "TShifts Today Widget/TShifts Today Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P7PY7CP3A9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "TShifts Today Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.boborbt.tshift.TShifts-Today-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F8E9B55E1E27C9A600390BD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -706,6 +878,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CODE_SIGN_ENTITLEMENTS = "T-Shifts/T-Shifts.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -731,6 +905,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CODE_SIGN_ENTITLEMENTS = "T-Shifts/T-Shifts.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -810,6 +986,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F8C7F267219AF9FC00E0FDA2 /* Build configuration list for PBXNativeTarget "TShifts Today Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C7F268219AF9FC00E0FDA2 /* Debug */,
+				F8C7F269219AF9FC00E0FDA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F8E9B5331E27C9A500390BD3 /* Build configuration list for PBXProject "T-Shifts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

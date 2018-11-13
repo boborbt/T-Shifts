@@ -45,6 +45,23 @@ class MainViewController: UIViewController {
         calendarView.selectDates([Date()])
         feedbackGenerator.prepare()
         addItemsToSpotlightIndex()
+        initExtensionData()
+    }
+    
+    func initExtensionData() {
+        let userDefaults = UserDefaults(suiteName: "group.tshifts.boborbt.org")!
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+
+        for i in 0...10 {
+            let date = Date.dateFromToday(byAdding: i-1)
+            if let description = shiftStorage.shiftsDescription(at: date) {
+                userDefaults.set(formatter.string(from: date), forKey: "shifts.date.\(i)")
+                userDefaults.set(description, forKey: "shifts.description.\(i)")
+            }
+        }
+
+        userDefaults.synchronize()
     }
     
     
@@ -81,7 +98,6 @@ class MainViewController: UIViewController {
             attributeSet.endDate = date
             attributeSet.allDay = true
             attributeSet.title = self.shiftStorage.shiftsDescription(at: date)!
-            attributeSet.contentDescription = "Shifts for day: \(self.shiftStorage.shiftsDescription(at: date)!)"
             attributeSet.keywords = [monthFormatter.string(from: date), dayFormatter.string(from:date)] + shiftStorage.shifts(at: date).map { shift in return shift.description }
 
             
