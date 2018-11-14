@@ -32,7 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         shiftsDescriptions = []
-        for i in 0...10 {
+        for i in 0...9 {
             guard let date = userDefaults.string(forKey: "shifts.date.\(i)") else { continue }
             guard let description = userDefaults.string(forKey: "shifts.description.\(i)")  else { continue }
             shiftsDescriptions.append("\(date): \(description)")

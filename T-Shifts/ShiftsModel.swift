@@ -69,6 +69,9 @@ protocol ShiftStorage {
     
     // Returns a unique identifier for the shifts data at the given date
     func uniqueIdentifier(for date: Date) -> String
+    
+    // Returns the date associated to the given unique identifier
+    func date(forUniqueIdentifier identifier:String) -> Date
 }
 
 
@@ -185,12 +188,15 @@ class ShiftTemplates {
 // A shift storage based on the system calendar.
 class CalendarShiftStorage : ShiftStorage, Sequence {
     var callback: ((Date) -> ())!
+    let formatter: DateFormatter!
     weak var shiftTemplates: ShiftTemplates!
     weak var calendarUpdater: CalendarShiftUpdater!
     
     init(updater: CalendarShiftUpdater, templates: ShiftTemplates) {
         calendarUpdater = updater
         shiftTemplates = templates
+        formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd"
     }
     
     func add(shift: Shift, toDate date: Date) throws {
@@ -240,11 +246,13 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
     }
     
     func uniqueIdentifier(for date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYYmmdd"
         return "Shifts:\(formatter.string(from: date))"
     }
 
+    func date(forUniqueIdentifier identifier: String) -> Date {
+        let dateString = identifier.components(separatedBy: ":")[1]
+        return formatter.date(from:dateString)!
+    }
 
 }
 
@@ -254,6 +262,12 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
 class LocalShiftStorage: ShiftStorage, Sequence {
     var storage: [Date:[Shift]] = [:]
     var callback: ((Date) -> ())!
+    let formatter: DateFormatter!
+    
+    init() {
+        formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+    }
     
     func isPresent(shift: Shift, at date: Date) -> Bool {
         let shifts = self.shifts(at: date)
@@ -310,9 +324,12 @@ class LocalShiftStorage: ShiftStorage, Sequence {
     }
     
     func uniqueIdentifier(for date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYYmmdd"
         return "Shifts:\(formatter.string(from: date))"
+    }
+    
+    func date(forUniqueIdentifier identifier: String) -> Date {
+        let dateString = identifier.components(separatedBy: ":").first!
+        return formatter.date(from:dateString)!
     }
 }
 

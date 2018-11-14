@@ -45,25 +45,25 @@ class MainViewController: UIViewController {
         
         indexer = SpotlightIndexer(shiftStorage: shiftStorage)
                 
-        calendarView.selectDates([Date()])
+        self.select(date:Date())
         feedbackGenerator.prepare()
         indexer.addItemsToSpotlightIndex()
-        initExtensionData()
+        updateExtensionData()
     }
     
-    func initExtensionData() {
+    func updateExtensionData() {
         let userDefaults = UserDefaults(suiteName: "group.tshifts.boborbt.org")!
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
 
-        for i in 0...10 {
+        for i in 0...9 {
             let date = Date.dateFromToday(byAdding: i-1)
             if let description = shiftStorage.shiftsDescription(at: date) {
                 userDefaults.set(formatter.string(from: date), forKey: "shifts.date.\(i)")
                 userDefaults.set(description, forKey: "shifts.description.\(i)")
             }
         }
-
+        
         userDefaults.synchronize()
     }
     
@@ -73,11 +73,16 @@ class MainViewController: UIViewController {
         calendarView.calendarDataSource = self
         calendarView.register(UINib(nibName:"DayCellView", bundle:nil), forCellWithReuseIdentifier: "DayCellView")
         calendarView.isScrollEnabled = true
-        calendarView.selectDates([Date()])
-        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
+        self.select(date: Date())
     }
     
 // MARK: Events
+    
+    func select(date: Date) {
+        calendarView.selectDates([date])
+        calendarView.scrollToDate(date, triggerScrollToDateDelegate: true, animateScroll: false, preferredScrollPosition: nil, completionHandler: nil)
+
+    }
     
     
     @IBAction func showOptions(_ sender: UIBarButtonItem) {
@@ -111,6 +116,9 @@ class MainViewController: UIViewController {
         } else {
             dayInfoView.show(date: date)
         }
+        
+        indexer.reindexShifts(for: date)
+        self.updateExtensionData()
                 
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()
