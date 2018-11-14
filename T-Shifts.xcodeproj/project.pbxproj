@@ -221,6 +221,7 @@
 			children = (
 				F8E9B53D1E27C9A600390BD3 /* MainViewController.swift */,
 				F86B38931E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift */,
+				F814F8AF1E4CB60700E67057 /* DayCellView.xib */,
 				F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */,
 				F87E5D521E84064700946699 /* OptionsViewController.swift */,
 				F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */,
@@ -233,7 +234,6 @@
 			children = (
 				F8E9B53F1E27C9A600390BD3 /* Main.storyboard */,
 				F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */,
-				F814F8AF1E4CB60700E67057 /* DayCellView.xib */,
 				F8AD5F3F1E715E2200C88FD2 /* DayInfo */,
 				F814F8B11E4CB65800E67057 /* DayCellView.swift */,
 				F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */,

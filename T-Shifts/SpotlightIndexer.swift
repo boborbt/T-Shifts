@@ -48,6 +48,13 @@ class SpotlightIndexer {
     
     
     func addItemsToSpotlightIndex() {
+        index.deleteAllSearchableItems() { (error) in
+            if error != nil {
+                os_log("Could not delete searchable items")
+            }
+        }
+        
+        
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         
         let startDay = calendar.date(byAdding: .day, value: -30, to: Date())!
