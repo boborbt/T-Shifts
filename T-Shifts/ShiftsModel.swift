@@ -71,7 +71,7 @@ protocol ShiftStorage {
     func uniqueIdentifier(for date: Date) -> String
     
     // Returns the date associated to the given unique identifier
-    func date(forUniqueIdentifier identifier:String) -> Date
+    func date(forUniqueIdentifier identifier:String) -> Date?
 }
 
 
@@ -249,9 +249,14 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
         return "Shifts:\(formatter.string(from: date))"
     }
 
-    func date(forUniqueIdentifier identifier: String) -> Date {
-        let dateString = identifier.components(separatedBy: ":")[1]
-        return formatter.date(from:dateString)!
+    func date(forUniqueIdentifier identifier: String) -> Date? {
+        let stringComponents = identifier.components(separatedBy: ":")
+        
+        if stringComponents.count != 2 {
+            return nil
+        }
+        
+        return formatter.date(from:stringComponents[1])
     }
 
 }
@@ -327,9 +332,14 @@ class LocalShiftStorage: ShiftStorage, Sequence {
         return "Shifts:\(formatter.string(from: date))"
     }
     
-    func date(forUniqueIdentifier identifier: String) -> Date {
-        let dateString = identifier.components(separatedBy: ":").first!
-        return formatter.date(from:dateString)!
+    func date(forUniqueIdentifier identifier: String) -> Date? {
+        let stringComponents = identifier.components(separatedBy: ":")
+        
+        if stringComponents.count != 2 {
+            return nil
+        }
+        
+        return formatter.date(from:stringComponents[1])
     }
 }
 
@@ -395,9 +405,9 @@ class CalendarShiftUpdater {
             event.calendar = targetCalendar!
             
             try store.save(event, span: EKSpan.thisEvent)
-            os_log("Shift saved to Calendar store: %@", shift.description)
+            os_log(.debug, "Shift saved to Calendar store: %@", shift.description)
         } catch let error {
-            os_log("Error (%@) occurred for shift: %@", [error, shift.description])
+            os_log(.error, "Error (%@) occurred for shift: %@", [error, shift.description])
         }
         
     }

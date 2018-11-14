@@ -46,15 +46,20 @@ class SpotlightIndexer {
         return item
     }
     
-    
-    func addItemsToSpotlightIndex() {
+    func resetIndex() {
         index.deleteAllSearchableItems() { (error) in
             if error != nil {
-                os_log("Could not delete searchable items")
+                os_log(.error, "Could not delete searchable items, reason:", error.debugDescription )
+            } else {
+                os_log(.debug, "Deleted all searchable items")
             }
         }
         
-        
+        addItemsToSpotlightIndex()
+    }
+    
+    
+    func addItemsToSpotlightIndex() {
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         
         let startDay = calendar.date(byAdding: .day, value: -30, to: Date())!
@@ -72,7 +77,7 @@ class SpotlightIndexer {
         
         index.indexSearchableItems(items) { (error) in
             if error != nil {
-                os_log(.debug, "Cannot index shifts %s", error.debugDescription)
+                os_log(.error, "Cannot index shifts %s", error.debugDescription)
             } else {
                 os_log(.debug, "Indexing shifts completed")
             }
@@ -86,7 +91,7 @@ class SpotlightIndexer {
         
         index.deleteSearchableItems(withIdentifiers: [shiftStorage.uniqueIdentifier(for: date)]) { (error) in
             if error != nil {
-                os_log(.debug, "Cannot delete shift. Reason: %s", error.debugDescription)
+                os_log(.error, "Cannot delete shift. Reason: %s", error.debugDescription)
             } else {
                 os_log(.debug, "Deleting index for shifts completed")
             }
@@ -94,7 +99,7 @@ class SpotlightIndexer {
         
         index.indexSearchableItems([item]) { (error) in
             if error != nil {
-                os_log(.debug, "Cannot re-index shift. Reason: %s", error.debugDescription)
+                os_log(.error, "Cannot re-index shift. Reason: %s", error.debugDescription)
             } else {
                 os_log(.debug, "Re-indexing shift completed")
             }

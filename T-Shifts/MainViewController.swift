@@ -103,7 +103,7 @@ class MainViewController: UIViewController {
                 try shiftStorage.add( shift: shift, toDate: date )
             }
         } catch {
-            os_log("Cannot add/remove shift -- error caught")
+            os_log(.error, "Cannot add/remove shift -- error caught")
         }
         
         

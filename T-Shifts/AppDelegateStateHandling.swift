@@ -47,7 +47,6 @@ extension AppDelegate {
     }
     
     func showOptions() {
-        os_log("showOptions")
         guard let navigationController = self.window?.rootViewController as? UINavigationController else { return }
         
         let optionsViewController = OptionsViewController()

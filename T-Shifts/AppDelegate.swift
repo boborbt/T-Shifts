@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     var window: UIWindow?
-    var shiftStorage: ShiftStorage?
+    var shiftStorage: ShiftStorage!
     var calendarUpdater: CalendarShiftUpdater!
     var options = Options()
     
@@ -99,10 +99,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         guard let identifier = userActivity.userInfo![CSSearchableItemActivityIdentifier] as? String
-        else { return false }
+        else {
+            mainController.indexer.resetIndex()
+            return false
+        }
         
-        let date = shiftStorage!.date(forUniqueIdentifier: identifier)
-        mainController.select(date: date)
+        if let date = shiftStorage.date(forUniqueIdentifier: identifier) {
+            mainController.select(date: date)
+        } else {
+            mainController.indexer.resetIndex()
+        }
         return true
     }
 
