@@ -10,11 +10,13 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataSource {
+    static let SHIFTS_COUNT = 10
 
     
     @IBOutlet var tableView: UITableView?
     let userDefaults:UserDefaults = UserDefaults(suiteName: "group.tshifts.boborbt.org")!
-    var shiftsDescriptions:[String] = []
+    
+    var shiftsDescriptions:[NSAttributedString] = [NSAttributedString](repeating: NSAttributedString(string:""), count: SHIFTS_COUNT)
     
         
     override func viewDidLoad() {
@@ -24,19 +26,39 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: UserDefaults.didChangeNotification, object: userDefaults)
         
-        userDefaults.synchronize()
-        self.updateData()
+        let _ = self.updateData()
     }
     
-    @objc func updateData() {
+    func attributedDescription(for string:String, atIndex index: Int) -> NSAttributedString {
+        let bullet = "‣ "
+        let description = string
+        
+        let text = NSMutableAttributedString(string: bullet + description)
+        if index == 1 {
+            text.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location:0, length:bullet.count))
+        }
+        
+        return text
+    }
+    
+    @objc func updateData() -> Bool {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        shiftsDescriptions = []
-        for i in 0...9 {
+        var updated = false
+        
+        for i in 0..<TodayViewController.SHIFTS_COUNT {
             guard let date = userDefaults.string(forKey: "shifts.date.\(i)") else { continue }
             guard let description = userDefaults.string(forKey: "shifts.description.\(i)")  else { continue }
-            shiftsDescriptions.append("\(date): \(description)")
+            let newDescription = attributedDescription(for: "\(date): \(description)", atIndex: i)
+            
+
+            if shiftsDescriptions[i] != newDescription {
+                shiftsDescriptions[i] = newDescription
+                updated = true
+            }
         }
+        
+        return updated
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,29 +67,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WidgetTableViewCell") as! WidgetTableViewCell
-        let bullet = "‣ "
-        let description = shiftsDescriptions[indexPath[1]]
-        
-        let text = NSMutableAttributedString(string: bullet + description)
-        if indexPath[1] == 1 {
-            text.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location:0, length:bullet.count))
-        }
         
         cell.label?.text = nil
-        cell.label?.attributedText = text
+        cell.label?.attributedText = shiftsDescriptions[indexPath[1]]
         
         return cell
     }
     
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
+        let updated = self.updateData()
         
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
-        completionHandler(NCUpdateResult.newData)
+        completionHandler(updated ? .newData : .noData)
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {

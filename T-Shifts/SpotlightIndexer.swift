@@ -37,12 +37,12 @@ class SpotlightIndexer {
         attributeSet.keywords = [monthFormatter.string(from: date), dayFormatter.string(from:date)] + shifts.map {
             shift in return shift.description
         }
+
         
         
         let item = CSSearchableItem(uniqueIdentifier: shiftStorage.uniqueIdentifier(for: date), domainIdentifier: "shifts", attributeSet: attributeSet)
-        
+        item.expirationDate = Date.date(from: date, byAdding: 31)
 
-    
         return item
     }
     

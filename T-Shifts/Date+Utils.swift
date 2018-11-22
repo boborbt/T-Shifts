@@ -45,9 +45,13 @@ extension Date {
         return calendar.date(from: comp)!
     }
     
-    static func dateFromToday(byAdding numDays:Int) -> Date {
+    static func date(from: Date, byAdding numDays:Int) -> Date {
         let calendar = NSCalendar(calendarIdentifier: .gregorian)
         return calendar!.date(byAdding: .day , value: numDays, to: Date())!
+    }
+    
+    static func dateFromToday(byAdding numDays:Int) -> Date {
+        return date(from: Date(), byAdding: numDays)
     }
     
     static func today() -> Date {
