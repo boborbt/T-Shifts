@@ -11,11 +11,9 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataSource {
     static let SHIFTS_COUNT = 10
-
     
     @IBOutlet var tableView: UITableView?
-    let userDefaults:UserDefaults = UserDefaults(suiteName: "group.tshifts.boborbt.org")!
-    
+    let userDefaults:UserDefaults = UserDefaults(suiteName: "group.org.boborbt.tshifts")!
     var shiftsDescriptions:[NSAttributedString] = [NSAttributedString](repeating: NSAttributedString(string:""), count: SHIFTS_COUNT)
     
         
@@ -89,7 +87,4 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
             self.preferredContentSize = CGSize(width: maxSize.width, height: 225)
         }
     }
-
-
-    
 }

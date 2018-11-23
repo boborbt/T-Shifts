@@ -48,11 +48,11 @@ class MainViewController: UIViewController {
         self.select(date:Date())
         feedbackGenerator.prepare()
         indexer.addItemsToSpotlightIndex()
-        updateExtensionData()
+        updateTodayWidgetData()
     }
     
-    func updateExtensionData() {
-        let userDefaults = UserDefaults(suiteName: "group.tshifts.boborbt.org")!
+    func updateTodayWidgetData() {
+        let userDefaults = UserDefaults(suiteName: "group.org.boborbt.tshifts")!
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
 
@@ -118,7 +118,7 @@ class MainViewController: UIViewController {
         }
         
         indexer.reindexShifts(for: date)
-        self.updateExtensionData()
+        self.updateTodayWidgetData()
                 
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()
