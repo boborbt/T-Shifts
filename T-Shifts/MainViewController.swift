@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
     func updateTodayWidgetData() {
         let userDefaults = UserDefaults(suiteName: "group.org.boborbt.tshifts")!
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateFormat = "E, d"
 
         for i in 0...9 {
             let date = Date.dateFromToday(byAdding: i-1)
