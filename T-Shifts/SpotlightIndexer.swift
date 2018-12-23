@@ -27,13 +27,16 @@ class SpotlightIndexer {
         index =  CSSearchableIndex.default()
     }
     
-    private func searchableItem(for shifts:[Shift], at date:Date) -> CSSearchableItem {
+    private func searchableItem(for shifts:[Shift], at date:Date) -> CSSearchableItem? {
+        guard let title = self.shiftStorage.shiftsDescription(at: date) else { return nil }
+        
+        
         let attributeSet = CSSearchableItemAttributeSet()
         attributeSet.contentType = "public.calendar-event"
         attributeSet.startDate = date
         attributeSet.endDate = date
         attributeSet.allDay = true
-        attributeSet.title = self.shiftStorage.shiftsDescription(at: date)!
+        attributeSet.title = title
         attributeSet.keywords = [monthFormatter.string(from: date), dayFormatter.string(from:date)] + shifts.map {
             shift in return shift.description
         }
@@ -72,7 +75,9 @@ class SpotlightIndexer {
             }
             
             let shifts = shiftStorage.shifts(at:date)
-            items.append(searchableItem(for: shifts, at:date))
+            if let item = searchableItem(for: shifts, at:date) {
+                items.append(item)
+            }
         }
         
         index.indexSearchableItems(items) { (error) in
@@ -87,7 +92,6 @@ class SpotlightIndexer {
     
     func reindexShifts(for date:Date) {
         let shifts = shiftStorage.shifts(at:date)
-        let item = searchableItem(for: shifts, at: date)
         
         index.deleteSearchableItems(withIdentifiers: [shiftStorage.uniqueIdentifier(for: date)]) { (error) in
             if error != nil {
@@ -97,11 +101,13 @@ class SpotlightIndexer {
             }
         }
         
-        index.indexSearchableItems([item]) { (error) in
-            if error != nil {
-                os_log(.error, "Cannot re-index shift. Reason: %s", error.debugDescription)
-            } else {
-                os_log(.debug, "Re-indexing shift completed")
+        if let item = searchableItem(for: shifts, at: date) {
+            index.indexSearchableItems([item]) { (error) in
+                if error != nil {
+                    os_log(.error, "Cannot re-index shift. Reason: %s", error.debugDescription)
+                } else {
+                    os_log(.debug, "Re-indexing shift completed")
+                }
             }
         }
     }

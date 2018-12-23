@@ -47,7 +47,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         for i in 0..<TodayViewController.SHIFTS_COUNT {
             guard let date = userDefaults.string(forKey: "shifts.date.\(i)") else { continue }
             guard let description = userDefaults.string(forKey: "shifts.description.\(i)")  else { continue }
-            let newDescription = attributedDescription(for: "\(date): \(description)", atIndex: i)
+            let newDescription = attributedDescription(for: "\(date)\t: \(description)", atIndex: i)
             
 
             if shiftsDescriptions[i] != newDescription {
