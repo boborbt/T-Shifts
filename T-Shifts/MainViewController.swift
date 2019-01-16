@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
         
         calendarUpdater = delegate.calendarUpdater
         setupCalendarView()
+        setupGotoTodayRecognizer()
         
         shiftStorage = delegate.shiftStorage
         shiftStorage.notifyChanges { date in
@@ -75,6 +76,21 @@ class MainViewController: UIViewController {
         calendarView.isScrollEnabled = true
         self.select(date: Date())
     }
+    
+    func setupGotoTodayRecognizer() {
+        os_log("Setting up tap recognizer", type: .debug)
+        let gr = UITapGestureRecognizer(target: self, action: #selector(self.monthTap(_:)))
+        monthLabel.addGestureRecognizer(gr)
+        monthLabel.isUserInteractionEnabled = true
+    }
+    
+    @objc func monthTap(_ sender: UITapGestureRecognizer) {
+        os_log("Selecting today...", type: .debug)
+        let today = Date.today()
+        calendarView.selectDates([today])
+        calendarView.scrollToDate(today, triggerScrollToDateDelegate: true, animateScroll: true, preferredScrollPosition: nil, completionHandler: nil)
+    }
+    
     
 // MARK: Events
     
