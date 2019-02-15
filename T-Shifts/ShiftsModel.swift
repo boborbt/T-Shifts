@@ -196,7 +196,7 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
         calendarUpdater = updater
         shiftTemplates = templates
         formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
     }
     
     func add(shift: Shift, toDate date: Date) throws {
@@ -425,13 +425,4 @@ class CalendarShiftUpdater {
     }
     
 
-
-//
-//    func update(with shiftStorage:CalendarShiftStorage) throws {
-//        for (date,shifts) in shiftStorage {
-//            for shift in shifts {
-//                try add(shift: shift, at: date)
-//            }
-//        }
-//    }
 }
