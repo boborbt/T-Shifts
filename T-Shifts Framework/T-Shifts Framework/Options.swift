@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 import os.log
 
-class Options {
+public class Options {
     var options = UserDefaults.standard
     
-    init() {
+    public init() {
         let defaults = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "Options", ofType: "plist")!)!
         options.register(defaults: defaults as! [String:Any])
     }
     
-    lazy var shiftTemplates: ShiftTemplates = self.optionsToTemplates()
+    public lazy var shiftTemplates: ShiftTemplates = self.optionsToTemplates()
     
-    var calendar: String {
+    public var calendar: String {
         get {
             return options.string(forKey: "Calendar")!
         }
@@ -31,7 +31,7 @@ class Options {
     }
     
     
-    func parse(color:[String:Float]) -> UIColor {
+    public func parse(color:[String:Float]) -> UIColor {
         let red = CGFloat(color["red"]!) / 255.0
         let green = CGFloat(color["green"]!) / 255.0
         let blue = CGFloat(color["blue"]!) / 255.0
@@ -40,7 +40,7 @@ class Options {
         return UIColor(red: red , green: green, blue: blue, alpha: alpha)
     }
     
-    func sync() {
+   public func sync() {
         options.setValue( calendar, forKey: "Calendar")
         
         var templates: [[String:Any]] = []

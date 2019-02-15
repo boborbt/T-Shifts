@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum ShiftErrors: Error {
+public enum ShiftErrors: Error {
     case DuplicateTemplate
 }
 
 
-enum CalendarUpdaterError {
+public enum CalendarUpdaterError {
     case accessNotGranted
     case accessError(String)
     case updateError(String)

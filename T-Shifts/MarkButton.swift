@@ -8,6 +8,8 @@
 
 import UIKit
 import EasyTipView
+import TShiftsFramework
+
 
 class MarkButton: UIButton {
     enum StateAlphaValues: CGFloat {

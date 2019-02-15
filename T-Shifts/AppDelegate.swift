@@ -9,6 +9,9 @@
 import UIKit
 import os.log
 import CoreSpotlight
+import TShiftsFramework
+import EventKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -67,10 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        calendarUpdater = CalendarShiftUpdater(calendarName:options.calendar)
+        calendarUpdater = CalendarShiftUpdater(calendarName: options.calendar, calendarUpdateCallback: AppDelegate.onCalendarUpdate(calendar:))
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
         
         return true
+    }
+    
+    static func onCalendarUpdate(calendar:EKCalendar) -> () {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.options.calendar = calendar.title
     }
 
 

@@ -11,6 +11,7 @@ import CoreSpotlight
 import JTAppleCalendar
 import EasyTipView
 import os.log
+import TShiftsFramework
 
 class MainViewController: UIViewController {
     

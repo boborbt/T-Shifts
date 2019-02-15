@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import os.log
+import TShiftsFramework
 
 extension AppDelegate {
     func appChangedStateToNeedsConfiguration() {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TShiftsFramework
 
 extension MainViewController:  DayInfoViewDelegate {
     func dayInfoTapOn(shiftButton: MarkButton) {

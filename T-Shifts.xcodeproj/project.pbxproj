@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F80933071E55FAC000AF56FF /* Int+DayConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80933061E55FAC000AF56FF /* Int+DayConversions.swift */; };
-		F80933091E5602BD00AF56FF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80933081E5602BD00AF56FF /* Errors.swift */; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */; };
@@ -16,7 +14,6 @@
 		F833BB2E1E79801A00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB301E79801A00EA3BB2 /* InfoPlist.strings */; };
 		F833BB331E79801B00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB351E79801B00EA3BB2 /* InfoPlist.strings */; };
 		F833BB381E79801B00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB3A1E79801B00EA3BB2 /* InfoPlist.strings */; };
-		F847D6DD1E4487FE007B8847 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6DC1E4487FE007B8847 /* Options.swift */; };
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
 		F85361BE219C308A000B6303 /* SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85361BD219C308A000B6303 /* SpotlightIndexer.swift */; };
@@ -32,9 +29,7 @@
 		F89D613F1E5C81840060911E /* MarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613E1E5C81840060911E /* MarkButton.swift */; };
 		F89D61431E5C941D0060911E /* DayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61421E5C941D0060911E /* DayInfoView.swift */; };
 		F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */; };
-		F8AAFF401E8AA2B600CD79C6 /* AttributedString+LinkAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AAFF3F1E8AA2B600CD79C6 /* AttributedString+LinkAttributes.swift */; };
 		F8AD5F3E1E706CD500C88FD2 /* SecurePanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */; };
-		F8B7BB3C1E3BAFB500E2304B /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B7BB3B1E3BAFB500E2304B /* Date+Utils.swift */; };
 		F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */; };
 		F8C7F25C219AF9FC00E0FDA2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */; };
 		F8C7F25F219AF9FC00E0FDA2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C7F25E219AF9FC00E0FDA2 /* TodayViewController.swift */; };
@@ -42,6 +37,7 @@
 		F8C7F266219AF9FC00E0FDA2 /* TShifts Today Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8C7F26D219B0C7100E0FDA2 /* WidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */; };
 		F8DBA7831E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */; };
+		F8E4D1F622172B0800CDFE0B /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E4D1F522172B0800CDFE0B /* TShiftsFramework.framework */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* MainViewController.swift */; };
 		F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B53F1E27C9A600390BD3 /* Main.storyboard */; };
@@ -49,7 +45,6 @@
 		F8E9B5461E27C9A600390BD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */; };
 		F8E9B5511E27C9A600390BD3 /* T_ShiftsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B5501E27C9A600390BD3 /* T_ShiftsTests.swift */; };
 		F8E9B55C1E27C9A600390BD3 /* T_ShiftsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */; };
-		F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */; };
 		F8F161B72147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F161B62147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift */; };
 		F8FBD3D01E7B41B30072A307 /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8FBD3D21E7B41B30072A307 /* Options.plist */; };
 /* End PBXBuildFile section */
@@ -104,8 +99,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F80933061E55FAC000AF56FF /* Int+DayConversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+DayConversions.swift"; sourceTree = "<group>"; };
-		F80933081E5602BD00AF56FF /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = ../Errors.swift; sourceTree = "<group>"; };
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
@@ -117,7 +110,6 @@
 		F833BB2F1E79801A00EA3BB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F833BB341E79801B00EA3BB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F833BB391E79801B00EA3BB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F847D6DC1E4487FE007B8847 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
 		F85361BD219C308A000B6303 /* SpotlightIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndexer.swift; sourceTree = "<group>"; };
@@ -135,9 +127,7 @@
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
 		F89D61421E5C941D0060911E /* DayInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInfoView.swift; sourceTree = "<group>"; };
 		F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButtonsArrayView.swift; sourceTree = "<group>"; };
-		F8AAFF3F1E8AA2B600CD79C6 /* AttributedString+LinkAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+LinkAttributes.swift"; sourceTree = "<group>"; };
 		F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurePanelView.xib; sourceTree = "<group>"; };
-		F8B7BB3B1E3BAFB500E2304B /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TShifts Today Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -148,6 +138,7 @@
 		F8C7F26E219B1A2800E0FDA2 /* T-Shifts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "T-Shifts.entitlements"; sourceTree = "<group>"; };
 		F8C7F26F219B1A9A00E0FDA2 /* TShifts Today Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TShifts Today Widget.entitlements"; sourceTree = "<group>"; };
 		F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OptionsViewController+OptionsHandling.swift"; sourceTree = "<group>"; };
+		F8E4D1F522172B0800CDFE0B /* TShiftsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TShiftsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E9B53D1E27C9A600390BD3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -161,7 +152,6 @@
 		F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "T-ShiftsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsUITests.swift; sourceTree = "<group>"; };
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ShiftsModel.swift; path = "T-Shifts/ShiftsModel.swift"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F8F161B62147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfoViewSecurePanelExtension.swift; sourceTree = "<group>"; };
 		F8FBD3D11E7B41B30072A307 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Options.plist; sourceTree = "<group>"; };
 		F8FBD3D31E7B4D810072A307 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/Options.plist; sourceTree = "<group>"; };
@@ -180,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E4D1F622172B0800CDFE0B /* TShiftsFramework.framework in Frameworks */,
 				F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */,
 				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
 			);
@@ -205,12 +196,6 @@
 		F814F8AA1E4CAC5F00E67057 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F8E9B56B1E27CCB000390BD3 /* ShiftsModel.swift */,
-				F847D6DC1E4487FE007B8847 /* Options.swift */,
-				F80933081E5602BD00AF56FF /* Errors.swift */,
-				F80933061E55FAC000AF56FF /* Int+DayConversions.swift */,
-				F8B7BB3B1E3BAFB500E2304B /* Date+Utils.swift */,
-				F8AAFF3F1E8AA2B600CD79C6 /* AttributedString+LinkAttributes.swift */,
 				F85361BD219C308A000B6303 /* SpotlightIndexer.swift */,
 			);
 			name = Models;
@@ -245,6 +230,7 @@
 		F85D0A871F7171430070CEDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8E4D1F522172B0800CDFE0B /* TShiftsFramework.framework */,
 				F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */,
 				F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */,
 			);
@@ -581,25 +567,19 @@
 				F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */,
 				F8DBA7831E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* MainViewController.swift in Sources */,
-				F8AAFF401E8AA2B600CD79C6 /* AttributedString+LinkAttributes.swift in Sources */,
 				F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */,
 				F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */,
 				F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */,
 				F85361BE219C308A000B6303 /* SpotlightIndexer.swift in Sources */,
-				F8B7BB3C1E3BAFB500E2304B /* Date+Utils.swift in Sources */,
 				F89D61431E5C941D0060911E /* DayInfoView.swift in Sources */,
-				F80933071E55FAC000AF56FF /* Int+DayConversions.swift in Sources */,
 				F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */,
 				F86B38941E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift in Sources */,
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
-				F80933091E5602BD00AF56FF /* Errors.swift in Sources */,
 				F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */,
 				F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */,
 				F89D613F1E5C81840060911E /* MarkButton.swift in Sources */,
-				F847D6DD1E4487FE007B8847 /* Options.swift in Sources */,
 				F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */,
-				F8E9B56C1E27CCB000390BD3 /* ShiftsModel.swift in Sources */,
 				F8F161B72147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -891,7 +871,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
@@ -918,7 +898,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;

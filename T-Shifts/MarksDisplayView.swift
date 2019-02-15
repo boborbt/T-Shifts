@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TShiftsFramework
 
 class MarksDisplayView: UIView {
     struct Metrics {
@@ -15,7 +16,7 @@ class MarksDisplayView: UIView {
     }
     
     
-    var marks:[ShiftTemplate] = [] {
+    var marks:[TShiftsFramework.ShiftTemplate] = [] {
         didSet {
             marks.sort( by:{ t1,t2 in
                 return t1.position < t2.position

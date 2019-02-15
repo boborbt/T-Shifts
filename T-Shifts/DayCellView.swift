@@ -8,6 +8,7 @@
 
 import Foundation
 import JTAppleCalendar
+import TShiftsFramework
 
 class DayCellView: JTAppleCell {
     @IBOutlet weak var label: UILabel!

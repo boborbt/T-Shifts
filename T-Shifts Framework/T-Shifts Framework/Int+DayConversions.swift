@@ -9,11 +9,11 @@
 import Foundation
 
 extension Int {
-    func days() -> Double {
+    public func days() -> Double {
         return 60.0 * 60.0 * 24.0 * Double(self)
     }
     
-    func weeks() -> Double {
+    public func weeks() -> Double {
         return Double(self) * 7.days()
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import TShiftsFramework
 
 class OptionsViewController: UIViewController, UITextFieldDelegate {
     struct LocalizedStrings {

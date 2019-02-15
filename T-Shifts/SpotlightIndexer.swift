@@ -9,6 +9,7 @@
 import Foundation
 import CoreSpotlight
 import os.log
+import TShiftsFramework
 
 class SpotlightIndexer {
     var shiftStorage: ShiftStorage

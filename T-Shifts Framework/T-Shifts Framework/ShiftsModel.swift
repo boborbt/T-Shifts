@@ -16,21 +16,21 @@ import os.log
 //
 // Shift needs to be hashable and equatable by the shortcut only
 // i.e. the shortcut need to be a unique identifier for a shift "value"
-struct Shift: Equatable, Hashable {
+public struct Shift: Equatable, Hashable {
     public var hashValue: Int {
         get {
             return shortcut.hashValue
         }
     }
 
-    static func == (lhs: Shift, rhs: Shift) -> Bool {
+    public static func == (lhs: Shift, rhs: Shift) -> Bool {
         return lhs.shortcut == rhs.shortcut
     }
     
-    var description: String
-    var shortcut: String
+    public var description: String
+    public var shortcut: String
     
-    var isActive: Bool {
+    public var isActive: Bool {
         get {
             return description != ""
         }
@@ -44,7 +44,7 @@ struct Shift: Equatable, Hashable {
 // In the storage shifts are associated with dates. Each date
 // can contain zero or more shifts (with no limits imposed by
 // the storate -- they may be imposed by the UI though).
-protocol ShiftStorage {
+public protocol ShiftStorage {
     // Adds the given shift at the given date. It does not check
     // if the shift is already present at the given date (the user
     // can check it using the isPresent method).
@@ -78,26 +78,26 @@ protocol ShiftStorage {
 // A shift template associate a shift with additional properties
 // that are important to the UI such as the color for displaying it
 // and its position in the visualization grid.
-struct ShiftTemplate {
-    var shift: Shift
-    var position: Int
-    var color: UIColor
+public struct ShiftTemplate {
+    public var shift: Shift
+    public var position: Int
+    public var color: UIColor
 }
 
 
 // ShiftTemplates is presently nothing more than a wrapper around
 // a collection of shift templates. Its main purpose is to provide
 // easy access to common functions.
-class ShiftTemplates {
-    var storage: [ShiftTemplate] = []
+public class ShiftTemplates {
+    public var storage: [ShiftTemplate] = []
     
-    var count: Int {
+    public var count: Int {
         get {
             return storage.count
         }
     }
     
-    var activesCount: Int {
+    public var activesCount: Int {
         get {
             return storage.map { template in
                     template.shift.isActive ? 1 : 0
@@ -107,31 +107,31 @@ class ShiftTemplates {
         }
     }
     
-    func template(for shift: Shift) -> ShiftTemplate? {
+    public func template(for shift: Shift) -> ShiftTemplate? {
         return storage.first(where: { template in template.shift.shortcut == shift.shortcut })
     }
     
-    func templates() -> [ShiftTemplate] {
+    public func templates() -> [ShiftTemplate] {
         return storage
     }
     
-    func templates(for shifts: [Shift]) -> [ShiftTemplate?] {
+    public func templates(for shifts: [Shift]) -> [ShiftTemplate?] {
         return shifts.map { (shift) -> ShiftTemplate? in
             return template(for: shift)
         }
     }
     
-    func template(at position: Int) -> ShiftTemplate? {
+    public func template(at position: Int) -> ShiftTemplate? {
         return storage.first(where: { template in template.position == position })
     }
     
-    func template(havingDescription description:String) -> ShiftTemplate? {
+    public func template(havingDescription description:String) -> ShiftTemplate? {
         return storage.first(where: { template in template.shift.description == description} )
     }
     
     // Assume that currentSet contains all distinct sc candidates and that
     // currentSet[i] is the candidate for descriptions[i]
-    func computeShortcuts(descriptions: [String], currentSet: [String]) -> [String]? {
+    public func computeShortcuts(descriptions: [String], currentSet: [String]) -> [String]? {
         if currentSet.count == descriptions.count {
             return currentSet
         }
@@ -155,7 +155,7 @@ class ShiftTemplates {
         return nil
     }
     
-    func recomputeShortcuts() {
+    public func recomputeShortcuts() {
         let data = storage.enumerated().compactMap( { (__val:(Int, ShiftTemplate)) -> (Int, String)? in let (index,template) = __val;
             let des = template.shift.description
             return des == "" ? nil : (index, template.shift.description)
@@ -186,35 +186,35 @@ class ShiftTemplates {
 }
 
 // A shift storage based on the system calendar.
-class CalendarShiftStorage : ShiftStorage, Sequence {
+public class CalendarShiftStorage : ShiftStorage, Sequence {
     var callback: ((Date) -> ())!
     let formatter: DateFormatter!
-    weak var shiftTemplates: ShiftTemplates!
+    public weak var shiftTemplates: ShiftTemplates!
     weak var calendarUpdater: CalendarShiftUpdater!
     
-    init(updater: CalendarShiftUpdater, templates: ShiftTemplates) {
+    public init(updater: CalendarShiftUpdater, templates: ShiftTemplates) {
         calendarUpdater = updater
         shiftTemplates = templates
         formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
     }
     
-    func add(shift: Shift, toDate date: Date) throws {
+    public func add(shift: Shift, toDate date: Date) throws {
         try calendarUpdater.add(shift: shift, at: date)
         callback(date)
     }
     
-    func remove(shift:Shift, fromDate date: Date) throws {
+    public func remove(shift:Shift, fromDate date: Date) throws {
         try calendarUpdater.remove(shift: shift, at: date)
         callback(date)
     }
     
-    func isPresent(shift: Shift, at date: Date) -> Bool  {
+    public func isPresent(shift: Shift, at date: Date) -> Bool  {
         let shifts = self.shifts(at: date)
         return shifts.index(where: { s in shift == s }) != nil
     }
     
-    func shifts(at date: Date) -> [Shift] {
+    public func shifts(at date: Date) -> [Shift] {
         guard let targetCalendar = calendarUpdater.targetCalendar else { return [] }
         let store = calendarUpdater.store
         let predicate = store.predicateForEvents(withStart: date, end: date + 1, calendars: [targetCalendar])
@@ -226,15 +226,15 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
         })
     }
     
-    func makeIterator() -> DictionaryIterator<Date,[Shift]> {
+    public func makeIterator() -> DictionaryIterator<Date,[Shift]> {
         return [:].makeIterator()
     }
     
-    func notifyChanges(to function: @escaping (Date) -> ()) {
+    public func notifyChanges(to function: @escaping (Date) -> ()) {
         callback = function
     }
     
-    func shiftsDescription(at date: Date) -> String? {
+    public func shiftsDescription(at date: Date) -> String? {
         let shifts = self.shifts(at: date)
         
         if shifts.isEmpty {
@@ -245,11 +245,11 @@ class CalendarShiftStorage : ShiftStorage, Sequence {
         return descriptions.joined(separator:" ")
     }
     
-    func uniqueIdentifier(for date: Date) -> String {
+    public func uniqueIdentifier(for date: Date) -> String {
         return "Shifts:\(formatter.string(from: date))"
     }
 
-    func date(forUniqueIdentifier identifier: String) -> Date? {
+    public func date(forUniqueIdentifier identifier: String) -> Date? {
         let stringComponents = identifier.components(separatedBy: ":")
         
         if stringComponents.count != 2 {
@@ -348,17 +348,21 @@ class LocalShiftStorage: ShiftStorage, Sequence {
 // library. It simplifies the code by providing an easier interface
 // to the most used calendar functionalities.
 
-class CalendarShiftUpdater {
+public class CalendarShiftUpdater {
     var store = EKEventStore()
-    var targetCalendar: EKCalendar? {
+    var calendarUpdateCallback: (EKCalendar)->()
+    public var targetCalendar: EKCalendar? {
         didSet {
-            guard targetCalendar != nil else { return }
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            delegate.options.calendar = targetCalendar!.title
+            guard let targetCalendar = targetCalendar else { return }
+            
+            //          Used to be:
+            //            let delegate = UIApplication.shared.delegate as! AppDelegate
+            //            delegate.options.calendar = targetCalendar!.title
+            calendarUpdateCallback(targetCalendar)
         }
     }
 
-    var calendars: [EKCalendar] {
+    public var calendars: [EKCalendar] {
         get {
             // FIXME: This should return a list of calendars filtered
             //   so to filter out non editable calendars
@@ -366,16 +370,17 @@ class CalendarShiftUpdater {
         }
     }
 
-    init(calendarName:String) {
+    public init(calendarName:String, calendarUpdateCallback callback:@escaping (EKCalendar)->()) {
+        calendarUpdateCallback = callback
         switchToCalendar(named: calendarName)
     }
     
     
-    static func isAccessGranted() -> Bool {
+    public static func isAccessGranted() -> Bool {
         return EKEventStore.authorizationStatus(for: .event) == .authorized
     }
 
-    func switchToCalendar(named calendarName: String) {
+    public func switchToCalendar(named calendarName: String) {
         let calendar = store.calendars(for: .event).first(where: { calendar in calendar.title == calendarName})
         
         if calendar != nil {
@@ -386,7 +391,7 @@ class CalendarShiftUpdater {
     }
     
     
-    func requestAccess(completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
+    public func requestAccess(completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
         store.requestAccess(to: .event, completion: { granted, error in
             // refreshing the store
             self.store = EKEventStore()
@@ -394,7 +399,7 @@ class CalendarShiftUpdater {
         })
     }
     
-    func add(shift: Shift, at date: Date) throws {
+    public func add(shift: Shift, at date: Date) throws {
         do {
             let event = EKEvent(eventStore: store)
             
@@ -412,7 +417,7 @@ class CalendarShiftUpdater {
         
     }
     
-    func remove(shift: Shift, at date: Date) throws {
+    public func remove(shift: Shift, at date: Date) throws {
         let predicate = store.predicateForEvents(withStart: date, end: date + 1.days(), calendars: [targetCalendar!])
         
         let events = store.events(matching: predicate)
