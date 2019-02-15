@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:T-Shifts.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/esposito/Software/T-Shifts/T-Shifts Framework/TShiftsFramework.xcodeproj">
+   </FileRef>
+</Workspace>
