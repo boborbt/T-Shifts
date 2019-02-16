@@ -8,6 +8,8 @@
 
 import UIKit
 import NotificationCenter
+import TShiftsFramework
+import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataSource {
     static let SHIFTS_COUNT = 10
@@ -15,16 +17,27 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     @IBOutlet var tableView: UITableView?
     let userDefaults:UserDefaults = UserDefaults(suiteName: "group.org.boborbt.tshifts")!
     var shiftsDescriptions:[NSAttributedString] = [NSAttributedString](repeating: NSAttributedString(string:""), count: SHIFTS_COUNT)
-    
+    var calendarUpdater: CalendarShiftUpdater!
+    var shiftStorage: CalendarShiftStorage!
+    var options: Options!
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        #warning("FIXME: user defaults should be using the app group... this may destroy user data the first time the change is done")
+        options = Options()
+        calendarUpdater = CalendarShiftUpdater(calendarName: options.calendar, calendarUpdateCallback: TodayViewController.onCalendarUpdate(calendar:))
+        shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
         
         tableView?.dataSource = self
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: UserDefaults.didChangeNotification, object: userDefaults)
         
         let _ = self.updateData()
+    }
+    
+    static func onCalendarUpdate(calendar:EKCalendar) {
+        #warning("FIXME")
     }
     
     func attributedDescription(for string:String, atIndex index: Int) -> NSAttributedString {
@@ -45,9 +58,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         var updated = false
         
         for i in 0..<TodayViewController.SHIFTS_COUNT {
-            guard let date = userDefaults.string(forKey: "shifts.date.\(i)") else { continue }
-            guard let description = userDefaults.string(forKey: "shifts.description.\(i)")  else { continue }
-            let newDescription = attributedDescription(for: "\(date)\t: \(description)", atIndex: i)
+            let date = Date.dateFromToday(byAdding: i-1)
+//            let newDescription = attributedDescription(for: "\(date)\t: \(description)", atIndex: i)
+            let newDescription = NSAttributedString(string: shiftStorage.shifts(at: date).description )
             
 
             if shiftsDescriptions[i] != newDescription {
@@ -55,6 +68,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
                 updated = true
             }
         }
+
+        
+//        for i in 0..<TodayViewController.SHIFTS_COUNT {
+//            guard let date = userDefaults.string(forKey: "shifts.date.\(i)") else { continue }
+//            guard let description = userDefaults.string(forKey: "shifts.description.\(i)")  else { continue }
+//            let newDescription = attributedDescription(for: "\(date)\t: \(description)", atIndex: i)
+//
+//
+//            if shiftsDescriptions[i] != newDescription {
+//                shiftsDescriptions[i] = newDescription
+//                updated = true
+//            }
+//        }
         
         return updated
     }

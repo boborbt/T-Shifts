@@ -355,9 +355,6 @@ public class CalendarShiftUpdater {
         didSet {
             guard let targetCalendar = targetCalendar else { return }
             
-            //          Used to be:
-            //            let delegate = UIApplication.shared.delegate as! AppDelegate
-            //            delegate.options.calendar = targetCalendar!.title
             calendarUpdateCallback(targetCalendar)
         }
     }
