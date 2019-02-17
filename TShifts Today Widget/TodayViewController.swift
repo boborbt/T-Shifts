@@ -10,13 +10,15 @@ import UIKit
 import NotificationCenter
 import TShiftsFramework
 import EventKit
+import os.log
+
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataSource {
     static let SHIFTS_COUNT = 10
     
     @IBOutlet var tableView: UITableView?
     let userDefaults:UserDefaults = UserDefaults(suiteName: "group.org.boborbt.tshifts")!
-    var shiftsDescriptions:[NSAttributedString] = [NSAttributedString](repeating: NSAttributedString(string:""), count: SHIFTS_COUNT)
+    var shiftsDescriptions:[(Date,[Shift])] = []
     var calendarUpdater: CalendarShiftUpdater!
     var shiftStorage: CalendarShiftStorage!
     var options: Options!
@@ -24,7 +26,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        #warning("FIXME: user defaults should be using the app group... this may destroy user data the first time the change is done")
         options = Options()
         calendarUpdater = CalendarShiftUpdater(calendarName: options.calendar, calendarUpdateCallback: TodayViewController.onCalendarUpdate(calendar:))
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
@@ -39,34 +40,20 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     static func onCalendarUpdate(calendar:EKCalendar) {
         #warning("FIXME")
     }
-    
-    func attributedDescription(for string:String, atIndex index: Int) -> NSAttributedString {
-        let bullet = "‣ "
-        let description = string
-        
-        let text = NSMutableAttributedString(string: bullet + description)
-        if index == 1 {
-            text.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location:0, length:bullet.count))
-        }
-        
-        return text
-    }
+
     
     @objc func updateData() -> Bool {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        var updated = false
+        
+        shiftsDescriptions = []
         
         for i in 0..<TodayViewController.SHIFTS_COUNT {
             let date = Date.dateFromToday(byAdding: i-1)
-//            let newDescription = attributedDescription(for: "\(date)\t: \(description)", atIndex: i)
-            let newDescription = NSAttributedString(string: shiftStorage.shifts(at: date).description )
+            os_log(.debug, "date for i %d is %@", i, date.description)
             
-
-            if shiftsDescriptions[i] != newDescription {
-                shiftsDescriptions[i] = newDescription
-                updated = true
-            }
+            let shifts = shiftStorage.shifts(at: date)
+            shiftsDescriptions.append((date, shifts))
         }
 
         
@@ -82,18 +69,22 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
 //            }
 //        }
         
-        return updated
+        return true
     }
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shiftsDescriptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WidgetTableViewCell") as! WidgetTableViewCell
+        let (date, shifts) = shiftsDescriptions[indexPath[1]]
         
-        cell.label?.text = nil
-        cell.label?.attributedText = shiftsDescriptions[indexPath[1]]
+        os_log(.debug, "cell day is being set to: %s", date.description)
+        cell.set(day: date, shifts: shifts)
+//
+//        cell.label?.text = nil
+//        cell.label?.attributedText =
         
         return cell
     }

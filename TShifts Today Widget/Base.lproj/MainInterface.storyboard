@@ -29,22 +29,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaM-1S-0nt">
-                                                    <rect key="frame" x="13" y="0.0" width="32.5" height="43.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaM-1S-0nt" userLabel="Day">
+                                                    <rect key="frame" x="19" y="0.0" width="100" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="bkD-7b-QKU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shifts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0D-Mf-dFj" userLabel="Shifts">
+                                                    <rect key="frame" x="124" y="10.5" width="44" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="CaM-1S-0nt" firstAttribute="top" secondItem="xrz-ZO-AAk" secondAttribute="top" id="3C4-lh-tMz"/>
-                                                <constraint firstItem="CaM-1S-0nt" firstAttribute="centerY" secondItem="xrz-ZO-AAk" secondAttribute="centerY" id="T44-8g-fJ2"/>
-                                                <constraint firstItem="CaM-1S-0nt" firstAttribute="leading" secondItem="xrz-ZO-AAk" secondAttribute="leadingMargin" constant="5" id="WzX-eX-lEp" userLabel="Label.leading = leadingMargin + 5"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CaM-1S-0nt" secondAttribute="trailing" id="u1V-u0-J9j"/>
+                                                <constraint firstItem="CaM-1S-0nt" firstAttribute="leading" secondItem="xrz-ZO-AAk" secondAttribute="leadingMargin" constant="4" id="3Gk-Rb-2Ic"/>
+                                                <constraint firstItem="g0D-Mf-dFj" firstAttribute="leading" secondItem="CaM-1S-0nt" secondAttribute="trailing" constant="5" id="HhM-gL-sn5"/>
+                                                <constraint firstItem="g0D-Mf-dFj" firstAttribute="centerY" secondItem="xrz-ZO-AAk" secondAttribute="centerY" id="WaE-jd-Myt"/>
+                                                <constraint firstItem="g0D-Mf-dFj" firstAttribute="bottom" secondItem="xrz-ZO-AAk" secondAttribute="bottomMargin" id="aU6-9y-wbm"/>
+                                                <constraint firstItem="CaM-1S-0nt" firstAttribute="top" secondItem="xrz-ZO-AAk" secondAttribute="top" id="fT5-o0-8M3"/>
+                                                <constraint firstItem="g0D-Mf-dFj" firstAttribute="centerY" secondItem="CaM-1S-0nt" secondAttribute="centerY" id="zGx-gT-Bwq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="label" destination="CaM-1S-0nt" id="qSs-GR-ulh"/>
+                                            <outlet property="dayLabel" destination="CaM-1S-0nt" id="Wn9-W8-65G"/>
+                                            <outlet property="shiftsLabel" destination="g0D-Mf-dFj" id="YYm-JE-ICr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

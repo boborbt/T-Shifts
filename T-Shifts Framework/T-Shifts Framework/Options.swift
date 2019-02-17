@@ -20,9 +20,17 @@ public class Options {
     
     public lazy var shiftTemplates: ShiftTemplates = self.optionsToTemplates()
     
+    
+    // Returns the default values for the option dictionary
+    //
+    // If this function is called from the main app, it has access to the main bundle. In this
+    // case it reads the defaults from the main bundle, write it onto the shared container
+    // "group.org.boborbt.tshifts.option-templates" and returns the read content.
+    //
+    // If this function is called from an extension, it simply queries the shared container to
+    // the the required content.
     func readDefaults() -> [String:Any] {
         let defaults = UserDefaults(suiteName: "group.org.boborbt.tshifts.option-templates")!
-//        os_log(.debug, "%@", defaults.dictionary(forKey:"defaults-dictionary")!)
         
         if let plistPath = Bundle.main.path(forResource: "Options", ofType: "plist") {
             let dictionary = NSDictionary(contentsOfFile: plistPath)!
