@@ -11,14 +11,40 @@ import UIKit
 import os.log
 
 public class Options {
-    var options = UserDefaults.standard
+    var options = UserDefaults(suiteName: "group.org.boborbt.tshifts-v2")!
     
     public init() {
-        let defaults = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "Options", ofType: "plist")!)!
-        options.register(defaults: defaults as! [String:Any])
+        migrateOptions()
+        options.register(defaults: readDefaults())
     }
     
     public lazy var shiftTemplates: ShiftTemplates = self.optionsToTemplates()
+    
+    func readDefaults() -> [String:Any] {
+        let defaults = UserDefaults(suiteName: "group.org.boborbt.tshifts.option-templates")!
+//        os_log(.debug, "%@", defaults.dictionary(forKey:"defaults-dictionary")!)
+        
+        if let plistPath = Bundle.main.path(forResource: "Options", ofType: "plist") {
+            let dictionary = NSDictionary(contentsOfFile: plistPath)!
+            defaults.set(dictionary, forKey:"defaults-dictionary")
+            defaults.synchronize()
+        }
+        
+        return defaults.dictionary(forKey:"defaults-dictionary")!
+    }
+    
+    func migrateOptions() {
+        let version = options.integer(forKey: "version")
+        if version >= 2 {
+            return
+        }
+        
+        os_log(.info, "Migrating options from version %d to version 2", version)
+        
+        let old_defaults = UserDefaults.standard
+        options.register(defaults:old_defaults.dictionaryRepresentation())
+        options.set(2, forKey: "version")
+    }
     
     public var calendar: String {
         get {
