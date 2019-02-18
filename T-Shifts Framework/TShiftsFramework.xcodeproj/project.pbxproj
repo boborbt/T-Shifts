@@ -29,14 +29,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F89F2BFE22172C7B0041FFD5 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		F89F2BFF22172C7B0041FFD5 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
-		F89F2C0022172C7B0041FFD5 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		F89F2C0122172C7B0041FFD5 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftsModel.swift; sourceTree = "<group>"; };
-		F89F2C0222172C7B0041FFD5 /* Int+DayConversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+DayConversions.swift"; sourceTree = "<group>"; };
-		F89F2C0322172C7B0041FFD5 /* AttributedString+LinkAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+LinkAttributes.swift"; sourceTree = "<group>"; };
+		F89F2BFE22172C7B0041FFD5 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Options.swift; path = ../../TShiftsFramework/Options.swift; sourceTree = "<group>"; };
+		F89F2BFF22172C7B0041FFD5 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Utils.swift"; path = "../../TShiftsFramework/Date+Utils.swift"; sourceTree = "<group>"; };
+		F89F2C0022172C7B0041FFD5 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = ../../TShiftsFramework/Errors.swift; sourceTree = "<group>"; };
+		F89F2C0122172C7B0041FFD5 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShiftsModel.swift; path = ../../TShiftsFramework/ShiftsModel.swift; sourceTree = "<group>"; };
+		F89F2C0222172C7B0041FFD5 /* Int+DayConversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+DayConversions.swift"; path = "../../TShiftsFramework/Int+DayConversions.swift"; sourceTree = "<group>"; };
+		F89F2C0322172C7B0041FFD5 /* AttributedString+LinkAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AttributedString+LinkAttributes.swift"; path = "../../AttributedString+LinkAttributes.swift"; sourceTree = "<group>"; };
 		F8E4D1C42217277000CDFE0B /* TShiftsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TShiftsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8E4D1C72217277000CDFE0B /* TShiftsFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TShiftsFramework.h; sourceTree = "<group>"; };
+		F8E4D1C72217277000CDFE0B /* TShiftsFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TShiftsFramework.h; path = ../../TShiftsFramework.h; sourceTree = "<group>"; };
 		F8E4D1C82217277000CDFE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8E4D1CD2217277000CDFE0B /* TShiftsFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TShiftsFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E4D1D22217277000CDFE0B /* TShiftsFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TShiftsFrameworkTests.swift; sourceTree = "<group>"; };

@@ -48,6 +48,16 @@
                ReferencedContainer = "container:T-Shifts.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F8BC6139221B03EE00907179"
+               BuildableName = "TShiftsFrameworkTests.xctest"
+               BlueprintName = "TShiftsFrameworkTests"
+               ReferencedContainer = "container:T-Shifts.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
