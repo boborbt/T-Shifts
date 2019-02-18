@@ -19,7 +19,7 @@ class WidgetTableViewCell:UITableViewCell {
     func set(day:Date, shifts:[Shift]) {
         if WidgetTableViewCell.formatter == nil {
             WidgetTableViewCell.formatter = DateFormatter()
-            WidgetTableViewCell.formatter?.dateFormat = "LLLL, d"
+            WidgetTableViewCell.formatter?.dateFormat = "LLL, d"
         }
         
         os_log(.debug, "Setting day %s", day.description)

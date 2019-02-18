@@ -30,16 +30,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaM-1S-0nt" userLabel="Day">
-                                                    <rect key="frame" x="19" y="0.0" width="100" height="43.5"/>
+                                                    <rect key="frame" x="19" y="0.0" width="80" height="35.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="bkD-7b-QKU"/>
+                                                        <constraint firstAttribute="height" constant="35.5" id="LKM-1I-2XT"/>
+                                                        <constraint firstAttribute="width" constant="80" id="bkD-7b-QKU"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shifts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0D-Mf-dFj" userLabel="Shifts">
-                                                    <rect key="frame" x="124" y="10.5" width="44" height="22.5"/>
+                                                    <rect key="frame" x="104" y="7.5" width="211" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CaM-1S-0nt" firstAttribute="leading" secondItem="xrz-ZO-AAk" secondAttribute="leadingMargin" constant="4" id="3Gk-Rb-2Ic"/>
+                                                <constraint firstAttribute="trailing" secondItem="g0D-Mf-dFj" secondAttribute="trailing" constant="5" id="6s4-cQ-mJI"/>
                                                 <constraint firstItem="g0D-Mf-dFj" firstAttribute="leading" secondItem="CaM-1S-0nt" secondAttribute="trailing" constant="5" id="HhM-gL-sn5"/>
                                                 <constraint firstItem="g0D-Mf-dFj" firstAttribute="centerY" secondItem="xrz-ZO-AAk" secondAttribute="centerY" id="WaE-jd-Myt"/>
                                                 <constraint firstItem="g0D-Mf-dFj" firstAttribute="bottom" secondItem="xrz-ZO-AAk" secondAttribute="bottomMargin" id="aU6-9y-wbm"/>

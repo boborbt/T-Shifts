@@ -27,7 +27,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         super.viewDidLoad()
         
         options = Options()
-        calendarUpdater = CalendarShiftUpdater(calendarName: options.calendar, calendarUpdateCallback: TodayViewController.onCalendarUpdate(calendar:))
+        calendarUpdater = CalendarShiftUpdater(calendarName: options.calendar, calendarUpdateCallback: self.onCalendarUpdate(calendar:))
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
         
         tableView?.dataSource = self
@@ -37,8 +37,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         let _ = self.updateData()
     }
     
-    static func onCalendarUpdate(calendar:EKCalendar) {
-        #warning("FIXME")
+    @objc func onCalendarUpdate(calendar:EKCalendar) {
+        let _ = self.updateData()
     }
 
     

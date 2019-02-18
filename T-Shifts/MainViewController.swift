@@ -50,23 +50,6 @@ class MainViewController: UIViewController {
         self.select(date:Date())
         feedbackGenerator.prepare()
         indexer.addItemsToSpotlightIndex()
-        updateTodayWidgetData()
-    }
-    
-    func updateTodayWidgetData() {
-        let userDefaults = UserDefaults(suiteName: "group.org.boborbt.tshifts")!
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, d"
-
-        for i in 0...9 {
-            let date = Date.dateFromToday(byAdding: i-1)
-            if let description = shiftStorage.shiftsDescription(at: date) {
-                userDefaults.set(formatter.string(from: date), forKey: "shifts.date.\(i)")
-                userDefaults.set(description, forKey: "shifts.description.\(i)")
-            }
-        }
-        
-        userDefaults.synchronize()
     }
     
     
@@ -135,7 +118,6 @@ class MainViewController: UIViewController {
         }
         
         indexer.reindexShifts(for: date)
-        self.updateTodayWidgetData()
                 
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()
