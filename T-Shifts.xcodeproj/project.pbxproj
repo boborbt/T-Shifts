@@ -33,7 +33,6 @@
 		F8BC613B221B03EE00907179 /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; };
 		F8BC6142221B03EE00907179 /* TShiftsFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6141221B03EE00907179 /* TShiftsFrameworkTests.swift */; };
 		F8BC6144221B03EE00907179 /* TShiftsFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F8BC6134221B03EE00907179 /* TShiftsFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8BC6147221B03EE00907179 /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; };
 		F8BC6148221B03EE00907179 /* TShiftsFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8BC6151221B045300907179 /* AttributedString+LinkAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6150221B043E00907179 /* AttributedString+LinkAttributes.swift */; };
 		F8BC6157221B045E00907179 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6152221B045C00907179 /* Date+Utils.swift */; };
@@ -250,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E4D1F622172B0800CDFE0B /* TShiftsFramework.framework in Frameworks */,
-				F8BC6147221B03EE00907179 /* TShiftsFramework.framework in Frameworks */,
 				F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */,
 				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
 			);
@@ -589,7 +587,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Roberto Esposito";
 				TargetAttributes = {
 					F8BC6131221B03EE00907179 = {
@@ -926,7 +924,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -959,7 +957,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

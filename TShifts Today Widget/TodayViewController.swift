@@ -80,11 +80,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        let totalHeight = tableView!.contentSize.height
+        
         switch activeDisplayMode  {
         case .compact:
-            self.preferredContentSize = CGSize(width: maxSize.width, height: min(maxSize.height, 90))
+            self.preferredContentSize = CGSize(width: maxSize.width, height: maxSize.height )
         case .expanded:
-            self.preferredContentSize = CGSize(width: maxSize.width, height: 225)
+            self.preferredContentSize = CGSize(width: maxSize.width, height: totalHeight + 10)
         }
     }
 }
