@@ -179,7 +179,6 @@
 		F89D61421E5C941D0060911E /* DayInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInfoView.swift; sourceTree = "<group>"; };
 		F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButtonsArrayView.swift; sourceTree = "<group>"; };
 		F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurePanelView.xib; sourceTree = "<group>"; };
-		F8BC612C221B018B00907179 /* TShiftsFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TShiftsFramework.h; path = "T-Shifts Framework/T-Shifts Framework/../../TShiftsFramework.h"; sourceTree = "<group>"; };
 		F8BC6132221B03EE00907179 /* TShiftsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TShiftsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BC6134221B03EE00907179 /* TShiftsFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TShiftsFramework.h; sourceTree = "<group>"; };
 		F8BC6135221B03EE00907179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -393,7 +392,6 @@
 		F8E9B52F1E27C9A500390BD3 = {
 			isa = PBXGroup;
 			children = (
-				F8BC612C221B018B00907179 /* TShiftsFramework.h */,
 				F85D0A831F7170550070CEDD /* EasyTipView.framework.dSYM */,
 				F85D0A841F7170550070CEDD /* JTAppleCalendar.framework.dSYM */,
 				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
@@ -923,6 +921,7 @@
 		F8BC614A221B03EE00907179 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -955,6 +954,7 @@
 		F8BC614B221B03EE00907179 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;

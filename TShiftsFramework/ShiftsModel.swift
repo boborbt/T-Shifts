@@ -8,7 +8,6 @@
 
 import Foundation
 import EventKit
-import UIKit
 import os.log
 
 // A Shift contains the informations needed to describe a shift

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import os.log
 
 public class Options {
