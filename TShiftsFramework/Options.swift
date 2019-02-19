@@ -32,24 +32,31 @@ public class Options {
         let defaults = UserDefaults(suiteName: "group.org.boborbt.tshifts.option-templates")!
         
         if let plistPath = Bundle.main.path(forResource: "Options", ofType: "plist") {
+            os_log(.debug, "Template Defaults: writing defaults read from main bundle")
             let dictionary = NSDictionary(contentsOfFile: plistPath)!
             defaults.set(dictionary, forKey:"defaults-dictionary")
             defaults.synchronize()
         }
-        
+    
         return defaults.dictionary(forKey:"defaults-dictionary")!
     }
     
     func migrateOptions() {
         let version = options.integer(forKey: "version")
         if version >= 2 {
+            os_log(.debug, "Options Migration: Skipping (already on version 2)")
             return
+
         }
         
-        os_log(.info, "Migrating options from version %d to version 2", version)
+        os_log(.info, "Options Migration: migrating from version %d to version 2", version)
         
         let old_defaults = UserDefaults.standard
-        options.register(defaults:old_defaults.dictionaryRepresentation())
+        for key in old_defaults.dictionaryRepresentation().keys {
+            let object = old_defaults.object(forKey: key)
+            options.set(object, forKey: key)
+        }
+
         options.set(2, forKey: "version")
     }
     

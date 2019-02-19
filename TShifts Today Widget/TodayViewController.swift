@@ -38,6 +38,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     }
     
     @objc func onCalendarUpdate(calendar:EKCalendar) {
+        guard shiftStorage != nil else { return }
         let _ = self.updateData()
     }
 
@@ -50,24 +51,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         
         for i in 0..<TodayViewController.SHIFTS_COUNT {
             let date = Date.dateFromToday(byAdding: i-1)
-            os_log(.debug, "date for i %d is %@", i, date.description)
-            
             let shifts = shiftStorage.shifts(at: date)
             shiftsDescriptions.append((date, shifts))
         }
-
-        
-//        for i in 0..<TodayViewController.SHIFTS_COUNT {
-//            guard let date = userDefaults.string(forKey: "shifts.date.\(i)") else { continue }
-//            guard let description = userDefaults.string(forKey: "shifts.description.\(i)")  else { continue }
-//            let newDescription = attributedDescription(for: "\(date)\t: \(description)", atIndex: i)
-//
-//
-//            if shiftsDescriptions[i] != newDescription {
-//                shiftsDescriptions[i] = newDescription
-//                updated = true
-//            }
-//        }
         
         return true
     }
@@ -82,9 +68,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         
         os_log(.debug, "cell day is being set to: %s", date.description)
         cell.set(day: date, shifts: shifts)
-//
-//        cell.label?.text = nil
-//        cell.label?.attributedText =
         
         return cell
     }
