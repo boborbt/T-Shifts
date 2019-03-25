@@ -188,6 +188,18 @@ public class ShiftTemplates {
 }
 
 // A shift storage based on the system calendar.
+
+// TODO: Add some kind of temporary storage to collect shifts not yet committed.
+//    The storage should be updated to add new shifts or to remove ones.
+//    Note that when removing a shift, one needs first to check if the shift
+//    is in the temporary storage (it can be deleted from there if it is), if
+//    not the deletion should be recorded in the storage.
+//
+//    This complicates things, for instance when adding a shift, one should also
+//    check if the tmp storage does not already contain that shift (the change
+//    should be ignored in that case) or if the tmp storage do not containe a
+//    deletion of that shift (the deletion should be removed and the addition
+//    should be scheduled).
 public class CalendarShiftStorage : ShiftStorage, Sequence {
     var callback: ((Date) -> ())!
     let formatter: DateFormatter!
