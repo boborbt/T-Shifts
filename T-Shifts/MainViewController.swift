@@ -122,5 +122,13 @@ class MainViewController: UIViewController {
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()
     }
+    
+    func panelDidClose() {
+        do {
+            try shiftStorage.commit()
+        } catch let error {
+            os_log(.error, "Error: %@", [error])
+        }
+    }
 }
 

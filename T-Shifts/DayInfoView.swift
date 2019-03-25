@@ -14,6 +14,7 @@ protocol DayInfoViewDelegate: class {
     func dayInfoTapOn(shiftButton: MarkButton)
     func templatesForDate(date:Date) -> [ShiftTemplate]
     func templates() -> ShiftTemplates
+    func panelDidClose()
 }
 
 class DayInfoView: UIView {

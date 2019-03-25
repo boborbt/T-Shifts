@@ -49,6 +49,9 @@ extension DayInfoView {
             
             if abs(x - left_bound) < abs(x - right_bound) {
                 securePanelViewLeadingConstraint.constant = left_bound
+                if delegate != nil {
+                    delegate.panelDidClose()
+                }
             } else {
                 securePanelViewLeadingConstraint.constant = right_bound
             }

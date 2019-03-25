@@ -53,6 +53,9 @@ public protocol ShiftStorage {
     // at the given date.
     func remove(shift:Shift, fromDate: Date) throws
     
+    // Remove
+    func commit() throws
+    
     // Returns true if the given shift is already present at the given date
     func isPresent(shift: Shift, at date: Date) -> Bool
     
@@ -203,6 +206,10 @@ public class CalendarShiftStorage : ShiftStorage, Sequence {
         callback(date)
     }
     
+    public func commit() throws {
+        try calendarUpdater.commit()
+    }
+    
     public func remove(shift:Shift, fromDate date: Date) throws {
         try calendarUpdater.remove(shift: shift, at: date)
         callback(date)
@@ -291,6 +298,10 @@ class LocalShiftStorage: ShiftStorage, Sequence {
         storage[date]!.append(shift)
         
         callback!(date)
+    }
+    
+    func commit() throws {
+        
     }
     
     func remove(shift:Shift, fromDate date: Date) {
@@ -405,12 +416,20 @@ public class CalendarShiftUpdater {
             event.title = shift.description
             event.calendar = targetCalendar!
             
-            try store.save(event, span: EKSpan.thisEvent)
+            try store.save(event, span: EKSpan.thisEvent, commit: false)
             os_log(.debug, "Shift saved to Calendar store: %@", shift.description)
         } catch let error {
             os_log(.error, "Error (%@) occurred for shift: %@", [error, shift.description])
         }
         
+    }
+    
+    public func commit() throws  {
+        do {
+            try store.commit()
+        } catch let error {
+            os_log(.debug, "Cannot commit changes to the store, reason: %@", [error])
+        }
     }
     
     public func remove(shift: Shift, at date: Date) throws {
