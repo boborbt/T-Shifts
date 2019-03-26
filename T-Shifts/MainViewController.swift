@@ -117,15 +117,14 @@ class MainViewController: UIViewController {
             dayInfoView.show(date: date)
         }
         
-        indexer.reindexShifts(for: date)
-                
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()
     }
     
     func panelDidClose() {
         do {
-            try shiftStorage.commit()
+            let changedDates = try shiftStorage.commit()
+            indexer.reindexShifts(for: changedDates)
         } catch let error {
             os_log(.error, "Error: %@", [error])
         }

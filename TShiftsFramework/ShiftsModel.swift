@@ -58,7 +58,7 @@ public protocol ShiftStorage {
     func remove(shift:Shift, fromDate: Date) throws
     
     // Remove
-    func commit() throws
+    func commit() throws -> [Date]
     
     // Returns true if the given shift is already present at the given date
     func isPresent(shift: Shift, at date: Date) -> Bool
@@ -191,6 +191,23 @@ public class ShiftTemplates {
     
 }
 
+
+enum ShiftUpdate {
+    case add(Shift, Date)
+    case remove(Shift, Date)
+}
+
+func ==(lhs:ShiftUpdate, rhs:ShiftUpdate) -> Bool {
+    switch(lhs, rhs) {
+    case let (.add(a,b), .add(c,d)),
+         let (.remove(a,b), .remove(c,d)):
+        return a == c && b == d
+    default:
+        return false
+    }
+    
+}
+
 // A shift storage based on the system calendar.
 
 // TODO: Add some kind of temporary storage to collect shifts not yet committed.
@@ -209,26 +226,45 @@ public class CalendarShiftStorage : ShiftStorage, Sequence {
     let formatter: DateFormatter!
     public weak var shiftTemplates: ShiftTemplates!
     weak var calendarUpdater: CalendarShiftUpdater!
+    var requestedUpdates: [ShiftUpdate]
     
     public init(updater: CalendarShiftUpdater, templates: ShiftTemplates) {
         calendarUpdater = updater
         shiftTemplates = templates
         formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        requestedUpdates = []
     }
     
     public func add(shift: Shift, toDate date: Date) throws {
-        try calendarUpdater.add(shift: shift, at: date)
+        requestedUpdates.removeAll { update in update == .remove(shift, date) }
+        requestedUpdates.append(.add(shift, date))
         callback(date)
-    }
-    
-    public func commit() throws {
-        try calendarUpdater.commit()
     }
     
     public func remove(shift:Shift, fromDate date: Date) throws {
-        try calendarUpdater.remove(shift: shift, at: date)
+        requestedUpdates.removeAll { update in update == .add(shift, date) }
+        requestedUpdates.append(.remove(shift, date))
         callback(date)
+    }
+    
+    public func commit() throws -> [Date]  {
+        var changedDates:[Date] = []
+        for update in requestedUpdates {
+            switch update {
+            case .add(let shift, let date):
+                try calendarUpdater.add(shift: shift, at: date)
+                changedDates.append(date)
+            case .remove(let shift, let date):
+                try calendarUpdater.remove(shift: shift, at: date)
+                changedDates.append(date)
+            }
+        }
+        try calendarUpdater.commit()
+        
+        requestedUpdates = []
+        
+        return changedDates
     }
     
     public func isPresent(shift: Shift, at date: Date) -> Bool  {
@@ -242,10 +278,29 @@ public class CalendarShiftStorage : ShiftStorage, Sequence {
         let predicate = store.predicateForEvents(withStart: date, end: date + 1, calendars: [targetCalendar])
         let events = calendarUpdater.store.events(matching: predicate)
         
-        return events.compactMap({ (event) in
+        var result:[Shift] = events.compactMap({ (event) in
             let description = event.title
             return self.shiftTemplates.template(havingDescription: description!)?.shift
         })
+        
+        for update in requestedUpdates {
+            switch update {
+            case .add(let s, let d):
+                if d == date {
+                    result.append(s)
+                }
+            case .remove(let s, let d):
+                if d == date {
+                    result.removeAll(where: { shift in s == shift })
+                }
+            }
+        }
+        
+        // It might happen that the user requests both the removal and the addition of a shift.
+        // In this case the calendar will still have the event, and the requestUpdates would contain
+        // the request for addition. This would make result to contain a duplicate of the given shift.
+        // We then remove duplicates from the list before returning it.
+        return Array(Set(result))
     }
     
     public func makeIterator() -> DictionaryIterator<Date,[Shift]> {
@@ -316,8 +371,8 @@ class LocalShiftStorage: ShiftStorage, Sequence {
         callback!(date)
     }
     
-    func commit() throws {
-        
+    func commit() throws -> [Date] {
+        return []
     }
     
     func remove(shift:Shift, fromDate date: Date) {

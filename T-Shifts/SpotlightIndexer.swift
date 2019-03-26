@@ -112,4 +112,10 @@ class SpotlightIndexer {
             }
         }
     }
+    
+    func reindexShifts(for dates:[Date]) {
+        for date in dates {
+            reindexShifts(for: date)
+        }
+    }
 }
