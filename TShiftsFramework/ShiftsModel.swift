@@ -16,10 +16,14 @@ import os.log
 // Shift needs to be hashable and equatable by the shortcut only
 // i.e. the shortcut need to be a unique identifier for a shift "value"
 public struct Shift: Equatable, Hashable {
-    public var hashValue: Int {
-        get {
-            return shortcut.hashValue
-        }
+//    public var hashValue: Int {
+//        get {
+//            return shortcut.hashValue
+//        }
+//    }
+//
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(shortcut)
     }
 
     public static func == (lhs: Shift, rhs: Shift) -> Bool {
