@@ -110,7 +110,7 @@ class MainViewController: UIViewController {
         let nextDate = date + 1.days()
         let visibleDates = calendarView.visibleDates()
         
-        if visibleDates.outdates.index(where: { date in nextDate.sameDay(as: date.date) }) == nil {
+        if visibleDates.outdates.firstIndex(where: { date in nextDate.sameDay(as: date.date) }) == nil {
             dayInfoView.animateNextTransition = true
             calendarView.selectDates([nextDate])
         } else {

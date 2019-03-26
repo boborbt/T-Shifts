@@ -88,8 +88,8 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         setupCreditsSection()
         setupDoneButton()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
     }
     
@@ -195,7 +195,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     // MARK: Events
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
-        if let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+        if let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
             var contentInsets = scrollView.contentInset
             contentInsets.bottom = keyboardSize.height
             scrollView.contentInset = contentInsets

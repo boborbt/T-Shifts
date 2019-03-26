@@ -11,9 +11,7 @@
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */; };
 		F833BB291E79801A00EA3BB2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB2B1E79801A00EA3BB2 /* Localizable.strings */; };
-		F833BB2E1E79801A00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB301E79801A00EA3BB2 /* InfoPlist.strings */; };
 		F833BB331E79801B00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB351E79801B00EA3BB2 /* InfoPlist.strings */; };
-		F833BB381E79801B00EA3BB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F833BB3A1E79801B00EA3BB2 /* InfoPlist.strings */; };
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
 		F85361BE219C308A000B6303 /* SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85361BD219C308A000B6303 /* SpotlightIndexer.swift */; };
@@ -30,8 +28,6 @@
 		F89D61431E5C941D0060911E /* DayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61421E5C941D0060911E /* DayInfoView.swift */; };
 		F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D61441E5D98C40060911E /* MarkButtonsArrayView.swift */; };
 		F8AD5F3E1E706CD500C88FD2 /* SecurePanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8AD5F3D1E706CD500C88FD2 /* SecurePanelView.xib */; };
-		F8BC613B221B03EE00907179 /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; };
-		F8BC6142221B03EE00907179 /* TShiftsFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6141221B03EE00907179 /* TShiftsFrameworkTests.swift */; };
 		F8BC6144221B03EE00907179 /* TShiftsFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F8BC6134221B03EE00907179 /* TShiftsFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8BC6148221B03EE00907179 /* TShiftsFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8BC6151221B045300907179 /* AttributedString+LinkAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6150221B043E00907179 /* AttributedString+LinkAttributes.swift */; };
@@ -54,27 +50,11 @@
 		F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B53F1E27C9A600390BD3 /* Main.storyboard */; };
 		F8E9B5431E27C9A600390BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B5421E27C9A600390BD3 /* Assets.xcassets */; };
 		F8E9B5461E27C9A600390BD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B5441E27C9A600390BD3 /* LaunchScreen.storyboard */; };
-		F8E9B5511E27C9A600390BD3 /* T_ShiftsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B5501E27C9A600390BD3 /* T_ShiftsTests.swift */; };
-		F8E9B55C1E27C9A600390BD3 /* T_ShiftsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */; };
 		F8F161B72147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F161B62147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift */; };
 		F8FBD3D01E7B41B30072A307 /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8FBD3D21E7B41B30072A307 /* Options.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F8BC613C221B03EE00907179 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F8BC6131221B03EE00907179;
-			remoteInfo = TShiftsFramework;
-		};
-		F8BC613E221B03EE00907179 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F8E9B5371E27C9A600390BD3;
-			remoteInfo = "T-Shifts";
-		};
 		F8BC6145221B03EE00907179 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
@@ -95,20 +75,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = F8C7F259219AF9FC00E0FDA2;
 			remoteInfo = "TShifts Today Widget";
-		};
-		F8E9B54D1E27C9A600390BD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F8E9B5371E27C9A600390BD3;
-			remoteInfo = "T-Shifts";
-		};
-		F8E9B5581E27C9A600390BD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F8E9B5371E27C9A600390BD3;
-			remoteInfo = "T-Shifts";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -153,6 +119,7 @@
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
 		F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+CalendarDelegates.swift"; sourceTree = "<group>"; };
+		F826EF12224A7A5100908074 /* TShiftsFrameworkTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TShiftsFrameworkTests copy-Info.plist"; path = "/Users/esposito/Software/T-Shifts/TShiftsFrameworkTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		F833BB1F1E794CF000EA3BB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F833BB251E797F4F00EA3BB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		F833BB261E797F4F00EA3BB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -181,7 +148,6 @@
 		F8BC6132221B03EE00907179 /* TShiftsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TShiftsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BC6134221B03EE00907179 /* TShiftsFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TShiftsFramework.h; sourceTree = "<group>"; };
 		F8BC6135221B03EE00907179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8BC613A221B03EE00907179 /* TShiftsFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TShiftsFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BC6141221B03EE00907179 /* TShiftsFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TShiftsFrameworkTests.swift; sourceTree = "<group>"; };
 		F8BC6143221B03EE00907179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8BC6150221B043E00907179 /* AttributedString+LinkAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+LinkAttributes.swift"; sourceTree = "<group>"; };
@@ -208,10 +174,8 @@
 		F8E9B5421E27C9A600390BD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8E9B5451E27C9A600390BD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8E9B5471E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E9B54C1E27C9A600390BD3 /* T-ShiftsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "T-ShiftsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B5501E27C9A600390BD3 /* T_ShiftsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsTests.swift; sourceTree = "<group>"; };
 		F8E9B5521E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "T-ShiftsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsUITests.swift; sourceTree = "<group>"; };
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F161B62147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfoViewSecurePanelExtension.swift; sourceTree = "<group>"; };
@@ -224,14 +188,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8BC6137221B03EE00907179 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F8BC613B221B03EE00907179 /* TShiftsFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,20 +207,6 @@
 				F8E4D1F622172B0800CDFE0B /* TShiftsFramework.framework in Frameworks */,
 				F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */,
 				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8E9B5491E27C9A600390BD3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8E9B5541E27C9A600390BD3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +343,7 @@
 				F8E9B5391E27C9A600390BD3 /* Products */,
 				F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */,
 				F85D0A871F7171430070CEDD /* Frameworks */,
+				F826EF12224A7A5100908074 /* TShiftsFrameworkTests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -408,11 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				F8E9B5381E27C9A600390BD3 /* T-Shifts.app */,
-				F8E9B54C1E27C9A600390BD3 /* T-ShiftsTests.xctest */,
-				F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */,
 				F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */,
 				F8BC6132221B03EE00907179 /* TShiftsFramework.framework */,
-				F8BC613A221B03EE00907179 /* TShiftsFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -484,25 +424,6 @@
 			productReference = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F8BC6139221B03EE00907179 /* TShiftsFrameworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F8BC614D221B03EE00907179 /* Build configuration list for PBXNativeTarget "TShiftsFrameworkTests" */;
-			buildPhases = (
-				F8BC6136221B03EE00907179 /* Sources */,
-				F8BC6137221B03EE00907179 /* Frameworks */,
-				F8BC6138221B03EE00907179 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F8BC613D221B03EE00907179 /* PBXTargetDependency */,
-				F8BC613F221B03EE00907179 /* PBXTargetDependency */,
-			);
-			name = TShiftsFrameworkTests;
-			productName = TShiftsFrameworkTests;
-			productReference = F8BC613A221B03EE00907179 /* TShiftsFrameworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		F8C7F259219AF9FC00E0FDA2 /* TShifts Today Widget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8C7F267219AF9FC00E0FDA2 /* Build configuration list for PBXNativeTarget "TShifts Today Widget" */;
@@ -544,42 +465,6 @@
 			productReference = F8E9B5381E27C9A600390BD3 /* T-Shifts.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F8E9B54B1E27C9A600390BD3 /* T-ShiftsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F8E9B5631E27C9A600390BD3 /* Build configuration list for PBXNativeTarget "T-ShiftsTests" */;
-			buildPhases = (
-				F8E9B5481E27C9A600390BD3 /* Sources */,
-				F8E9B5491E27C9A600390BD3 /* Frameworks */,
-				F8E9B54A1E27C9A600390BD3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F8E9B54E1E27C9A600390BD3 /* PBXTargetDependency */,
-			);
-			name = "T-ShiftsTests";
-			productName = "T-ShiftsTests";
-			productReference = F8E9B54C1E27C9A600390BD3 /* T-ShiftsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F8E9B5561E27C9A600390BD3 /* T-ShiftsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F8E9B5661E27C9A600390BD3 /* Build configuration list for PBXNativeTarget "T-ShiftsUITests" */;
-			buildPhases = (
-				F8E9B5531E27C9A600390BD3 /* Sources */,
-				F8E9B5541E27C9A600390BD3 /* Frameworks */,
-				F8E9B5551E27C9A600390BD3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F8E9B5591E27C9A600390BD3 /* PBXTargetDependency */,
-			);
-			name = "T-ShiftsUITests";
-			productName = "T-ShiftsUITests";
-			productReference = F8E9B5571E27C9A600390BD3 /* T-ShiftsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -592,15 +477,12 @@
 				TargetAttributes = {
 					F8BC6131221B03EE00907179 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
-					};
-					F8BC6139221B03EE00907179 = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F8E9B5371E27C9A600390BD3;
 					};
 					F8C7F259219AF9FC00E0FDA2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -611,25 +493,13 @@
 					F8E9B5371E27C9A600390BD3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = P7PY7CP3A9;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
-					};
-					F8E9B54B1E27C9A600390BD3 = {
-						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F8E9B5371E27C9A600390BD3;
-					};
-					F8E9B5561E27C9A600390BD3 = {
-						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F8E9B5371E27C9A600390BD3;
 					};
 				};
 			};
@@ -638,6 +508,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				it,
@@ -648,24 +519,14 @@
 			projectRoot = "";
 			targets = (
 				F8E9B5371E27C9A600390BD3 /* T-Shifts */,
-				F8E9B54B1E27C9A600390BD3 /* T-ShiftsTests */,
-				F8E9B5561E27C9A600390BD3 /* T-ShiftsUITests */,
 				F8C7F259219AF9FC00E0FDA2 /* TShifts Today Widget */,
 				F8BC6131221B03EE00907179 /* TShiftsFramework */,
-				F8BC6139221B03EE00907179 /* TShiftsFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F8BC6130221B03EE00907179 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8BC6138221B03EE00907179 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -693,22 +554,6 @@
 				F8AD5F3E1E706CD500C88FD2 /* SecurePanelView.xib in Resources */,
 				F833BB331E79801B00EA3BB2 /* InfoPlist.strings in Resources */,
 				F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8E9B54A1E27C9A600390BD3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F833BB2E1E79801A00EA3BB2 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8E9B5551E27C9A600390BD3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F833BB381E79801B00EA3BB2 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,14 +591,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8BC6136221B03EE00907179 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F8BC6142221B03EE00907179 /* TShiftsFrameworkTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F8C7F256219AF9FC00E0FDA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -787,35 +624,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8E9B5481E27C9A600390BD3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F8E9B5511E27C9A600390BD3 /* T_ShiftsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8E9B5531E27C9A600390BD3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F8E9B55C1E27C9A600390BD3 /* T_ShiftsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F8BC613D221B03EE00907179 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F8BC6131221B03EE00907179 /* TShiftsFramework */;
-			targetProxy = F8BC613C221B03EE00907179 /* PBXContainerItemProxy */;
-		};
-		F8BC613F221B03EE00907179 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F8E9B5371E27C9A600390BD3 /* T-Shifts */;
-			targetProxy = F8BC613E221B03EE00907179 /* PBXContainerItemProxy */;
-		};
 		F8BC6146221B03EE00907179 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8BC6131221B03EE00907179 /* TShiftsFramework */;
@@ -830,16 +641,6 @@
 			isa = PBXTargetDependency;
 			target = F8C7F259219AF9FC00E0FDA2 /* TShifts Today Widget */;
 			targetProxy = F8C7F264219AF9FC00E0FDA2 /* PBXContainerItemProxy */;
-		};
-		F8E9B54E1E27C9A600390BD3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F8E9B5371E27C9A600390BD3 /* T-Shifts */;
-			targetProxy = F8E9B54D1E27C9A600390BD3 /* PBXContainerItemProxy */;
-		};
-		F8E9B5591E27C9A600390BD3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F8E9B5371E27C9A600390BD3 /* T-Shifts */;
-			targetProxy = F8E9B5581E27C9A600390BD3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -935,14 +736,14 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TShiftsFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -968,65 +769,16 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TShiftsFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F8BC614E221B03EE00907179 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7PY7CP3A9;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = TShiftsFrameworkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/T-Shifts.app/T-Shifts";
-			};
-			name = Debug;
-		};
-		F8BC614F221B03EE00907179 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7PY7CP3A9;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = TShiftsFrameworkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/T-Shifts.app/T-Shifts";
 			};
 			name = Release;
 		};
@@ -1043,14 +795,14 @@
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "TShifts Today Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.boborbt.tshift.TShifts-Today-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1068,13 +820,13 @@
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "TShifts Today Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.boborbt.tshift.TShifts-Today-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1208,13 +960,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1235,72 +986,13 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		F8E9B5641E27C9A600390BD3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "T-ShiftsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-ShiftsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/T-Shifts.app/T-Shifts";
-			};
-			name = Debug;
-		};
-		F8E9B5651E27C9A600390BD3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "T-ShiftsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-ShiftsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/T-Shifts.app/T-Shifts";
-			};
-			name = Release;
-		};
-		F8E9B5671E27C9A600390BD3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "T-ShiftsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-ShiftsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = "T-Shifts";
-			};
-			name = Debug;
-		};
-		F8E9B5681E27C9A600390BD3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "T-ShiftsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "boborbt.T-ShiftsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = "T-Shifts";
 			};
 			name = Release;
 		};
@@ -1312,15 +1004,6 @@
 			buildConfigurations = (
 				F8BC614A221B03EE00907179 /* Debug */,
 				F8BC614B221B03EE00907179 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F8BC614D221B03EE00907179 /* Build configuration list for PBXNativeTarget "TShiftsFrameworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F8BC614E221B03EE00907179 /* Debug */,
-				F8BC614F221B03EE00907179 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1348,24 +1031,6 @@
 			buildConfigurations = (
 				F8E9B5611E27C9A600390BD3 /* Debug */,
 				F8E9B5621E27C9A600390BD3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F8E9B5631E27C9A600390BD3 /* Build configuration list for PBXNativeTarget "T-ShiftsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F8E9B5641E27C9A600390BD3 /* Debug */,
-				F8E9B5651E27C9A600390BD3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F8E9B5661E27C9A600390BD3 /* Build configuration list for PBXNativeTarget "T-ShiftsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F8E9B5671E27C9A600390BD3 /* Debug */,
-				F8E9B5681E27C9A600390BD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

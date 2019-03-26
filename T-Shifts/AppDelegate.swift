@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         calendarUpdater = CalendarShiftUpdater(calendarName: options.calendar, calendarUpdateCallback: AppDelegate.onCalendarUpdate(calendar:))
         shiftStorage = CalendarShiftStorage(updater: calendarUpdater, templates: options.shiftTemplates)
@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard let identifier = userActivity.userInfo![CSSearchableItemActivityIdentifier] as? String
         else {
             mainController.indexer.resetIndex()

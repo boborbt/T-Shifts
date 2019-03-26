@@ -149,7 +149,7 @@ public class ShiftTemplates {
         
         for i in 0..<size {
             let candidate = String(currentDes[currentDes.index(desStart, offsetBy:i)])
-            if currentSet.index(of: candidate) != nil {
+            if currentSet.firstIndex(of: candidate) != nil {
                 continue
             }
             
@@ -269,7 +269,7 @@ public class CalendarShiftStorage : ShiftStorage, Sequence {
     
     public func isPresent(shift: Shift, at date: Date) -> Bool  {
         let shifts = self.shifts(at: date)
-        return shifts.index(where: { s in shift == s }) != nil
+        return shifts.firstIndex(where: { s in shift == s }) != nil
     }
     
     public func shifts(at date: Date) -> [Shift] {
@@ -353,7 +353,7 @@ class LocalShiftStorage: ShiftStorage, Sequence {
     
     func isPresent(shift: Shift, at date: Date) -> Bool {
         let shifts = self.shifts(at: date)
-        return shifts.index(where: { s in shift == s }) != nil
+        return shifts.firstIndex(where: { s in shift == s }) != nil
     }
 
     
@@ -362,7 +362,7 @@ class LocalShiftStorage: ShiftStorage, Sequence {
             storage[date] = []
         }
         
-        if let _ = storage[date]!.index(of:shift) {
+        if let _ = storage[date]!.firstIndex(of:shift) {
             return
         }
         
@@ -378,7 +378,7 @@ class LocalShiftStorage: ShiftStorage, Sequence {
     func remove(shift:Shift, fromDate date: Date) {
         var dateInfo = storage[date]
         
-        if let index = dateInfo?.index(of: shift) {
+        if let index = dateInfo?.firstIndex(of: shift) {
             dateInfo?.remove(at: index)
         }
         
