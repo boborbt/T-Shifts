@@ -505,10 +505,9 @@
 			};
 			buildConfigurationList = F8E9B5331E27C9A500390BD3 /* Build configuration list for PBXProject "T-Shifts" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				it,

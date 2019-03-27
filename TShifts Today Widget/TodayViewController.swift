@@ -87,6 +87,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
             self.preferredContentSize = CGSize(width: maxSize.width, height: maxSize.height )
         case .expanded:
             self.preferredContentSize = CGSize(width: maxSize.width, height: totalHeight + 10)
+        default:
+            os_log(.error,"Hit unknown case for activeDisplayMode")
         }
     }
 }

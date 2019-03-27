@@ -10,18 +10,16 @@ import Foundation
 import EventKit
 import os.log
 
+
+// MARK: TYPE DEFINITIONS
+
 // A Shift contains the informations needed to describe a shift
 // - a description and a shortcut
 //
 // Shift needs to be hashable and equatable by the shortcut only
 // i.e. the shortcut need to be a unique identifier for a shift "value"
 public struct Shift: Equatable, Hashable {
-//    public var hashValue: Int {
-//        get {
-//            return shortcut.hashValue
-//        }
-//    }
-//
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(shortcut)
     }
@@ -192,36 +190,29 @@ public class ShiftTemplates {
 }
 
 
-enum ShiftUpdate {
-    case add(Shift, Date)
-    case remove(Shift, Date)
-}
-
-func ==(lhs:ShiftUpdate, rhs:ShiftUpdate) -> Bool {
-    switch(lhs, rhs) {
-    case let (.add(a,b), .add(c,d)),
-         let (.remove(a,b), .remove(c,d)):
-        return a == c && b == d
-    default:
-        return false
-    }
-    
-}
+// MARK: CALENDAR ACCESS
 
 // A shift storage based on the system calendar.
+// Supports events coalescence.
+public class CalendarShiftStorage : ShiftStorage {
+    
+    // Type used to record the kind of change requested
+    enum ShiftUpdate {
+        case add(Shift, Date)
+        case remove(Shift, Date)
 
-// TODO: Add some kind of temporary storage to collect shifts not yet committed.
-//    The storage should be updated to add new shifts or to remove ones.
-//    Note that when removing a shift, one needs first to check if the shift
-//    is in the temporary storage (it can be deleted from there if it is), if
-//    not the deletion should be recorded in the storage.
-//
-//    This complicates things, for instance when adding a shift, one should also
-//    check if the tmp storage does not already contain that shift (the change
-//    should be ignored in that case) or if the tmp storage do not containe a
-//    deletion of that shift (the deletion should be removed and the addition
-//    should be scheduled).
-public class CalendarShiftStorage : ShiftStorage, Sequence {
+        static func ==(lhs:ShiftUpdate, rhs:ShiftUpdate) -> Bool {
+            switch(lhs, rhs) {
+            case let (.add(a,b), .add(c,d)),
+                 let (.remove(a,b), .remove(c,d)):
+                return a == c && b == d
+            default:
+                return false
+            }
+            
+        }
+    }
+    
     var callback: ((Date) -> ())!
     let formatter: DateFormatter!
     public weak var shiftTemplates: ShiftTemplates!
@@ -303,9 +294,6 @@ public class CalendarShiftStorage : ShiftStorage, Sequence {
         return Array(Set(result))
     }
     
-    public func makeIterator() -> DictionaryIterator<Date,[Shift]> {
-        return [:].makeIterator()
-    }
     
     public func notifyChanges(to function: @escaping (Date) -> ()) {
         callback = function
@@ -337,93 +325,6 @@ public class CalendarShiftStorage : ShiftStorage, Sequence {
     }
 
 }
-
-// A shift storage that stores the shifts only in memory. Useful for debugging 
-// purposes (it was also the base of the old implementation)
-
-class LocalShiftStorage: ShiftStorage, Sequence {
-    var storage: [Date:[Shift]] = [:]
-    var callback: ((Date) -> ())!
-    let formatter: DateFormatter!
-    
-    init() {
-        formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-    }
-    
-    func isPresent(shift: Shift, at date: Date) -> Bool {
-        let shifts = self.shifts(at: date)
-        return shifts.firstIndex(where: { s in shift == s }) != nil
-    }
-
-    
-    func add(shift: Shift, toDate date: Date) throws {
-        if storage[date] == nil {
-            storage[date] = []
-        }
-        
-        if let _ = storage[date]!.firstIndex(of:shift) {
-            return
-        }
-        
-        storage[date]!.append(shift)
-        
-        callback!(date)
-    }
-    
-    func commit() throws -> [Date] {
-        return []
-    }
-    
-    func remove(shift:Shift, fromDate date: Date) {
-        var dateInfo = storage[date]
-        
-        if let index = dateInfo?.firstIndex(of: shift) {
-            dateInfo?.remove(at: index)
-        }
-        
-        callback(date)
-    }
-        
-    func shifts(at date: Date) -> [Shift] {
-        guard let result = storage[date] else { return [] }
-        return result
-    }
-    
-    func makeIterator() -> DictionaryIterator<Date,[Shift]> {
-        return storage.makeIterator()
-    }
-    
-    func notifyChanges(to function: @escaping (Date) -> ()) {
-        callback = function
-    }
-    
-    func shiftsDescription(at date: Date) -> String? {
-        let shifts = self.shifts(at: date)
-        
-        if shifts.isEmpty {
-            return nil
-        }
-        
-        let shortcuts: [String] = shifts.map() { s in s.description }
-        return shortcuts.joined(separator:" ")
-    }
-    
-    func uniqueIdentifier(for date: Date) -> String {
-        return "Shifts:\(formatter.string(from: date))"
-    }
-    
-    func date(forUniqueIdentifier identifier: String) -> Date? {
-        let stringComponents = identifier.components(separatedBy: ":")
-        
-        if stringComponents.count != 2 {
-            return nil
-        }
-        
-        return formatter.date(from:stringComponents[1])
-    }
-}
-
 
 // This class incapsulate the interaction with the system calendar
 // library. It simplifies the code by providing an easier interface
