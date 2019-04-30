@@ -50,7 +50,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         shiftsDescriptions = []
         
         for i in 0..<TodayViewController.SHIFTS_COUNT {
-            let date = Date.dateFromToday(byAdding: i-1)
+            let date = Date.dateFromToday(byAdding: i)
             let shifts = shiftStorage.shifts(at: date)
             shiftsDescriptions.append((date, shifts))
         }
