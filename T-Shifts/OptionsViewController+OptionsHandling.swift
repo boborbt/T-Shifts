@@ -79,6 +79,8 @@ extension OptionsViewController {
         field.borderStyle = .roundedRect
         field.clearButtonMode = .whileEditing
         field.delegate = self
+
+        
         
         scrollView.addSubview(field)
         

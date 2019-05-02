@@ -150,7 +150,6 @@
                     <navigationItem key="navigationItem" title="Pick your Shifts" id="llw-JS-HcF">
                         <barButtonItem key="backBarButtonItem" systemItem="cancel" id="0mg-GR-t79"/>
                         <barButtonItem key="rightBarButtonItem" title="•••" image="options-icon" id="xY3-Qa-dT7">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-10" maxY="0.0"/>
                             <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="showOptions:" destination="BYZ-38-t0r" id="LvM-ME-HgZ"/>
@@ -224,6 +223,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="options-icon" width="64" height="64"/>
+        <image name="options-icon" width="32" height="32"/>
     </resources>
 </document>
