@@ -179,6 +179,9 @@
 		F8E9B55B1E27C9A600390BD3 /* T_ShiftsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T_ShiftsUITests.swift; sourceTree = "<group>"; };
 		F8E9B55D1E27C9A600390BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F161B62147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfoViewSecurePanelExtension.swift; sourceTree = "<group>"; };
+		F8F54975227B211700491DF6 /* options-img-1x.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "options-img-1x.pxm"; sourceTree = "<group>"; };
+		F8F54976227B211700491DF6 /* options-img-2x.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "options-img-2x.pxm"; sourceTree = "<group>"; };
+		F8F54977227B211700491DF6 /* options-img-3x.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "options-img-3x.pxm"; sourceTree = "<group>"; };
 		F8FBD3D11E7B41B30072A307 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Options.plist; sourceTree = "<group>"; };
 		F8FBD3D31E7B4D810072A307 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/Options.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +269,7 @@
 				F8FBD3D21E7B41B30072A307 /* Options.plist */,
 				F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */,
 				F86853C71E71B6A800A157DA /* panel-source.graffle */,
+				F8F54978227B214700491DF6 /* options-img */,
 				F8E9B5421E27C9A600390BD3 /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -390,6 +394,16 @@
 				F8E9B55D1E27C9A600390BD3 /* Info.plist */,
 			);
 			path = "T-ShiftsUITests";
+			sourceTree = "<group>";
+		};
+		F8F54978227B214700491DF6 /* options-img */ = {
+			isa = PBXGroup;
+			children = (
+				F8F54975227B211700491DF6 /* options-img-1x.pxm */,
+				F8F54976227B211700491DF6 /* options-img-2x.pxm */,
+				F8F54977227B211700491DF6 /* options-img-3x.pxm */,
+			);
+			path = "options-img";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
