@@ -20,21 +20,36 @@ import os.log
 // i.e. the shortcut need to be a unique identifier for a shift "value"
 public struct Shift: Equatable, Hashable {
 
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(shortcut)
-    }
-
-    public static func == (lhs: Shift, rhs: Shift) -> Bool {
-        return lhs.shortcut == rhs.shortcut
-    }
-    
     public var description: String
     public var shortcut: String
+    public var isAllDay: Bool
+    public var startTime:  (hours:Int, minutes:Int)
+    public var endTime: (hours:Int, minutes:Int)
+    
+    public init() {
+        self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0))
+    }
+    
+    public init(description: String, shortcut: String, isAllDay: Bool, startTime: (hours:Int, minutes:Int), endTime:(hours:Int, minutes:Int) ) {
+        self.description = description
+        self.shortcut = shortcut
+        self.isAllDay = isAllDay
+        self.startTime = startTime
+        self.endTime = endTime
+    }
     
     public var isActive: Bool {
         get {
             return description != ""
         }
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(shortcut)
+    }
+    
+    public static func == (lhs: Shift, rhs: Shift) -> Bool {
+        return lhs.shortcut == rhs.shortcut
     }
 }
 

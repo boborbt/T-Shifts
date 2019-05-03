@@ -68,6 +68,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     weak var calendarUpdater: CalendarShiftUpdater!
     var calendarOptionsGroup: SSRadioButtonsController!
     var shiftsFieldsGroup: [UITextField] = []
+    var shiftsGroup: [Shift] = []
     
     typealias LabelCustomizationBlock = ((UILabel) -> ())
     
@@ -144,7 +145,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         let templates = options.shiftTemplates.templates()
 
         for template in templates {
-            addShiftTemplateLine(title: template.shift.description, color: template.color, after: scrollView.subviews.last!.bottomAnchor )
+            addShiftTemplateLine(shift: template.shift, color: template.color, after: scrollView.subviews.last!.bottomAnchor )
         }
     }
     
@@ -243,7 +244,8 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         for (index, shiftField) in shiftsFieldsGroup.enumerated() {
             if let text = shiftField.text  {
-                options.shiftTemplates.storage[index].shift.description = text
+                shiftsGroup[index].description = text
+                options.shiftTemplates.storage[index].shift = shiftsGroup[index]
             } else {
                 options.shiftTemplates.storage[index].shift.description = ""
             }

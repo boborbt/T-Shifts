@@ -115,7 +115,7 @@ public class Options {
             let shortcut = template["shortcut"] as! String
             let color = template["color"] as! [String:Float]
             
-            let shift = Shift(description: description, shortcut: shortcut)
+            let shift = Shift(description: description, shortcut: shortcut, isAllDay: true, startTime:(8,0), endTime:(16,0))
             let shiftTemplate = ShiftTemplate(shift: shift, position: position, color: self.parse(color:color))
             resultArray.append(shiftTemplate)
         }

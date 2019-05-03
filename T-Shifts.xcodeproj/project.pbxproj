@@ -22,6 +22,8 @@
 		F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E5D521E84064700946699 /* OptionsViewController.swift */; };
 		F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC121E8918F00054F2BF /* SSRadioButton.swift */; };
 		F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */; };
+		F89B2D71227C2D1E0028C43E /* EditTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */; };
+		F89B2D74227C30750028C43E /* ShowEditTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */; };
 		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
 		F89D613D1E5C80990060911E /* MarkButtonsArrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */; };
 		F89D613F1E5C81840060911E /* MarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613E1E5C81840060911E /* MarkButton.swift */; };
@@ -139,6 +141,8 @@
 		F87E5D521E84064700946699 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		F896DC121E8918F00054F2BF /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButton.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButton.swift; sourceTree = SOURCE_ROOT; };
 		F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButtonsController.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButtonsController.swift; sourceTree = SOURCE_ROOT; };
+		F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTemplateViewController.swift; sourceTree = "<group>"; };
+		F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEditTemplateButton.swift; sourceTree = "<group>"; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
 		F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkButtonsArrayView.xib; sourceTree = "<group>"; };
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */,
 				F87E5D521E84064700946699 /* OptionsViewController.swift */,
 				F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */,
+				F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */,
+				F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -300,11 +306,11 @@
 		F8BC6133221B03EE00907179 /* TShiftsFramework */ = {
 			isa = PBXGroup;
 			children = (
+				F8BC6156221B045D00907179 /* ShiftsModel.swift */,
 				F8BC6152221B045C00907179 /* Date+Utils.swift */,
 				F8BC6154221B045D00907179 /* Errors.swift */,
 				F8BC6153221B045D00907179 /* Int+DayConversions.swift */,
 				F8BC6155221B045D00907179 /* Options.swift */,
-				F8BC6156221B045D00907179 /* ShiftsModel.swift */,
 				F8BC6150221B043E00907179 /* AttributedString+LinkAttributes.swift */,
 				F8BC6134221B03EE00907179 /* TShiftsFramework.h */,
 				F8BC6135221B03EE00907179 /* Info.plist */,
@@ -631,6 +637,8 @@
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
 				F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */,
 				F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */,
+				F89B2D71227C2D1E0028C43E /* EditTemplateViewController.swift in Sources */,
+				F89B2D74227C30750028C43E /* ShowEditTemplateButton.swift in Sources */,
 				F89D613F1E5C81840060911E /* MarkButton.swift in Sources */,
 				F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */,
 				F8F161B72147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift in Sources */,
