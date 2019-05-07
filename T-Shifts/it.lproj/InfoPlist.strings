@@ -5,7 +5,7 @@
 "CFBundleName" = "$(PRODUCT_NAME)";
 
 /* (No Comment) */
-"CFBundleShortVersionString" = "1.0";
+"CFBundleShortVersionString" = "1.5.2";
 
 /* (No Comment) */
 "NSCalendarsUsageDescription" = "L'applicazione memorizza i turni sul tuo calendario ed per questo ha bisogno di essere autorizzata ad accedervi.";
