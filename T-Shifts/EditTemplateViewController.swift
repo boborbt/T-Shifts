@@ -12,7 +12,7 @@ import os.log
 class EditTemplateViewController: UIViewController {
     
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var shiftDescription: UILabel!
     @IBOutlet weak var timePickersView: UIView!
     @IBOutlet weak var allDaySwitch: UISwitch!
     @IBOutlet weak var startHourPicker: UIDatePicker!

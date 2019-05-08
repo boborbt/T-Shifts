@@ -259,7 +259,7 @@
                     <connections>
                         <outlet property="allDaySwitch" destination="jcO-Pt-KEW" id="XP9-HZ-Vmn"/>
                         <outlet property="endHourPicker" destination="j7G-nD-Nlb" id="w7Y-os-mo8"/>
-                        <outlet property="label" destination="kKN-Ky-1g1" id="7cQ-dm-2IB"/>
+                        <outlet property="shiftDescription" destination="kKN-Ky-1g1" id="1jO-wI-iPF"/>
                         <outlet property="startHourPicker" destination="pDU-Zo-CXY" id="Iba-iE-MJu"/>
                         <outlet property="timePickersView" destination="R1N-g3-Cu9" id="RAc-sh-ipt"/>
                     </connections>

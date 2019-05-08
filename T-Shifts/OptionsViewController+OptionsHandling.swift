@@ -82,13 +82,34 @@ extension OptionsViewController {
         let editTemplateViewController = storyboard.instantiateViewController(withIdentifier: "EditTemplateViewController") as! EditTemplateViewController
     
         let _ = editTemplateViewController.view
-        editTemplateViewController.label.text = shift.description
+        editTemplateViewController.shiftDescription.text = shift.description
         editTemplateViewController.timePickersView.isHidden = shift.isAllDay
         editTemplateViewController.allDaySwitch.isOn = shift.isAllDay
+        
+        var startHour = DateComponents()
+        startHour.hour = shift.startTime.hours
+        startHour.minute = shift.startTime.minutes
+        
+        var endHour = DateComponents()
+        endHour.hour = shift.endTime.hours
+        endHour.minute = shift.endTime.minutes
+        
+        let calendar = Calendar.current
+        
+        editTemplateViewController.startHourPicker.setDate(calendar.date(from: startHour)!, animated: false)
+        editTemplateViewController.endHourPicker.setDate(calendar.date(from:endHour)!, animated: false)
+        
         editTemplateViewController.updateShiftCallback = {
             var shift = self.shiftsGroup[shiftIndex]
-            shift.description = editTemplateViewController.label.text!
+            shift.description = editTemplateViewController.shiftDescription.text!
             shift.isAllDay = editTemplateViewController.allDaySwitch.isOn
+            
+            shift.startTime = (  hours: calendar.component(.hour, from:editTemplateViewController.startHourPicker.date),
+                               minutes: calendar.component(.minute, from:editTemplateViewController.startHourPicker.date) )
+                
+                shift.endTime = (  hours: calendar.component(.hour, from:editTemplateViewController.endHourPicker.date),
+                                 minutes: calendar.component(.minute, from:editTemplateViewController.endHourPicker.date) )
+
             self.shiftsGroup[shiftIndex] = shift
         }
                 
