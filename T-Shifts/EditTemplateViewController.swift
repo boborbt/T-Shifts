@@ -18,6 +18,7 @@ class EditTemplateViewController: UIViewController {
     @IBOutlet weak var startHourPicker: UIDatePicker!
     @IBOutlet weak var endHourPicker: UIDatePicker!
     
+    var updateShiftCallback: (() -> ())!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,8 @@ class EditTemplateViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    // Updates the UI to reflect that the all-day switch changed value
     @IBAction func allDayChanged(_ sender: UISwitch) {
         UIView.transition(with: timePickersView, duration: 0.4, options: .transitionCrossDissolve, animations: {
             self.timePickersView.isHidden = self.allDaySwitch.isOn
@@ -33,7 +36,7 @@ class EditTemplateViewController: UIViewController {
 
     
     override func viewWillDisappear(_ animated: Bool) {
-        os_log("view controller went away")
+        updateShiftCallback()
     }
 
 

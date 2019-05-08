@@ -71,21 +71,35 @@ extension OptionsViewController {
     
     @objc func editTemplateDetails(sender: ShowEditTemplateButton) {
         guard let navigationController = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController else { return }
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let editTemplateViewController = storyboard.instantiateViewController(withIdentifier: "EditTemplateViewController") as! EditTemplateViewController
         
-            let _ = editTemplateViewController.view
-            editTemplateViewController.label.text = sender.info
-            editTemplateViewController.timePickersView.isHidden = editTemplateViewController.allDaySwitch.isOn
+        let shiftIndex = shiftsGroup.firstIndex(where: { shift in
+            return shift.description == sender.info
+        })!
+        
+        let shift = shiftsGroup[shiftIndex]
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let editTemplateViewController = storyboard.instantiateViewController(withIdentifier: "EditTemplateViewController") as! EditTemplateViewController
+    
+        let _ = editTemplateViewController.view
+        editTemplateViewController.label.text = shift.description
+        editTemplateViewController.timePickersView.isHidden = shift.isAllDay
+        editTemplateViewController.allDaySwitch.isOn = shift.isAllDay
+        editTemplateViewController.updateShiftCallback = {
+            var shift = self.shiftsGroup[shiftIndex]
+            shift.description = editTemplateViewController.label.text!
+            shift.isAllDay = editTemplateViewController.allDaySwitch.isOn
+            self.shiftsGroup[shiftIndex] = shift
+        }
                 
-            navigationController.pushViewController(editTemplateViewController, animated: true)
+        navigationController.pushViewController(editTemplateViewController, animated: true)
     }
     
     
     func addShiftTemplateLine( shift: Shift, color: UIColor, after anchor: NSLayoutYAxisAnchor) {
         let button = ShowEditTemplateButton(info:shift.description)
 //        button.setImage(UIImage(named:"options-icon"), for: .normal)
-        button.setTitle("•••", for: .normal)
+        button.setTitle("···", for: .normal)
         button.setTitleColor(.gray, for: .normal)
         button.frame = CGRect(x:0, y:0, width:28, height:28)
         button.addTarget(self, action: #selector(self.editTemplateDetails(sender:)), for: .touchUpInside)
