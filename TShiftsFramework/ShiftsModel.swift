@@ -23,14 +23,14 @@ public struct Shift: Equatable, Hashable {
     public var description: String
     public var shortcut: String
     public var isAllDay: Bool
-    public var startTime:  (hours:Int, minutes:Int)
-    public var endTime: (hours:Int, minutes:Int)
+    public var startTime:  (hour:Int, minute:Int)
+    public var endTime: (hour:Int, minute:Int)
     
     public init() {
         self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0))
     }
     
-    public init(description: String, shortcut: String, isAllDay: Bool, startTime: (hours:Int, minutes:Int), endTime:(hours:Int, minutes:Int) ) {
+    public init(description: String, shortcut: String, isAllDay: Bool, startTime: (hour:Int, minute:Int), endTime:(hour:Int, minute:Int) ) {
         self.description = description
         self.shortcut = shortcut
         self.isAllDay = isAllDay

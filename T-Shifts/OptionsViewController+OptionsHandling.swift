@@ -87,12 +87,12 @@ extension OptionsViewController {
         editTemplateViewController.allDaySwitch.isOn = shift.isAllDay
         
         var startHour = DateComponents()
-        startHour.hour = shift.startTime.hours
-        startHour.minute = shift.startTime.minutes
+        startHour.hour = shift.startTime.hour
+        startHour.minute = shift.startTime.minute
         
         var endHour = DateComponents()
-        endHour.hour = shift.endTime.hours
-        endHour.minute = shift.endTime.minutes
+        endHour.hour = shift.endTime.hour
+        endHour.minute = shift.endTime.minute
         
         let calendar = Calendar.current
         
@@ -104,11 +104,11 @@ extension OptionsViewController {
             shift.description = editTemplateViewController.shiftDescription.text!
             shift.isAllDay = editTemplateViewController.allDaySwitch.isOn
             
-            shift.startTime = (  hours: calendar.component(.hour, from:editTemplateViewController.startHourPicker.date),
-                               minutes: calendar.component(.minute, from:editTemplateViewController.startHourPicker.date) )
+            shift.startTime = (  hour: calendar.component(.hour, from:editTemplateViewController.startHourPicker.date),
+                               minute: calendar.component(.minute, from:editTemplateViewController.startHourPicker.date) )
                 
-                shift.endTime = (  hours: calendar.component(.hour, from:editTemplateViewController.endHourPicker.date),
-                                 minutes: calendar.component(.minute, from:editTemplateViewController.endHourPicker.date) )
+                shift.endTime = (  hour: calendar.component(.hour, from:editTemplateViewController.endHourPicker.date),
+                                 minute: calendar.component(.minute, from:editTemplateViewController.endHourPicker.date) )
 
             self.shiftsGroup[shiftIndex] = shift
         }

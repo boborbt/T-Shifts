@@ -253,7 +253,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.reloadOptions()
+        appDelegate.syncOptions()
         appDelegate.checkState()
     }
     

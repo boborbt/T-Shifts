@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     weak var optionsController: OptionsViewController!
     
-    func reloadOptions() {
+    func syncOptions() {
         options.shiftTemplates.recomputeShortcuts()
         options.sync()
         
