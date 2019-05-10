@@ -21,6 +21,44 @@ class EditTemplateViewController: UIViewController {
     
     var updateShiftCallback: (() -> ())!
     
+    var shift: Shift {
+        set(shift) {
+            let _ = self.view
+            self.shiftDescription.text = shift.description
+            self.timePickersView.isHidden = shift.isAllDay
+            self.allDaySwitch.isOn = shift.isAllDay
+            
+            var startHour = DateComponents()
+            startHour.hour = shift.startTime.hour
+            startHour.minute = shift.startTime.minute
+            
+            var endHour = DateComponents()
+            endHour.hour = shift.endTime.hour
+            endHour.minute = shift.endTime.minute
+            
+            let calendar = Calendar.current
+            
+            self.startHourPicker.setDate(calendar.date(from: startHour)!, animated: false)
+            self.endHourPicker.setDate(calendar.date(from:endHour)!, animated: false)
+        }
+        
+        get {
+            var result = Shift()
+            let calendar = Calendar.current
+            
+            result.description = shiftDescription.text!
+            result.isAllDay = allDaySwitch.isOn
+            
+            result.startTime = (  hour: calendar.component(.hour, from: startHourPicker.date),
+                                  minute: calendar.component(.minute, from: startHourPicker.date) )
+            
+            result.endTime = (  hour: calendar.component(.hour, from: endHourPicker.date),
+                                minute: calendar.component(.minute, from: endHourPicker.date) )
+            
+            return result
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,43 +78,6 @@ class EditTemplateViewController: UIViewController {
         updateShiftCallback()
     }
     
-    
-    func setup(for shift: Shift, text:String) {
-        let _ = self.view
-        self.shiftDescription.text = text
-        self.timePickersView.isHidden = shift.isAllDay
-        self.allDaySwitch.isOn = shift.isAllDay
-        
-        var startHour = DateComponents()
-        startHour.hour = shift.startTime.hour
-        startHour.minute = shift.startTime.minute
-        
-        var endHour = DateComponents()
-        endHour.hour = shift.endTime.hour
-        endHour.minute = shift.endTime.minute
-        
-        let calendar = Calendar.current
-        
-        self.startHourPicker.setDate(calendar.date(from: startHour)!, animated: false)
-        self.endHourPicker.setDate(calendar.date(from:endHour)!, animated: false)
-
-    }
-    
-    func computeShift() -> Shift {
-        var result = Shift()
-        let calendar = Calendar.current
-        
-        result.description = shiftDescription.text!
-        result.isAllDay = allDaySwitch.isOn
-        
-        result.startTime = (  hour: calendar.component(.hour, from: startHourPicker.date),
-                             minute: calendar.component(.minute, from: startHourPicker.date) )
-        
-        result.endTime = (  hour: calendar.component(.hour, from: endHourPicker.date),
-                           minute: calendar.component(.minute, from: endHourPicker.date) )
-        
-        return result
-    }
 
 
     /*

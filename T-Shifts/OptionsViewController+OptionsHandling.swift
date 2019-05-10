@@ -76,15 +76,15 @@ extension OptionsViewController {
             return field.text == sender.field.text
         })!
         
-        let shift = shiftsGroup[shiftIndex]
+        var shift = shiftsGroup[shiftIndex]
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let editTemplateViewController = storyboard.instantiateViewController(withIdentifier: "EditTemplateViewController") as! EditTemplateViewController
     
-        editTemplateViewController.setup(for: shift, text: sender.field.text ?? "")
+        shift.description = sender.field.text ?? ""
+        editTemplateViewController.shift = shift
         editTemplateViewController.updateShiftCallback = { () in
-            let shift = editTemplateViewController.computeShift()
-            self.shiftsGroup[shiftIndex] = shift
+            self.shiftsGroup[shiftIndex] = editTemplateViewController.shift
         }
                 
         navigationController.pushViewController(editTemplateViewController, animated: true)
