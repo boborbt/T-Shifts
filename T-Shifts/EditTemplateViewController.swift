@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import TShiftsFramework
 
 class EditTemplateViewController: UIViewController {
     
@@ -37,6 +38,28 @@ class EditTemplateViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         updateShiftCallback()
+    }
+    
+    
+    func setup(for shift: Shift, text:String) {
+        let _ = self.view
+        self.shiftDescription.text = text
+        self.timePickersView.isHidden = shift.isAllDay
+        self.allDaySwitch.isOn = shift.isAllDay
+        
+        var startHour = DateComponents()
+        startHour.hour = shift.startTime.hour
+        startHour.minute = shift.startTime.minute
+        
+        var endHour = DateComponents()
+        endHour.hour = shift.endTime.hour
+        endHour.minute = shift.endTime.minute
+        
+        let calendar = Calendar.current
+        
+        self.startHourPicker.setDate(calendar.date(from: startHour)!, animated: false)
+        self.endHourPicker.setDate(calendar.date(from:endHour)!, animated: false)
+
     }
 
 

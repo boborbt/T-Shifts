@@ -70,36 +70,20 @@ extension OptionsViewController {
     
     
     @objc func editTemplateDetails(sender: ShowEditTemplateButton) {
-        guard let navigationController = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController else { return }
+        guard let navigationController = UIApplication.shared.delegate!.window!!.rootViewController as? UINavigationController else { return }
         
-        let shiftIndex = shiftsGroup.firstIndex(where: { shift in
-            return shift.description == sender.info
+        let shiftIndex = shiftsFieldsGroup.firstIndex(where: { field in
+            return field.text == sender.field.text
         })!
         
         let shift = shiftsGroup[shiftIndex]
+        let calendar = Calendar.current
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let editTemplateViewController = storyboard.instantiateViewController(withIdentifier: "EditTemplateViewController") as! EditTemplateViewController
     
-        let _ = editTemplateViewController.view
-        editTemplateViewController.shiftDescription.text = shift.description
-        editTemplateViewController.timePickersView.isHidden = shift.isAllDay
-        editTemplateViewController.allDaySwitch.isOn = shift.isAllDay
-        
-        var startHour = DateComponents()
-        startHour.hour = shift.startTime.hour
-        startHour.minute = shift.startTime.minute
-        
-        var endHour = DateComponents()
-        endHour.hour = shift.endTime.hour
-        endHour.minute = shift.endTime.minute
-        
-        let calendar = Calendar.current
-        
-        editTemplateViewController.startHourPicker.setDate(calendar.date(from: startHour)!, animated: false)
-        editTemplateViewController.endHourPicker.setDate(calendar.date(from:endHour)!, animated: false)
-        
-        editTemplateViewController.updateShiftCallback = {
+        editTemplateViewController.setup(for: shift, text: sender.field.text ?? "")
+        editTemplateViewController.updateShiftCallback = { () in
             var shift = self.shiftsGroup[shiftIndex]
             shift.description = editTemplateViewController.shiftDescription.text!
             shift.isAllDay = editTemplateViewController.allDaySwitch.isOn
@@ -118,18 +102,9 @@ extension OptionsViewController {
     
     
     func addShiftTemplateLine( shift: Shift, color: UIColor, after anchor: NSLayoutYAxisAnchor) {
-        let button = ShowEditTemplateButton(info:shift.description)
-//        button.setImage(UIImage(named:"options-icon"), for: .normal)
-        button.setTitle("···", for: .normal)
-        button.setTitleColor(.gray, for: .normal)
-        button.frame = CGRect(x:0, y:0, width:28, height:28)
-        button.addTarget(self, action: #selector(self.editTemplateDetails(sender:)), for: .touchUpInside)
-        
-//        button.layer.borderColor = UIColor.gray.cgColor
-//        button.layer.borderWidth = 1.0
-//        button.layer.cornerRadius = 5
-        
         let field = UITextField()
+        let button = ShowEditTemplateButton(field:field)
+        
         field.placeholder = LocalizedStrings.shiftNamePlaceholder
         field.text = shift.description
         field.backgroundColor = color.withAlphaComponent(0.1)
@@ -142,14 +117,18 @@ extension OptionsViewController {
         field.rightView = button
         field.rightViewMode = .unlessEditing
 
-        
-        
         scrollView.addSubview(field)
         
         field.translatesAutoresizingMaskIntoConstraints = false
         field.topAnchor.constraint(equalTo: anchor, constant: Insets.fieldTop).isActive = true
         field.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: Insets.fieldLeft).isActive = true
         field.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.fieldRight).isActive = true
+        
+        button.setTitle("···", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        button.frame = CGRect(x:0, y:0, width:28, height:28)
+        button.addTarget(self, action: #selector(self.editTemplateDetails(sender:)), for: .touchUpInside)
+
         
         shiftsFieldsGroup.append(field)
         shiftsGroup.append(shift)

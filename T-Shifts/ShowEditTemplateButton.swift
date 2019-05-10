@@ -9,21 +9,19 @@
 import UIKit
 
 class ShowEditTemplateButton: UIButton {
-    var info: String
+    var field: UITextField!
     
     required init?(coder aDecoder: NSCoder) {
-        info = ""
         super.init(coder:aDecoder)
     }
     
     override init(frame: CGRect) {
-        info = ""
         super.init(frame: frame)
     }
     
-    convenience init(info: String) {
+    convenience init(field: UITextField) {
         self.init(type:.custom)
-        self.info = info
+        self.field = field
 //        self.init(.zero)
     }
     
