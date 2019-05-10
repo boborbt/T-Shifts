@@ -77,23 +77,13 @@ extension OptionsViewController {
         })!
         
         let shift = shiftsGroup[shiftIndex]
-        let calendar = Calendar.current
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let editTemplateViewController = storyboard.instantiateViewController(withIdentifier: "EditTemplateViewController") as! EditTemplateViewController
     
         editTemplateViewController.setup(for: shift, text: sender.field.text ?? "")
         editTemplateViewController.updateShiftCallback = { () in
-            var shift = self.shiftsGroup[shiftIndex]
-            shift.description = editTemplateViewController.shiftDescription.text!
-            shift.isAllDay = editTemplateViewController.allDaySwitch.isOn
-            
-            shift.startTime = (  hour: calendar.component(.hour, from:editTemplateViewController.startHourPicker.date),
-                               minute: calendar.component(.minute, from:editTemplateViewController.startHourPicker.date) )
-                
-                shift.endTime = (  hour: calendar.component(.hour, from:editTemplateViewController.endHourPicker.date),
-                                 minute: calendar.component(.minute, from:editTemplateViewController.endHourPicker.date) )
-
+            let shift = editTemplateViewController.computeShift()
             self.shiftsGroup[shiftIndex] = shift
         }
                 

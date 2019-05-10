@@ -61,6 +61,22 @@ class EditTemplateViewController: UIViewController {
         self.endHourPicker.setDate(calendar.date(from:endHour)!, animated: false)
 
     }
+    
+    func computeShift() -> Shift {
+        var result = Shift()
+        let calendar = Calendar.current
+        
+        result.description = shiftDescription.text!
+        result.isAllDay = allDaySwitch.isOn
+        
+        result.startTime = (  hour: calendar.component(.hour, from: startHourPicker.date),
+                             minute: calendar.component(.minute, from: startHourPicker.date) )
+        
+        result.endTime = (  hour: calendar.component(.hour, from: endHourPicker.date),
+                           minute: calendar.component(.minute, from: endHourPicker.date) )
+        
+        return result
+    }
 
 
     /*
