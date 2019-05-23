@@ -15,11 +15,19 @@ class EditTemplateViewController: UIViewController {
     
     @IBOutlet weak var shiftDescription: UILabel!
     @IBOutlet weak var timePickersView: UIView!
+    
     @IBOutlet weak var allDaySwitch: UISwitch!
+    
+    @IBOutlet weak var startHourLabel: UILabel!
     @IBOutlet weak var startHourPicker: UIDatePicker!
+    @IBOutlet weak var startHourPickerHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var endHourLabel: UILabel!
     @IBOutlet weak var endHourPicker: UIDatePicker!
+    @IBOutlet weak var endHourPickerHeightConstraint: NSLayoutConstraint!
     
     var updateShiftCallback: (() -> ())!
+    var hourFormatter: DateFormatter!
     
     var shift: Shift {
         set(shift) {
@@ -37,9 +45,15 @@ class EditTemplateViewController: UIViewController {
             endHour.minute = shift.endTime.minute
             
             let calendar = Calendar.current
+            let startDate = calendar.date(from: startHour)!
+            let endDate = calendar.date(from:endHour)!
             
-            self.startHourPicker.setDate(calendar.date(from: startHour)!, animated: false)
-            self.endHourPicker.setDate(calendar.date(from:endHour)!, animated: false)
+            self.startHourPicker.setDate(startDate, animated: false)
+            self.endHourPicker.setDate(endDate, animated: false)
+            
+            startHourLabel.text = hourFormatter.string(from: startDate)
+            endHourLabel.text = hourFormatter.string(from:endDate)
+
         }
         
         get {
@@ -62,6 +76,12 @@ class EditTemplateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startDatePickerSetVisibility(hidden: true, animated: false)
+        endDatePickerSetVisibility(hidden: true, animated: false)
+        
+        hourFormatter = DateFormatter()
+        hourFormatter.dateStyle = .none
+        hourFormatter.timeStyle = .short
         // Do any additional setup after loading the view.
     }
     
@@ -72,12 +92,51 @@ class EditTemplateViewController: UIViewController {
             self.timePickersView.isHidden = self.allDaySwitch.isOn
         }, completion: nil)
     }
-
+    
+    
+    @IBAction func fromLabelTap(_ sender: UITapGestureRecognizer) {
+        os_log(.debug, "from label tap")
+        
+        let newState = !startHourPicker.isHidden;
+        startDatePickerSetVisibility(hidden: newState, animated: true)
+    }
+    
+    @IBAction func toLabelTap(_ sender: UITapGestureRecognizer) {
+        os_log(.debug, "to label tap")
+        let newState = !endHourPicker.isHidden;
+        endDatePickerSetVisibility(hidden: newState, animated: true)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         updateShiftCallback()
     }
     
+    @IBAction func startHourPickerDidChange(_ sender: UIDatePicker) {
+        startHourLabel.text = hourFormatter.string(from: startHourPicker.date)
+    }
+    
+    @IBAction func endHourPickerDidChange(_ sender: UIDatePicker) {
+        endHourLabel.text = hourFormatter.string(from: endHourPicker.date)
+    }
+    
+    func startDatePickerSetVisibility(hidden: Bool, animated: Bool) {
+            startHourPicker.isHidden = hidden
+        
+        UIView.animate(withDuration: (animated ? 0.5 : 0.0) , animations: {
+            self.startHourPickerHeightConstraint.constant = (hidden ? 0 : 242)
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func endDatePickerSetVisibility(hidden: Bool, animated: Bool) {
+        endHourPicker.isHidden = hidden
+
+        UIView.animate(withDuration: (animated ? 0.5 : 0.0) , animations: {
+            self.endHourPickerHeightConstraint.constant = (hidden ? 0 : 242)
+            self.view.layoutIfNeeded()
+        })
+        
+    }
 
 
     /*

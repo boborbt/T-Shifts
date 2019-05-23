@@ -199,6 +199,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alarm:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXz-pL-amW">
+                                        <rect key="frame" x="46" y="514" width="52" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKw-ye-66s">
                                         <rect key="frame" x="53" y="8" width="45" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -207,48 +213,76 @@
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="j7G-nD-Nlb">
                                         <rect key="frame" x="47" y="290" width="320" height="216"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="216" id="bcg-LL-BvK"/>
+                                        </constraints>
                                         <date key="date" timeIntervalSinceReferenceDate="578573125.12040603">
                                             <!--2019-05-03 10:45:25 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="endHourPickerDidChange:" destination="bTD-1l-8wn" eventType="valueChanged" id="cJ7-fC-kOp"/>
+                                        </connections>
                                     </datePicker>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pDU-Zo-CXY">
                                         <rect key="frame" x="47" y="42" width="320" height="216"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="216" id="gt8-p1-Ab1"/>
+                                        </constraints>
                                         <date key="date" timeIntervalSinceReferenceDate="578573125.12040603">
                                             <!--2019-05-03 10:45:25 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="startHourPickerDidChange:" destination="bTD-1l-8wn" eventType="valueChanged" id="VGp-56-0sD"/>
+                                        </connections>
                                     </datePicker>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdX-9c-fBn" userLabel="fromLabel">
                                         <rect key="frame" x="114" y="8" width="253" height="21"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="qG4-oa-ek5" appends="YES" id="fk3-GH-cTr"/>
+                                        </connections>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhY-fO-w4J" userLabel="toLabel">
                                         <rect key="frame" x="114" y="261" width="253" height="21"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="EZR-Cz-9X5" appends="YES" id="w6c-5O-1jj"/>
+                                        </connections>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdM-2j-Uf2">
+                                        <rect key="frame" x="114" y="509" width="51" height="31"/>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="VKw-ye-66s" firstAttribute="top" secondItem="R1N-g3-Cu9" secondAttribute="top" constant="8" id="6qk-Zf-Ymb"/>
+                                    <constraint firstItem="ePv-XN-BMb" firstAttribute="top" secondItem="pDU-Zo-CXY" secondAttribute="bottom" constant="3" id="8rb-WK-KrY"/>
                                     <constraint firstItem="yhY-fO-w4J" firstAttribute="centerY" secondItem="ePv-XN-BMb" secondAttribute="centerY" id="E9a-Mg-CtB"/>
                                     <constraint firstItem="VKw-ye-66s" firstAttribute="leading" secondItem="R1N-g3-Cu9" secondAttribute="leading" constant="53" id="HCI-Jh-Vu2"/>
                                     <constraint firstAttribute="trailing" secondItem="pDU-Zo-CXY" secondAttribute="trailing" constant="8" id="Haw-Rh-qsn"/>
                                     <constraint firstItem="VdX-9c-fBn" firstAttribute="leading" secondItem="yhY-fO-w4J" secondAttribute="leading" id="Jjj-c3-YE8"/>
                                     <constraint firstAttribute="trailing" secondItem="VdX-9c-fBn" secondAttribute="trailing" constant="8" id="LGU-U2-yMM"/>
                                     <constraint firstItem="ePv-XN-BMb" firstAttribute="trailing" secondItem="VKw-ye-66s" secondAttribute="trailing" id="Nws-zW-R9n"/>
+                                    <constraint firstItem="sdM-2j-Uf2" firstAttribute="leading" secondItem="yhY-fO-w4J" secondAttribute="leading" id="OTg-nJ-MgC"/>
+                                    <constraint firstItem="sdM-2j-Uf2" firstAttribute="centerY" secondItem="PXz-pL-amW" secondAttribute="centerY" id="QPo-WT-WTc"/>
+                                    <constraint firstItem="PXz-pL-amW" firstAttribute="top" secondItem="j7G-nD-Nlb" secondAttribute="bottom" constant="8" id="SBE-hx-nN0"/>
                                     <constraint firstItem="pDU-Zo-CXY" firstAttribute="top" secondItem="VKw-ye-66s" secondAttribute="bottom" constant="13" id="VxV-9P-fxw"/>
                                     <constraint firstItem="VdX-9c-fBn" firstAttribute="leading" secondItem="VKw-ye-66s" secondAttribute="trailing" constant="16" id="Z6R-o6-yqa"/>
                                     <constraint firstItem="ePv-XN-BMb" firstAttribute="leading" secondItem="R1N-g3-Cu9" secondAttribute="leading" constant="75" id="ZzI-Ey-R5E"/>
                                     <constraint firstItem="pDU-Zo-CXY" firstAttribute="trailing" secondItem="yhY-fO-w4J" secondAttribute="trailing" id="f5L-Vv-dOF"/>
+                                    <constraint firstItem="PXz-pL-amW" firstAttribute="trailing" secondItem="ePv-XN-BMb" secondAttribute="trailing" id="o26-lg-TmA"/>
                                     <constraint firstItem="ePv-XN-BMb" firstAttribute="top" secondItem="pDU-Zo-CXY" secondAttribute="bottom" constant="3" id="pz6-4F-8Dd"/>
                                     <constraint firstItem="j7G-nD-Nlb" firstAttribute="top" secondItem="ePv-XN-BMb" secondAttribute="bottom" constant="8" symbolic="YES" id="rQX-m8-zW3"/>
                                     <constraint firstItem="VdX-9c-fBn" firstAttribute="centerY" secondItem="VKw-ye-66s" secondAttribute="centerY" id="uMK-qo-D4g"/>
@@ -285,13 +319,27 @@
                     </view>
                     <connections>
                         <outlet property="allDaySwitch" destination="jcO-Pt-KEW" id="XP9-HZ-Vmn"/>
+                        <outlet property="endHourLabel" destination="yhY-fO-w4J" id="4eb-o6-1Cs"/>
                         <outlet property="endHourPicker" destination="j7G-nD-Nlb" id="w7Y-os-mo8"/>
+                        <outlet property="endHourPickerHeightConstraint" destination="bcg-LL-BvK" id="Qlv-pq-c0N"/>
                         <outlet property="shiftDescription" destination="kKN-Ky-1g1" id="1jO-wI-iPF"/>
+                        <outlet property="startHourLabel" destination="VdX-9c-fBn" id="NHT-i9-v2f"/>
                         <outlet property="startHourPicker" destination="pDU-Zo-CXY" id="Iba-iE-MJu"/>
+                        <outlet property="startHourPickerHeightConstraint" destination="gt8-p1-Ab1" id="H4H-dK-fDC"/>
                         <outlet property="timePickersView" destination="R1N-g3-Cu9" id="RAc-sh-ipt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I8-0v-Nsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qG4-oa-ek5" userLabel="fromLabel Tap Recognizer">
+                    <connections>
+                        <action selector="fromLabelTap:" destination="bTD-1l-8wn" id="38G-hg-K93"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="EZR-Cz-9X5" userLabel="toLabel Tap Recognizer">
+                    <connections>
+                        <action selector="toLabelTap:" destination="bTD-1l-8wn" id="RXs-ai-RdQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-842.39999999999998" y="747.9760119940031"/>
         </scene>
