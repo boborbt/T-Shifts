@@ -344,16 +344,16 @@
 			children = (
 				F85D0A831F7170550070CEDD /* EasyTipView.framework.dSYM */,
 				F85D0A841F7170550070CEDD /* JTAppleCalendar.framework.dSYM */,
-				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
-				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
-				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
-				F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */,
 				F8BC6133221B03EE00907179 /* TShiftsFramework */,
-				F8BC6140221B03EE00907179 /* TShiftsFrameworkTests */,
+				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
+				F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */,
 				F8E9B5391E27C9A600390BD3 /* Products */,
 				F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */,
 				F85D0A871F7171430070CEDD /* Frameworks */,
 				F826EF12224A7A5100908074 /* TShiftsFrameworkTests copy-Info.plist */,
+				F8BC6140221B03EE00907179 /* TShiftsFrameworkTests */,
+				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
+				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
 			);
 			sourceTree = "<group>";
 		};

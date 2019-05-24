@@ -111,6 +111,8 @@ public class Options {
             dict["startTime"] = startTime
             dict["endTime"] = endTime
             
+            dict["alert"] = template.shift.alert
+            
             templates.append(dict)
         }
         
@@ -130,11 +132,13 @@ public class Options {
             let st = (template["startTime"] as? [String:Int]) ?? [:]
             let et = (template["endTime"] as? [String:Int]) ?? [:]
             
+            
             let shift = Shift(description: description,
                               shortcut: shortcut,
                               isAllDay: template["isAllDay"] as? Bool ?? true,
                               startTime:(st["hour"] ?? 8, st["minute"] ?? 0),
-                              endTime:(et["hour"] ?? 16, et["minute"] ?? 0))
+                              endTime:(et["hour"] ?? 16, et["minute"] ?? 0),
+                              alarm: template["alert"] as? Bool ?? false)
             
             let shiftTemplate = ShiftTemplate(shift: shift, position: position, color: self.parse(color:color))
             resultArray.append(shiftTemplate)

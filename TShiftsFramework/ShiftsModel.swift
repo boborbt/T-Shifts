@@ -25,17 +25,19 @@ public struct Shift: Equatable, Hashable {
     public var isAllDay: Bool
     public var startTime:  (hour:Int, minute:Int)
     public var endTime: (hour:Int, minute:Int)
+    public var alert: Bool
     
     public init() {
-        self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0))
+        self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0), alarm: false)
     }
     
-    public init(description: String, shortcut: String, isAllDay: Bool, startTime: (hour:Int, minute:Int), endTime:(hour:Int, minute:Int) ) {
+    public init(description: String, shortcut: String, isAllDay: Bool, startTime: (hour:Int, minute:Int), endTime:(hour:Int, minute:Int), alarm: Bool ) {
         self.description = description
         self.shortcut = shortcut
         self.isAllDay = isAllDay
         self.startTime = startTime
         self.endTime = endTime
+        self.alert = alarm;
     }
     
     public var isActive: Bool {
@@ -437,6 +439,7 @@ public class CalendarShiftUpdater {
             event.isAllDay = shift.isAllDay
             event.title = shift.description
             event.calendar = targetCalendar!
+            event.addAlarm(EKAlarm(relativeOffset: TimeInterval(-60 * 30)))
             
             try store.save(event, span: EKSpan.thisEvent, commit: false)
             os_log(.debug, "Shift saved to Calendar store: %@", shift.description)

@@ -26,6 +26,9 @@ class EditTemplateViewController: UIViewController {
     @IBOutlet weak var endHourPicker: UIDatePicker!
     @IBOutlet weak var endHourPickerHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var alertSwitch: UISwitch!
+    @IBOutlet weak var alertMinutes: UITextField!
+    
     var updateShiftCallback: (() -> ())!
     var hourFormatter: DateFormatter!
     
@@ -50,6 +53,7 @@ class EditTemplateViewController: UIViewController {
             
             self.startHourPicker.setDate(startDate, animated: false)
             self.endHourPicker.setDate(endDate, animated: false)
+            self.alertSwitch.isOn = shift.alert
             
             startHourLabel.text = hourFormatter.string(from: startDate)
             endHourLabel.text = hourFormatter.string(from:endDate)
@@ -69,6 +73,8 @@ class EditTemplateViewController: UIViewController {
             result.endTime = (  hour: calendar.component(.hour, from: endHourPicker.date),
                                 minute: calendar.component(.minute, from: endHourPicker.date) )
             
+            result.alert = alertSwitch.isOn
+            
             return result
         }
     }
@@ -82,7 +88,16 @@ class EditTemplateViewController: UIViewController {
         hourFormatter = DateFormatter()
         hourFormatter.dateStyle = .none
         hourFormatter.timeStyle = .short
-        // Do any additional setup after loading the view.
+        
+        let keypadToolbar: UIToolbar = UIToolbar()
+        
+        // add a done button to the numberpad
+        keypadToolbar.items=[
+            UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: alertMinutes, action: #selector(UITextField.resignFirstResponder)),
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        ]
+        keypadToolbar.sizeToFit()
+        alertMinutes.inputAccessoryView = keypadToolbar
     }
     
     
