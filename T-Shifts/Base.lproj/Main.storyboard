@@ -263,12 +263,18 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdM-2j-Uf2" userLabel="alarmSwitch">
                                         <rect key="frame" x="114" y="509" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="fieldTap:" destination="bTD-1l-8wn" eventType="valueChanged" id="va4-IV-Wk2"/>
+                                        </connections>
                                     </switch>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="minutes before shifts" textAlignment="right" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-BE-gsw">
                                         <rect key="frame" x="192" y="509.5" width="175" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="fieldTap:" destination="bTD-1l-8wn" eventType="touchDown" id="f4R-12-wg0"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
