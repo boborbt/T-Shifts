@@ -11,6 +11,9 @@ import EventKit
 import os.log
 
 
+public typealias AlertInfo = (active: Bool, minutes: Int)
+public typealias ShiftTime = (hour:Int, minute: Int)
+
 // MARK: TYPE DEFINITIONS
 
 // A Shift contains the informations needed to describe a shift
@@ -23,21 +26,21 @@ public struct Shift: Equatable, Hashable {
     public var description: String
     public var shortcut: String
     public var isAllDay: Bool
-    public var startTime:  (hour:Int, minute:Int)
-    public var endTime: (hour:Int, minute:Int)
-    public var alert: Bool
+    public var startTime:  ShiftTime
+    public var endTime: ShiftTime
+    public var alert: AlertInfo
     
     public init() {
-        self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0), alarm: false)
+        self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0), alert:(active:false, minutes:-60))
     }
     
-    public init(description: String, shortcut: String, isAllDay: Bool, startTime: (hour:Int, minute:Int), endTime:(hour:Int, minute:Int), alarm: Bool ) {
+    public init(description: String, shortcut: String, isAllDay: Bool, startTime: ShiftTime, endTime:ShiftTime, alert: AlertInfo ) {
         self.description = description
         self.shortcut = shortcut
         self.isAllDay = isAllDay
         self.startTime = startTime
         self.endTime = endTime
-        self.alert = alarm;
+        self.alert = alert;
     }
     
     public var isActive: Bool {
@@ -439,7 +442,10 @@ public class CalendarShiftUpdater {
             event.isAllDay = shift.isAllDay
             event.title = shift.description
             event.calendar = targetCalendar!
-            event.addAlarm(EKAlarm(relativeOffset: TimeInterval(-60 * 30)))
+            
+            if shift.alert.active {
+                event.addAlarm(EKAlarm(relativeOffset: TimeInterval(-60 * shift.alert.minutes)))
+            }
             
             try store.save(event, span: EKSpan.thisEvent, commit: false)
             os_log(.debug, "Shift saved to Calendar store: %@", shift.description)

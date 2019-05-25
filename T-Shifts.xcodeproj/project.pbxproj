@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5B9766722999EBC00BC6004 /* HourPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9766622999EBC00BC6004 /* HourPicker.swift */; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */; };
@@ -118,7 +117,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A5B9766622999EBC00BC6004 /* HourPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourPicker.swift; sourceTree = "<group>"; };
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */,
 				F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */,
 				F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */,
-				A5B9766622999EBC00BC6004 /* HourPicker.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -629,7 +626,6 @@
 				F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */,
 				F8DBA7831E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* MainViewController.swift in Sources */,
-				A5B9766722999EBC00BC6004 /* HourPicker.swift in Sources */,
 				F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */,
 				F89D61451E5D98C40060911E /* MarkButtonsArrayView.swift in Sources */,
 				F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */,

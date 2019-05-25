@@ -56,7 +56,8 @@ class EditTemplateViewController: UIViewController {
             
             self.startHourPicker.setDate(startDate, animated: false)
             self.endHourPicker.setDate(endDate, animated: false)
-            self.alertSwitch.isOn = shift.alert
+            self.alertSwitch.isOn = shift.alert.active
+            self.alertMinutes.text = String(shift.alert.minutes)
             
             startHourLabel.text = hourFormatter.string(from: startDate)
             endHourLabel.text = hourFormatter.string(from:endDate)
@@ -76,7 +77,8 @@ class EditTemplateViewController: UIViewController {
             result.endTime = (  hour: calendar.component(.hour, from: endHourPicker.date),
                                 minute: calendar.component(.minute, from: endHourPicker.date) )
             
-            result.alert = alertSwitch.isOn
+            result.alert.active = alertSwitch.isOn
+            result.alert.minutes = Int(alertMinutes.text ?? "60") ?? 60
             
             return result
         }
