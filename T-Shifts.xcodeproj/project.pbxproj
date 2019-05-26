@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5404B52229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B50229AF8F000A15CE8 /* InfoPlist.strings */; };
+		A5404B55229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B53229AF8F000A15CE8 /* InfoPlist.strings */; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */; };
@@ -117,6 +119,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A5404B51229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A5404B54229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A5404B56229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
@@ -314,6 +319,7 @@
 				F8BC6150221B043E00907179 /* AttributedString+LinkAttributes.swift */,
 				F8BC6134221B03EE00907179 /* TShiftsFramework.h */,
 				F8BC6135221B03EE00907179 /* Info.plist */,
+				A5404B50229AF8F000A15CE8 /* InfoPlist.strings */,
 			);
 			path = TShiftsFramework;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */,
 				F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */,
 				F8C7F263219AF9FC00E0FDA2 /* Info.plist */,
+				A5404B53229AF8F000A15CE8 /* InfoPlist.strings */,
 			);
 			path = "TShifts Today Widget";
 			sourceTree = "<group>";
@@ -549,6 +556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5404B52229AF8F000A15CE8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C7F262219AF9FC00E0FDA2 /* MainInterface.storyboard in Resources */,
+				A5404B55229AF8F000A15CE8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +675,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A5404B50229AF8F000A15CE8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5404B51229AF8F000A15CE8 /* it */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A5404B53229AF8F000A15CE8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5404B54229AF8F000A15CE8 /* it */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F833BB2B1E79801A00EA3BB2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -703,6 +728,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F8C7F261219AF9FC00E0FDA2 /* Base */,
+				A5404B56229AF8F000A15CE8 /* it */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";

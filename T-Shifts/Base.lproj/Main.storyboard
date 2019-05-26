@@ -33,11 +33,17 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Gf0-TF-GF1">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-B3-fuN" userLabel="Month">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="month placeholder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-B3-fuN" userLabel="Month">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" none="YES"/>
+                                                                </accessibility>
                                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="29"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <attributedString key="userComments">
+                                                                    <fragment content="no need to localize"/>
+                                                                </attributedString>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -178,14 +184,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKN-Ky-1g1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shift placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKN-Ky-1g1">
                                 <rect key="frame" x="114" y="60" width="188" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="no need to localize"/>
+                                </attributedString>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXc-mh-l9Z">
-                                <rect key="frame" x="309" y="26" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All day" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXc-mh-l9Z">
+                                <rect key="frame" x="24" y="26" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -235,7 +247,7 @@
                                             <action selector="startHourPickerDidChange:" destination="bTD-1l-8wn" eventType="valueChanged" id="VGp-56-0sD"/>
                                         </connections>
                                     </datePicker>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdX-9c-fBn" userLabel="fromLabel">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdX-9c-fBn" userLabel="fromLabel">
                                         <rect key="frame" x="114" y="8" width="253" height="21"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
@@ -244,11 +256,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <attributedString key="userComments">
+                                            <fragment content="no need to localize"/>
+                                        </attributedString>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="qG4-oa-ek5" appends="YES" id="fk3-GH-cTr"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhY-fO-w4J" userLabel="toLabel">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhY-fO-w4J" userLabel="toLabel">
                                         <rect key="frame" x="114" y="95" width="253" height="21"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
@@ -257,6 +272,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <attributedString key="userComments">
+                                            <fragment content="no need to localize"/>
+                                        </attributedString>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="EZR-Cz-9X5" appends="YES" id="w6c-5O-1jj"/>
                                         </connections>
@@ -339,13 +357,14 @@
                             <constraint firstItem="jcO-Pt-KEW" firstAttribute="centerY" secondItem="kKN-Ky-1g1" secondAttribute="centerY" id="0Dp-XK-3yh"/>
                             <constraint firstItem="kKN-Ky-1g1" firstAttribute="top" secondItem="ySe-p8-6dB" secondAttribute="bottom" constant="40" id="Chd-Q0-3ul"/>
                             <constraint firstItem="R1N-g3-Cu9" firstAttribute="bottom" secondItem="Ygc-Dd-Nfo" secondAttribute="top" id="PXq-3w-DId"/>
+                            <constraint firstItem="jcO-Pt-KEW" firstAttribute="trailing" secondItem="pXc-mh-l9Z" secondAttribute="trailing" id="Pis-fN-C08"/>
                             <constraint firstItem="jcO-Pt-KEW" firstAttribute="top" secondItem="pXc-mh-l9Z" secondAttribute="bottom" constant="8" id="SIM-dq-LfB"/>
                             <constraint firstItem="R1N-g3-Cu9" firstAttribute="top" secondItem="jcO-Pt-KEW" secondAttribute="bottom" constant="23" id="T9c-Su-dEz"/>
+                            <constraint firstItem="pXc-mh-l9Z" firstAttribute="leading" secondItem="JGh-dU-R0X" secondAttribute="leadingMargin" constant="8" id="ZIy-iT-Z5n"/>
                             <constraint firstItem="VKw-ye-66s" firstAttribute="trailing" secondItem="BAk-Ng-9aR" secondAttribute="trailing" id="dy2-fn-Kt2"/>
                             <constraint firstItem="BAk-Ng-9aR" firstAttribute="leading" secondItem="JGh-dU-R0X" secondAttribute="leadingMargin" constant="8" id="fdT-aj-oMI"/>
                             <constraint firstItem="VdX-9c-fBn" firstAttribute="leading" secondItem="kKN-Ky-1g1" secondAttribute="leading" id="iyE-yb-af2"/>
                             <constraint firstItem="BAk-Ng-9aR" firstAttribute="centerY" secondItem="kKN-Ky-1g1" secondAttribute="centerY" id="j2z-4h-71B"/>
-                            <constraint firstItem="jcO-Pt-KEW" firstAttribute="centerX" secondItem="pXc-mh-l9Z" secondAttribute="centerX" id="qch-QZ-kBY"/>
                             <constraint firstItem="R1N-g3-Cu9" firstAttribute="leading" secondItem="JGh-dU-R0X" secondAttribute="leading" id="sbx-DT-aTL"/>
                             <constraint firstItem="jcO-Pt-KEW" firstAttribute="trailing" secondItem="JGh-dU-R0X" secondAttribute="trailingMargin" id="w16-bo-TyC"/>
                             <constraint firstItem="jcO-Pt-KEW" firstAttribute="leading" secondItem="kKN-Ky-1g1" secondAttribute="trailing" constant="8" id="yBF-DT-zXG"/>
