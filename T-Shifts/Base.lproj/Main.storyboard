@@ -200,7 +200,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alert:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXz-pL-amW">
-                                        <rect key="frame" x="54" y="514" width="44" height="21"/>
+                                        <rect key="frame" x="54" y="348" width="44" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -212,9 +212,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="j7G-nD-Nlb">
-                                        <rect key="frame" x="47" y="290" width="320" height="216"/>
+                                        <rect key="frame" x="47" y="290" width="320" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="216" id="bcg-LL-BvK"/>
+                                            <constraint firstAttribute="height" constant="50" id="bcg-LL-BvK"/>
                                         </constraints>
                                         <date key="date" timeIntervalSinceReferenceDate="578573125.12040603">
                                             <!--2019-05-03 10:45:25 +0000-->
@@ -262,37 +262,58 @@
                                         </connections>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdM-2j-Uf2" userLabel="alarmSwitch">
-                                        <rect key="frame" x="114" y="509" width="51" height="31"/>
+                                        <rect key="frame" x="114" y="343" width="51" height="31"/>
                                         <connections>
                                             <action selector="fieldTap:" destination="bTD-1l-8wn" eventType="valueChanged" id="va4-IV-Wk2"/>
                                         </connections>
                                     </switch>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="minutes before shifts" textAlignment="right" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-BE-gsw">
-                                        <rect key="frame" x="192" y="509.5" width="175" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="fieldTap:" destination="bTD-1l-8wn" eventType="touchDown" id="f4R-12-wg0"/>
-                                        </connections>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlV-xP-fGo" userLabel="minutesBeforeStartView">
+                                        <rect key="frame" x="174" y="343" width="193" height="207"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="default: 0" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-BE-gsw">
+                                                <rect key="frame" x="8" y="0.0" width="185" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="fieldTap:" destination="bTD-1l-8wn" eventType="touchDown" id="f4R-12-wg0"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes before shift start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-k4-C4S">
+                                                <rect key="frame" x="0.0" y="38" width="193" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="WP8-BE-gsw" firstAttribute="top" secondItem="XlV-xP-fGo" secondAttribute="top" id="Iff-AQ-ahi"/>
+                                            <constraint firstItem="6nC-k4-C4S" firstAttribute="top" secondItem="WP8-BE-gsw" secondAttribute="bottom" constant="8" id="R2N-fM-oCY"/>
+                                            <constraint firstItem="6nC-k4-C4S" firstAttribute="trailing" secondItem="WP8-BE-gsw" secondAttribute="trailing" id="j9O-IR-YMJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="WP8-BE-gsw" secondAttribute="trailing" id="t1W-Uy-xhI"/>
+                                            <constraint firstItem="WP8-BE-gsw" firstAttribute="leading" secondItem="XlV-xP-fGo" secondAttribute="leading" constant="8" id="ywx-wE-Fwh"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WP8-BE-gsw" secondAttribute="trailing" constant="8" id="075-Zw-uNP"/>
+                                    <constraint firstItem="XlV-xP-fGo" firstAttribute="top" secondItem="sdM-2j-Uf2" secondAttribute="top" id="3xQ-9C-vDd"/>
                                     <constraint firstItem="VKw-ye-66s" firstAttribute="top" secondItem="R1N-g3-Cu9" secondAttribute="top" constant="8" id="6qk-Zf-Ymb"/>
                                     <constraint firstItem="ePv-XN-BMb" firstAttribute="top" secondItem="pDU-Zo-CXY" secondAttribute="bottom" constant="3" id="8rb-WK-KrY"/>
+                                    <constraint firstAttribute="trailing" secondItem="XlV-xP-fGo" secondAttribute="trailing" constant="8" id="C3M-QF-D6S"/>
                                     <constraint firstItem="yhY-fO-w4J" firstAttribute="centerY" secondItem="ePv-XN-BMb" secondAttribute="centerY" id="E9a-Mg-CtB"/>
-                                    <constraint firstItem="WP8-BE-gsw" firstAttribute="leading" secondItem="sdM-2j-Uf2" secondAttribute="trailing" constant="29" id="G4U-Sd-B3s"/>
                                     <constraint firstItem="VKw-ye-66s" firstAttribute="leading" secondItem="R1N-g3-Cu9" secondAttribute="leading" constant="53" id="HCI-Jh-Vu2"/>
                                     <constraint firstAttribute="trailing" secondItem="pDU-Zo-CXY" secondAttribute="trailing" constant="8" id="Haw-Rh-qsn"/>
                                     <constraint firstItem="VdX-9c-fBn" firstAttribute="leading" secondItem="yhY-fO-w4J" secondAttribute="leading" id="Jjj-c3-YE8"/>
                                     <constraint firstAttribute="trailing" secondItem="VdX-9c-fBn" secondAttribute="trailing" constant="8" id="LGU-U2-yMM"/>
                                     <constraint firstItem="ePv-XN-BMb" firstAttribute="trailing" secondItem="VKw-ye-66s" secondAttribute="trailing" id="Nws-zW-R9n"/>
                                     <constraint firstItem="sdM-2j-Uf2" firstAttribute="leading" secondItem="yhY-fO-w4J" secondAttribute="leading" id="OTg-nJ-MgC"/>
+                                    <constraint firstAttribute="bottom" secondItem="XlV-xP-fGo" secondAttribute="bottom" constant="8" id="Py7-BQ-crz"/>
                                     <constraint firstItem="sdM-2j-Uf2" firstAttribute="centerY" secondItem="PXz-pL-amW" secondAttribute="centerY" id="QPo-WT-WTc"/>
                                     <constraint firstItem="PXz-pL-amW" firstAttribute="top" secondItem="j7G-nD-Nlb" secondAttribute="bottom" constant="8" id="SBE-hx-nN0"/>
                                     <constraint firstItem="pDU-Zo-CXY" firstAttribute="top" secondItem="VKw-ye-66s" secondAttribute="bottom" constant="13" id="VxV-9P-fxw"/>
+                                    <constraint firstItem="XlV-xP-fGo" firstAttribute="leading" secondItem="sdM-2j-Uf2" secondAttribute="trailing" constant="11" id="WfR-xf-lrS"/>
                                     <constraint firstItem="VdX-9c-fBn" firstAttribute="leading" secondItem="VKw-ye-66s" secondAttribute="trailing" constant="16" id="Z6R-o6-yqa"/>
                                     <constraint firstItem="ePv-XN-BMb" firstAttribute="leading" secondItem="R1N-g3-Cu9" secondAttribute="leading" constant="75" id="ZzI-Ey-R5E"/>
                                     <constraint firstItem="sdM-2j-Uf2" firstAttribute="leading" secondItem="PXz-pL-amW" secondAttribute="trailing" constant="16" id="cev-1T-kUP"/>
@@ -302,7 +323,6 @@
                                     <constraint firstItem="j7G-nD-Nlb" firstAttribute="top" secondItem="ePv-XN-BMb" secondAttribute="bottom" constant="8" symbolic="YES" id="rQX-m8-zW3"/>
                                     <constraint firstItem="VdX-9c-fBn" firstAttribute="centerY" secondItem="VKw-ye-66s" secondAttribute="centerY" id="uMK-qo-D4g"/>
                                     <constraint firstAttribute="trailing" secondItem="j7G-nD-Nlb" secondAttribute="trailing" constant="8" id="uRT-5w-oHY"/>
-                                    <constraint firstItem="WP8-BE-gsw" firstAttribute="centerY" secondItem="sdM-2j-Uf2" secondAttribute="centerY" id="vRb-7E-yUP"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKN-Ky-1g1">
@@ -340,6 +360,7 @@
                         <outlet property="endHourLabel" destination="yhY-fO-w4J" id="4eb-o6-1Cs"/>
                         <outlet property="endHourPicker" destination="j7G-nD-Nlb" id="w7Y-os-mo8"/>
                         <outlet property="endHourPickerHeightConstraint" destination="bcg-LL-BvK" id="Qlv-pq-c0N"/>
+                        <outlet property="minutesBeforeStartView" destination="XlV-xP-fGo" id="g22-ij-bjl"/>
                         <outlet property="shiftDescription" destination="kKN-Ky-1g1" id="1jO-wI-iPF"/>
                         <outlet property="startHourLabel" destination="VdX-9c-fBn" id="NHT-i9-v2f"/>
                         <outlet property="startHourPicker" destination="pDU-Zo-CXY" id="Iba-iE-MJu"/>

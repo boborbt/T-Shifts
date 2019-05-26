@@ -27,6 +27,7 @@ class EditTemplateViewController: UIViewController {
     @IBOutlet weak var endHourPicker: UIDatePicker!
     @IBOutlet weak var endHourPickerHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var minutesBeforeStartView: UIView!
     @IBOutlet weak var alertSwitch: UISwitch!
     @IBOutlet weak var alertMinutes: UITextField!
     
@@ -58,6 +59,8 @@ class EditTemplateViewController: UIViewController {
             self.endHourPicker.setDate(endDate, animated: false)
             self.alertSwitch.isOn = shift.alert.active
             self.alertMinutes.text = String(shift.alert.minutes)
+            minutesBeforeStartViewSetVisibility(visible: shift.alert.active, animate: false)
+            allDayViewSetVisibility(visible: !shift.isAllDay, animate: false)
             
             startHourLabel.text = hourFormatter.string(from: startDate)
             endHourLabel.text = hourFormatter.string(from:endDate)
@@ -78,7 +81,7 @@ class EditTemplateViewController: UIViewController {
                                 minute: calendar.component(.minute, from: endHourPicker.date) )
             
             result.alert.active = alertSwitch.isOn
-            result.alert.minutes = Int(alertMinutes.text ?? "60") ?? 60
+            result.alert.minutes = Int(alertMinutes.text ?? "0") ?? 0
             
             return result
         }
@@ -111,9 +114,10 @@ class EditTemplateViewController: UIViewController {
     
     // Updates the UI to reflect that the all-day switch changed value
     @IBAction func allDayChanged(_ sender: UISwitch) {
-        UIView.transition(with: timePickersView, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            self.timePickersView.isHidden = self.allDaySwitch.isOn
-        }, completion: nil)
+//        UIView.transition(with: timePickersView, duration: 0.4, options: .transitionCrossDissolve, animations: {
+//            self.timePickersView.isHidden = self.allDaySwitch.isOn
+//        }, completion: nil)
+        allDayViewSetVisibility(visible: !sender.isOn)
     }
     
     // MARK: ACTIONS
@@ -142,6 +146,10 @@ class EditTemplateViewController: UIViewController {
             os_log(.debug, "Resigning first responder")
             alertMinutes.resignFirstResponder()
         }
+        
+        if sender as? UISwitch == alertSwitch {
+            minutesBeforeStartViewSetVisibility(visible:alertSwitch.isOn)
+        }
     }
     // MARK: PICKERS
     
@@ -159,9 +167,32 @@ class EditTemplateViewController: UIViewController {
         
         let heightConstraint = (picker == self.startHourPicker ? startHourPickerHeightConstraint : endHourPickerHeightConstraint)
         
-        UIView.animate(withDuration: (animated ? 0.5 : 0.0) , animations: {
+        UIView.animate(withDuration: (animated ? 0.4 : 0.0) , animations: {
             heightConstraint!.constant = (hidden ? 0 : 242)
             self.view.layoutIfNeeded()
+        })
+    }
+    
+    func minutesBeforeStartViewSetVisibility(visible: Bool, animate: Bool = true) {
+        UIView.animate(withDuration: (animate ? 0.4 : 0.0), animations: {
+            if visible {
+                self.minutesBeforeStartView.isHidden = false
+            }
+            self.minutesBeforeStartView.alpha = (self.alertSwitch.isOn ? 1.0 : 0.0)
+        }, completion: { _ in
+            self.minutesBeforeStartView.isHidden = !visible
+        })
+    }
+    
+    func allDayViewSetVisibility(visible: Bool, animate: Bool = true) {
+        UIView.animate(withDuration: (animate ? 0.4 : 0.0), animations: {
+            if visible {
+                self.timePickersView.isHidden = false
+            }
+            
+            self.timePickersView.alpha = (visible ? 1.0 : 0.0)
+        }, completion: { _ in
+            self.timePickersView.isHidden = !visible
         })
     }
     
