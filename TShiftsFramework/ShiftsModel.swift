@@ -443,7 +443,7 @@ public class CalendarShiftUpdater {
             event.title = shift.description
             event.calendar = targetCalendar!
             
-            if shift.alert.active {
+            if !shift.isAllDay && shift.alert.active {
                 event.addAlarm(EKAlarm(relativeOffset: TimeInterval(-60 * shift.alert.minutes)))
             }
             
