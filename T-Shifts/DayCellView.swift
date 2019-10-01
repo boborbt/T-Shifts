@@ -10,7 +10,7 @@ import Foundation
 import JTAppleCalendar
 import TShiftsFramework
 
-class DayCellView: JTAppleCell {
+class DayCellView: JTACDayCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var selectionEmphasis: UIView!
     @IBOutlet weak var marksDisplayView: MarksDisplayView!

@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var dayInfoView: DayInfoView!
-    @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var calendarView: JTACMonthView!
     
     let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     

@@ -105,7 +105,7 @@ extension OptionsViewController {
         textView.topAnchor.constraint(equalTo: anchor, constant: Insets.creditsTop).isActive = true
         textView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Insets.creditsLeft).isActive = true
         textView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.creditsRight).isActive = true
-        textView.heightAnchor.constraint(equalToConstant: 100)
+        textView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 
 
