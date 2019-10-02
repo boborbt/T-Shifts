@@ -64,7 +64,9 @@ class DayInfoView: UIView {
     
     func refresh() {
         setup()
-        show(date: date)
+        if date != nil {
+            show(date: date)
+        }
     }
     
     

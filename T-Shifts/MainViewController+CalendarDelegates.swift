@@ -67,8 +67,8 @@ extension MainViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         return cell
     }
 
-    
-    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
+
+    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath:IndexPath) {
         guard cellState.dateBelongsTo == .thisMonth else {
             // The only way the user can select a day past this month if it added a
             // shift to the last day on the month, which triggers a day selection of date + 1.days()
@@ -80,9 +80,11 @@ extension MainViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
 
         guard let dayCell = cell as? DayCellView else { return }
         dayCell.isEmphasized = true
+        os_log("selected date")
     }
 
-    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
+    
+    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         guard let dayCell = cell as? DayCellView else { return }
 
         dayCell.isEmphasized = false
