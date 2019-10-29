@@ -79,5 +79,16 @@ class DayCellView: JTACDayCell {
         
         label.textColor = UIColor.black
     }
+    
+    private func resetUIToDefaults() {
+        colorEmphasis = .normal
+        isEmphasized = false
+        isToday = false
+        marksDisplayView.marks = []
+    }
+    
+    override func prepareForReuse() {
+        resetUIToDefaults()
+    }
 
 }

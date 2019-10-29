@@ -115,5 +115,4 @@ extension MainViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
     func calendar(shouldSelectDate date: Date, cell: JTACDayCell, cellState: CellState) -> Bool {
         return cellState.dateBelongsTo == .thisMonth
     }
-
 }
