@@ -9,14 +9,29 @@
 import UIKit
 import TShiftsFramework
 
-
+/**
+  Collects the methods needed by DayInfoView to work properly
+ */
 protocol DayInfoViewDelegate: class {
+    ///   Callback method called every time a shift button is pressed
     func dayInfoTapOn(shiftButton: MarkButton)
+
+    /// Invoked by DayInfoView to get the set of templates that are active on a given date
     func templatesForDate(date:Date) -> [ShiftTemplate]
+    
+    /// Invoked by DayInfoView to get the complete list of available templates
     func templates() -> ShiftTemplates
+    
+    /// Invoked by DayInfoView to inform that the secure panel has just been closed
     func panelDidClose()
 }
 
+
+/**
+ Implements the main panel used to get info and interact with the informations peratining to a given day.
+ 
+ Visually it consists of a magnified DayCell on the left and a set of buttons on the right that reports (and allow one to modify) the current shifts for the selected day.
+ */
 class DayInfoView: UIView {
     
     struct Aspect {

@@ -80,7 +80,6 @@ extension MainViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
 
         guard let dayCell = cell as? DayCellView else { return }
         dayCell.isEmphasized = true
-        os_log("selected date")
     }
 
     

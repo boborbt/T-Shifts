@@ -21,6 +21,7 @@ class DayCellView: JTACDayCell {
         case hidden
     }
     
+//   MARK: PROPERTIES
     
     var isToday: Bool = false {
         didSet {
@@ -31,13 +32,12 @@ class DayCellView: JTACDayCell {
     
     var colorEmphasis: ColorEmphasis = .normal {
         didSet {
-            updateLabelColor()
             updateMarksColor()
+            updateLabelColor()
         }
     }
     
-    var showEmphasis: Bool = false
-    var showTodayMark: Bool = false
+    private var showEmphasis: Bool = false
 
     var marks: [ShiftTemplate] = [] {
         didSet {
@@ -58,6 +58,14 @@ class DayCellView: JTACDayCell {
         }
     }
     
+// MARK: PUBLIC FUNCTIONS
+    
+    override func prepareForReuse() {
+        resetUIToDefaults()
+    }
+
+    
+//    MARK: PRIVATE FUNCTIONS
     
     private func updateMarksColor() {
         switch colorEmphasis {
@@ -84,11 +92,8 @@ class DayCellView: JTACDayCell {
         colorEmphasis = .normal
         isEmphasized = false
         isToday = false
-        marksDisplayView.marks = []
-    }
-    
-    override func prepareForReuse() {
-        resetUIToDefaults()
+        marks = []
+        setNeedsDisplay()
     }
 
 }
