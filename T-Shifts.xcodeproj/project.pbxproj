@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5404B52229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B50229AF8F000A15CE8 /* InfoPlist.strings */; };
+		A5404B55229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B53229AF8F000A15CE8 /* InfoPlist.strings */; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */; };
@@ -22,6 +24,8 @@
 		F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E5D521E84064700946699 /* OptionsViewController.swift */; };
 		F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC121E8918F00054F2BF /* SSRadioButton.swift */; };
 		F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */; };
+		F89B2D71227C2D1E0028C43E /* EditTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */; };
+		F89B2D74227C30750028C43E /* ShowEditTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */; };
 		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
 		F89D613D1E5C80990060911E /* MarkButtonsArrayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */; };
 		F89D613F1E5C81840060911E /* MarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613E1E5C81840060911E /* MarkButton.swift */; };
@@ -115,6 +119,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A5404B51229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A5404B54229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A5404B56229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
@@ -139,6 +146,8 @@
 		F87E5D521E84064700946699 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		F896DC121E8918F00054F2BF /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButton.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButton.swift; sourceTree = SOURCE_ROOT; };
 		F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButtonsController.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButtonsController.swift; sourceTree = SOURCE_ROOT; };
+		F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTemplateViewController.swift; sourceTree = "<group>"; };
+		F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEditTemplateButton.swift; sourceTree = "<group>"; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
 		F89D613C1E5C80990060911E /* MarkButtonsArrayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkButtonsArrayView.xib; sourceTree = "<group>"; };
 		F89D613E1E5C81840060911E /* MarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkButton.swift; sourceTree = "<group>"; };
@@ -232,6 +241,8 @@
 				F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */,
 				F87E5D521E84064700946699 /* OptionsViewController.swift */,
 				F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */,
+				F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */,
+				F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -300,14 +311,15 @@
 		F8BC6133221B03EE00907179 /* TShiftsFramework */ = {
 			isa = PBXGroup;
 			children = (
+				F8BC6156221B045D00907179 /* ShiftsModel.swift */,
 				F8BC6152221B045C00907179 /* Date+Utils.swift */,
 				F8BC6154221B045D00907179 /* Errors.swift */,
 				F8BC6153221B045D00907179 /* Int+DayConversions.swift */,
 				F8BC6155221B045D00907179 /* Options.swift */,
-				F8BC6156221B045D00907179 /* ShiftsModel.swift */,
 				F8BC6150221B043E00907179 /* AttributedString+LinkAttributes.swift */,
 				F8BC6134221B03EE00907179 /* TShiftsFramework.h */,
 				F8BC6135221B03EE00907179 /* Info.plist */,
+				A5404B50229AF8F000A15CE8 /* InfoPlist.strings */,
 			);
 			path = TShiftsFramework;
 			sourceTree = "<group>";
@@ -329,6 +341,7 @@
 				F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */,
 				F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */,
 				F8C7F263219AF9FC00E0FDA2 /* Info.plist */,
+				A5404B53229AF8F000A15CE8 /* InfoPlist.strings */,
 			);
 			path = "TShifts Today Widget";
 			sourceTree = "<group>";
@@ -338,16 +351,16 @@
 			children = (
 				F85D0A831F7170550070CEDD /* EasyTipView.framework.dSYM */,
 				F85D0A841F7170550070CEDD /* JTAppleCalendar.framework.dSYM */,
-				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
-				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
-				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
-				F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */,
 				F8BC6133221B03EE00907179 /* TShiftsFramework */,
-				F8BC6140221B03EE00907179 /* TShiftsFrameworkTests */,
+				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
+				F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */,
 				F8E9B5391E27C9A600390BD3 /* Products */,
 				F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */,
 				F85D0A871F7171430070CEDD /* Frameworks */,
 				F826EF12224A7A5100908074 /* TShiftsFrameworkTests copy-Info.plist */,
+				F8BC6140221B03EE00907179 /* TShiftsFrameworkTests */,
+				F8E9B54F1E27C9A600390BD3 /* T-ShiftsTests */,
+				F8E9B55A1E27C9A600390BD3 /* T-ShiftsUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -543,6 +556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5404B52229AF8F000A15CE8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C7F262219AF9FC00E0FDA2 /* MainInterface.storyboard in Resources */,
+				A5404B55229AF8F000A15CE8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +646,8 @@
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
 				F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */,
 				F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */,
+				F89B2D71227C2D1E0028C43E /* EditTemplateViewController.swift in Sources */,
+				F89B2D74227C30750028C43E /* ShowEditTemplateButton.swift in Sources */,
 				F89D613F1E5C81840060911E /* MarkButton.swift in Sources */,
 				F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */,
 				F8F161B72147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift in Sources */,
@@ -658,6 +675,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A5404B50229AF8F000A15CE8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5404B51229AF8F000A15CE8 /* it */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A5404B53229AF8F000A15CE8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5404B54229AF8F000A15CE8 /* it */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F833BB2B1E79801A00EA3BB2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -695,6 +728,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F8C7F261219AF9FC00E0FDA2 /* Base */,
+				A5404B56229AF8F000A15CE8 /* it */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";

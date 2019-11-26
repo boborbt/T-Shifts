@@ -11,6 +11,7 @@ import os.log
 
 public class Options {
     var options = UserDefaults(suiteName: "group.org.boborbt.tshifts-v2")!
+    let logger = OSLog(subsystem:"org.boborbt.tshifts", category:"options")
     
     public init() {
         migrateOptions()
@@ -32,7 +33,7 @@ public class Options {
         let defaults = UserDefaults(suiteName: "group.org.boborbt.tshifts.option-templates")!
         
         if let plistPath = Bundle.main.path(forResource: "Options", ofType: "plist") {
-            os_log(.debug, "Template Defaults: writing defaults read from main bundle")
+            os_log(.debug, log:logger, "Template Defaults: writing defaults read from main bundle")
             let dictionary = NSDictionary(contentsOfFile: plistPath)!
             defaults.set(dictionary, forKey:"defaults-dictionary")
             defaults.synchronize()
@@ -44,12 +45,11 @@ public class Options {
     func migrateOptions() {
         let version = options.integer(forKey: "version")
         if version >= 2 {
-            os_log(.debug, "Options Migration: Skipping (already on version 2)")
+            os_log(.debug, log:logger, "Options Migration: Skipping (already on version 2)")
             return
-
         }
         
-        os_log(.info, "Options Migration: migrating from version %d to version 2", version)
+        os_log(.info, log:logger, "Options Migration: migrating from version %d to version 2", version)
         
         let old_defaults = UserDefaults.standard
         for key in old_defaults.dictionaryRepresentation().keys {
@@ -81,7 +81,7 @@ public class Options {
     }
     
    public func sync() {
-        options.setValue( calendar, forKey: "Calendar")
+        options.setValue(calendar, forKey: "Calendar")
         
         var templates: [[String:Any]] = []
         
@@ -99,10 +99,26 @@ public class Options {
             
             dict["color"] = colorDict
             
+            var startTime = [String:Int]()
+            startTime["hour"] = template.shift.startTime.hour
+            startTime["minute"] = template.shift.startTime.minute
+            
+            var endTime = [String:Int]()
+            endTime["hour"] = template.shift.endTime.hour
+            endTime["minute"] = template.shift.endTime.minute
+            
+            dict["isAllDay"] = template.shift.isAllDay
+            dict["startTime"] = startTime
+            dict["endTime"] = endTime
+            
+            dict["alertActive"] = template.shift.alert.active
+            dict["alertMinutes"] = template.shift.alert.minutes
+            
             templates.append(dict)
         }
         
         options.setValue( templates, forKey: "ShiftTemplates")
+        os_log(.info, log:logger, "Options synced")
     }
     
     private func optionsToTemplates() -> ShiftTemplates {
@@ -114,8 +130,19 @@ public class Options {
             let description = template["description"] as! String
             let shortcut = template["shortcut"] as! String
             let color = template["color"] as! [String:Float]
+            let st = (template["startTime"] as? [String:Int]) ?? [:]
+            let et = (template["endTime"] as? [String:Int]) ?? [:]
+            let alertActive = (template["alertActive"] as? Bool) ?? false
+            let alertMinutes = (template["alertMinutes"] as? Int) ?? 60
             
-            let shift = Shift(description: description, shortcut: shortcut)
+            
+            let shift = Shift(description: description,
+                              shortcut: shortcut,
+                              isAllDay: template["isAllDay"] as? Bool ?? true,
+                              startTime:(st["hour"] ?? 8, st["minute"] ?? 0),
+                              endTime:(et["hour"] ?? 16, et["minute"] ?? 0),
+                              alert: (active:alertActive, minutes:alertMinutes))
+            
             let shiftTemplate = ShiftTemplate(shift: shift, position: position, color: self.parse(color:color))
             resultArray.append(shiftTemplate)
         }

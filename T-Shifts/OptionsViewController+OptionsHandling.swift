@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import os.log
+import TShiftsFramework
 
 
 extension OptionsViewController {
@@ -67,11 +69,34 @@ extension OptionsViewController {
     }
     
     
+    @objc func editTemplateDetails(sender: ShowEditTemplateButton) {
+        guard let navigationController = UIApplication.shared.delegate!.window!!.rootViewController as? UINavigationController else { return }
+        
+        let shiftIndex = shiftsFieldsGroup.firstIndex(where: { field in
+            return field.text == sender.field.text
+        })!
+        
+        var shift = shiftsGroup[shiftIndex]
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let editTemplateViewController = storyboard.instantiateViewController(withIdentifier: "EditTemplateViewController") as! EditTemplateViewController
     
-    func addShiftTemplateLine( title: String, color: UIColor, after anchor: NSLayoutYAxisAnchor) {
+        shift.description = sender.field.text ?? ""
+        editTemplateViewController.shift = shift
+        editTemplateViewController.updateShiftCallback = { () in
+            self.shiftsGroup[shiftIndex] = editTemplateViewController.shift
+        }
+                
+        navigationController.pushViewController(editTemplateViewController, animated: true)
+    }
+    
+    
+    func addShiftTemplateLine( shift: Shift, color: UIColor, after anchor: NSLayoutYAxisAnchor) {
         let field = UITextField()
+        let button = ShowEditTemplateButton(field:field)
+        
         field.placeholder = LocalizedStrings.shiftNamePlaceholder
-        field.text = title
+        field.text = shift.description
         field.backgroundColor = color.withAlphaComponent(0.1)
         field.layer.borderColor = color.cgColor
         field.layer.borderWidth = 1
@@ -79,9 +104,9 @@ extension OptionsViewController {
         field.borderStyle = .roundedRect
         field.clearButtonMode = .whileEditing
         field.delegate = self
+        field.rightView = button
+        field.rightViewMode = .unlessEditing
 
-        
-        
         scrollView.addSubview(field)
         
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +114,14 @@ extension OptionsViewController {
         field.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: Insets.fieldLeft).isActive = true
         field.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.fieldRight).isActive = true
         
+        button.setTitle("···", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        button.frame = CGRect(x:0, y:0, width:28, height:28)
+        button.addTarget(self, action: #selector(self.editTemplateDetails(sender:)), for: .touchUpInside)
+
+        
         shiftsFieldsGroup.append(field)
+        shiftsGroup.append(shift)
     }
     
     func addAttributedTextView(_ text: NSAttributedString, after anchor: NSLayoutYAxisAnchor) {

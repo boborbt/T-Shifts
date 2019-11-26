@@ -27,7 +27,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         static let freeAppStatement = NSLocalizedString("This app is a work of love toward my wife Tiziana who needed an easier way to insert shifts in her calendar. I have no plan to make it paid. I hope you will enjoy it as much as I enjoyed making it.", comment: "Message to the user")
         
-        static let creditsMessage = NSLocalizedString("T-Shifts includes the following open source components:\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito", comment: "Text displayed in the credits section")
+        static let creditsMessage = NSLocalizedString("T-Shifts includes the following open source components:", comment: "Text displayed in the credits section")
         
         static let askReview = NSLocalizedString("Please rate and/or review T-Shift", comment:"Text for the link in the options view asking the user to review the app.")
         
@@ -68,6 +68,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     weak var calendarUpdater: CalendarShiftUpdater!
     var calendarOptionsGroup: SSRadioButtonsController!
     var shiftsFieldsGroup: [UITextField] = []
+    var shiftsGroup: [Shift] = []
     
     typealias LabelCustomizationBlock = ((UILabel) -> ())
     
@@ -143,7 +144,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         let templates = options.shiftTemplates.templates()
 
         for template in templates {
-            addShiftTemplateLine(title: template.shift.description, color: template.color, after: scrollView.subviews.last!.bottomAnchor )
+            addShiftTemplateLine(shift: template.shift, color: template.color, after: scrollView.subviews.last!.bottomAnchor )
         }
     }
     
@@ -152,6 +153,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         addAttributedTextView(NSAttributedString(string: LocalizedStrings.freeAppStatement), after: scrollView.subviews.last!.bottomAnchor)
         
         let attributedString = NSMutableAttributedString(string: LocalizedStrings.creditsMessage)
+        attributedString.append(NSMutableAttributedString(string: "\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito"))
         
         attributedString.setAsLink(textToFind: "JTAppleCalendar", linkURL: "https://patchthecode.github.io")
         attributedString.setAsLink(textToFind: "EasyTipView", linkURL: "https://github.com/teodorpatras/EasyTipView")
@@ -242,7 +244,8 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         for (index, shiftField) in shiftsFieldsGroup.enumerated() {
             if let text = shiftField.text  {
-                options.shiftTemplates.storage[index].shift.description = text
+                shiftsGroup[index].description = text
+                options.shiftTemplates.storage[index].shift = shiftsGroup[index]
             } else {
                 options.shiftTemplates.storage[index].shift.description = ""
             }
@@ -250,7 +253,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.reloadOptions()
+        appDelegate.syncOptions()
         appDelegate.checkState()
     }
     

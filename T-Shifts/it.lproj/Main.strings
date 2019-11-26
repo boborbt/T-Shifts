@@ -1,14 +1,11 @@
-/* (No Comment) */
-"0mg-GR-t79.title" = "Indietro";
+/* Class = "UILabel"; text = "minutes before shift start"; ObjectID = "6nC-k4-C4S"; */
+"6nC-k4-C4S.text" = "minuti prima del turno";
 
-/* Class = "UILabel"; text = "Mon"; ObjectID = "M6D-mk-EDk"; */
-"M6D-mk-EDk.text" = "Lun";
+/* Class = "UILabel"; text = "Shift:"; ObjectID = "BAk-Ng-9aR"; */
+"BAk-Ng-9aR.text" = "Turno:";
 
-/* Class = "UILabel"; text = "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars."; ObjectID = "XM9-rR-aha"; */
-"XM9-rR-aha.text" = "L'accesso al calendario di sistema è stato negato. Puoi abilitarlo dalle preferenze di sistema selzionando l'applicazione T-Shifts.";
-
-/* Class = "UILabel"; text = "Wed"; ObjectID = "YEV-XA-tAB"; */
-"YEV-XA-tAB.text" = "Mer";
+/* Class = "UILabel"; text = "to:"; ObjectID = "ePv-XN-BMb"; */
+"ePv-XN-BMb.text" = "alle ore:";
 
 /* Class = "UILabel"; text = "Thu"; ObjectID = "iRR-Vg-GcZ"; */
 "iRR-Vg-GcZ.text" = "Gio";
@@ -16,21 +13,48 @@
 /* Class = "UILabel"; text = "Sat"; ObjectID = "kap-1e-VXW"; */
 "kap-1e-VXW.text" = "Sat";
 
+/* Class = "UILabel"; text = "shift placeholder"; ObjectID = "kKN-Ky-1g1"; Note = "no need to localize"; */
+"kKN-Ky-1g1.text" = "shift placeholder";
+
 /* Class = "UINavigationItem"; title = "Pick your Shifts"; ObjectID = "llw-JS-HcF"; */
 "llw-JS-HcF.title" = "Turni";
 
-/* (No Comment) */
-"odh-UF-tob.title" = "⚙";
+/* Class = "UILabel"; text = "Mon"; ObjectID = "M6D-mk-EDk"; */
+"M6D-mk-EDk.text" = "Lun";
+
+/* Class = "UILabel"; text = "All day"; ObjectID = "pXc-mh-l9Z"; */
+"pXc-mh-l9Z.text" = "Tutto il giorno";
+
+/* Class = "UILabel"; text = "alert:"; ObjectID = "PXz-pL-amW"; */
+"PXz-pL-amW.text" = "allarme:";
 
 /* Class = "UILabel"; text = "Fri"; ObjectID = "s2x-bi-qWE"; */
 "s2x-bi-qWE.text" = "Ven";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "slw-B3-fuN"; */
+/* Class = "UILabel"; text = "month placeholder"; ObjectID = "slw-B3-fuN"; Note = "no need to localize"; */
 "slw-B3-fuN.text" = "Label";
 
 /* Class = "UILabel"; text = "Sun"; ObjectID = "tHL-0g-VbA"; */
 "tHL-0g-VbA.text" = "Dom";
 
+/* Class = "UILabel"; text = "from placeholder"; ObjectID = "VdX-9c-fBn"; Note = "no need to localize"; */
+"VdX-9c-fBn.text" = "from placeholder";
+
+/* Class = "UILabel"; text = "from:"; ObjectID = "VKw-ye-66s"; */
+"VKw-ye-66s.text" = "dalle ore:";
+
+/* Class = "UITextField"; placeholder = "default: 0"; ObjectID = "WP8-BE-gsw"; */
+"WP8-BE-gsw.placeholder" = "default: 0";
+
+/* Class = "UILabel"; text = "Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars."; ObjectID = "XM9-rR-aha"; */
+"XM9-rR-aha.text" = "L'accesso al calendario di sistema è stato negato. Puoi abilitarlo dalle preferenze di sistema selzionando l'applicazione T-Shifts.";
+
 /* Class = "UILabel"; text = "Tue"; ObjectID = "xqz-rf-aW1"; */
 "xqz-rf-aW1.text" = "Mar";
+
+/* Class = "UIBarButtonItem"; title = "•••"; ObjectID = "xY3-Qa-dT7"; */
+"xY3-Qa-dT7.title" = "•••";
+
+/* Class = "UILabel"; text = "Wed"; ObjectID = "YEV-XA-tAB"; */
+"YEV-XA-tAB.text" = "Mer";
 

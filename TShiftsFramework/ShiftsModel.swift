@@ -11,6 +11,9 @@ import EventKit
 import os.log
 
 
+public typealias AlertInfo = (active: Bool, minutes: Int)
+public typealias ShiftTime = (hour:Int, minute: Int)
+
 // MARK: TYPE DEFINITIONS
 
 // A Shift contains the informations needed to describe a shift
@@ -20,21 +23,38 @@ import os.log
 // i.e. the shortcut need to be a unique identifier for a shift "value"
 public struct Shift: Equatable, Hashable {
 
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(shortcut)
-    }
-
-    public static func == (lhs: Shift, rhs: Shift) -> Bool {
-        return lhs.shortcut == rhs.shortcut
-    }
-    
     public var description: String
     public var shortcut: String
+    public var isAllDay: Bool
+    public var startTime:  ShiftTime
+    public var endTime: ShiftTime
+    public var alert: AlertInfo
+    
+    public init() {
+        self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0), alert:(active:false, minutes:-60))
+    }
+    
+    public init(description: String, shortcut: String, isAllDay: Bool, startTime: ShiftTime, endTime:ShiftTime, alert: AlertInfo ) {
+        self.description = description
+        self.shortcut = shortcut
+        self.isAllDay = isAllDay
+        self.startTime = startTime
+        self.endTime = endTime
+        self.alert = alert;
+    }
     
     public var isActive: Bool {
         get {
             return description != ""
         }
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(shortcut)
+    }
+    
+    public static func == (lhs: Shift, rhs: Shift) -> Bool {
+        return lhs.shortcut == rhs.shortcut
     }
 }
 
@@ -203,9 +223,9 @@ public class CalendarShiftStorage : ShiftStorage {
 
         static func ==(lhs:ShiftUpdate, rhs:ShiftUpdate) -> Bool {
             switch(lhs, rhs) {
-            case let (.add(a,b), .add(c,d)),
-                 let (.remove(a,b), .remove(c,d)):
-                return a == c && b == d
+            case let (.add(shift1,date1), .add(shift2,date2)),
+                 let (.remove(shift1,date1), .remove(shift2,date2)):
+                return shift1 == shift2 && Calendar.current.compare(date1, to:date2, toGranularity: .day) == .orderedSame
             default:
                 return false
             }
@@ -263,13 +283,18 @@ public class CalendarShiftStorage : ShiftStorage {
         return shifts.firstIndex(where: { s in shift == s }) != nil
     }
     
-    public func shifts(at date: Date) -> [Shift] {
+    public func shifts(at givenDate: Date) -> [Shift] {
         guard let targetCalendar = calendarUpdater.targetCalendar else { return [] }
+        let startDate = Date.beginningOfDay(givenDate)
+        let endDate = Date.endOfDay(givenDate)
         let store = calendarUpdater.store
-        let predicate = store.predicateForEvents(withStart: date, end: date + 1, calendars: [targetCalendar])
+        let predicate = store.predicateForEvents(withStart: startDate, end: endDate, calendars: [targetCalendar])
         let events = calendarUpdater.store.events(matching: predicate)
         
         var result:[Shift] = events.compactMap({ (event) in
+            guard Calendar.current.compare(event.startDate, to:givenDate, toGranularity: .day) == .orderedSame else {
+                return nil
+            }
             let description = event.title
             return self.shiftTemplates.template(havingDescription: description!)?.shift
         })
@@ -277,11 +302,11 @@ public class CalendarShiftStorage : ShiftStorage {
         for update in requestedUpdates {
             switch update {
             case .add(let s, let d):
-                if d == date {
+                if Calendar.current.compare(d, to: givenDate, toGranularity: .day) == .orderedSame {
                     result.append(s)
                 }
             case .remove(let s, let d):
-                if d == date {
+                if Calendar.current.compare(d, to: givenDate, toGranularity: .day) == .orderedSame {
                     result.removeAll(where: { shift in s == shift })
                 }
             }
@@ -378,15 +403,49 @@ public class CalendarShiftUpdater {
         })
     }
     
+    
+    private func dateComponentsFor(date:Date, time:(hour:Int,minute:Int)) -> DateComponents {
+        let cal = Calendar.current
+        var dc = DateComponents()
+        dc.day = cal.component(.day, from: date)
+        dc.month = cal.component(.month, from: date)
+        dc.year = cal.component(.year, from: date)
+        dc.hour = time.hour
+        dc.minute = time.minute
+        
+        return dc
+    }
+    
+    private func startEndDateFor(shift:Shift, date:Date) -> (Date, Date) {
+        if shift.isAllDay {
+            return (date, date)
+        }
+        
+        let cal = Calendar.current
+        let startDate = cal.date(from:dateComponentsFor(date: date, time: shift.startTime))!
+        var endDate = cal.date(from:dateComponentsFor(date: date, time: shift.endTime))!
+        
+        if startDate > endDate {
+            endDate = cal.date(byAdding: .day, value: 1, to: endDate)!
+        }
+        
+        return (startDate, endDate)
+    }
+    
     public func add(shift: Shift, at date: Date) throws {
         do {
             let event = EKEvent(eventStore: store)
+            let (startDate, endDate) = startEndDateFor(shift: shift, date: date)
             
-            event.startDate = date
-            event.endDate = date
-            event.isAllDay = true
+            event.startDate = startDate
+            event.endDate = endDate
+            event.isAllDay = shift.isAllDay
             event.title = shift.description
             event.calendar = targetCalendar!
+            
+            if !shift.isAllDay && shift.alert.active {
+                event.addAlarm(EKAlarm(relativeOffset: TimeInterval(-60 * shift.alert.minutes)))
+            }
             
             try store.save(event, span: EKSpan.thisEvent, commit: false)
             os_log(.debug, "Shift saved to Calendar store: %@", shift.description)

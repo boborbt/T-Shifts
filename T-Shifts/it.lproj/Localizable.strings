@@ -20,7 +20,7 @@
 "Shifts Calendar" = "Calendario da usare per i turni";
 
 /* Text displayed in the credits section */
-"T-Shifts includes the following open source components:\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito" = "T-Shifts include le seguenti componenti open-source:\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito";
+"T-Shifts includes the following open source components:" = "T-Shifts include le seguenti componenti open source:";
 
 /* Text in the options view explaing the rating policy of th eapp */
 "The app itself will never interrupt you asking for ratings." = "L'applicazione non ti interromperà mai per chiedere di inserire una review.";

@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     weak var optionsController: OptionsViewController!
     
-    func reloadOptions() {
+    func syncOptions() {
         options.shiftTemplates.recomputeShortcuts()
         options.sync()
         
@@ -109,6 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        mainController.calendarView.reloadData()
+        mainController.dayInfoView.refresh()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

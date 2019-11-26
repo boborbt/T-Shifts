@@ -24,7 +24,7 @@ extension AppDelegate {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.reloadOptions()
+                    self.syncOptions()
                     self.state = .needsConfiguration
                 }
             }
