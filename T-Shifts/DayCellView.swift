@@ -10,6 +10,17 @@ import Foundation
 import JTAppleCalendar
 import TShiftsFramework
 
+/**
+   Properties and visualization of day cells in the calendar.
+ 
+ In T-Shifts a day cell contains a list of colored marks that show which shifts have been set for each particular day and a label with the day number in the current month.
+ 
+ The visualization depends on some properties of the current day and of the current state of the application:
+ 
+    - if the day is earlier than today: all the appearence is dimmed;
+    - if the day is selected, then the whole cell is highlighed
+    - today label is rendered in a different color (currently it is red)
+*/
 class DayCellView: JTACDayCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var selectionEmphasis: UIView!
@@ -70,11 +81,14 @@ class DayCellView: JTACDayCell {
     private func updateMarksColor() {
         switch colorEmphasis {
         case .normal:
-            self.alpha = 1.0
+            self.label.alpha = 1.0
+            self.marksDisplayView.alpha = 1.0
         case .dim:
-            self.alpha = 0.3
+            self.label.alpha = 0.3
+            self.marksDisplayView.alpha = 0.3
         case .hidden:
-            self.alpha = 0.0
+            self.label.alpha = 0.0
+            self.marksDisplayView.alpha = 0.0
         }
     }
 

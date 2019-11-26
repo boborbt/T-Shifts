@@ -15,10 +15,19 @@ import EventKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    /// Possible states for the whole application
     enum State {
+        /// the app is starting
         case starting
+        
+        /// the app needs to show the configuration panel
         case needsConfiguration
+        
+        /// the app does not have calendar access
         case needsCalendarAccess
+        
+        /// the is ready to run
         case ready
     }
     

@@ -73,7 +73,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: setup
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
