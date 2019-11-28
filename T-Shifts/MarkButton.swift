@@ -47,10 +47,18 @@ class MarkButton: UIButton {
         set(newVal) {
             if newVal {
                 self.layer.backgroundColor = color
-                self.setTitleColor(UIColor.white, for: .normal)
+                if #available(iOS 13.0, *) {
+                    self.setTitleColor(UIColor.label, for: .normal)
+                } else {
+                    self.setTitleColor(UIColor.white, for: .normal)
+                }
             } else {
+                if #available(iOS 13.0, *) {
+                    self.setTitleColor(UIColor.label, for: .normal)
+                } else {
+                    self.setTitleColor(UIColor.black, for: .normal)
+                }
                 self.layer.backgroundColor = inactiveStateColor
-                self.setTitleColor(UIColor.black, for: .normal)
             }
             
             self.setNeedsDisplay()

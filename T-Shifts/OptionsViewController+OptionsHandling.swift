@@ -52,7 +52,11 @@ extension OptionsViewController {
         let button = SSRadioButton()
         button.setTitle(text, for: .normal)
         button.contentHorizontalAlignment = .left
-        button.setTitleColor(UIColor.black, for: .normal)
+        if #available(iOS 13.0, *) {
+            button.setTitleColor(UIColor.label, for: .normal)
+        } else {
+            button.setTitleColor(UIColor.black, for: .normal)
+        }
         scrollView.addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false

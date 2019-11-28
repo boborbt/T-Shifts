@@ -200,7 +200,11 @@ class DayInfoView: UIView {
         
         cellView.label.font = UIFont.systemFont(ofSize: 14)
         cellView.layer.cornerRadius = Aspect.cornerRadius
-        cellView.layer.borderColor = UIColor.gray.cgColor
+        if #available(iOS 13.0, *) {
+            cellView.layer.borderColor = UIColor.label.cgColor
+        } else {
+            cellView.layer.borderColor = UIColor.gray.cgColor
+        }
         cellView.layer.borderWidth = 0.5
         
         return cellView

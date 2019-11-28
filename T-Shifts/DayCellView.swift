@@ -84,7 +84,7 @@ class DayCellView: JTACDayCell {
             self.label.alpha = 1.0
             self.marksDisplayView.alpha = 1.0
         case .dim:
-            self.label.alpha = 0.3
+            self.label.alpha = 0.6
             self.marksDisplayView.alpha = 0.3
         case .hidden:
             self.label.alpha = 0.0
@@ -99,7 +99,11 @@ class DayCellView: JTACDayCell {
             return
         }
         
-        label.textColor = UIColor.black
+        if #available(iOS 13.0, *) {
+            label.textColor = UIColor.label
+        } else {
+            label.textColor = UIColor.black
+        }
     }
     
     private func resetUIToDefaults() {

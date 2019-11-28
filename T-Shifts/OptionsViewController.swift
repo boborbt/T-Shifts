@@ -107,7 +107,11 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         let sc = UIScrollView()
         self.view.addSubview(sc)
         scrollView = sc
-        scrollView.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            scrollView.backgroundColor = UIColor.systemBackground
+        } else {
+            scrollView.backgroundColor = UIColor.white
+        }
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
