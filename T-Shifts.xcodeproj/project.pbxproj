@@ -122,7 +122,6 @@
 		A5404B51229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5404B54229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5404B56229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "T-shift-icon-source.graffle"; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
 		F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+CalendarDelegates.swift"; sourceTree = "<group>"; };
@@ -278,7 +277,6 @@
 				F833BB2B1E79801A00EA3BB2 /* Localizable.strings */,
 				F8E9B5471E27C9A600390BD3 /* Info.plist */,
 				F8FBD3D21E7B41B30072A307 /* Options.plist */,
-				F814784F1E2E7C50003AE87C /* T-shift-icon-source.graffle */,
 				F86853C71E71B6A800A157DA /* panel-source.graffle */,
 				F8F54978227B214700491DF6 /* options-img */,
 				F8E9B5421E27C9A600390BD3 /* Assets.xcassets */,

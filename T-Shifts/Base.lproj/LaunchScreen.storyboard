@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,19 +16,17 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t-shifts-splash" translatesAutoresizingMaskIntoConstraints="NO" id="Oc0-Vp-lB0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t-shifts-splash" translatesAutoresizingMaskIntoConstraints="NO" id="QVQ-K9-AvX">
+                                <rect key="frame" x="14" y="181" width="386" height="374"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Oc0-Vp-lB0" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="DLI-UE-32P"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Oc0-Vp-lB0" secondAttribute="bottom" id="p7A-4c-HPZ"/>
-                            <constraint firstAttribute="trailing" secondItem="Oc0-Vp-lB0" secondAttribute="trailing" id="sQP-EP-WKb"/>
-                            <constraint firstItem="Oc0-Vp-lB0" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="yCV-Ai-5yr"/>
+                            <constraint firstItem="QVQ-K9-AvX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VnL-13-e06"/>
+                            <constraint firstItem="QVQ-K9-AvX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eL5-0D-9ZN"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="t-shifts-splash" width="1724" height="3066"/>
+        <image name="t-shifts-splash" width="193" height="187"/>
     </resources>
 </document>
