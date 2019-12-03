@@ -109,9 +109,7 @@ public struct ShiftTemplate {
 }
 
 
-// ShiftTemplates is presently nothing more than a wrapper around
-// a collection of shift templates. Its main purpose is to provide
-// easy access to common functions.
+/// ShiftTemplates is  a collection of shift templates.
 public class ShiftTemplates {
     public var storage: [ShiftTemplate] = []
     
@@ -153,9 +151,19 @@ public class ShiftTemplates {
         return storage.first(where: { template in template.shift.description == description} )
     }
     
-    // Assume that currentSet contains all distinct sc candidates and that
-    // currentSet[i] is the candidate for descriptions[i]
-    public func computeShortcuts(descriptions: [String], currentSet: [String]) -> [String]? {
+    /// Given the current set of shortcut candidates tries to complete the set by adding the missing ones (assumes that the ones
+    /// computed up to now cannot be modified).
+    ///
+    /// Assume that currentSet contains all distinct sc candidates and that currentSet[i] is the candidate for descriptions[i]
+    ///
+    /// - returns:
+    /// An array containing the computed shortcut list or nil if the list cannot be created (no combination of letters in the remaining
+    /// descritption allows for creating unique identifiers).
+    ///
+    /// - parameters:
+    ///     - descriptions: the list of description to be used as a base for the shortcuts;
+    ///     - currentSet: the current list of shortcuts. It assumes that the list is a valid one (all elements are unique and currentSet[i] is the candidate for descriptions[i])
+    private func computeShortcuts(descriptions: [String], currentSet: [String]) -> [String]? {
         if currentSet.count == descriptions.count {
             return currentSet
         }
@@ -179,6 +187,12 @@ public class ShiftTemplates {
         return nil
     }
     
+    /// Computes a list of single letter identifiers for the set of shift descriptions stored in the ShiftTemplates collection
+    ///
+    /// The function tries to find meaningful and unique identifiers:
+    ///    - meaningful here means that it tries to use one of the first letters of the description (so "Morning" would get, if possible, a "M" shortcut)
+    ///    - uniqueness is guaranteed by moving down the list of possible identifiers until a unique shortcut is found. If two descriptions are identical a numerical index is assigned.
+    ///
     public func recomputeShortcuts() {
         let data = storage.enumerated().compactMap( { (__val:(Int, ShiftTemplate)) -> (Int, String)? in let (index,template) = __val;
             let des = template.shift.description
