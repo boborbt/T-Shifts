@@ -16,19 +16,30 @@ public typealias ShiftTime = (hour:Int, minute: Int)
 
 // MARK: TYPE DEFINITIONS
 
-// A Shift contains the informations needed to describe a shift
-// - a description and a shortcut
-//
-// Shift needs to be hashable and equatable by the shortcut only
-// i.e. the shortcut need to be a unique identifier for a shift "value"
+/// A Shift contains the informations needed to describe a shift
+///
+/// Shift needs to be hashable and equatable by the shortcut only
+/// i.e. the shortcut need to be a unique identifier for a shift "value"
 public struct Shift: Equatable, Hashable {
 
+    /// textual description of the shift itself
     public var description: String
+    
+    /// the shortcut used to identify the shift
     public var shortcut: String
+    
+    /// true if the shift needs to be visualised as an all-day event
     public var isAllDay: Bool
+    
+    /// if `isAllDay` is false, this property specify the time at which the shift begins
     public var startTime:  ShiftTime
+    
+    /// if `isAllDay` is false, this property specify the time at which the shift ends
     public var endTime: ShiftTime
+    
+    /// if `isAllDay` is false, this property allows to set an alarm that fires at a given time before `startTime`
     public var alert: AlertInfo
+    
     
     public init() {
         self.init(description: "", shortcut: "", isAllDay: true, startTime: (8,0), endTime:(16,0), alert:(active:false, minutes:-60))
@@ -43,6 +54,7 @@ public struct Shift: Equatable, Hashable {
         self.alert = alert;
     }
     
+    /// Returns true if this shift has to be considered as active (presently this coincides with having a non-empty description)
     public var isActive: Bool {
         get {
             return description != ""
@@ -58,53 +70,62 @@ public struct Shift: Equatable, Hashable {
     }
 }
 
-// A shift storage provides a mean to store shifts. The main
-// implementation will be based on the system calendar, but
-// other storage are conceivable.
-//
-// In the storage shifts are associated with dates. Each date
-// can contain zero or more shifts (with no limits imposed by
-// the storate -- they may be imposed by the UI though).
+/// A shift storage provides a mean to store shifts.
+///
+/// The main implementation will be based on the system calendar, but
+/// other storage types are conceivable.
+///
+/// In the storage shifts are associated with dates. Each date
+/// can contain zero or more shifts (with no limits imposed by
+/// the storate -- they may be imposed by the UI though).
 public protocol ShiftStorage {
-    // Adds the given shift at the given date. It does not check
-    // if the shift is already present at the given date (the user
-    // can check it using the isPresent method).
+    /// Adds the given shift at the given date. It does not check
+    /// if the shift is already present at the given date (the user
+    /// can check it using the isPresent method).
     func add(shift: Shift, toDate: Date) throws
     
-    // Removes the shift from the given date. The shift must be present
-    // at the given date.
+    /// Removes the shift from the given date. The shift must be present
+    /// at the given date.
     func remove(shift:Shift, fromDate: Date) throws
     
-    // Remove
+    /// Remove
     func commit() throws -> [Date]
     
-    // Returns true if the given shift is already present at the given date
+    /// Returns true if the given shift is already present at the given date
     func isPresent(shift: Shift, at date: Date) -> Bool
     
-    // Returns the set of shifts at the given date
+    /// Returns the set of shifts at the given date
     func shifts(at date: Date) -> [Shift]
     
-    // tells the storage to notify any add/remove operation to the caller
-    // using the provided function.
+    /// tells the storage to notify any add/remove operation to the caller
+    /// using the provided function.
     func notifyChanges(to function:@escaping (Date)->() )
     
-    // Returns a human readable description of the shifts at the given date
+    /// Returns a human readable description of the shifts at the given date
     func shiftsDescription(at date: Date) -> String?
     
-    // Returns a unique identifier for the shifts data at the given date
+    /// Returns a unique identifier for the shifts data at the given date
     func uniqueIdentifier(for date: Date) -> String
     
-    // Returns the date associated to the given unique identifier
+    /// Returns the date associated to the given unique identifier
     func date(forUniqueIdentifier identifier:String) -> Date?
 }
 
 
-// A shift template associate a shift with additional properties
-// that are important to the UI such as the color for displaying it
-// and its position in the visualization grid.
+/// A shift template associate a shift with additional properties
+/// that are important to the UI such as the color for displaying it
+/// and its position in the visualization grid.
+///
+/// # properties
+///   - shift: the shift description
+///   - position: the position among the templates
+///   - color: the color in which the template has to be rendered
 public struct ShiftTemplate {
+    /// the shift description
     public var shift: Shift
+    /// the position among the templates
     public var position: Int
+    /// the color that has to be used to render the tamplate
     public var color: UIColor
 }
 

@@ -45,11 +45,11 @@ extension MainViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         dayCell.label.text = cellState.text
         
         if cellState.dateBelongsTo != .thisMonth {
-            dayCell.colorEmphasis = .hidden
+            dayCell.prominence = .hidden
         } else if date.before(day:Date()) {
-            dayCell.colorEmphasis = .dim
+            dayCell.prominence = .dim
         } else {
-            dayCell.colorEmphasis = .normal
+            dayCell.prominence = .normal
         }
         
         let calendar = Calendar.current

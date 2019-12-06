@@ -26,14 +26,19 @@ class DayCellView: JTACDayCell {
     @IBOutlet weak var selectionEmphasis: UIView!
     @IBOutlet weak var marksDisplayView: MarksDisplayView!
     
-    enum ColorEmphasis {
+    /// Describe the emphasis level of cells
+    enum ColorProminence {
+        /// default level, no emphasis, no dimming
         case normal
+        /// the cell is dimmed so to appear less prominent
         case dim
+        /// the cell is totally hidden
         case hidden
     }
     
 //   MARK: PROPERTIES
     
+    /// controls how the cell is rendered, set it to `true` to render it as as the "today" cell.
     var isToday: Bool = false {
         didSet {
             updateMarksColor()
@@ -41,21 +46,26 @@ class DayCellView: JTACDayCell {
         }
     }
     
-    var colorEmphasis: ColorEmphasis = .normal {
+    /// controls how the cell is rendered, set it to either `.dim`, `.hidden`, or `normal`
+    var prominence: ColorProminence = .normal {
         didSet {
             updateMarksColor()
             updateLabelColor()
         }
     }
     
-    private var showEmphasis: Bool = false
-
+    /// controls the shift marks that are rendered on the cell
+    ///
+    /// Each shift template will be rendered as a colored mark in the cell.
     var marks: [ShiftTemplate] = [] {
         didSet {
             marksDisplayView.marks = marks
         }
     }
     
+    private var showEmphasis: Bool = false
+
+    /// controls whether the cell is highlighted
     var isEmphasized: Bool {
         get {
             return showEmphasis
@@ -79,7 +89,7 @@ class DayCellView: JTACDayCell {
 //    MARK: PRIVATE FUNCTIONS
     
     private func updateMarksColor() {
-        switch colorEmphasis {
+        switch prominence {
         case .normal:
             self.label.alpha = 1.0
             self.marksDisplayView.alpha = 1.0
@@ -107,7 +117,7 @@ class DayCellView: JTACDayCell {
     }
     
     private func resetUIToDefaults() {
-        colorEmphasis = .normal
+        prominence = .normal
         isEmphasized = false
         isToday = false
         marks = []
