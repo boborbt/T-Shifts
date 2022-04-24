@@ -1,6 +1,6 @@
 # T-Shifts
 
-Quickly insert your shifts into your calendar of choice. Share them with your loved ones and be alerted before the shift begins.
+T-Shifts is an iOS app for quickly inserting shifts into your calendar of choice. 
 
 T-Shifts sports the following major features:
 
