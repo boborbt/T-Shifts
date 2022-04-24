@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A5404B52229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B50229AF8F000A15CE8 /* InfoPlist.strings */; };
 		A5404B55229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B53229AF8F000A15CE8 /* InfoPlist.strings */; };
+		F812C3E728154C5600F6C0A4 /* JTAppleCalendar.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F812C3E528154C5500F6C0A4 /* JTAppleCalendar.xcframework */; };
+		F812C3E828154C5600F6C0A4 /* EasyTipView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F812C3E628154C5500F6C0A4 /* EasyTipView.xcframework */; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */; };
@@ -17,8 +19,6 @@
 		F847D6E11E48C26A007B8847 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */; };
 		F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */; };
 		F85361BE219C308A000B6303 /* SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85361BD219C308A000B6303 /* SpotlightIndexer.swift */; };
-		F85D0A851F7170720070CEDD /* EasyTipView.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = F85D0A831F7170550070CEDD /* EasyTipView.framework.dSYM */; };
-		F85D0A861F7170720070CEDD /* JTAppleCalendar.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = F85D0A841F7170550070CEDD /* JTAppleCalendar.framework.dSYM */; };
 		F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */; };
 		F86B38941E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38931E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift */; };
 		F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E5D521E84064700946699 /* OptionsViewController.swift */; };
@@ -40,15 +40,12 @@
 		F8BC6159221B045E00907179 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6154221B045D00907179 /* Errors.swift */; };
 		F8BC615A221B045E00907179 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6155221B045D00907179 /* Options.swift */; };
 		F8BC615B221B045E00907179 /* ShiftsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC6156221B045D00907179 /* ShiftsModel.swift */; };
-		F8BC615C221B04F000907179 /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; };
 		F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */; };
-		F8C7F25C219AF9FC00E0FDA2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */; };
 		F8C7F25F219AF9FC00E0FDA2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C7F25E219AF9FC00E0FDA2 /* TodayViewController.swift */; };
 		F8C7F262219AF9FC00E0FDA2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */; };
 		F8C7F266219AF9FC00E0FDA2 /* TShifts Today Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F8C7F25A219AF9FC00E0FDA2 /* TShifts Today Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8C7F26D219B0C7100E0FDA2 /* WidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */; };
 		F8DBA7831E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */; };
-		F8E4D1F622172B0800CDFE0B /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E4D1F522172B0800CDFE0B /* TShiftsFramework.framework */; };
 		F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */; };
 		F8E9B53E1E27C9A600390BD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9B53D1E27C9A600390BD3 /* MainViewController.swift */; };
 		F8E9B5411E27C9A600390BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E9B53F1E27C9A600390BD3 /* Main.storyboard */; };
@@ -89,8 +86,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				F85D0A851F7170720070CEDD /* EasyTipView.framework.dSYM in CopyFiles */,
-				F85D0A861F7170720070CEDD /* JTAppleCalendar.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +117,8 @@
 		A5404B51229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5404B54229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5404B56229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		F812C3E528154C5500F6C0A4 /* JTAppleCalendar.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JTAppleCalendar.xcframework; path = Carthage/Build/JTAppleCalendar.xcframework; sourceTree = "<group>"; };
+		F812C3E628154C5500F6C0A4 /* EasyTipView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = EasyTipView.xcframework; path = Carthage/Build/EasyTipView.xcframework; sourceTree = "<group>"; };
 		F814F8AF1E4CB60700E67057 /* DayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCellView.xib; sourceTree = "<group>"; };
 		F814F8B11E4CB65800E67057 /* DayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
 		F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+CalendarDelegates.swift"; sourceTree = "<group>"; };
@@ -136,8 +133,6 @@
 		F847D6E01E48C26A007B8847 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F84A6D0F1E4CBBE400FA9168 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
 		F85361BD219C308A000B6303 /* SpotlightIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndexer.swift; sourceTree = "<group>"; };
-		F85D0A831F7170550070CEDD /* EasyTipView.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = EasyTipView.framework.dSYM; sourceTree = "<group>"; };
-		F85D0A841F7170550070CEDD /* JTAppleCalendar.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = JTAppleCalendar.framework.dSYM; sourceTree = "<group>"; };
 		F86853C71E71B6A800A157DA /* panel-source.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "panel-source.graffle"; sourceTree = "<group>"; };
 		F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateStateHandling.swift; sourceTree = "<group>"; };
 		F86B38931E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+DayInfoViewDelegate.swift"; sourceTree = "<group>"; };
@@ -174,7 +169,6 @@
 		F8C7F26E219B1A2800E0FDA2 /* T-Shifts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "T-Shifts.entitlements"; sourceTree = "<group>"; };
 		F8C7F26F219B1A9A00E0FDA2 /* TShifts Today Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TShifts Today Widget.entitlements"; sourceTree = "<group>"; };
 		F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OptionsViewController+OptionsHandling.swift"; sourceTree = "<group>"; };
-		F8E4D1F522172B0800CDFE0B /* TShiftsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TShiftsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E9B53D1E27C9A600390BD3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -206,8 +200,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8BC615C221B04F000907179 /* TShiftsFramework.framework in Frameworks */,
-				F8C7F25C219AF9FC00E0FDA2 /* NotificationCenter.framework in Frameworks */,
+				F812C3E728154C5600F6C0A4 /* JTAppleCalendar.xcframework in Frameworks */,
+				F812C3E828154C5600F6C0A4 /* EasyTipView.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +209,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E4D1F622172B0800CDFE0B /* TShiftsFramework.framework in Frameworks */,
 				F8C7F255219ACA8700E0FDA2 /* CoreSpotlight.framework in Frameworks */,
 				F84A6D101E4CBBE400FA9168 /* JTAppleCalendar.framework in Frameworks */,
 			);
@@ -263,7 +256,8 @@
 		F85D0A871F7171430070CEDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8E4D1F522172B0800CDFE0B /* TShiftsFramework.framework */,
+				F812C3E628154C5500F6C0A4 /* EasyTipView.xcframework */,
+				F812C3E528154C5500F6C0A4 /* JTAppleCalendar.xcframework */,
 				F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */,
 				F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */,
 			);
@@ -347,8 +341,6 @@
 		F8E9B52F1E27C9A500390BD3 = {
 			isa = PBXGroup;
 			children = (
-				F85D0A831F7170550070CEDD /* EasyTipView.framework.dSYM */,
-				F85D0A841F7170550070CEDD /* JTAppleCalendar.framework.dSYM */,
 				F8BC6133221B03EE00907179 /* TShiftsFramework */,
 				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
 				F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */,
@@ -497,7 +489,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1330;
 				ORGANIZATIONNAME = "Roberto Esposito";
 				TargetAttributes = {
 					F8BC6131221B03EE00907179 = {
@@ -772,7 +764,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -782,7 +774,11 @@
 				INFOPLIST_FILE = TShiftsFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.7.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -806,7 +802,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -816,7 +812,11 @@
 				INFOPLIST_FILE = TShiftsFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.7.2;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsFramework;
@@ -839,13 +839,17 @@
 				CODE_SIGN_ENTITLEMENTS = "TShifts Today Widget/TShifts Today Widget.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "TShifts Today Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.7.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.7.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.boborbt.tshift.TShifts-Today-Widget";
@@ -866,13 +870,17 @@
 				CODE_SIGN_ENTITLEMENTS = "TShifts Today Widget/TShifts Today Widget.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "TShifts Today Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.7.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.7.3;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.boborbt.tshift.TShifts-Today-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -908,6 +916,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -932,7 +941,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -968,6 +977,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -986,10 +996,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1004,7 +1015,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CODE_SIGN_ENTITLEMENTS = "T-Shifts/T-Shifts.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1013,8 +1024,11 @@
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.7.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.7.3;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1032,7 +1046,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CODE_SIGN_ENTITLEMENTS = "T-Shifts/T-Shifts.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1041,8 +1055,11 @@
 				);
 				INFOPLIST_FILE = "T-Shifts/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.7.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.7.3;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift;
 				PRODUCT_NAME = "$(TARGET_NAME)";

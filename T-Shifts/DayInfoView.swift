@@ -12,7 +12,7 @@ import TShiftsFramework
 /**
   Collects the methods needed by DayInfoView to work properly
  */
-protocol DayInfoViewDelegate: class {
+protocol DayInfoViewDelegate: AnyObject {
     ///   Callback method called every time a shift button is pressed
     func dayInfoTapOn(shiftButton: MarkButton)
 
