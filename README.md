@@ -59,7 +59,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## Screenshots
 
+### Main screen
 ![](T-shifts-main-screen.png)  
 
+
+### Options screen
 ![](T-shifts-options-screen.png)
 
