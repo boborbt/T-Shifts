@@ -27,6 +27,10 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         
         static let freeAppStatement = NSLocalizedString("This app is a work of love toward my wife Tiziana who needed an easier way to insert shifts in her calendar. I have no plan to make it paid. I hope you will enjoy it as much as I enjoyed making it.", comment: "Message to the user")
         
+        static let pleaseHelp = NSLocalizedString("Please help!", comment: "Please help label")
+        
+        static let openSourceStatement = NSLocalizedString("I have very little time to develop this app. If you are an iOS developer and you are willing to help, please do!", comment: "Text displayed in the Please Help section")
+        
         static let creditsMessage = NSLocalizedString("T-Shifts includes the following open source components:", comment: "Text displayed in the credits section")
         
         static let askReview = NSLocalizedString("Please rate and/or review T-Shift", comment:"Text for the link in the options view asking the user to review the app.")
@@ -86,6 +90,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         setupShiftsSection()
         setupReviewSection()
         setupCreditsSection()
+        setupOpenSourceSection()
         setupDoneButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -159,9 +164,19 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         let attributedString = NSMutableAttributedString(string: LocalizedStrings.creditsMessage)
         attributedString.append(NSMutableAttributedString(string: "\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito"))
         
-        attributedString.setAsLink(textToFind: "JTAppleCalendar", linkURL: "https://patchthecode.github.io")
+        attributedString.setAsLink(textToFind: "JTAppleCalendar", linkURL: "https://github.com/patchthecode/JTAppleCalendar")
         attributedString.setAsLink(textToFind: "EasyTipView", linkURL: "https://github.com/teodorpatras/EasyTipView")
         attributedString.setAsLink(textToFind: "SSRadioButton", linkURL: "https://github.com/shamasshahid/SSRadioButtonsController")
+        
+        addAttributedTextView(attributedString, after: scrollView.subviews.last!.bottomAnchor)
+    }
+    
+    func setupOpenSourceSection() {
+        addSectionTitle(LocalizedStrings.pleaseHelp, after:scrollView.subviews.last!.bottomAnchor)
+        addAttributedTextView(NSAttributedString(string:LocalizedStrings.openSourceStatement), after: scrollView.subviews.last!.bottomAnchor)
+        
+        let attributedString = NSMutableAttributedString(string:"GitHub repository: https://github.com/boborbt/T-Shifts")
+        attributedString.setAsLink(textToFind: "GitHub repository: https://github.com/boborbt/T-Shifts", linkURL:"https://github.com/boborbt/T-Shifts")
         
         addAttributedTextView(attributedString, after: scrollView.subviews.last!.bottomAnchor)
     }
