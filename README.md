@@ -2,6 +2,9 @@
 
 T-Shifts is an iOS app for quickly inserting shifts into your calendar of choice. 
 
+![width:300](T-shifts-main-screen.png)![width:300](T-shifts-options-screen.png)
+
+
 T-Shifts sports the following major features:
 
 - an easy to use interface;
