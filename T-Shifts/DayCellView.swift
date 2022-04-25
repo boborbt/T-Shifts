@@ -26,6 +26,8 @@ class DayCellView: JTACDayCell {
     @IBOutlet weak var selectionEmphasis: UIView!
     @IBOutlet weak var marksDisplayView: MarksDisplayView!
     
+    var showBorder = false
+    
     /// Describe the emphasis level of cells
     enum ColorProminence {
         /// default level, no emphasis, no dimming
@@ -76,6 +78,16 @@ class DayCellView: JTACDayCell {
             
             selectionEmphasis.layer.cornerRadius = 5
             selectionEmphasis.alpha = newVal ? 1.0 : 0.0
+        }
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        if showBorder {
+            let path = UIBezierPath(roundedRect: rect, cornerRadius: 10)
+            UIColor.lightGray.set()
+            path.stroke()
         }
     }
     

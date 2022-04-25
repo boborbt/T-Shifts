@@ -197,15 +197,10 @@ class DayInfoView: UIView {
     // that are customized for the DayInfoView dayViews.
     static private func makeDayCellView() -> DayCellView {
         let cellView = Bundle.main.loadNibNamed("DayCellView", owner: self, options: nil)!.first as! DayCellView
+        cellView.showBorder = true
         
         cellView.label.font = UIFont.systemFont(ofSize: 14)
         cellView.layer.cornerRadius = Aspect.cornerRadius
-        if #available(iOS 13.0, *) {
-            cellView.layer.borderColor = UIColor.label.cgColor
-        } else {
-            cellView.layer.borderColor = UIColor.gray.cgColor
-        }
-        cellView.layer.borderWidth = 0.5
         
         return cellView
     }
