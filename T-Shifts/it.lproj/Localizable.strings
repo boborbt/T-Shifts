@@ -7,6 +7,12 @@
 /* Done button text */
 "Done" = "Conferma";
 
+/* Text displayed in the Please Help section */
+"I have very little time to develop this app. If you are an iOS developer and you are willing to help, please do!" = "Purtroppo ho poco tempo per sviluppare questa applicazione. Se sei uno sviluppatore iOS e puoi contribuire con parte del tuo tempo sei il benvenuto!";
+
+/* Please help label */
+"Please help!" = "Aiutate se potete!";
+
 /* Text for the link in the options view asking the user to review the app. */
 "Please rate and/or review T-Shift" = "Lascia una review";
 
