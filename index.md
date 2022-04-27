@@ -8,7 +8,7 @@ title: test
 
 ## Contacts
 
-Contact me by on <a href="{{ site.github.owner_url }}">GitHub</a> for any issue/comment/suggestion.
+Contact me by on <a href="https://github.com/boborbt">GitHub</a> for any issue/comment/suggestion.
 
 ## Privacy
 
