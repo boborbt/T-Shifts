@@ -13,3 +13,7 @@ Contact me by on <a href="{{ site.github.owner_url }}">GitHub</a> for any issue/
 ## Privacy
 
 T-Shifts only store, locally to your device, your preferences about the calendar to be used and the name you give to your shifts. No other use of your data is made.
+
+## Help needed
+
+If you would like to contribute, please head to: https://github.com/boborbt/T-Shifts
