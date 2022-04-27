@@ -16,4 +16,4 @@ T-Shifts only store, locally to your device, your preferences about the calendar
 
 ## Help needed
 
-If you would like to contribute, please head to: https://github.com/boborbt/T-Shifts
+If you would like to contribute, you can find the source code on [the github repository](https://github.com/boborbt/T-Shifts).
