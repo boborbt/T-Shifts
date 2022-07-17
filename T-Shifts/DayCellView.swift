@@ -85,7 +85,7 @@ class DayCellView: JTACDayCell {
         super.draw(rect)
         
         if showBorder {
-            let path = UIBezierPath(roundedRect: rect, cornerRadius: 10)
+            let path = UIBezierPath(roundedRect: rect, cornerRadius: 9)
             UIColor.lightGray.set()
             path.stroke()
         }
