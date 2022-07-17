@@ -10,15 +10,13 @@
 		A5404B52229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B50229AF8F000A15CE8 /* InfoPlist.strings */; };
 		A59A083D287DBBAF00D34190 /* EasyTipView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F812C3E628154C5500F6C0A4 /* EasyTipView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A59A083E287DBBAF00D34190 /* JTAppleCalendar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F812C3E528154C5500F6C0A4 /* JTAppleCalendar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5BEBB1B2881B90800C6870D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D81BB285A36760097E500 /* WidgetKit.framework */; };
-		A5BEBB1C2881B90800C6870D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D81BD285A36760097E500 /* SwiftUI.framework */; };
-		A5BEBB1F2881B90800C6870D /* TShiftsUIWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BEBB1E2881B90800C6870D /* TShiftsUIWidget.swift */; };
-		A5BEBB222881B90900C6870D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BEBB212881B90900C6870D /* Assets.xcassets */; };
-		A5BEBB242881B90900C6870D /* TShiftsUIWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A5BEBB202881B90800C6870D /* TShiftsUIWidget.intentdefinition */; };
-		A5BEBB252881B90900C6870D /* TShiftsUIWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A5BEBB202881B90800C6870D /* TShiftsUIWidget.intentdefinition */; };
-		A5BEBB282881B90900C6870D /* TShiftsUIWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A5BEBB1A2881B90800C6870D /* TShiftsUIWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A5F4E1B7288407D400CA1488 /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; };
-		A5F4E1B8288407D400CA1488 /* TShiftsFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5A428CC28847A33001E6C47 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D81BB285A36760097E500 /* WidgetKit.framework */; };
+		A5A428CD28847A33001E6C47 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D81BD285A36760097E500 /* SwiftUI.framework */; };
+		A5A428D028847A33001E6C47 /* TShiftWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A428CF28847A33001E6C47 /* TShiftWidget.swift */; };
+		A5A428D228847A34001E6C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A428D128847A34001E6C47 /* Assets.xcassets */; };
+		A5A428D628847A34001E6C47 /* TShiftWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A5A428CB28847A33001E6C47 /* TShiftWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A5A428DA28847A97001E6C47 /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; };
+		A5A428DB28847A97001E6C47 /* TShiftsFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
 		F814F8B41E4CB71700E67057 /* MainViewController+CalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B31E4CB71700E67057 /* MainViewController+CalendarDelegates.swift */; };
@@ -59,14 +57,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A5BEBB262881B90900C6870D /* PBXContainerItemProxy */ = {
+		A5A428D428847A34001E6C47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A5BEBB192881B90800C6870D;
-			remoteInfo = TShiftsUIWidgetExtension;
+			remoteGlobalIDString = A5A428CA28847A33001E6C47;
+			remoteInfo = TShiftWidgetExtension;
 		};
-		A5F4E1B9288407D400CA1488 /* PBXContainerItemProxy */ = {
+		A5A428DC28847A98001E6C47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8E9B5301E27C9A500390BD3 /* Project object */;
 			proxyType = 1;
@@ -83,13 +81,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A5F4E1BB288407D500CA1488 /* Embed Frameworks */ = {
+		A5A428DE28847A98001E6C47 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A5F4E1B8288407D400CA1488 /* TShiftsFramework.framework in Embed Frameworks */,
+				A5A428DB28847A97001E6C47 /* TShiftsFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,7 +120,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A5BEBB282881B90900C6870D /* TShiftsUIWidgetExtension.appex in Embed App Extensions */,
+				A5A428D628847A34001E6C47 /* TShiftWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,14 +129,11 @@
 
 /* Begin PBXFileReference section */
 		A5404B51229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A5404B54229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A5404B56229AF8F000A15CE8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		A5A4289C28844194001E6C47 /* TShiftsUIWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TShiftsUIWidgetExtension.entitlements; sourceTree = "<group>"; };
-		A5BEBB1A2881B90800C6870D /* TShiftsUIWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TShiftsUIWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5BEBB1E2881B90800C6870D /* TShiftsUIWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TShiftsUIWidget.swift; sourceTree = "<group>"; };
-		A5BEBB202881B90800C6870D /* TShiftsUIWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TShiftsUIWidget.intentdefinition; sourceTree = "<group>"; };
-		A5BEBB212881B90900C6870D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A5BEBB232881B90900C6870D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5A428CB28847A33001E6C47 /* TShiftWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TShiftWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A428CF28847A33001E6C47 /* TShiftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TShiftWidget.swift; sourceTree = "<group>"; };
+		A5A428D128847A34001E6C47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5A428D328847A34001E6C47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F80D81BB285A36760097E500 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F80D81BD285A36760097E500 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F812C3E528154C5500F6C0A4 /* JTAppleCalendar.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JTAppleCalendar.xcframework; path = Carthage/Build/JTAppleCalendar.xcframework; sourceTree = "<group>"; };
@@ -183,12 +178,7 @@
 		F8BC6156221B045D00907179 /* ShiftsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftsModel.swift; sourceTree = "<group>"; };
 		F8C7F254219ACA8700E0FDA2 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		F8C7F25B219AF9FC00E0FDA2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		F8C7F25E219AF9FC00E0FDA2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		F8C7F261219AF9FC00E0FDA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		F8C7F263219AF9FC00E0FDA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTableViewCell.swift; sourceTree = "<group>"; };
 		F8C7F26E219B1A2800E0FDA2 /* T-Shifts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "T-Shifts.entitlements"; sourceTree = "<group>"; };
-		F8C7F26F219B1A9A00E0FDA2 /* TShifts Today Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TShifts Today Widget.entitlements"; sourceTree = "<group>"; };
 		F8DBA7821E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OptionsViewController+OptionsHandling.swift"; sourceTree = "<group>"; };
 		F8E9B5381E27C9A600390BD3 /* T-Shifts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "T-Shifts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9B53B1E27C9A600390BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,13 +200,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A5BEBB172881B90800C6870D /* Frameworks */ = {
+		A5A428C828847A33001E6C47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5F4E1B7288407D400CA1488 /* TShiftsFramework.framework in Frameworks */,
-				A5BEBB1C2881B90800C6870D /* SwiftUI.framework in Frameworks */,
-				A5BEBB1B2881B90800C6870D /* WidgetKit.framework in Frameworks */,
+				A5A428DA28847A97001E6C47 /* TShiftsFramework.framework in Frameworks */,
+				A5A428CD28847A33001E6C47 /* SwiftUI.framework in Frameworks */,
+				A5A428CC28847A33001E6C47 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,15 +228,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A5BEBB1D2881B90800C6870D /* TShiftsUIWidget */ = {
+		A5A428CE28847A33001E6C47 /* TShiftWidget */ = {
 			isa = PBXGroup;
 			children = (
-				A5BEBB1E2881B90800C6870D /* TShiftsUIWidget.swift */,
-				A5BEBB202881B90800C6870D /* TShiftsUIWidget.intentdefinition */,
-				A5BEBB212881B90900C6870D /* Assets.xcassets */,
-				A5BEBB232881B90900C6870D /* Info.plist */,
+				A5A428CF28847A33001E6C47 /* TShiftWidget.swift */,
+				A5A428D128847A34001E6C47 /* Assets.xcassets */,
+				A5A428D328847A34001E6C47 /* Info.plist */,
 			);
-			path = TShiftsUIWidget;
+			path = TShiftWidget;
 			sourceTree = "<group>";
 		};
 		F814F8AA1E4CAC5F00E67057 /* Models */ = {
@@ -359,27 +348,13 @@
 			path = TShiftsFrameworkTests;
 			sourceTree = "<group>";
 		};
-		F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */ = {
-			isa = PBXGroup;
-			children = (
-				F8C7F26F219B1A9A00E0FDA2 /* TShifts Today Widget.entitlements */,
-				F8C7F25E219AF9FC00E0FDA2 /* TodayViewController.swift */,
-				F8C7F26B219B0B8B00E0FDA2 /* WidgetTableViewCell.swift */,
-				F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */,
-				F8C7F263219AF9FC00E0FDA2 /* Info.plist */,
-				A5404B53229AF8F000A15CE8 /* InfoPlist.strings */,
-			);
-			path = "TShifts Today Widget";
-			sourceTree = "<group>";
-		};
 		F8E9B52F1E27C9A500390BD3 = {
 			isa = PBXGroup;
 			children = (
 				A5A4289C28844194001E6C47 /* TShiftsUIWidgetExtension.entitlements */,
 				F8BC6133221B03EE00907179 /* TShiftsFramework */,
 				F8E9B53A1E27C9A600390BD3 /* T-Shifts */,
-				F8C7F25D219AF9FC00E0FDA2 /* TShifts Today Widget */,
-				A5BEBB1D2881B90800C6870D /* TShiftsUIWidget */,
+				A5A428CE28847A33001E6C47 /* TShiftWidget */,
 				F8E9B5391E27C9A600390BD3 /* Products */,
 				F85D0A871F7171430070CEDD /* Frameworks */,
 				F8BC6140221B03EE00907179 /* TShiftsFrameworkTests */,
@@ -393,7 +368,7 @@
 			children = (
 				F8E9B5381E27C9A600390BD3 /* T-Shifts.app */,
 				F8BC6132221B03EE00907179 /* TShiftsFramework.framework */,
-				A5BEBB1A2881B90800C6870D /* TShiftsUIWidgetExtension.appex */,
+				A5A428CB28847A33001E6C47 /* TShiftWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -457,23 +432,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A5BEBB192881B90800C6870D /* TShiftsUIWidgetExtension */ = {
+		A5A428CA28847A33001E6C47 /* TShiftWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5BEBB2B2881B90900C6870D /* Build configuration list for PBXNativeTarget "TShiftsUIWidgetExtension" */;
+			buildConfigurationList = A5A428D728847A34001E6C47 /* Build configuration list for PBXNativeTarget "TShiftWidgetExtension" */;
 			buildPhases = (
-				A5BEBB162881B90800C6870D /* Sources */,
-				A5BEBB172881B90800C6870D /* Frameworks */,
-				A5BEBB182881B90800C6870D /* Resources */,
-				A5F4E1BB288407D500CA1488 /* Embed Frameworks */,
+				A5A428C728847A33001E6C47 /* Sources */,
+				A5A428C828847A33001E6C47 /* Frameworks */,
+				A5A428C928847A33001E6C47 /* Resources */,
+				A5A428DE28847A98001E6C47 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A5F4E1BA288407D400CA1488 /* PBXTargetDependency */,
+				A5A428DD28847A98001E6C47 /* PBXTargetDependency */,
 			);
-			name = TShiftsUIWidgetExtension;
-			productName = TShiftsUIWidgetExtension;
-			productReference = A5BEBB1A2881B90800C6870D /* TShiftsUIWidgetExtension.appex */;
+			name = TShiftWidgetExtension;
+			productName = TShiftWidgetExtension;
+			productReference = A5A428CB28847A33001E6C47 /* TShiftWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		F8BC6131221B03EE00907179 /* TShiftsFramework */ = {
@@ -510,7 +485,7 @@
 			);
 			dependencies = (
 				F8BC6146221B03EE00907179 /* PBXTargetDependency */,
-				A5BEBB272881B90900C6870D /* PBXTargetDependency */,
+				A5A428D528847A34001E6C47 /* PBXTargetDependency */,
 			);
 			name = "T-Shifts";
 			productName = "T-Shifts";
@@ -527,7 +502,7 @@
 				LastUpgradeCheck = 1330;
 				ORGANIZATIONNAME = "Roberto Esposito";
 				TargetAttributes = {
-					A5BEBB192881B90800C6870D = {
+					A5A428CA28847A33001E6C47 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					F8BC6131221B03EE00907179 = {
@@ -564,17 +539,17 @@
 			targets = (
 				F8E9B5371E27C9A600390BD3 /* T-Shifts */,
 				F8BC6131221B03EE00907179 /* TShiftsFramework */,
-				A5BEBB192881B90800C6870D /* TShiftsUIWidgetExtension */,
+				A5A428CA28847A33001E6C47 /* TShiftWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A5BEBB182881B90800C6870D /* Resources */ = {
+		A5A428C928847A33001E6C47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5BEBB222881B90900C6870D /* Assets.xcassets in Resources */,
+				A5A428D228847A34001E6C47 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,12 +599,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A5BEBB162881B90800C6870D /* Sources */ = {
+		A5A428C728847A33001E6C47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5BEBB242881B90900C6870D /* TShiftsUIWidget.intentdefinition in Sources */,
-				A5BEBB1F2881B90800C6870D /* TShiftsUIWidget.swift in Sources */,
+				A5A428D028847A33001E6C47 /* TShiftWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +640,6 @@
 				F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */,
 				F89B2D71227C2D1E0028C43E /* EditTemplateViewController.swift in Sources */,
 				F89B2D74227C30750028C43E /* ShowEditTemplateButton.swift in Sources */,
-				A5BEBB252881B90900C6870D /* TShiftsUIWidget.intentdefinition in Sources */,
 				F89D613F1E5C81840060911E /* MarkButton.swift in Sources */,
 				F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */,
 				F8F161B72147EC0F002477F1 /* DayInfoViewSecurePanelExtension.swift in Sources */,
@@ -676,15 +649,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A5BEBB272881B90900C6870D /* PBXTargetDependency */ = {
+		A5A428D528847A34001E6C47 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A5BEBB192881B90800C6870D /* TShiftsUIWidgetExtension */;
-			targetProxy = A5BEBB262881B90900C6870D /* PBXContainerItemProxy */;
+			target = A5A428CA28847A33001E6C47 /* TShiftWidgetExtension */;
+			targetProxy = A5A428D428847A34001E6C47 /* PBXContainerItemProxy */;
 		};
-		A5F4E1BA288407D400CA1488 /* PBXTargetDependency */ = {
+		A5A428DD28847A98001E6C47 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8BC6131221B03EE00907179 /* TShiftsFramework */;
-			targetProxy = A5F4E1B9288407D400CA1488 /* PBXContainerItemProxy */;
+			targetProxy = A5A428DC28847A98001E6C47 /* PBXContainerItemProxy */;
 		};
 		F8BC6146221B03EE00907179 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -698,14 +671,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A5404B51229AF8F000A15CE8 /* it */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A5404B53229AF8F000A15CE8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5404B54229AF8F000A15CE8 /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -743,15 +708,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		F8C7F260219AF9FC00E0FDA2 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F8C7F261219AF9FC00E0FDA2 /* Base */,
-				A5404B56229AF8F000A15CE8 /* it */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		F8E9B53F1E27C9A600390BD3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -783,7 +739,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A5BEBB292881B90900C6870D /* Debug */ = {
+		A5A428D828847A34001E6C47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -792,35 +748,34 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = TShiftsUIWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TShiftsUIWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = TShiftsUIWidget;
+				INFOPLIST_FILE = TShiftWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TShiftWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Roberto Esposito. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.7.4;
+				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsUIWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		A5BEBB2A2881B90900C6870D /* Release */ = {
+		A5A428D928847A34001E6C47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -829,27 +784,26 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = TShiftsUIWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TShiftsUIWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = TShiftsUIWidget;
+				INFOPLIST_FILE = TShiftWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TShiftWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Roberto Esposito. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.7.4;
+				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsUIWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1116,11 +1070,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A5BEBB2B2881B90900C6870D /* Build configuration list for PBXNativeTarget "TShiftsUIWidgetExtension" */ = {
+		A5A428D728847A34001E6C47 /* Build configuration list for PBXNativeTarget "TShiftWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A5BEBB292881B90900C6870D /* Debug */,
-				A5BEBB2A2881B90900C6870D /* Release */,
+				A5A428D828847A34001E6C47 /* Debug */,
+				A5A428D928847A34001E6C47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

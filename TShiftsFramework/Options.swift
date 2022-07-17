@@ -10,6 +10,7 @@ import Foundation
 import os.log
 
 public class Options {
+
     var options = UserDefaults(suiteName: "group.org.boborbt.tshifts-v2")!
     let logger = OSLog(subsystem:"org.boborbt.tshifts", category:"options")
     
