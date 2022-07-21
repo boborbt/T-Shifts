@@ -12,6 +12,7 @@ import JTAppleCalendar
 import EasyTipView
 import os.log
 import TShiftsFramework
+import WidgetKit
 
 class MainViewController: UIViewController {
     
@@ -119,6 +120,9 @@ class MainViewController: UIViewController {
         
         feedbackGenerator.impactOccurred()
         feedbackGenerator.prepare()
+        
+        os_log(.debug, "refreshing the widget timeline")
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func panelDidClose() {

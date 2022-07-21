@@ -33,11 +33,13 @@ public class Options {
     func readDefaults() -> [String:Any] {
         let defaults = UserDefaults(suiteName: "group.org.boborbt.tshifts.option-templates")!
         
-        if let plistPath = Bundle.main.path(forResource: "Options", ofType: "plist") {
+        if let plistPath = Bundle.app.path(forResource: "Options", ofType: "plist") {
             os_log(.debug, log:logger, "Template Defaults: writing defaults read from main bundle")
             let dictionary = NSDictionary(contentsOfFile: plistPath)!
             defaults.set(dictionary, forKey:"defaults-dictionary")
             defaults.synchronize()
+        } else {
+            fatalError("Cannot access the app bundle")
         }
     
         return defaults.dictionary(forKey:"defaults-dictionary")!

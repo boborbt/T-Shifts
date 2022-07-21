@@ -121,6 +121,11 @@ public protocol ShiftStorage {
 ///   - position: the position among the templates
 ///   - color: the color in which the template has to be rendered
 public struct ShiftTemplate {
+    public init(shift:Shift, position:Int, color: UIColor) {
+        self.shift = shift
+        self.position = position
+        self.color = color
+    }
     /// the shift description
     public var shift: Shift
     /// the position among the templates
