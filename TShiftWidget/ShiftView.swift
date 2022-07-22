@@ -24,6 +24,31 @@ struct ShiftView: View {
         return Calendar.current.shortWeekdaySymbols[index - 1] // subtract 1 since the index starts at 1
     }
     
+    
+    func scAtIndex(_ index:Int) -> String{
+        if index < shortcuts.count {
+            return shortcuts[index]
+        } else {
+            return " "
+        }
+    }
+    
+    func clrAtIndex(_ index: Int) -> UIColor {
+        if index < colors.count {
+            return colors[index]
+        } else {
+            return UIColor.clear
+        }
+    }
+    
+    func ellipsis() -> String {
+        if shortcuts.count > 2 {
+            return "..."
+        } else {
+            return ""
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .center, spacing: 5) {
             Text(dayOfWeak())
@@ -41,25 +66,13 @@ struct ShiftView: View {
                     .background(Color(clrAtIndex($0)))
                     .cornerRadius(5)
             }
+            
+            Text(ellipsis())
+                .frame(width: 30, height: 10)
         }
         .frame(width: 30, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
     }
-    
-    func scAtIndex(_ index:Int) -> String{
-        if index < shortcuts.count {
-            return shortcuts[index]
-        } else {
-            return " "
-        }
-    }
-    
-    func clrAtIndex(_ index: Int) -> UIColor {
-        if index < colors.count {
-            return colors[index]
-        } else {
-            return UIColor.clear
-        }
-    }
+
 }
 
 struct ShiftView_Previews: PreviewProvider {
