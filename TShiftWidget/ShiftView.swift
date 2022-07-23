@@ -57,7 +57,7 @@ struct ShiftView: View {
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
                 .padding(.bottom, 5.0)
-                .foregroundColor(highlight ? Color.red : Color.black)
+                .foregroundColor(highlight ? Color.red : nil)
             
             ForEach(0 ..< 2, id:\.self) {
                 Text(scAtIndex($0))
