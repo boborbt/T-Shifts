@@ -62,7 +62,7 @@ struct ShiftView: View {
             ForEach(0 ..< 2, id:\.self) {
                 Text(scAtIndex($0))
                     .padding(/*@START_MENU_TOKEN@*/.all, 5.0/*@END_MENU_TOKEN@*/)
-                    .frame(width: /*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
+                    .frame(width: 34.0, height: /*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
                     .background(Color(clrAtIndex($0)))
                     .cornerRadius(5)
             }
@@ -80,7 +80,7 @@ struct ShiftView_Previews: PreviewProvider {
         ShiftView(highlight:true, date: Date(), shortcuts:["M", "P", "A", "B"], colors: [UIColor.red, UIColor.yellow, UIColor.green, UIColor.blue])
             .previewContext(WidgetPreviewContext(family: .systemSmall))
         
-        ShiftView(highlight:false, date: Date(), shortcuts:["M"], colors: [UIColor.red])
+        ShiftView(highlight:false, date: Date(), shortcuts:["☎️"], colors: [UIColor.red])
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
