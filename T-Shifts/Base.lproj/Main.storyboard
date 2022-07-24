@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZGs-h3-LsW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZGs-h3-LsW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -102,7 +102,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="qM0-Jr-yQg" firstAttribute="leading" secondItem="Aj8-Oy-tIo" secondAttribute="leading" id="DW3-Xr-Ade"/>
                                             <constraint firstAttribute="bottom" secondItem="qM0-Jr-yQg" secondAttribute="bottom" id="cpI-rW-BLl"/>
@@ -113,7 +113,7 @@
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="JTAppleCalendarView" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="of1-TB-Q3X" customClass="JTACMonthView" customModule="JTAppleCalendar">
                                         <rect key="frame" x="0.0" y="88" width="375" height="421"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="4P4-2R-TXL">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -128,6 +128,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </view>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
@@ -142,7 +143,7 @@
                                 <gestureRecognizers/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UZ9-ZB-b6K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="OuI-J7-3su"/>
                             <constraint firstAttribute="trailing" secondItem="UZ9-ZB-b6K" secondAttribute="trailing" id="Wz8-xU-159"/>
@@ -186,13 +187,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shift:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAk-Ng-9aR">
-                                <rect key="frame" x="24" y="40" width="74" height="21"/>
+                                <rect key="frame" x="24" y="40" width="75.5" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shift placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKN-Ky-1g1">
-                                <rect key="frame" x="114" y="40" width="188" height="21"/>
+                                <rect key="frame" x="115.5" y="40" width="186.5" height="21"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
@@ -213,19 +214,19 @@
                                 <rect key="frame" x="0.0" y="89" width="375" height="578"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePv-XN-BMb">
-                                        <rect key="frame" x="8" y="95" width="90" height="21"/>
+                                        <rect key="frame" x="8" y="95" width="91.5" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alert:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXz-pL-amW">
-                                        <rect key="frame" x="8" y="182" width="90" height="21"/>
+                                        <rect key="frame" x="8" y="182" width="91.5" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKw-ye-66s">
-                                        <rect key="frame" x="8" y="8" width="90" height="21"/>
+                                        <rect key="frame" x="8" y="8" width="91.5" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -249,7 +250,7 @@
                                         </connections>
                                     </datePicker>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdX-9c-fBn" userLabel="fromLabel">
-                                        <rect key="frame" x="114" y="8" width="253" height="21"/>
+                                        <rect key="frame" x="115.5" y="8" width="251.5" height="21"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
@@ -265,7 +266,7 @@
                                         </connections>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhY-fO-w4J" userLabel="toLabel">
-                                        <rect key="frame" x="114" y="95" width="253" height="21"/>
+                                        <rect key="frame" x="115.5" y="95" width="251.5" height="21"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
@@ -281,16 +282,16 @@
                                         </connections>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdM-2j-Uf2" userLabel="alarmSwitch">
-                                        <rect key="frame" x="114" y="177" width="51" height="31"/>
+                                        <rect key="frame" x="115.5" y="177" width="51" height="31"/>
                                         <connections>
                                             <action selector="fieldTap:" destination="bTD-1l-8wn" eventType="valueChanged" id="va4-IV-Wk2"/>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlV-xP-fGo" userLabel="minutesBeforeStartView">
-                                        <rect key="frame" x="174" y="177" width="193" height="393"/>
+                                        <rect key="frame" x="175.5" y="177" width="191.5" height="393"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="default: 0" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-BE-gsw">
-                                                <rect key="frame" x="8" y="0.0" width="185" height="34"/>
+                                                <rect key="frame" x="8" y="0.0" width="183.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done"/>
                                                 <connections>
@@ -298,13 +299,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes before shift start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-k4-C4S">
-                                                <rect key="frame" x="0.0" y="42" width="193" height="21"/>
+                                                <rect key="frame" x="0.0" y="42" width="191.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="WP8-BE-gsw" firstAttribute="top" secondItem="XlV-xP-fGo" secondAttribute="top" id="Iff-AQ-ahi"/>
                                             <constraint firstItem="6nC-k4-C4S" firstAttribute="top" secondItem="WP8-BE-gsw" secondAttribute="bottom" constant="8" id="R2N-fM-oCY"/>
@@ -315,7 +316,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="XlV-xP-fGo" firstAttribute="top" secondItem="sdM-2j-Uf2" secondAttribute="top" id="3xQ-9C-vDd"/>
                                     <constraint firstItem="VKw-ye-66s" firstAttribute="leading" secondItem="R1N-g3-Cu9" secondAttribute="leading" constant="8" id="6ZN-b1-51u"/>
@@ -352,7 +353,7 @@
                                 </connections>
                             </switch>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jcO-Pt-KEW" firstAttribute="centerY" secondItem="kKN-Ky-1g1" secondAttribute="centerY" id="0Dp-XK-3yh"/>
                             <constraint firstItem="kKN-Ky-1g1" firstAttribute="top" secondItem="ySe-p8-6dB" secondAttribute="bottom" constant="40" id="Chd-Q0-3ul"/>
@@ -455,5 +456,8 @@
     </scenes>
     <resources>
         <image name="options-icon" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
