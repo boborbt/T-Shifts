@@ -19,12 +19,13 @@ struct ShiftView: View {
         return "\(Calendar.current.dateComponents([.day], from: date).day!)"
     }
     
+
     func dayOfWeak() -> String {
         var cal = Calendar.current
         cal.locale = Locale.preferredLocale()
         
         let index = cal.component(.weekday, from: date)
-        return cal.shortWeekdaySymbols[index - 1].capitalized
+        return cal.shortWeekdaySymbols[index - 1]
     }
     
     
@@ -55,7 +56,8 @@ struct ShiftView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 5) {
             Text(dayOfWeak())
-                .font(.footnote)
+                .font(.caption)
+            
             Text(day())
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
