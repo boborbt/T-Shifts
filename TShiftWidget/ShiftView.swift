@@ -19,16 +19,9 @@ struct ShiftView: View {
         return "\(Calendar.current.dateComponents([.day], from: date).day!)"
     }
     
-    static func preferredLocale() -> Locale {
-        guard let preferredIdentifier = Locale.preferredLanguages.first else {
-            return Locale.current
-        }
-        return Locale(identifier: preferredIdentifier)
-    }
-    
     func dayOfWeak() -> String {
         var cal = Calendar.current
-        cal.locale = ShiftView.preferredLocale()
+        cal.locale = Locale.preferredLocale()
         
         let index = cal.component(.weekday, from: date)
         return cal.shortWeekdaySymbols[index - 1].capitalized

@@ -10,6 +10,7 @@
 		A5404B52229AF8F000A15CE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5404B50229AF8F000A15CE8 /* InfoPlist.strings */; };
 		A55B3FA92887F41700D7E3E9 /* ShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B3FA82887F41700D7E3E9 /* ShiftView.swift */; };
 		A55B3FAC28883A4600D7E3E9 /* Bundle+app.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B3FAB28883A4600D7E3E9 /* Bundle+app.swift */; };
+		A58868D3288EE5D5007AC428 /* Locale+preferredLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58868D2288EE5D5007AC428 /* Locale+preferredLanguage.swift */; };
 		A59A083D287DBBAF00D34190 /* EasyTipView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F812C3E628154C5500F6C0A4 /* EasyTipView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A59A083E287DBBAF00D34190 /* JTAppleCalendar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F812C3E528154C5500F6C0A4 /* JTAppleCalendar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A5A428CC28847A33001E6C47 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D81BB285A36760097E500 /* WidgetKit.framework */; };
@@ -122,6 +123,7 @@
 		A55B3FA82887F41700D7E3E9 /* ShiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftView.swift; sourceTree = "<group>"; };
 		A55B3FAA2888337000D7E3E9 /* TShiftWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TShiftWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A55B3FAB28883A4600D7E3E9 /* Bundle+app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+app.swift"; sourceTree = "<group>"; };
+		A58868D2288EE5D5007AC428 /* Locale+preferredLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+preferredLanguage.swift"; sourceTree = "<group>"; };
 		A5A428CB28847A33001E6C47 /* TShiftWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TShiftWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A428CF28847A33001E6C47 /* TShiftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TShiftWidget.swift; sourceTree = "<group>"; };
 		A5A428D128847A34001E6C47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				F8BC6135221B03EE00907179 /* Info.plist */,
 				A5404B50229AF8F000A15CE8 /* InfoPlist.strings */,
 				A55B3FAB28883A4600D7E3E9 /* Bundle+app.swift */,
+				A58868D2288EE5D5007AC428 /* Locale+preferredLanguage.swift */,
 			);
 			path = TShiftsFramework;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				F8BC6157221B045E00907179 /* Date+Utils.swift in Sources */,
 				F8BC615A221B045E00907179 /* Options.swift in Sources */,
 				F8BC6158221B045E00907179 /* Int+DayConversions.swift in Sources */,
+				A58868D3288EE5D5007AC428 /* Locale+preferredLanguage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
