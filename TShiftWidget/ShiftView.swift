@@ -26,11 +26,17 @@ struct ShiftView: View {
         return Locale(identifier: preferredIdentifier)
     }
     
-    func dayOfWeak() -> String {
-        var cal = Calendar.current
-        cal.locale = ShiftView.preferredLocale()
+    func dayOfWeakIndex() -> Int {
+        let cal = Calendar.current
         
-        let index = cal.component(.weekday, from: date)
+        return cal.component(.weekday, from: date)
+    }
+    
+    func dayOfWeak() -> String {
+        let index = dayOfWeakIndex()
+        var cal = Calendar.current
+        
+        cal.locale = ShiftView.preferredLocale()
         return cal.shortWeekdaySymbols[index - 1].capitalized
     }
     
@@ -59,10 +65,31 @@ struct ShiftView: View {
         }
     }
     
+    func dowBackColor() -> Color {
+        if dayOfWeakIndex() == 1 {
+            return Color(UIColor.label)
+        } else {
+            return Color(UIColor.systemBackground)
+        }
+    }
+    
+    func dowForeColor() -> Color {
+        if dayOfWeakIndex() != 1 {
+            return Color(UIColor.label)
+        } else {
+            return Color(UIColor.systemBackground)
+        }
+    }
+
+    
     var body: some View {
         VStack(alignment: .center, spacing: 5) {
             Text(dayOfWeak())
                 .font(.footnote)
+                .foregroundColor(dowForeColor())
+                .background(dowBackColor())
+                .cornerRadius(2)
+
             Text(day())
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
@@ -90,7 +117,7 @@ struct ShiftView_Previews: PreviewProvider {
         ShiftView(highlight:true, date: Date(), shortcuts:["M", "P", "A", "B"], colors: [UIColor.red, UIColor.yellow, UIColor.green, UIColor.blue])
             .previewContext(WidgetPreviewContext(family: .systemSmall))
         
-        ShiftView(highlight:false, date: Date(), shortcuts:["☎️"], colors: [UIColor.red])
+        ShiftView(highlight:false, date: Date().advanced(by: 4.days()), shortcuts:["☎️"], colors: [UIColor.red])
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
