@@ -35,8 +35,8 @@ struct ShiftView: View {
     func dayOfWeak() -> String {
         let index = dayOfWeakIndex()
         var cal = Calendar.current
-        
         cal.locale = ShiftView.preferredLocale()
+        
         return cal.shortWeekdaySymbols[index - 1].capitalized
     }
     
@@ -89,7 +89,7 @@ struct ShiftView: View {
                 .foregroundColor(dowForeColor())
                 .background(dowBackColor())
                 .cornerRadius(2)
-
+            
             Text(day())
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
