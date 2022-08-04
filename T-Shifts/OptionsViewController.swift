@@ -112,11 +112,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         let sc = UIScrollView()
         self.view.addSubview(sc)
         scrollView = sc
-        if #available(iOS 13.0, *) {
-            scrollView.backgroundColor = UIColor.systemBackground
-        } else {
-            scrollView.backgroundColor = UIColor.white
-        }
+        scrollView.backgroundColor = UIColor.systemBackground
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
@@ -162,7 +158,10 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         addAttributedTextView(NSAttributedString(string: LocalizedStrings.freeAppStatement), after: scrollView.subviews.last!.bottomAnchor)
         
         let attributedString = NSMutableAttributedString(string: LocalizedStrings.creditsMessage)
-        attributedString.append(NSMutableAttributedString(string: "\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\n© 2017 Roberto Esposito"))
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+
+        attributedString.append(NSMutableAttributedString(string: "\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\nV\(appVersion ??  "N/A")b\(buildVersion ?? "N/A"), © 2017 Roberto Esposito"))
         
         attributedString.setAsLink(textToFind: "JTAppleCalendar", linkURL: "https://github.com/patchthecode/JTAppleCalendar")
         attributedString.setAsLink(textToFind: "EasyTipView", linkURL: "https://github.com/teodorpatras/EasyTipView")

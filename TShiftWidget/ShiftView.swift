@@ -66,18 +66,24 @@ struct ShiftView: View {
     }
     
     func dowBackColor() -> Color {
-        if dayOfWeakIndex() == 1 {
+        switch dayOfWeakIndex() {
+        case 1:
             return Color(UIColor.label)
-        } else {
+        case 7:
+            return Color(UIColor.lightGray);
+        default:
             return Color(UIColor.systemBackground)
         }
     }
     
     func dowForeColor() -> Color {
-        if dayOfWeakIndex() != 1 {
-            return Color(UIColor.label)
-        } else {
+        switch dayOfWeakIndex() {
+        case 1:
             return Color(UIColor.systemBackground)
+        case 7:
+            return Color.black
+        default:
+            return Color(UIColor.label)
         }
     }
 
@@ -85,6 +91,7 @@ struct ShiftView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 5) {
             Text(dayOfWeak())
+                .frame(width: 34)
                 .font(.footnote)
                 .foregroundColor(dowForeColor())
                 .background(dowBackColor())
