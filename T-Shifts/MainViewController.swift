@@ -25,6 +25,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var preferenceButton: UIBarButtonItem!
     @IBOutlet weak var dayInfoView: DayInfoView!
     @IBOutlet weak var calendarView: JTACMonthView!
+    @IBOutlet weak var satLabel: UILabel!
+    @IBOutlet weak var sunLabel: UILabel!
     
     let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     
@@ -38,6 +40,7 @@ class MainViewController: UIViewController {
         dayInfoView.delegate = self
         
         calendarUpdater = delegate.calendarUpdater
+        setupDayLabels()
         setupCalendarView()
         setupGotoTodayRecognizer()
         
@@ -51,6 +54,14 @@ class MainViewController: UIViewController {
         self.select(date:Date())
         feedbackGenerator.prepare()
         indexer.addItemsToSpotlightIndex()
+    }
+    
+    func setupDayLabels() {
+        satLabel.layer.cornerRadius = 3
+        satLabel.layer.masksToBounds = true
+        sunLabel.layer.cornerRadius = 3
+        sunLabel.layer.masksToBounds = true
+        
     }
     
     

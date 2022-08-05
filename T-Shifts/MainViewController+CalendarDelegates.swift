@@ -94,7 +94,7 @@ extension MainViewController: JTACMonthViewDelegate, JTACMonthViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
         let monthYearText = dateFormatter.string(from: visibleDates.monthDates.first!.date)
-        monthLabel.text = monthYearText
+        monthLabel.text = monthYearText.capitalized
 
 
         if let selectedDate = calendar.selectedDates.first {
