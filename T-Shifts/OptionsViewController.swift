@@ -9,8 +9,10 @@
 import UIKit
 import os.log
 import TShiftsFramework
+import EventKit
 
-class OptionsViewController: UIViewController, UITextFieldDelegate {
+
+class OptionsViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     struct LocalizedStrings {
         static let shiftCalendarSectionTitle = NSLocalizedString("Shifts Calendar", comment: "Title of section regarding the calendar to be used for storing the shifts")
         static let accessNotGranted = NSLocalizedString("Access to calendars not granted. Please go to Preferences/T-Shifts and enable access to your calendars.", comment: "Error message to be displayed when user did not give access to the calendar")
@@ -70,7 +72,10 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     weak var scrollView: UIScrollView!
     weak var options: Options!
     weak var calendarUpdater: CalendarShiftUpdater!
-    var calendarOptionsGroup: SSRadioButtonsController!
+
+    var toolBar: UIToolbar!
+    var calendarField: UITextField!
+    var calendarPicker: UIPickerView!
     var shiftsFieldsGroup: [UITextField] = []
     var shiftsGroup: [Shift] = []
     
@@ -131,15 +136,50 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         } else {
             addDescriptionLabel(LocalizedStrings.calendarSectionInfo, after: scrollView.subviews.last!.bottomAnchor)
         }
-        
-        calendarOptionsGroup = SSRadioButtonsController()
-        
-        
-        let calendars = calendarUpdater.calendars
-        
-        for calendar in calendars {
-            addCalendarChoiceLine(calendar.title, after: scrollView.subviews.last!.bottomAnchor)
+
+        calendarPicker = UIPickerView()
+        calendarPicker.dataSource = self
+        calendarPicker.delegate = self
+                
+        if let currentCalendar =  calendarUpdater.calendars.first(where: { calendar in return calendar.title == options.calendar }){
+            calendarPicker.selectRow(self.calendarUpdater.calendars.firstIndex(of: currentCalendar)!, inComponent: 0, animated: false)
         }
+        
+        let lastView = scrollView.subviews.last!
+        
+        calendarField = UITextField()
+        calendarField.inputView = calendarPicker;
+
+        toolBar = UIToolbar(frame:CGRect(x:0, y:0, width:100, height:100))
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = toolBar.tintColor
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.calendarPickerDonePressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.calendarPickerCancelPressed))
+
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+
+        calendarField.inputAccessoryView = toolBar
+
+        scrollView.addSubview(calendarField)
+        calendarField.translatesAutoresizingMaskIntoConstraints = false
+        calendarField.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.fieldLeft ).isActive = true
+        calendarField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Insets.fieldRight).isActive = true
+        calendarField.topAnchor.constraint( equalTo: lastView.bottomAnchor, constant: Insets.fieldTop ).isActive = true
+        
+        
+        calendarField.backgroundColor = calendarField.tintColor.withAlphaComponent(0.1)
+        calendarField.layer.borderColor = calendarField.tintColor.cgColor
+        calendarField.layer.borderWidth = 1
+        calendarField.layer.cornerRadius = 5
+        calendarField.borderStyle = .roundedRect
+        
+        calendarField.text = options.calendar
     }
     
     func setupShiftsSection() {
@@ -255,9 +295,14 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func updateApplicationOptionsAndReturn(_ sender: UIEvent) {
         let _ = self.navigationController?.popViewController(animated: true)
+  
+// FIXME
+//        if let calendar = calendarOptionsGroup.selectedButton()?.titleLabel?.text {
+//            options.calendar = calendar
+//        }
         
-        if let calendar = calendarOptionsGroup.selectedButton()?.titleLabel?.text {
-            options.calendar = calendar
+        if let calendarName = calendarField.text {
+            options.calendar = calendarName
         }
         
         for (index, shiftField) in shiftsFieldsGroup.enumerated() {

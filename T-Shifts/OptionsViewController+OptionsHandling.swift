@@ -48,30 +48,30 @@ extension OptionsViewController {
     }
     
     
-    func addCalendarChoiceLine(_ text:String, after anchor: NSLayoutYAxisAnchor) {
-        let button = SSRadioButton()
-        button.setTitle(text, for: .normal)
-        button.contentHorizontalAlignment = .left
-        if #available(iOS 13.0, *) {
-            button.setTitleColor(UIColor.label, for: .normal)
-        } else {
-            button.setTitleColor(UIColor.black, for: .normal)
-        }
-        scrollView.addSubview(button)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint( equalTo: anchor, constant: Insets.choiceTop ).isActive = true
-        button.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.choiceLeft ).isActive = true
-        button.trailingAnchor.constraint( equalTo: self.view.trailingAnchor, constant: -Insets.creditsRight).isActive = true
-        
-        if text == options.calendar {
-            button.isSelected = true
-        }
-        
-        calendarOptionsGroup.addButton(button)
-        
-    }
-    
+//    func addCalendarChoiceLine(_ text:String, after anchor: NSLayoutYAxisAnchor) {
+//        let button = SSRadioButton()
+//        button.setTitle(text, for: .normal)
+//        button.contentHorizontalAlignment = .left
+//        if #available(iOS 13.0, *) {
+//            button.setTitleColor(UIColor.label, for: .normal)
+//        } else {
+//            button.setTitleColor(UIColor.black, for: .normal)
+//        }
+//        scrollView.addSubview(button)
+//        
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.topAnchor.constraint( equalTo: anchor, constant: Insets.choiceTop ).isActive = true
+//        button.leadingAnchor.constraint( equalTo: self.scrollView.leadingAnchor, constant: Insets.choiceLeft ).isActive = true
+//        button.trailingAnchor.constraint( equalTo: self.view.trailingAnchor, constant: -Insets.creditsRight).isActive = true
+//        
+//        if text == options.calendar {
+//            button.isSelected = true
+//        }
+//        
+//        calendarOptionsGroup.addButton(button)
+//        
+//    }
+//    
     
     @objc func editTemplateDetails(sender: ShowEditTemplateButton) {
         guard let navigationController = UIApplication.shared.delegate!.window!!.rootViewController as? UINavigationController else { return }
@@ -144,5 +144,28 @@ extension OptionsViewController {
 //        textView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 
-
+    // Calendar Picker delegates
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.calendarUpdater.calendars.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.calendarUpdater.calendars[row].title
+    }
+    
+    @objc func calendarPickerDonePressed() {
+        let row = self.calendarPicker.selectedRow(inComponent: 0)
+//        self.pickerView.selectRow(row, inComponent: 0, animated: false)
+        self.calendarField.text = self.calendarUpdater.calendars[row].title
+        self.calendarField.resignFirstResponder()
+    }
+    
+    @objc func calendarPickerCancelPressed() {
+        self.calendarField.resignFirstResponder()
+    }
 }
