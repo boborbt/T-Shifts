@@ -13,6 +13,7 @@ import EasyTipView
 import os.log
 import TShiftsFramework
 import WidgetKit
+import StoreKit
 
 class MainViewController: UIViewController {
     
@@ -140,6 +141,12 @@ class MainViewController: UIViewController {
         do {
             let changedDates = try shiftStorage.commit()
             indexer.reindexShifts(for: changedDates)
+//            TODO: Implement review requests (the problematic part is to understand when
+//                  to ask. When the panel closes and the user already used the app for a while
+//                  it would be ok (second part is tricky, one might try by storing the date
+//                  of first launch in the userdefaults...
+//            let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+//            SKStoreReviewController.requestReview(in: scene!)
         } catch let error {
             os_log(.error, "Error: %@", [error])
         }

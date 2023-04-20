@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,7 @@
 		A5A428CD28847A33001E6C47 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D81BD285A36760097E500 /* SwiftUI.framework */; };
 		A5A428D028847A33001E6C47 /* TShiftWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A428CF28847A33001E6C47 /* TShiftWidget.swift */; };
 		A5A428D228847A34001E6C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A428D128847A34001E6C47 /* Assets.xcassets */; };
-		A5A428D628847A34001E6C47 /* TShiftWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A5A428CB28847A33001E6C47 /* TShiftWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A5A428D628847A34001E6C47 /* TShiftWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A5A428CB28847A33001E6C47 /* TShiftWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A5D70F92288876920042C49B /* TShiftsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BC6132221B03EE00907179 /* TShiftsFramework.framework */; platformFilter = ios; };
 		F814F8B01E4CB60700E67057 /* DayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F814F8AF1E4CB60700E67057 /* DayCellView.xib */; };
 		F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F814F8B11E4CB65800E67057 /* DayCellView.swift */; };
@@ -103,15 +103,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8C7F26A219AF9FC00E0FDA2 /* Embed App Extensions */ = {
+		F8C7F26A219AF9FC00E0FDA2 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A5A428D628847A34001E6C47 /* TShiftWidgetExtension.appex in Embed App Extensions */,
+				A5A428D628847A34001E6C47 /* TShiftWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -468,7 +468,7 @@
 				F8E9B5361E27C9A600390BD3 /* Resources */,
 				F814F8B61E4CBB8000E67057 /* ShellScript */,
 				F881E67C1F716F44005CEB24 /* CopyFiles */,
-				F8C7F26A219AF9FC00E0FDA2 /* Embed App Extensions */,
+				F8C7F26A219AF9FC00E0FDA2 /* Embed Foundation Extensions */,
 				F8BC614C221B03EE00907179 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -488,8 +488,9 @@
 		F8E9B5301E27C9A500390BD3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Roberto Esposito";
 				TargetAttributes = {
 					A5A428CA28847A33001E6C47 = {
@@ -821,6 +822,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TShiftsFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -831,6 +833,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsFramework;
@@ -861,6 +865,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = TShiftsFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -871,6 +876,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.boborbt.tshift.TShiftsFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
