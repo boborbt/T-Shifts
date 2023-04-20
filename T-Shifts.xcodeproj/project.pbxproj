@@ -29,8 +29,6 @@
 		F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38911E7AC7B90009B9D0 /* AppDelegateStateHandling.swift */; };
 		F86B38941E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B38931E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift */; };
 		F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E5D521E84064700946699 /* OptionsViewController.swift */; };
-		F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC121E8918F00054F2BF /* SSRadioButton.swift */; };
-		F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */; };
 		F89B2D71227C2D1E0028C43E /* EditTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */; };
 		F89B2D74227C30750028C43E /* ShowEditTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */; };
 		F89D613B1E5C6E4D0060911E /* MarksDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */; };
@@ -149,8 +147,6 @@
 		F86B38931E7AE8900009B9D0 /* MainViewController+DayInfoViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+DayInfoViewDelegate.swift"; sourceTree = "<group>"; };
 		F87E5D511E83C89300946699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F87E5D521E84064700946699 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		F896DC121E8918F00054F2BF /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButton.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButton.swift; sourceTree = SOURCE_ROOT; };
-		F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSRadioButtonsController.swift; path = SSRadioButtonsController/SSRadioButtonController/SSRadioButtonsController.swift; sourceTree = SOURCE_ROOT; };
 		F89B2D6F227C2D1E0028C43E /* EditTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTemplateViewController.swift; sourceTree = "<group>"; };
 		F89B2D73227C30750028C43E /* ShowEditTemplateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEditTemplateButton.swift; sourceTree = "<group>"; };
 		F89D613A1E5C6E4D0060911E /* MarksDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksDisplayView.swift; sourceTree = "<group>"; };
@@ -299,8 +295,6 @@
 		F896DC111E89189F0054F2BF /* ExternalLibraries */ = {
 			isa = PBXGroup;
 			children = (
-				F896DC121E8918F00054F2BF /* SSRadioButton.swift */,
-				F896DC131E8918F00054F2BF /* SSRadioButtonsController.swift */,
 			);
 			name = ExternalLibraries;
 			sourceTree = "<group>";
@@ -623,7 +617,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F896DC151E8918F00054F2BF /* SSRadioButtonsController.swift in Sources */,
 				F8DBA7831E8A6601003D0E87 /* OptionsViewController+OptionsHandling.swift in Sources */,
 				F8E9B53E1E27C9A600390BD3 /* MainViewController.swift in Sources */,
 				F87E5D531E84064700946699 /* OptionsViewController.swift in Sources */,
@@ -636,7 +629,6 @@
 				F8E9B53C1E27C9A600390BD3 /* AppDelegate.swift in Sources */,
 				F814F8B21E4CB65800E67057 /* DayCellView.swift in Sources */,
 				F86B38921E7AC7B90009B9D0 /* AppDelegateStateHandling.swift in Sources */,
-				F896DC141E8918F00054F2BF /* SSRadioButton.swift in Sources */,
 				F89B2D71227C2D1E0028C43E /* EditTemplateViewController.swift in Sources */,
 				F89B2D74227C30750028C43E /* ShowEditTemplateButton.swift in Sources */,
 				F89D613F1E5C81840060911E /* MarkButton.swift in Sources */,
@@ -751,7 +743,7 @@
 				CODE_SIGN_ENTITLEMENTS = TShiftWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -788,7 +780,7 @@
 				CODE_SIGN_ENTITLEMENTS = TShiftWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -823,7 +815,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -863,7 +855,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1017,7 +1009,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = "T-Shifts/T-Shifts.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1049,7 +1041,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = "T-Shifts/T-Shifts.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				DEVELOPMENT_TEAM = P7PY7CP3A9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

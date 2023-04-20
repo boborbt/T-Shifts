@@ -201,11 +201,10 @@ class OptionsViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
 
-        attributedString.append(NSMutableAttributedString(string: "\n\n\tJTAppleCalendar\n\tEasyTipView\n\tSSRadioButton\n\nV\(appVersion ??  "N/A")b\(buildVersion ?? "N/A"), © 2017 Roberto Esposito"))
+        attributedString.append(NSMutableAttributedString(string: "\n\n\tJTAppleCalendar\n\tEasyTipView\n\nV\(appVersion ??  "N/A")b\(buildVersion ?? "N/A"), © 2017 Roberto Esposito"))
         
         attributedString.setAsLink(textToFind: "JTAppleCalendar", linkURL: "https://github.com/patchthecode/JTAppleCalendar")
         attributedString.setAsLink(textToFind: "EasyTipView", linkURL: "https://github.com/teodorpatras/EasyTipView")
-        attributedString.setAsLink(textToFind: "SSRadioButton", linkURL: "https://github.com/shamasshahid/SSRadioButtonsController")
         
         addAttributedTextView(attributedString, after: scrollView.subviews.last!.bottomAnchor)
     }
